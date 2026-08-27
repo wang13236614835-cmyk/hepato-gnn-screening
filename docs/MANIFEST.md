@@ -87,7 +87,13 @@
 | midterm_report.md | 暑假 | 全员（王启龙汇编） | 中期考核报告 | 数字与 results/ 一致（verify.py 已覆盖） |
 | 课题详解与阶段结果说明.pdf | 暑假 | 王启龙 | 详解版PDF（13页） | 打开抽查表5-1/5-2与CSV一致 |
 | 暑假阶段报告汇总.pdf | 暑假 | 王启龙 | **本阶段汇总报告（交付姜老师）** | 目录可点击；第6章数字与 verify.py 输出一致 |
-| pdf_build/（build_body.py, build_phase1.py, cover*.html, merge*.py, verify.py, patch*.py, body*.pdf, cover*.pdf） | 暑假 | 王启龙 | 两份PDF构建源码与独立复核脚本 | verify.py 重跑输出"通过45项；不符0项"；改PDF后依次跑 build→merge→QA |
+| pdf_build/build_body.py, build_phase1.py | 暑假 | 王启龙 | 详解PDF与阶段报告PDF的正文生成脚本 | 改内容后重跑+merge+QA |
+| pdf_build/md2pdf.py | 暑假 | 王启龙 | Markdown批量转PDF转换器（27份镜像的生成器） | `python reports/pdf_build/md2pdf.py` 重新生成 pdf_all |
+| pdf_build/cover*.html, cover*.pdf | 暑假 | 王启龙 | 两份报告的HTML封面源码与渲染产物 | 封面校验无重叠 |
+| pdf_build/merge_final.py, patch*.py | 暑假 | 王启龙 | 封面正文合并脚本与内容修正补丁 | 合并后页数13/10 |
+| pdf_build/verify.py | 暑假 | 王启龙 | 45项独立数字校验脚本 | 重跑输出"通过45项；不符0项" |
+| pdf_build/push_via_api.py, upload_aidd.py, finalize_aidd.py | 暑假 | 王启龙 | GitHub API上传工具链（绕过直连封锁：blob断点续传+分块链式建树） | 附aidd_blobs.json缓存（瞬态，不入库） |
+| pdf_build/body*.pdf | 暑假 | 王启龙 | 正文PDF中间产物 | 可由脚本再生 |
 
 ## 8. 下学期工作包 phase2_semester/
 

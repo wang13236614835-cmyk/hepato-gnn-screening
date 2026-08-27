@@ -1,0 +1,31 @@
+映射条目: 1614
+断点续传: 已缓存970个blob
+  进度 50/1614 (3457.7个/秒, 已缓存970)
+  进度 100/1614 (22.7个/秒, 已缓存973)
+  进度 150/1614 (33.9个/秒, 已缓存973)
+  跳过(>30MB): 02-课题-MASH研究-v1/data/geo/gene2ensembl.gz (50MB)
+  跳过(>30MB): 02-课题-MASH研究-v1/data/geo/GSE135251_RAW.tar (43MB)
+  进度 200/1614 (44.9个/秒, 已缓存973)
+  进度 250/1614 (55.9个/秒, 已缓存973)
+  进度 300/1614 (66.8个/秒, 已缓存973)
+  进度 350/1614 (77.6个/秒, 已缓存973)
+  跳过(>30MB): 02-课题-MASH研究-v1/data/v2/coconut_csv.zip (236MB)
+  跳过(>30MB): 02-课题-MASH研究-v1/data/v2/np_library_full.csv.gz (55MB)
+  进度 400/1614 (88.3个/秒, 已缓存973)
+  进度 450/1614 (99.1个/秒, 已缓存973)
+  进度 500/1614 (109.9个/秒, 已缓存973)
+  进度 550/1614 (120.6个/秒, 已缓存973)
+  进度 600/1614 (131.3个/秒, 已缓存973)
+  进度 650/1614 (141.9个/秒, 已缓存973)
+  进度 700/1614 (152.5个/秒, 已缓存973)
+  进度 750/1614 (162.9个/秒, 已缓存973)
+  进度 800/1614 (173.3个/秒, 已缓存973)
+  进度 850/1614 (183.6个/秒, 已缓存973)
+  进度 900/1614 (193.9个/秒, 已缓存973)
+  进度 950/1614 (204.1个/秒, 已缓存973)
+Traceback (most recent call last):
+  File "D:\zcode-workspace\hepato-gnn-screening\reports\pdf_build\upload_aidd.py", line 213, in <module>
+    main()
+  File "D:\zcode-workspace\hepato-gnn-screening\reports\pdf_build\upload_aidd.py", line 154, in main
+    assert res["sha"] == sha, f"sha mismatch {dst}"
+AssertionError: sha mismatch 02-课题-MASH研究-v1/docking/outputs/top_FXR1OSH_Coptis_chinensis_8_Oxocoptisine_out.pdbqt
