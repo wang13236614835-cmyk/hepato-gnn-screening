@@ -216,14 +216,15 @@ def run(out_dir):
         w = csv.writer(f)
         w.writerow(["compound_id", "name_cn", "label", "pred_mean", "pred_var"])
         for r, mu, var in zip(test, pm, pv):
-            w.writerow([r.cid, r.name, r.label, round(float(mu), 4), round(float(var), 4)])
+            # 全精度写出：固定小数位会让近零方差并列，导致第三方复算指标出现偏差
+            w.writerow([r.cid, r.name, r.label, repr(float(mu)), repr(float(var))])
     with open(os.path.join(out_dir, "fullpool_predictions.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["compound_id", "name_cn", "pred_mean", "pred_var"])
         for r, mu, var in zip(actives + pool,
                               np.concatenate([pm_act, pm_pool]),
                               np.concatenate([pv_act, pv_pool])):
-            w.writerow([r.cid, r.name, round(float(mu), 4), round(float(var), 4)])
+            w.writerow([r.cid, r.name, repr(float(mu)), repr(float(var))])
 
     np.save(os.path.join(out_dir, "test_mean.npy"), pm)
     np.save(os.path.join(out_dir, "test_var.npy"), pv)
