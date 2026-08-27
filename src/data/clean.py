@@ -60,9 +60,8 @@ def clean():
     process(RAW_NOVEL, False, kept_pool)
 
     def dump(path, rows):
-        if not rows:
-            return
-        cols = list(rows[0].keys())
+        cols = (list(rows[0].keys()) if rows else
+                ["compound_id", "name_cn", "reject_reason"])
         with open(path, "w", encoding="utf-8", newline="") as f:
             w = csv.DictWriter(f, fieldnames=cols)
             w.writeheader()
