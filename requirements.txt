@@ -1,0 +1,4 @@
+numpy>=1.24
+matplotlib>=3.7   # 可选：仅结果图需要
+# 服务器端(下一阶段)：
+# torch>=2.1, torch-geometric>=2.5, rdkit>=2023.09, vina>=1.2
