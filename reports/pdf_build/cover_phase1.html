@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>cover</title>
+<style>
+  @page { size: 794px 1123px; margin: 0; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #ffffff;
+    font-family: "Microsoft YaHei", "SimHei", sans-serif;
+  }
+  .poster {
+    position: relative;
+    width: 794px; height: 1123px;
+    background: #ffffff;
+  }
+  .layer1 {
+    position: absolute; inset: 0;
+    overflow: hidden;
+    z-index: 1;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(31,118,146,0.025) 0, rgba(31,118,146,0.025) 0.7px, transparent 0.7px, transparent 66px),
+      repeating-linear-gradient(90deg, rgba(31,118,146,0.025) 0, rgba(31,118,146,0.025) 0.7px, transparent 0.7px, transparent 66px);
+  }
+  .layer2 { position: absolute; inset: 0; z-index: 2; }
+  .anchor-line {
+    position: absolute;
+    left: 95px; top: 112px; bottom: 112px;
+    width: 8px;
+    background: #1f7692;
+  }
+  .meta-sep {
+    position: absolute;
+    left: 185px; top: 745px;
+    width: 318px; height: 1.3px;
+    background: rgba(31,118,146,0.4);
+  }
+  .layer3 { position: absolute; inset: 0; z-index: 3; }
+  .kicker {
+    position: absolute; left: 185px; top: 168px;
+    font-size: 21px; font-weight: 400;
+    letter-spacing: 4px;
+    color: rgba(27,26,24,0.6);
+  }
+  .hero {
+    position: absolute; left: 185px; top: 300px;
+    font-size: 62px; font-weight: 900;
+    line-height: 1.15;
+    color: #1b1a18;
+    max-width: 500px;
+  }
+  .hero .accent { color: #1f7692; }
+  .summary {
+    position: absolute; left: 185px; top: 561px;
+    width: 460px;
+    font-size: 22px; font-weight: 400;
+    line-height: 1.6;
+    color: rgba(27,26,24,0.85);
+  }
+  .meta {
+    position: absolute; left: 185px; top: 842px;
+    font-size: 22px; font-weight: 400;
+    line-height: 1.9;
+    color: #1b1a18;
+  }
+  .meta .label { color: rgba(27,26,24,0.55); }
+  .footer {
+    position: absolute; left: 185px; top: 1012px;
+    font-size: 21px; font-weight: 400;
+    letter-spacing: 4px;
+    color: rgba(27,26,24,0.6);
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="layer1"></div>
+    <div class="layer2">
+      <div class="anchor-line"></div>
+      <div class="meta-sep"></div>
+    </div>
+    <div class="layer3">
+      <div class="kicker">暑期课题 · 第一阶段报告材料汇总</div>
+      <div class="hero">保肝中药成分<br><span class="accent">虚拟筛选</span>课题</div>
+      <div class="summary">汇总暑假六周五人三线的全部产出：100条数据体系、GNN结合MC Dropout的不确定性建模、双基准线与双靶点对接演示、60候选协同排名，附45项独立校验与人工核验手册入口。</div>
+      <div class="meta">
+        <div><span class="label">阶段范围</span>　第一阶段（2026年7月至8月，六周）</div>
+        <div><span class="label">文档版本</span>　阶段报告 v1.0</div>
+        <div><span class="label">完成日期</span>　2026年8月</div>
+      </div>
+      <div class="footer">PHASE 1 REPORT · SUMMER 2026</div>
+    </div>
+  </div>
+</body>
+</html>
