@@ -117,7 +117,10 @@ def main():
         base = ROOT / name / "待核文件"
         n_ok = 0
         lines = [f"# {name} · 待核文件快照清单", "",
-                 f"> 校验线：{SUMMARY[name]} ｜ 快照：git {git}（重跑 tools/snapshot_member_files.py 更新）｜ 根目录为工作原件，本副本供勾核，md5 供比对", "",
+                 f"> 校验线：{SUMMARY[name]} ｜ 快照生成：git {git}（重跑 "
+                 "`python tools/snapshot_member_files.py` 更新）",
+                 "> 根目录是工作原件（流水线要用，不可删）；本文件夹是你的核验副本，"
+                 "逐条勾核后在 `../工作台.md` 签名。md5 用于核对副本与原件一致。", "",
                  "| # | 原路径（根目录） | 大小 | md5前10位 |", "|---|---|---|---|"]
         for i, rel in enumerate(rels, 1):
             src = ROOT / rel
