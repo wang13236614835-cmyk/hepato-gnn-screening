@@ -111,3 +111,88 @@
 | 编号 | 级别 | 发现人 | 问题描述 | 涉及文件 | 处置 | 状态 |
 |---|---|---|---|---|---|---|
 | | | | | | | |
+
+## 附录A 全仓库文件 → 校验人映射（GitHub 内容按校验分工细化）
+
+> 覆盖 `git ls-files` 全部 138 个文件，一个不漏。打开 GitHub 仓库后按
+> 本表对号入座：每人先核验自己名下的文件，再由王启龙汇总。
+> "任务号"指第 2 节任务明细中的编号；预期值来源见对应任务行。
+> 与模块归属（CONTRIBUTORS.md）不一致处以本表校验线为准，模块主
+> 作为第二核对人（复核栏）。
+
+### A1 宁显泷 · 代码验证（12 文件）
+
+| 路径 | 任务号 | 看什么 |
+|---|---|---|
+| run_all.py | N1/N2 | 重跑 12 关键行一致；两次 md5"一致" |
+| src/chem/smiles_graph.py | N4 | §3.1 五用例全 OK |
+| docs/02_model_notes.md | N5 | 超参口径表：与 gnn.py 代码逐项互查 |
+| src/models/gnn.py、src/models/dataset.py | N5 | 超参 p_drop=0.3/T=30/epoch=300 与 02 文档一致；全精度输出 |
+| src/models/baseline.py | N1 | 重跑指标与 metrics/baseline.csv 一致（模块主：代维斯丹复核） |
+| src/scoring/fuse.py | N6 | 权重 0.45/0.35/0.20、域外×0.9（模块主：衣思淼复核） |
+| reports/pdf_build/verify.py | N3 | 独立复算"通过 45 项；不符 0 项" |
+| results/metrics/baseline.csv、reliability_curve.csv | N1/N3 | 数字由重跑与 verify.py 双重覆盖（模块主：代维斯丹复核） |
+| results/predictions/test_predictions.csv、fullpool_predictions.csv | N1 | 重跑后逐字节一致（npy 为缓存不入库） |
+
+### A2 王启龙 · 辅助/工程（90 文件）
+
+| 路径 | 任务号 | 看什么 |
+|---|---|---|
+| README.md、CONTRIBUTORS.md、requirements.txt、.gitignore | L1/L2 | Top-3 与排名表一致；shortlog 与分工表一致；结果 CSV 未被忽略 |
+| docs/00_environment.md | L1 | 按文档装环境能跑 run_all.py |
+| docs/MANIFEST.md、PHASE_PLAN.md、VERIFY_MANUAL.md、VERIFY_TASKS.md | L2/L4 | 总纲四件：与实际分工/文件无冲突（本表附录A即 MANIFEST 的校验视角） |
+| docs/minutes/week1-2、3-4、5-6.md | L4 | 时间线与 PHASE_PLAN 里程碑一致 |
+| docs/personal/（6 文件：总表+P1–P5） | L2 | 各成员自维护；王启龙汇总核对存在性与口径一致 |
+| phase2_semester/（6 文件：WP1–WP5+推进程序） | L4 | 计划文档：周次/主责/验收三要素齐全（各 WP 主责人执行时验收） |
+| tools/（10 文件：semester_flow.py、gen_member_pages.py、revise_plain_leader.py、exe、5 个 html、使用说明） | L1 | `check 1 --deep` 全过；成员页与分工一致（工程工具，非科学结论） |
+| learning/王启龙/（3 文件） | L4 | 台账自管；ledger 可回放 |
+| reports/pdf_build/（verify.py 之外的 23 文件：build/merge/上传脚本、中间产物、文件备注清单） | L1 | 构建工具链与中间产物：能再生成、与 md 源一致即可，不核科学数字 |
+| reports/pdf_all/（27 个 PDF 镜像） | L2 | md 为源：md 变更后重跑 md2pdf.py 同步；不单独核验数字 |
+| reports/midterm_report.md、暑假阶段报告汇总.pdf、课题详解与阶段结果说明.pdf | L2 | 报告引用数字与 results/ 一致（发现不符→B级登记） |
+| results/logs/（L2 新建） | L2 | verify.py 截图与汇总记录落位 |
+
+### A3 衣思淼 · 数据线A（14 文件）
+
+| 路径 | 任务号 | 看什么 |
+|---|---|---|
+| data/raw/tcm_seed_compounds.csv | Y1 | 89 行；HP 48/DC 40；HP-15 行 label=1、evidence=A |
+| data/processed/cleaned_compounds.csv、screening_pool.csv、rejected.csv | Y1 | 89/13/仅表头；label 只 0/1；scaffold 非空 |
+| data/splits/train、val、test.csv | Y2 | 59/14/18 行；黄芩苷 scaffold 不跨集合 |
+| src/data/clean.py、split.py、ad.py | Y1/Y2/Y6 | 重跑产物不变（seed=42）；h*=0.362 与 ad_report 一致 |
+| src/chem/descriptors.py | Y5 | 槲皮素 MW=302.24/nHBD=5/nHBA=7/nHeavy=22 |
+| docs/01_data_dictionary.md | Y1 | 字段口径与 CSV 表头逐列对照 |
+| results/ad/ad_report.csv | Y6 | h*=0.362；域外 7/12 标记 |
+| results/rankings/final_ranking.csv | Y3/Y4 | 61 行 rank 连续；Top-3 与第 0 节一致；手工验算 ±0.002 |
+
+### A4 代维斯丹 · 数据线B（18 文件）
+
+| 路径 | 任务号 | 看什么 |
+|---|---|---|
+| src/chem/fingerprints.py | D1 | 同分子两次指纹一致 |
+| src/docking/grid_box.py | D4 | FXR=1OSH、Keap1=2FLU 中心/尺寸与 03 文档一致 |
+| src/docking/mock_docking.py | D2 | 哈希定种子重跑逐字节一致；-5.46 vs -5.05 |
+| src/docking/run_vina.sh | D5 | 下学期 WP2 执行，本次只核脚本与 03 协议一致 |
+| src/viz/plots.py、results/figures/（4 张 png） | D3 | 图与 CSV 逐图对照（§3.6） |
+| results/docking/docking_scores.csv | D2 | 均值/分靶点分与文档口径一致 |
+| docs/03_docking_protocol.md | D4/D5 | 盒子参数一致；演示模式局限性已写明 |
+| src/ 各级 __init__.py（7 个） | — | 存在即可（随 D 线顺带） |
+
+### A5 王散曼 · 文献（4 文件）
+
+| 路径 | 任务号 | 看什么 |
+|---|---|---|
+| literature/01_classic_evidence.md | M1/M2/M3 | 抽 10 条正样本 PubMed/CNKI 溯源回填；Top-10 逐条对照；声明口径更新 |
+| literature/02_novel_terpenes_lignans.md | M2 | NV-009 松脂素、NV-010 落叶松脂素重点溯源 |
+| literature/03_top_candidate_mechanisms.md | M2 | Top-10 机制描述与 01/02 证据不矛盾 |
+| data/raw/novel_terpenes_lignans.csv | M2 | 13 行含表头；NV-011=奥贝胆酸（与 A3 衣思淼 Y1 交叉） |
+
+### A6 覆盖性对账
+
+| 校验线 | 文件数 | 对账说明 |
+|---|---|---|
+| A1 宁显泷 | 12 | run_all+核心 src+模型产物+02 模型文档 |
+| A2 王启龙 | 90 | 总纲/工具/PDF镜像/报告为主，多为工程与再生产物 |
+| A3 衣思淼 | 14 | 数据集全链+描述符+数据字典+排名表 |
+| A4 代维斯丹 | 18 | 对接/指纹/图+03 对接文档+7 个 __init__ |
+| A5 王散曼 | 4 | 文献三件+新分子池源表 |
+| 合计 | **138** | 与 `git ls-files \| wc -l` =138 逐一相符；3 处交叉复核已标注（fuse→衣、baseline→代、novel CSV→衣） |

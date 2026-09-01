@@ -57,7 +57,7 @@
 | PHASE_PLAN.md | 总纲 | 王启龙 | 两阶段划分 | 分工表与 CONTRIBUTORS.md 一致 |
 | MANIFEST.md | 总纲 | 王启龙 | 本文件 | 覆盖仓库全部内容文件（pycache 除外） |
 | VERIFY_MANUAL.md | 总纲 | 王启龙 | 人工核验手册 | 按 §0–§5 走一遍能全过 |
-| VERIFY_TASKS.md | 总纲 | 王启龙 | 人工校验任务分派表（AI文献/数据/筛选真人核验：宁代码·龙辅助·衣+代数据·曼文献） | 分派与 CONTRIBUTORS/PHASE_PLAN 分工无冲突；任务编号引用的 VERIFY_MANUAL 小节真实存在；第0节 Top-10 与 final_ranking.csv 前10行一致 |
+| VERIFY_TASKS.md | 总纲 | 王启龙 | 人工校验任务分派表（AI文献/数据/筛选真人核验：宁代码·龙辅助·衣+代数据·曼文献）+附录A全仓库138文件→校验人映射 | 分派与 CONTRIBUTORS/PHASE_PLAN 分工无冲突；任务编号引用的 VERIFY_MANUAL 小节真实存在；第0节 Top-10 与 final_ranking.csv 前10行一致；附录A五线文件数 12+90+14+18+4=138 与 git ls-files 总数相符 |
 
 ## 5. 文献层 literature/
 
