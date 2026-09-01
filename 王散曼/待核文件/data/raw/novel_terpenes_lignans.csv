@@ -1,0 +1,13 @@
+compound_id,name_cn,name_en,category,source_herb,smiles,druglikeness_note
+NV-001,科罗索酸,corosolic acid,三萜类,枇杷叶/熊果,CC1(C)CC2CCC3(C)C(CCC4(C)C3CC=C3C5(C)CCC(O)C(C)(C)C5CCC43C)C2CC1O,熊果叶降糖成分；保肝证据待评价
+NV-002,马斯里酸,maslinic acid,三萜类,橄榄叶/山楂,CC1(C)CCC2(C1)C(O)CC3(C2)CCCC4(C3)CCC(C)C5(C4)CCC(O)C(C)(C)C5C(=O)O,齐墩果酸骨架双羟基衍生物；保肝证据待评价
+NV-003,积雪草酸,asiatic acid,三萜类,积雪草,CC1(C)CCC2(C1)C(O)CC3(C2)CCCC4(C3)CCC(O)C5(C4)CCC(O)C(C)(C)C5C(=O)O,积雪草苷元；抗炎与器官保护研究较多
+NV-004,羟基积雪草酸,madecassic acid,三萜类,积雪草,CC1(C)CCC2(C1)C(O)CC3(C2)CC(O)CC4(C3)CCC(O)C5(C4)CCC(O)C(C)(C)C5C(=O)O,积雪草提取物伴生成分；保肝证据待评价
+NV-005,β-乳香酸,boswellic acid,三萜类,乳香,CC1=C(C)C2CCC3(C)C(C2)CCC4(C)C3CC=C1CC4C(=O)O,乳香抗炎成分；5-LOX抑制相关报道
+NV-006,去氢松香酸,dehydroabietic acid,二萜类,松香/络石藤,CC(C)c1ccc2c(c1)CCC1(C)CCC(C(C)C)CC21C(=O)O,松香酸衍生物；保肝证据待评价
+NV-007,五味子甲素,schisandrin A,木脂素类,五味子,COc1cc(CC(C)CCc2cc(OC)c(C)c(OC)c2C)ccc1OC,五味子联苯环辛二烯成分；骨架简化(演示版)
+NV-008,戈米辛A,gomisin A,木脂素类,五味子,COc1cc(C)c(OC)c(CC(C)C[C@@H]2COc3cc(OC)c(C)c(OC)c3C2)cc1O,五味子木脂素；骨架简化(演示版)
+NV-009,松脂素,pinoresinol,木脂素类,连翘/杜仲,COc1cc2C[C@@H]3COc4cc(OC)ccc4[C@H](O3)Cc2c1,呋喃木脂素；连翘苷元；保肝证据待评价
+NV-010,落叶松脂素,lariciresinol,木脂素类,连翘/亚麻籽,COc1cc2CC(O)C(CO)c3cc(OC)ccc3C2c1OC,开环木脂素；抗氧化报道
+NV-011,奥贝胆酸,obeticholic acid,甾体酸类,(阳性参照药)FXR激动剂,CCC(C)C(C)CC(O)C1CCC2(C)C1CCC3C2CCC4(C)C3CCC4C(=O)O,FXR激动剂；用于原发性胆汁性胆管炎；作方法学阳性参照
+NV-012,灵芝酸A,ganoderic acid,三萜类,灵芝,CC1(C)CCC2(C1)CCC3(C2)CC(=O)CC4(C3)CCC(O)C5(C4)CCCCC5(C)C(=O)O,灵芝三萜；肝保护研究报道较多；骨架简化(演示版)

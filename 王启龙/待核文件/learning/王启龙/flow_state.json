@@ -1,0 +1,146 @@
+{
+  "done": {},
+  "records": {
+    "C1-01": {
+      "verdict": "PASS",
+      "observed": "5 项全部存在",
+      "ts": "2026-08-31 23:19:26"
+    },
+    "C1-02": {
+      "verdict": "PASS",
+      "observed": "提交数=26 ≥ 12",
+      "ts": "2026-08-31 23:19:26"
+    },
+    "C1-03": {
+      "verdict": "PASS",
+      "observed": "8 个CSV行数全部与基线一致",
+      "ts": "2026-08-31 23:19:26"
+    },
+    "C1-04": {
+      "verdict": "PASS",
+      "observed": "[FLOW] env=ok python=3.12.0 numpy=1.26.4 rdkit=ok torch=ok pyg=ok vina=MISSING",
+      "ts": "2026-08-31 23:19:30"
+    },
+    "C1-05": {
+      "verdict": "PASS",
+      "observed": "run_all.py 全部12条关键行逐字一致（用时见输出）",
+      "ts": "2026-08-31 21:42:15"
+    },
+    "C2-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】标签 v1.0-summer 尚未创建（git tag -a v1.0-summer）",
+      "ts": "2026-08-31 23:18:59"
+    },
+    "C2-02": {
+      "verdict": "PASS",
+      "observed": "verify.py 输出『通过 45 项；不符 0 项』",
+      "ts": "2026-08-31 23:19:00"
+    },
+    "C2-03": {
+      "verdict": "PASS",
+      "observed": "【目标态】1 项全部存在",
+      "ts": "2026-08-31 23:19:00"
+    },
+    "C2-04": {
+      "verdict": "FAIL",
+      "observed": "【目标态】learning/王启龙/week02_notes.md 尚未创建",
+      "ts": "2026-08-31 23:19:00"
+    },
+    "C3-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未完成或未输出契约行（rc=1）: 未完成: 缺 ['rows', 'parse_fail']（先实现 TODO 再输出契约）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C4-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week04_pubchem_fetch.py（可先 scaffold 4 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C5-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week05_redock_selftest.py（可先 scaffold 5 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C5-02": {
+      "verdict": "PASS",
+      "observed": "锚点内容在位",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C6-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】数据行=200（预期200）mode=['mock_local']（预期全部=vina）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C6-02": {
+      "verdict": "FAIL",
+      "observed": "【目标态】缺失: src/docking/collect_vina_logs.py",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C6-03": {
+      "verdict": "PASS",
+      "observed": "1 个CSV行数全部与基线一致",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C7-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week07_torch_lr.py（可先 scaffold 7 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C8-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week08_pyg_convert.py（可先 scaffold 8 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C8-02": {
+      "verdict": "FAIL",
+      "observed": "【目标态】缺失: src/models/gnn_torch.py",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C9-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week09_gnn_torch_train.py（可先 scaffold 9 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C10-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week10_calibration.py（可先 scaffold 10 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C11-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week11_receptor_audit.py（可先 scaffold 11 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C12-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/王启龙/week12_lit_llm_assist.md（可先 scaffold 12 生成骨架）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C13-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】learning/王启龙/week13_notes.md 尚未创建",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C14-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】缺失: learning/王启龙/week14_drill_report.md",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C15-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】verify_semester/outputs 产物 0 < 6（六模块复算未完成）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C16-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】标签 v2.0-semester 尚未创建（git tag -a v2.0-semester）",
+      "ts": "2026-08-31 21:43:27"
+    },
+    "C16-02": {
+      "verdict": "FAIL",
+      "observed": "【目标态】reports/*结题* 命中 0 < 1",
+      "ts": "2026-08-31 21:43:27"
+    }
+  },
+  "notes": {}
+}
