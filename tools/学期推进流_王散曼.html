@@ -81,7 +81,8 @@ footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color
   <div class="meta" id="hmeta"></div>
 </header>
 <nav id="nav">
-  <button data-v="dash" class="on">📍 本周看板</button>
+  <button data-v="mywork" class="on">🧭 我的工作台</button>
+  <button data-v="dash">📍 本周看板</button>
   <button data-v="overview">🗓 学期总览</button>
   <button data-v="week">📋 周卡片·打卡</button>
   <button data-v="res">📚 学习资源</button>
@@ -94,6 +95,13 @@ footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color
 /* ================= 数据（与 tools/semester_flow.py 同源，预期值锚定存档文件） ================= */
 const START = new Date(2026,8,7);   // 开学周一 2026-09-07（0基月份：8=9月）
 const NWEEK = 16;
+
+/* ---- 我的工作台（与 docs/VERIFY_TASKS.md 同源；生成成员页时整体替换本块） ---- */
+const MYWORK = {
+"fullname":"王散曼","roleTag":"文献 · 化学信息","lineTag":"校验线：文献（VERIFY_TASKS 附录A·A5）","fileCount":4,"deadline":"2026-09-20（W2 周五；§4 抽样溯源为 WP5 长线任务，可至 W14 全量）","duty":"证明每条证据可溯源：抽样到 PubMed/CNKI 回填\"已核对\"、Top-10 逐条专查、整理稿声明口径更新","tasks":[["M1","抽样溯源：随机抽 10 条正样本","PubMed/CNKI 检索（化合物名+hepatoprotective/liver injury）；literature/01 回填\"已核对\"（§4）"],["M2","Top-10 证据专查","证据等级、来源草药两边一致；重点 NV-009 松脂素、NV-010 落叶松脂素（文献密度低）"],["M3","literature/01\"引用为整理稿\"声明处理","M1/M2 完成后更新声明口径（§4：正式结题前必须完成）"],["M4","evidence_level 分布统计","CSV 与文献稿交叉计数，A 级条目数两边一致（如实记录，不预设数字）"]],"files":[["文献三件（3 个）",[["literature/01_classic_evidence.md","抽 10 条溯源回填（M1）；Top-10 对照（M2）；声明更新（M3）"],["literature/02_novel_terpenes_lignans.md","NV-009/NV-010 重点溯源（M2）"],["literature/03_top_candidate_mechanisms.md","Top-10 机制描述与 01/02 证据不矛盾（M2）"]]],["新分子池源表（1 个）",[["data/raw/novel_terpenes_lignans.csv","13 行含表头；NV-011=奥贝胆酸（与衣思淼 Y1 交叉复核）"]]]],"ops":[["① 拿到仓库","git clone https://github.com/wang13236614835-cmyk/hepato-gnn-screening.git（或 GitHub 页面绿色 Code → Download ZIP）"],["② 先读两份文件","docs/VERIFY_TASKS.md 第 2.5 节（我的任务）＋ 附录A（我的文件清单）"],["③ 动手核验","按上方任务表逐条执行；预期值以 docs/VERIFY_MANUAL.md 对应小节为准，不凭记忆填"],["④ 记录结果","docs/VERIFY_TASKS.md 第 4 节完成记录表签名；发现问题记第 5 节问题登记表（A 级先停线报告）"],["⑤ 每周打卡","本页「📋 周卡片·打卡」按周推进；周五生成周报发导师；换电脑在「💾 数据管理」导出导入"]],"ghlinks":[["docs/VERIFY_TASKS.md（任务分派表＋附录A 文件映射）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_TASKS.md"],["docs/VERIFY_MANUAL.md（核验手册 §0–§5）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_MANUAL.md"],["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/MEMBER_WORKBENCH.md"],["results/rankings/final_ranking.csv（Top-60 排名）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/results/rankings/final_ranking.csv"],["literature/01_classic_evidence.md（文献主表）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/literature/01_classic_evidence.md"]],"team":[["王启龙","负责人·辅助/工程（A2·90文件）","学期推进流_王启龙.html"],["宁显泷","算法·代码验证（A1·12文件）","学期推进流_宁显泷.html"],["衣思淼","数据·数据线A（A3·14文件）","学期推进流_衣思淼.html"],["代维斯丹","验证·数据线B（A4·18文件）","学期推进流_代维斯丹.html"],["王散曼","文献·文献线（A5·4文件）","学期推进流_王散曼.html"]]
+
+};
+
 
 const WEEKS = [
 {"no":1,"dates":"09/07–09/13","stage":"文献与检索（提前学）","theme":"抽查文献证据＋学会检索","learn":["看 PubMed 检索教程：AND/OR/NOT 怎么用","知道\"证据溯源\"：报告里每句\"文献说\"都要能翻出原文"],"card":{"task":"按手册 §3.4 抽查文献库里 5 条证据，回填\"已核对\"标记","cmd":"按 docs/VERIFY_MANUAL.md §3.4 做","expected":"5 条都附文献编号（PMID）或链接；原文的意思和我们引用的方向一致","source":"VERIFY_MANUAL §3.4；literature/01","criteria":"核对不了的标\"待处置\"，不许默认通过","verifier":"全员互查"},"tasks":[["S1-A1","5 条证据溯源回填"],["S1-A2","检索词记录下来（别人能复查）"]],"checks":[{"id":"S-C1-01","desc":"证据溯源 5 条","exp":"5/5 附 PMID 或处置标记","src":"VERIFY_MANUAL §3.4"}],"coord":["周一组会认领文献线排期","周五报核验结果"]},{"no":2,"dates":"09/14–09/20","stage":"文献与检索（提前学）","theme":"定\"证据分级\"规矩","learn":["了解证据强弱：人体证据>动物>细胞>只有理论计算"],"card":{"task":"写证据分级规则：A/B/C 各 3 行判断标准＋5 个边界例子（和数据组一起定稿）","cmd":"写进 docs/（literature 口径节）","expected":"新人照着能独立分级；边界例子覆盖中药复方、纯体外实验等","source":"WP3 步骤 2","criteria":"拿不准就降 C 级待定，不硬标","verifier":"衣思淼（WP3 主责）"},"tasks":[["S2-A1","分级规则 v1"],["S2-A2","检索练习 10 条"]],"checks":[{"id":"S-C2-01","desc":"分级规则成文","exp":"判据＋5 个边界例子","src":"WP3 步骤2"}],"coord":["在大创网确认邀请（9/25 截止）"]},{"no":3,"dates":"09/21–09/27","stage":"证据分级执行","theme":"给 48 个正样本逐个定证据等级","learn":["不用新视频；照分级规则执行"],"card":{"task":"48 个正样本逐条查证据等级；B 级以下的列\"待定池\"清单","cmd":"在 literature/01 批注＋出清单","expected":"48 条全有等级；待定清单交给数据组","source":"WP3 步骤 2；项目口径 48 正 40 负","criteria":"不因为\"数量好看\"而放宽标准","verifier":"衣思淼（WP3 主责）"},"tasks":[["S3-A1","48 个正样本分级完成"]],"checks":[{"id":"S-C3-01","desc":"正样本全分级","exp":"48/48 有等级","src":"WP3 步骤2"}],"coord":["数据扩充开工会：你是标签口径供应方"]},{"no":4,"dates":"09/28–10/04","stage":"成药性知识","theme":"弄清\"哪些分子要排除\"及其理由","learn":["会用 SwissADME 查五规则","知道\"泛阳性\"分子（什么靶点都\"阳性\"的坑货）"],"card":{"task":"把排除清单上的 29 个泛阳性分子逐个补一句文献理由","cmd":"更新清单（数据字典或文献库）","expected":"29 条各有理由；实在查不到的标\"经验规则\"","source":"数据字典的排除清单口径","criteria":"排除是一种选择不是真理，理由要透明","verifier":"王启龙（工程）"},"tasks":[["S4-A1","排除清单理由补全"]],"checks":[{"id":"S-C4-01","desc":"清单有理由","exp":"29/29","src":"数据字典"}],"coord":["国庆轻量：以文献任务为主"]},{"no":5,"dates":"10/05–10/11","stage":"大模型辅助（提前学）","theme":"让大模型帮查文献（人把关）","learn":["了解大模型的正确用法：让它出检索词、人来核对——它会说谎"],"card":{"task":"挑 10 条重要文献走\"大模型出检索词→我去 PubMed 确认→拿到 PMID\"；把它的命中率、编造的例子记下来","cmd":"learning/王散曼/week05_llm_assist.md","expected":"10 条全部拿到 PMID；零\"大模型说了就信\"；编造案例单独记","source":"WP5 步骤 1 的核对要求","criteria":"大模型只许出检索词，不许下结论——铁律","verifier":"王启龙（工程）"},"tasks":[["S5-A1","流程模板 10 条跑通"]],"checks":[{"id":"S-C5-01","desc":"大模型流程闭环","exp":"10/10＋PMID 齐","src":"WP5 步骤1"}],"coord":["组会花 5 分钟讲\"大模型编造案例\""]},{"no":6,"dates":"10/12–10/18","stage":"新分子调研","theme":"12 个候选新分子的文献底细","learn":["不用新视频；检索练习"],"card":{"task":"12 个新分子逐个查：有没有活性报道、什么机制、是不是空白","cmd":"增补到 literature/02","expected":"12 条三栏齐；说\"空白\"的必须写清\"搜了什么、在哪搜的\"（搜过才能说没有）","source":"候选池口径（12 条，NV-011 是奥贝胆酸参照）","criteria":"\"文献空白\"四个字要有检索记录撑着","verifier":"王启龙（工程）"},"tasks":[["S6-A1","12 个新分子文献地图"]],"checks":[{"id":"S-C6-01","desc":"文献地图齐","exp":"12/12 三栏","src":"literature/02"}],"coord":["对照排名 v2 看新分子的位次"]},{"no":7,"dates":"10/19–10/25","stage":"标签复核","theme":"抽 30 条标签对文献（数据验收第 4 条）","learn":["不用新视频"],"card":{"task":"按分级规则抽 30 条（正负都抽），独立复核标签","cmd":"复核记录表","expected":"30/30 和文献一致或差异有解释","source":"WP3 验收第 4 条","criteria":"发现错标就启动全量复核预案","verifier":"衣思淼（WP3 主责）"},"tasks":[["S7-A1","30 条抽检记录＋签字"]],"checks":[{"id":"S-C7-01","desc":"抽检一致","exp":"30/30","src":"WP3 验收第4条"}],"coord":["数据验收会：第 4 条由你签"]},{"no":8,"dates":"10/26–11/01","stage":"证据分层","theme":"60 个候选按证据强弱分层","learn":["复习\"金标准\"概念：临床常用药是最好的尺子（水飞蓟宾）"],"card":{"task":"60 个候选按证据强弱分层（临床/动物/细胞/只有计算）","cmd":"表格入库","expected":"60 行分层齐；水飞蓟宾在\"临床\"层（这正是排名靠谱的旁证素材）","source":"项目简介（水飞蓟宾自动排第 7 的佐证逻辑）","criteria":"分层判据引用第 2 周的规则","verifier":"王启龙（工程）"},"tasks":[["S8-A1","60 候选证据分层表"]],"checks":[{"id":"S-C8-01","desc":"分层表齐","exp":"60/60","src":"简介佐证逻辑"}],"coord":["和模型线对一下\"陌生分子\"的证据"]},{"no":9,"dates":"11/02–11/08","stage":"文献线开工（主战场）","theme":"双靶点机制文献精读","learn":["读 FXR 和 Keap1-Nrf2 通路的综述（各几篇）"],"card":{"task":"两个靶点各精读 5 篇关键文献：每篇记\"结论方向＋对项目有啥用\"；顺带做一份术语表","cmd":"增补到 literature/03","expected":"10 篇笔记＋术语表","source":"WP5 步骤 2 前置","criteria":"二手综述里的说法要追到原始研究再引用","verifier":"代维斯丹（WP5 检查人）"},"tasks":[["S9-A1","双靶点 10 篇精读"]],"checks":[{"id":"S-C9-01","desc":"机制地图","exp":"10 篇＋术语表","src":"WP5 步骤2"}],"coord":["期中检查材料（文献部分）"]},{"no":10,"dates":"11/09–11/15","stage":"文献核对（主战场）","theme":"A 级条目全部核完","learn":["不用新视频；用第 5 周的流程模板批量干"],"card":{"task":"A 级条目 100% 核对并附 PMID（模板批量＋人工确认）","cmd":"在 literature/01 批注","expected":"A 级清零（全部\"已核对✓＋PMID\"）；进度表更新","source":"WP5 步骤 1（A/B 级 100%、C 级抽 50%）","criteria":"每条都要点开 PubMed 看到；核不了的降级或删除，进处置台账","verifier":"代维斯丹（WP5 检查人）"},"tasks":[["S10-A1","A 级条目 100% 核完"]],"checks":[{"id":"S-C10-01","desc":"A 级清零","exp":"100% 已核对＋PMID","src":"WP5 步骤1"}],"coord":["WP5 开工会：你主讲方案"]},{"no":11,"dates":"11/16–11/22","stage":"文献核对（主战场）","theme":"B 级核完＋C 级抽一半","learn":["不用新视频"],"card":{"task":"B 级 100% 核对；C 级抽 50% 检查；PMID 清单成文","cmd":"批注＋PMID 清单","expected":"A+B 100%、C 级抽检记录齐；删掉的条目进处置台账","source":"WP5 验收第 1 条","criteria":"删除也要留痕（可追溯）","verifier":"代维斯丹（WP5 检查人）"},"tasks":[["S11-A1","B 级清零"],["S11-A2","C 级抽检 50%"]],"checks":[{"id":"S-C11-01","desc":"A/B 100%＋C 抽 50%","exp":"WP5 验收第 1 条达成","src":"WP5 验收第1条"}],"coord":["和真实对接的结合图对齐（负责人第 11 周产出）"]},{"no":12,"dates":"11/23–11/29","stage":"机制一致化","theme":"机制文档全部换成真分数口径","learn":["不用新视频"],"card":{"task":"把 literature/03 里所有引用检查一遍：不许再出现\"演示分数\"的说法","cmd":"literature/03 更新","expected":"WP5 验收第 2 条（无演示分残留）；有矛盾的地方定位并记录","source":"WP5 验收第 2 条","criteria":"每处改动留修改记录","verifier":"代维斯丹（WP5 检查人）"},"tasks":[["S12-A1","03 文档一致化"]],"checks":[{"id":"S-C12-01","desc":"无演示分残留","exp":"WP5 验收第 2 条","src":"WP5 验收第2条"}],"coord":["文献章节素材汇总"]},{"no":13,"dates":"11/30–12/06","stage":"实验衔接","theme":"细胞实验方案一页纸","learn":["了解常用方案：HepG2 细胞＋四氯化碳/对乙酰氨基酚造损伤，测 ALT/AST/ROS"],"card":{"task":"写实验方案一页纸：用什么细胞、怎么造损伤、测什么指标、怎么分组（水飞蓟宾当阳性药、溶剂空白、候选药）、做几重复","cmd":"方案文档（导师确认后进结题附录）","expected":"方案经导师签字/邮件确认；分组和重复数写明","source":"WP5 步骤 3","criteria":"导师没确认不算完成","verifier":"代维斯丹（WP5 检查人）"},"tasks":[["S13-A1","实验方案一页纸＋导师确认"]],"checks":[{"id":"S-C13-01","desc":"方案获确认","exp":"导师签字/邮件记录","src":"WP5 步骤3"}],"coord":["M6 之后排实验日程"]},{"no":14,"dates":"12/07–12/13","stage":"收尾与答辩","theme":"写结题报告的文献章节","learn":["看文献引用格式怎么统一"],"card":{"task":"文献章节初稿：所有引用统一格式（作者/期刊/年份/PMID）","cmd":"文档写到 reports/ 流程里","expected":"引用 100% 处于\"已核对\"状态；格式统一","source":"WP5 交付要求","criteria":"没核对过的引用一律不许进章节","verifier":"王启龙（工程）"},"tasks":[["S14-A1","文献章节初稿＋PMID 清单"]],"checks":[{"id":"S-C14-01","desc":"引用全核对","exp":"100% 已核对","src":"WP5 要求"}],"coord":["结题章节分工确认"]},{"no":15,"dates":"12/14–12/20","stage":"从头校验","theme":"文献部分\"反查\"抽验","learn":["复习验证精神：不复用原记录，重新查一遍"],"card":{"task":"随机抽 20 条 PMID 反查：编号对得上原文吗、结论方向一致吗","cmd":"抽验记录","expected":"20/20 一致；不一致的当天处置（更正或撤回）","source":"verify_repro 的做法（独立反查）","criteria":"抽验请代维斯丹执行（不归文献线的人查更可信）","verifier":"代维斯丹（WP5 检查人）"},"tasks":[["S15-A1","20 条 PMID 反查"]],"checks":[{"id":"S-C15-01","desc":"反查一致","exp":"20/20","src":"verify_repro 做法"}],"coord":["校验报告文献节署名"]},{"no":16,"dates":"12/21–12/27","stage":"收尾与答辩","theme":"答辩机制问答＋实验衔接展示","learn":["把项目简介第六节关于机制和文献的问答背熟"],"card":{"task":"写 8 问文献/机制问答（比如\"文献空白的木脂素为什么值得做\"）","cmd":"预答辩","expected":"预答辩文献机制环节不卡壳","source":"项目简介 md 第六节","criteria":"答不上当场记，24 小时内补","verifier":"导师＋全员"},"tasks":[["S16-A1","文献机制问答 8 问"],["S16-A2","实验衔接展示页"]],"checks":[{"id":"S-C16-01","desc":"问答齐","exp":"预答辩通过","src":"预答辩记录"}],"coord":["结题材料提交"]}
@@ -169,7 +177,7 @@ function msDone(m){ return m.need.length>0 && m.need.every(id => S.checks[id] ||
 function findTask(id){ for(const w of WEEKS){ for(const [tid,tx] of w.tasks){ if(tid===id) return {tx,week:w.no}; } } for(const m of MANUALS){ if(m.id===id) return {tx:m.text,week:m.week,manual:true}; } for(const w of WEEKS){ for(const c of w.checks){ if(c.id===id) return {tx:c.desc,week:w.no,check:true}; } } for(const r of RES){ if(r.id===id) return {tx:r.name,week:r.wk,res:true}; } return {tx:id,week:"?"}; }
 
 /* ================= 视图 ================= */
-let VIEW = "dash", CURW = Math.max(1,Math.min(NWEEK,weekNoNow()||1));
+let VIEW = "mywork", CURW = Math.max(1,Math.min(NWEEK,weekNoNow()||1));
 
 function header(){
   const wn = weekNoNow(); const [d,t] = overall(); const pct = t? Math.round(d*100/t):0;
@@ -187,13 +195,43 @@ function header(){
 function render(){
   header();
   const app = document.getElementById("app");
-  if(VIEW==="dash") app.innerHTML = vDash();
+  if(VIEW==="mywork") app.innerHTML = vMyWork();
+  else if(VIEW==="dash") app.innerHTML = vDash();
   else if(VIEW==="overview") app.innerHTML = vOverview();
   else if(VIEW==="week") app.innerHTML = vWeek(CURW);
   else if(VIEW==="res") app.innerHTML = vRes();
   else if(VIEW==="ledger") app.innerHTML = vLedger();
   else if(VIEW==="data") app.innerHTML = vData();
   bind();
+}
+
+/* ---- 我的工作台 ---- */
+function vMyWork(){
+  const M = MYWORK;
+  const tasks = M.tasks.map(t=>`<tr><td><span class="id">${t[0]}</span></td><td>${esc(t[1])}</td><td>${esc(t[2])}</td></tr>`).join("");
+  const files = M.files.map(g=>`<h3>${esc(g[0])}</h3><table>${g[1].map(r=>`<tr><td style="font-family:Consolas,monospace;font-size:12px;white-space:normal">${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>`).join("");
+  const ops = M.ops.map(o=>`<div class="item"><span class="tx"><b>${esc(o[0])}</b>——${esc(o[1])}</span></div>`).join("");
+  const links = M.ghlinks.map(l=>`<div class="logline"><span class="t">${esc(l[0])}</span><a href="${l[1]}" target="_blank" rel="noopener">GitHub 上打开 ↗</a></div>`).join("");
+  const team = M.team.map(t=>`<tr><td><b>${t[0]}</b></td><td>${esc(t[1])}</td><td><span class="cmd">${esc(t[2])}</span>（tools/ 目录，浏览器打开）</td></tr>`).join("");
+  return `
+  <div class="card" style="border-left:4px solid var(--brand2)">
+    <h2>🧭 ${esc(M.fullname)} 的工作台（进来先看这页）</h2>
+    <div class="kv" style="font-size:14px"><b>${esc(M.fullname)}</b> ｜ ${esc(M.roleTag)} ｜ <span class="tag g">${esc(M.lineTag)}</span> ｜ 名下待核文件 <b>${M.fileCount}</b> 个 ｜ 时限 <b>${esc(M.deadline)}</b></div>
+    <div class="exp">职责一句话：${esc(M.duty)}</div>
+  </div>
+  <div class="card"><h2>📌 我的校验任务（来源 docs/VERIFY_TASKS.md）</h2>
+    <table><tr><th>编号</th><th>要做什么</th><th>过关口径（出处）</th></tr>${tasks}</table>
+    <div class="hint">做完在 docs/VERIFY_TASKS.md 第 4 节完成记录表签名；学期推进按本页「📋 周卡片·打卡」逐周走。</div>
+  </div>
+  <div class="card"><h2>🗂 我的文件（附录A 映射，共 ${M.fileCount} 个）</h2>${files}
+    <div class="hint">每组的"怎么核"就是该组文件的核验方法；交叉复核文件已标注第二核对人。</div>
+  </div>
+  <div class="card"><h2>🚀 怎么操作（五步上手）</h2>${ops}</div>
+  <div class="card"><h2>🔗 仓库直链（GitHub）</h2>${links}</div>
+  <div class="card"><h2>👥 全队入口（五人五页，进度互不影响）</h2>
+    <table><tr><th>成员</th><th>角色·校验线</th><th>打卡页</th></tr>${team}</table>
+    <div class="hint">每人打开自己名字的 HTML 就是自己的部分：任务、文件、学习、打卡都在这一页。</div>
+  </div>`;
 }
 
 /* ---- 本周看板 ---- */

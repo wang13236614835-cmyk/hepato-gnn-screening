@@ -752,6 +752,117 @@ res=[["R-S01",1,"B站搜：PubMed 检索教程","AND/OR/NOT 怎么用（提前�
 # ================= 生成 =================
 tpl = TPL.read_text(encoding="utf-8")
 
+# ---- 我的工作台（与 docs/VERIFY_TASKS.md 同源：任务§2 / 文件附录A） ----
+GH = "https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main"
+def MW(name, roleTag, lineTag, fileCount, deadline, duty, tasks, files, sec, own_link):
+    ops = [
+     ["① 拿到仓库", f"git clone {GH.replace('/blob/main','')}.git（或 GitHub 页面绿色 Code → Download ZIP）"],
+     ["② 先读两份文件", f"docs/VERIFY_TASKS.md 第 {sec} 节（我的任务）＋ 附录A（我的文件清单）"],
+     ["③ 动手核验", "按上方任务表逐条执行；预期值以 docs/VERIFY_MANUAL.md 对应小节为准，不凭记忆填"],
+     ["④ 记录结果", "docs/VERIFY_TASKS.md 第 4 节完成记录表签名；发现问题记第 5 节问题登记表（A 级先停线报告）"],
+     ["⑤ 每周打卡", "本页「📋 周卡片·打卡」按周推进；周五生成周报发导师；换电脑在「💾 数据管理」导出导入"]]
+    ghlinks = [
+     ["docs/VERIFY_TASKS.md（任务分派表＋附录A 文件映射）", f"{GH}/docs/VERIFY_TASKS.md"],
+     ["docs/VERIFY_MANUAL.md（核验手册 §0–§5）", f"{GH}/docs/VERIFY_MANUAL.md"],
+     ["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）", f"{GH}/docs/MEMBER_WORKBENCH.md"],
+     ["results/rankings/final_ranking.csv（Top-60 排名）", f"{GH}/results/rankings/final_ranking.csv"],
+     own_link]
+    team = [["王启龙", "负责人·辅助/工程（A2·90文件）", "学期推进流_王启龙.html"],
+            ["宁显泷", "算法·代码验证（A1·12文件）", "学期推进流_宁显泷.html"],
+            ["衣思淼", "数据·数据线A（A3·14文件）", "学期推进流_衣思淼.html"],
+            ["代维斯丹", "验证·数据线B（A4·18文件）", "学期推进流_代维斯丹.html"],
+            ["王散曼", "文献·文献线（A5·4文件）", "学期推进流_王散曼.html"]]
+    return dict(fullname=name, roleTag=roleTag, lineTag=lineTag, fileCount=fileCount,
+                deadline=deadline, duty=duty, tasks=tasks, files=files,
+                ops=ops, ghlinks=ghlinks, team=team)
+
+MYWORKS = {
+"宁显泷": MW("宁显泷", "算法 · 模型", "校验线：代码验证（VERIFY_TASKS 附录A·A1）", 12,
+  "2026-09-13（W1 周五）",
+  "证明代码跑得对、结果可复现：一键复现、确定性、45 项独立数字核验、解析器用例、超参与融合公式核对",
+  [["N1", "一键复现 python run_all.py", "12 条关键行逐字一致，含 60 候选入库（VERIFY_MANUAL §2.1）"],
+   ["N2", "确定性连跑两次 md5 比对", "输出\"一致\"（§2.2）"],
+   ["N3", "独立数字核验 python reports/pdf_build/verify.py", "最后一行\"通过 45 项；不符 0 项\"（§2.3）"],
+   ["N4", "解析器 5 用例", "全 OK，重原子数 3/6/20/12/5（§3.1）"],
+   ["N5", "超参抽查 gnn.py vs docs/02_model_notes.md", "p_drop=0.3、T=30、epoch=300（MANIFEST §3）"],
+   ["N6", "融合公式核对 src/scoring/fuse.py", "权重 0.45/0.35/0.20、域外×0.9（文档4.7；衣思淼复核）"]],
+  [["流水线与独立核验（2 个）",
+    [["run_all.py", "重跑 12 关键行一致（N1）；两次 md5 一致（N2）"],
+     ["reports/pdf_build/verify.py", "独立复算 45 项全过（N3），输出存 results/logs/"]]],
+   ["核心代码（4 个）",
+    [["src/chem/smiles_graph.py", "§3.1 五用例全 OK（N4）"],
+     ["src/models/gnn.py、src/models/dataset.py", "超参与 02 文档一致（N5）；全精度输出"],
+     ["src/models/baseline.py", "重跑指标与 metrics/baseline.csv 一致（代维斯丹复核）"]]],
+   ["评分与文档（2 个）",
+    [["src/scoring/fuse.py", "权重与域外系数核对（N6；衣思淼复核）"],
+     ["docs/02_model_notes.md", "超参口径表与代码逐项互查（N5）"]]],
+   ["模型产物（4 个）",
+    [["results/metrics/baseline.csv、reliability_curve.csv", "数字由 N1 重跑＋N3 verify.py 双重覆盖"],
+     ["results/predictions/test_predictions.csv、fullpool_predictions.csv", "重跑后逐字节一致（npy 缓存不入库）"]]]],
+  "2.1", ["docs/02_model_notes.md（模型口径）", f"{GH}/docs/02_model_notes.md"]),
+
+"衣思淼": MW("衣思淼", "数据 · 数据线A", "校验线：数据集与排名表（VERIFY_TASKS 附录A·A3）", 14,
+  "2026-09-13（W1 周五）",
+  "证明数字没被编造：数据集抽查、骨架划分隔离、排名表核验、融合公式手工验算、描述符复算、适用域核对",
+  [["Y1", "原始表抽查 data/raw/tcm_seed_compounds.csv", "89 行；HP 48/DC 40；HP-015 label=1、evidence=A（§3.4）"],
+   ["Y2", "划分隔离抽查 data/splits/", "黄芩苷 scaffold 不出现在 test/val（§3.4）；59/14/18 行含表头"],
+   ["Y3", "排名总表核验 final_ranking.csv", "61 行 rank 连续；Top-3=黄芩苷/二氢杨梅素/葛根素；第7行水飞蓟宾；NV-011 域外≈0.26（§3.5）"],
+   ["Y4", "融合公式手工验算 ≥3 行（含第 1/7/10 名）", "与 final_score 差 ≤±0.002；黄芩苷≈0.9291（§3.5）"],
+   ["Y5", "描述符独立复算（槲皮素）", "MW=302.24、nHBD=5、nHBA=7、nHeavy=22（§3.2）"],
+   ["Y6", "适用域核对 results/ad/ad_report.csv", "h*=0.362；域外 7/12 已标记"]],
+  [["原始与清洗（4 个）",
+    [["data/raw/tcm_seed_compounds.csv", "89 行；HP 48/DC 40；抽 HP-015 与 literature/01 对应（Y1）"],
+     ["data/processed/ 三表", "89/13/仅表头；label 只 0/1；scaffold 非空"]]],
+   ["划分与数据代码（6 个）",
+    [["data/splits/train、val、test.csv", "59/14/18 行；黄芩苷 scaffold 不跨集合（Y2）"],
+     ["src/data/clean.py、split.py、ad.py", "重跑产物不变（seed=42）；h*=0.362 与 ad_report 一致"]]],
+   ["描述符与字典（2 个）",
+    [["src/chem/descriptors.py", "槲皮素 MW=302.24/nHBD=5/nHBA=7/nHeavy=22（Y5）"],
+     ["docs/01_data_dictionary.md", "字段口径与 CSV 表头逐列对照（Y1）"]]],
+   ["结果表（2 个）",
+    [["results/ad/ad_report.csv", "h*=0.362；域外 7/12 标记（Y6）"],
+     ["results/rankings/final_ranking.csv", "61 行核验＋手工验算 ±0.002（Y3/Y4）"]]]],
+  "2.3", ["docs/01_data_dictionary.md（数据字典）", f"{GH}/docs/01_data_dictionary.md"]),
+
+"代维斯丹": MW("代维斯丹", "验证 · 数据线B", "校验线：对接·指纹·图（VERIFY_TASKS 附录A·A4）", 18,
+  "2026-09-13（W1 周五）",
+  "证明打分与图忠实于代码输出：指纹确定性、演示对接重跑比对、四图对照 CSV、盒子参数核对",
+  [["D1", "指纹确定性 src/chem/fingerprints.py", "同一分子两次调用比特位一致（§3.3）"],
+   ["D2", "演示对接分重跑 mock_docking", "保肝 -5.46 vs 负参照 -5.05（差 0.42）逐字节复现（§2.1 [docking]）"],
+   ["D3", "四张图与 CSV 对照", "top_candidates.png 顺序=前15行；可靠性图与 ECE=0.210 方向一致（§3.6）"],
+   ["D4", "盒子参数核对 grid_box.py vs docs/03", "FXR=1OSH、Keap1=2FLU 中心/尺寸一致（MANIFEST §3）"],
+   ["D5", "演示模式局限性确认＋WP2 排期建议", "03 文档含局限性声明；排期建议写入 WP2"]],
+  [["指纹（1 个）",
+    [["src/chem/fingerprints.py", "两次调用一致、置位数相同（D1）"]]],
+   ["对接代码与文档（4 个）",
+    [["src/docking/grid_box.py", "两靶点盒子中心/尺寸与 03 文档一致（D4）"],
+     ["src/docking/mock_docking.py", "哈希定种子重跑逐字节一致（D2）"],
+     ["src/docking/run_vina.sh", "下学期 WP2 执行；本次核脚本与协议一致（D5）"],
+     ["docs/03_docking_protocol.md", "盒子参数一致；演示模式局限性已写明（D4/D5）"]]],
+   ["对接与图产物（5 个）",
+    [["results/docking/docking_scores.csv", "均值/分靶点分与文档口径一致（D2）"],
+     ["results/figures/ 4 张 png", "逐图与 CSV 对照（D3）"]]],
+   ["图代码与包初始化（8 个）",
+    [["src/viz/plots.py", "画图读表口径核对（D3）"],
+     ["src/ 各级 __init__.py（7 个）", "存在即可，顺带过一遍"]]]],
+  "2.4", ["docs/03_docking_protocol.md（对接协议）", f"{GH}/docs/03_docking_protocol.md"]),
+
+"王散曼": MW("王散曼", "文献 · 化学信息", "校验线：文献（VERIFY_TASKS 附录A·A5）", 4,
+  "2026-09-20（W2 周五；§4 抽样溯源为 WP5 长线任务，可至 W14 全量）",
+  "证明每条证据可溯源：抽样到 PubMed/CNKI 回填\"已核对\"、Top-10 逐条专查、整理稿声明口径更新",
+  [["M1", "抽样溯源：随机抽 10 条正样本", "PubMed/CNKI 检索（化合物名+hepatoprotective/liver injury）；literature/01 回填\"已核对\"（§4）"],
+   ["M2", "Top-10 证据专查", "证据等级、来源草药两边一致；重点 NV-009 松脂素、NV-010 落叶松脂素（文献密度低）"],
+   ["M3", "literature/01\"引用为整理稿\"声明处理", "M1/M2 完成后更新声明口径（§4：正式结题前必须完成）"],
+   ["M4", "evidence_level 分布统计", "CSV 与文献稿交叉计数，A 级条目数两边一致（如实记录，不预设数字）"]],
+  [["文献三件（3 个）",
+    [["literature/01_classic_evidence.md", "抽 10 条溯源回填（M1）；Top-10 对照（M2）；声明更新（M3）"],
+     ["literature/02_novel_terpenes_lignans.md", "NV-009/NV-010 重点溯源（M2）"],
+     ["literature/03_top_candidate_mechanisms.md", "Top-10 机制描述与 01/02 证据不矛盾（M2）"]]],
+   ["新分子池源表（1 个）",
+    [["data/raw/novel_terpenes_lignans.csv", "13 行含表头；NV-011=奥贝胆酸（与衣思淼 Y1 交叉复核）"]]]],
+  "2.5", ["literature/01_classic_evidence.md（文献主表）", f"{GH}/literature/01_classic_evidence.md"]),
+}
+
 def swap_block(text, start_marker, next_marker, new_body):
     i = text.index(start_marker); j = text.index(next_marker, i)
     return text[:i] + start_marker + "\n" + new_body + "\n" + text[j:]
@@ -781,6 +892,7 @@ for m in MEMBERS:
     out = swap_block(out, "const MANUALS = [", "\n];\n\nconst MILESTONES", js(manuals)[1:-1])
     out = swap_block(out, "const MILESTONES = [", "\n];\n\n/* ---- 学习资源", js(ms)[1:-1])
     out = swap_block(out, "const RES=[", "\n];\n\n/* ---- 网站、论文和名词解释", js(res_items)[1:-1])
+    out = swap_block(out, "const MYWORK = {", "\n};\n\n\nconst WEEKS", js(MYWORKS[m["name"]])[1:-1])
     dest = ROOT / "tools" / f'学期推进流_{m["name"]}.html'
     dest.write_text(out, encoding="utf-8")
     print("生成", dest.name, f'{len(out)//1024}KB，{len(m["weeks"])}周，视频{len(res_items)}条')

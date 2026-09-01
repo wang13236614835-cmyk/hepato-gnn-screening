@@ -58,6 +58,7 @@
 | MANIFEST.md | 总纲 | 王启龙 | 本文件 | 覆盖仓库全部内容文件（pycache 除外） |
 | VERIFY_MANUAL.md | 总纲 | 王启龙 | 人工核验手册 | 按 §0–§5 走一遍能全过 |
 | VERIFY_TASKS.md | 总纲 | 王启龙 | 人工校验任务分派表（AI文献/数据/筛选真人核验：宁代码·龙辅助·衣+代数据·曼文献）+附录A全仓库138文件→校验人映射 | 分派与 CONTRIBUTORS/PHASE_PLAN 分工无冲突；任务编号引用的 VERIFY_MANUAL 小节真实存在；第0节 Top-10 与 final_ranking.csv 前10行一致；附录A五线文件数 12+90+14+18+4=138 与 git ls-files 总数相符 |
+| MEMBER_WORKBENCH.md | 总纲 | 王启龙 | 全员工作台·按全名导航：每人一节（是什么/做什么/怎么操作/名下文件/学习线/打卡页）+全队速查表+五步通用上手 | 五节姓名与 CONTRIBUTORS 一致；每人任务编号/文件数与 VERIFY_TASKS §2 及附录A 对应小节一致；打卡页文件名与 tools/ 实际文件一致 |
 
 ## 5. 文献层 literature/
 
@@ -119,7 +120,8 @@
 
 ## 10. 全量PDF版 reports/pdf_all/
 
-仓库内全部27个 md 文档的PDF镜像（目录结构与源一致），由
+仓库内全部31个 md 文档的PDF镜像（目录结构与源一一对应；本次新增
+VERIFY_TASKS、MEMBER_WORKBENCH、负责人推进程序、exe使用说明四份），由
 `reports/pdf_build/md2pdf.py` 一键再生成。md 为源文件、PDF 为
 阅读/打印版；修改 md 后重跑转换器即可同步。
 
@@ -140,4 +142,5 @@
 | 学期推进流_宁显泷/_衣思淼/_代维斯丹/_王散曼.html | 王启龙 | 四位成员的学期推进流打卡页（gen_member_pages.py 从负责人版模板生成：各自16周程序——学习线前置到各自主责工作包、专属验证卡/核验清单/里程碑/视频清单、独立localStorage） | 打开各页标题与姓名一致、勾选任务进度更新且互不影响；周卡片含"本周视频"块 |
 | gen_member_pages.py | 王启龙 | 成员页生成器（负责人版为模板，换 WEEKS/MANUALS/MILESTONES/RES 四块数据） | 修改负责人版后重跑 `python tools/gen_member_pages.py`，四页同步更新 |
 | 学期推进流五页 v2（大白话版） | 王启龙 | 全部页面小白化改写：字段改为"学什么做什么/怎么动手/过关标准/出处/没过怎么办/谁来检查"；核验人按 PHASE_PLAN 真实分工（WP2宁显泷查/WP3王散曼查/WP4衣思淼查/WP5代维斯丹查）；新增新手三步引导卡与20条名词小词典；视频条目改为"真实频道名+完整搜索词"；修复主题重复前缀 | 打开各页：字段为大白话、"谁来检查"与 PHASE_PLAN 分工一致、「学习资源」页底部有名词小词典；revise_plain_leader.py+gen_member_pages.py 可再生 |
+| 学期推进流五页 v3（我的工作台版） | 王启龙 | 每页新增首屏默认标签「🧭 我的工作台」：身份卡（全名/角色/校验线/名下文件数/时限）、我的校验任务表（N/Y/D/M/L 编号，与 VERIFY_TASKS 同源）、我的文件清单（附录A 映射分组）、五步上手操作、GitHub 仓库直链、全队五人入口；数据由 gen_member_pages.py 的 MYWORKS 字典注入（负责人版为模板） | 打开任一页默认即"我的工作台"且姓名正确；任务数=VERIFY_TASKS 对应小节条数（6/6/5/4/5）；文件数组数合计=附录A 该线文件数（12/14/18/4/90）；改 VERIFY_TASKS 后须同步 MYWORKS 再生页面 |
 | semester_flow.py v1.1 | 王启龙 | 修复 cmd 窗口中文乱码：仅输出被管道时才强制 UTF-8，直接在 cmd 运行走系统 Unicode 接口 | cmd 中运行 学期推进流_王启龙.exe check 1 中文正常显示 |

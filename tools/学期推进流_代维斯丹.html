@@ -81,7 +81,8 @@ footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color
   <div class="meta" id="hmeta"></div>
 </header>
 <nav id="nav">
-  <button data-v="dash" class="on">📍 本周看板</button>
+  <button data-v="mywork" class="on">🧭 我的工作台</button>
+  <button data-v="dash">📍 本周看板</button>
   <button data-v="overview">🗓 学期总览</button>
   <button data-v="week">📋 周卡片·打卡</button>
   <button data-v="res">📚 学习资源</button>
@@ -94,6 +95,13 @@ footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color
 /* ================= 数据（与 tools/semester_flow.py 同源，预期值锚定存档文件） ================= */
 const START = new Date(2026,8,7);   // 开学周一 2026-09-07（0基月份：8=9月）
 const NWEEK = 16;
+
+/* ---- 我的工作台（与 docs/VERIFY_TASKS.md 同源；生成成员页时整体替换本块） ---- */
+const MYWORK = {
+"fullname":"代维斯丹","roleTag":"验证 · 数据线B","lineTag":"校验线：对接·指纹·图（VERIFY_TASKS 附录A·A4）","fileCount":18,"deadline":"2026-09-13（W1 周五）","duty":"证明打分与图忠实于代码输出：指纹确定性、演示对接重跑比对、四图对照 CSV、盒子参数核对","tasks":[["D1","指纹确定性 src/chem/fingerprints.py","同一分子两次调用比特位一致（§3.3）"],["D2","演示对接分重跑 mock_docking","保肝 -5.46 vs 负参照 -5.05（差 0.42）逐字节复现（§2.1 [docking]）"],["D3","四张图与 CSV 对照","top_candidates.png 顺序=前15行；可靠性图与 ECE=0.210 方向一致（§3.6）"],["D4","盒子参数核对 grid_box.py vs docs/03","FXR=1OSH、Keap1=2FLU 中心/尺寸一致（MANIFEST §3）"],["D5","演示模式局限性确认＋WP2 排期建议","03 文档含局限性声明；排期建议写入 WP2"]],"files":[["指纹（1 个）",[["src/chem/fingerprints.py","两次调用一致、置位数相同（D1）"]]],["对接代码与文档（4 个）",[["src/docking/grid_box.py","两靶点盒子中心/尺寸与 03 文档一致（D4）"],["src/docking/mock_docking.py","哈希定种子重跑逐字节一致（D2）"],["src/docking/run_vina.sh","下学期 WP2 执行；本次核脚本与协议一致（D5）"],["docs/03_docking_protocol.md","盒子参数一致；演示模式局限性已写明（D4/D5）"]]],["对接与图产物（5 个）",[["results/docking/docking_scores.csv","均值/分靶点分与文档口径一致（D2）"],["results/figures/ 4 张 png","逐图与 CSV 对照（D3）"]]],["图代码与包初始化（8 个）",[["src/viz/plots.py","画图读表口径核对（D3）"],["src/ 各级 __init__.py（7 个）","存在即可，顺带过一遍"]]]],"ops":[["① 拿到仓库","git clone https://github.com/wang13236614835-cmyk/hepato-gnn-screening.git（或 GitHub 页面绿色 Code → Download ZIP）"],["② 先读两份文件","docs/VERIFY_TASKS.md 第 2.4 节（我的任务）＋ 附录A（我的文件清单）"],["③ 动手核验","按上方任务表逐条执行；预期值以 docs/VERIFY_MANUAL.md 对应小节为准，不凭记忆填"],["④ 记录结果","docs/VERIFY_TASKS.md 第 4 节完成记录表签名；发现问题记第 5 节问题登记表（A 级先停线报告）"],["⑤ 每周打卡","本页「📋 周卡片·打卡」按周推进；周五生成周报发导师；换电脑在「💾 数据管理」导出导入"]],"ghlinks":[["docs/VERIFY_TASKS.md（任务分派表＋附录A 文件映射）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_TASKS.md"],["docs/VERIFY_MANUAL.md（核验手册 §0–§5）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_MANUAL.md"],["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/MEMBER_WORKBENCH.md"],["results/rankings/final_ranking.csv（Top-60 排名）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/results/rankings/final_ranking.csv"],["docs/03_docking_protocol.md（对接协议）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/03_docking_protocol.md"]],"team":[["王启龙","负责人·辅助/工程（A2·90文件）","学期推进流_王启龙.html"],["宁显泷","算法·代码验证（A1·12文件）","学期推进流_宁显泷.html"],["衣思淼","数据·数据线A（A3·14文件）","学期推进流_衣思淼.html"],["代维斯丹","验证·数据线B（A4·18文件）","学期推进流_代维斯丹.html"],["王散曼","文献·文献线（A5·4文件）","学期推进流_王散曼.html"]]
+
+};
+
 
 const WEEKS = [
 {"no":1,"dates":"09/07–09/13","stage":"分子对接（提前学）","theme":"先证明暑假的图和表没毛病＋开始学对接（比大家早）","learn":["看 AutoDock Vina 入门教程：怎么画盒子把蛋白\"口袋\"框住","知道\"指纹\"：给分子拍一张 0/1 组成的条形码"],"card":{"task":"按手册 §3.3 验证指纹\"同进同出\"；把 4 张结果图和表格数值对一遍","cmd":"按 docs/VERIFY_MANUAL.md §3.3 做","expected":"同一分子两次算指纹，0/1 一个不差；4 张图的数字和 results/ 表对得上","source":"VERIFY_MANUAL §3.3；results/figures","criteria":"图对不上先查画图读的是哪个表，再怀疑数据","verifier":"全员互查"},"tasks":[["D1-A1","指纹确定性验证"],["D1-A2","4 张图和表对照记录"]],"checks":[{"id":"D-C1-01","desc":"指纹＋图表对照","exp":"零差异＋一致","src":"VERIFY_MANUAL §3.3"}],"coord":["周一组会认领对接线排期","周五报核验结果"]},{"no":2,"dates":"09/14–09/20","stage":"分子对接（提前学）","theme":"服务器装好对接工具＋背熟盒子参数","learn":["看 prepare_receptor/prepare_ligand 的用法：蛋白和小分子对接前要\"洗澡\"（去水、加氢）"],"card":{"task":"服务器装好 Vina/ADFR 并自检；把两个蛋白的盒子中心背下来对一遍源码","cmd":"python tools/semester_flow.py check 5","expected":"两个中心 [15.2,3.8,24.5] 和 [-11.5,20.4,-6.2] 与 grid_box.py 第 15/23 行一致；工具能运行","source":"src/docking/grid_box.py；docs/00_environment §2","criteria":"盒子参数只能信 grid_box.py，谁都不许手改","verifier":"王启龙（工程）"},"tasks":[["D2-A1","对接工具自检完成"],["D2-A2","盒子参数核对记录"]],"checks":[{"id":"D-C2-01","desc":"盒子参数在位","exp":"两个中心常量和源码一致","src":"grid_box.py 第15/23行"}],"coord":["在大创网确认邀请（9/25 截止）"]},{"no":3,"dates":"09/21–09/27","stage":"真实对接（主战场）","theme":"处理蛋白＋\"塞回去\"自测","learn":["复习 Vina 教程里\"重对接\"：把原配体拿出来再塞回去"],"card":{"task":"给两个蛋白\"洗澡\"（去水加氢）；把原配体拿出来塞回去，看偏多少","cmd":"bash 学习/代维斯丹/week03_redock.sh（在服务器）","expected":"两个蛋白的偏移都小于 2 埃（具体数字如实记）","source":"WP2 验收第 1 条","criteria":"超过 2 埃按清单查：盒子、加氢、酸碱性；过程写下来，不许只报失败","verifier":"宁显泷（WP2 检查人）"},"tasks":[["D3-A1","两个蛋白处理好"],["D3-A2","塞回去自测小于 2 埃 ×2"]],"checks":[{"id":"D-C3-01","desc":"重对接自测","exp":"[FLOW] rmsd_lt2=True ×2","src":"WP2 验收第1条"}],"coord":["WP2 开工会：你主讲方案"]},{"no":4,"dates":"09/28–10/04","stage":"真实对接（主战场）","theme":"100 个分子的对接输入文件批量备好","learn":["复习配体准备三步：生成 3D 形状→补氢→转格式"],"card":{"task":"把 100 个分子×2 个蛋白的输入文件（pdbqt）批量备好，先\"演练\"一遍","cmd":"先 dry-run 看命令清单，再小批量试","expected":"100×2 个文件零失败；失败的分子逐个记原因（带金属的、结构太怪的）","source":"WP2 步骤 2","criteria":"演练清单给负责人复核后才真跑","verifier":"王启龙（工程）"},"tasks":[["D4-A1","配体文件零失败"],["D4-A2","失败原因清单（如果有）"]],"checks":[{"id":"D-C4-01","desc":"配体就绪","exp":"100×2 齐或附原因清单","src":"WP2 步骤2"}],"coord":["和国庆后排期对一下"]},{"no":5,"dates":"10/05–10/11","stage":"真实对接（主战场）","theme":"全量对接开跑","learn":["不用新视频；盯日志"],"card":{"task":"全量跑对接；把已知好药（水飞蓟宾等）也跑一遍当\"尺子\"","cmd":"bash src/docking/run_vina.sh <配体目录> results/docking/vina_out/","expected":"应跑的次数一个不缺、零崩溃、日志齐全能读","source":"WP2 步骤 3/5","criteria":"单个失败重跑三次留记录，才能标失败","verifier":"王启龙（工程）"},"tasks":[["D5-A1","全量对接完成"],["D5-A2","\"尺子\"药物的分数记录在案"]],"checks":[{"id":"D-C5-01","desc":"日志齐全","exp":"次数齐＋零缺失","src":"WP2 步骤3"}],"coord":["长任务，每天报一次进度"]},{"no":6,"dates":"10/12–10/18","stage":"真实对接（主战场）","theme":"真分数进总表，出排名 v2","learn":["看对接 log 怎么读：分数在第几列"],"card":{"task":"三件事：写脚本收分数进总表（换掉假分数）；新旧分数算个相关性如实记；排名 v2 前 10 名的变化一条条解释","cmd":"python tools/semester_flow.py check 6","expected":"总表 200 行、来源全标 vina；\"尺子\"药物达标（偏移小于 2 埃或分数进前 20%）；变化有解释","source":"WP2 验收第 1/2/3 条","criteria":"新旧分数相关性不高是预期内的（所以才有换的价值），如实记，不许挑数字","verifier":"宁显泷（WP2 检查人）"},"tasks":[["D6-A1","真分数进总表 200 行"],["D6-A2","排名 v2 变化说明＋WP2 关闭签字"]],"checks":[{"id":"D-C6-01","desc":"总表全标 vina","exp":"200 行且来源唯一=vina","src":"WP2 步骤4"},{"id":"D-C6-02","desc":"\"尺子\"药物达标","exp":"偏移<2埃 或 分数前20%","src":"WP2 验收第1条"}],"coord":["阶段目标 M3：你主汇报"]},{"no":7,"dates":"10/19–10/25","stage":"基准线更新","theme":"新数据上把两个\"老参照\"重跑一遍","learn":["看菜菜的 sklearn：朴素贝叶斯和逻辑回归是怎么回事"],"card":{"task":"在新数据上重跑两个参照模型（朴素贝叶斯、逻辑回归），更新对照表","cmd":"python learning/代维斯丹/week07_baselines.py","expected":"新参照表入库；和 GNN 新分数放进同一张表（README 的表也更新）","source":"src/models/baseline.py；README 指标表","criteria":"旧分数列保留当对照，不许覆盖","verifier":"宁显泷（模型）"},"tasks":[["D7-A1","参照表更新＋README 同步"]],"checks":[{"id":"D-C7-01","desc":"参照更新","exp":"两个参照的新分数入库","src":"baseline.py"}],"coord":["数据验收会：了解新数据口径"]},{"no":8,"dates":"10/26–11/01","stage":"可靠性复核","theme":"换种算法重算把握度指标","learn":["复习 ECE：\"说的把握\"和\"实际对错\"匹不匹配"],"card":{"task":"自己写一版 ECE 和覆盖率的计算，和存档对账","cmd":"python learning/代维斯丹/week08_reliability.py","expected":"重算和存档一致（浮点误差内）；分箱规则写清楚","source":"旧课题验证报告模块C（当时重算差异=0）","criteria":"对不上先查分箱的边界规则（左闭右开这类），说清再改","verifier":"衣思淼（WP4 检查人）"},"tasks":[["D8-A1","ECE/覆盖率重算对账"]],"checks":[{"id":"D-C8-01","desc":"可靠性对账","exp":"重算=存档","src":"verify_repro 模块C"}],"coord":["模型线开工：你供对照数据"]},{"no":9,"dates":"11/02–11/08","stage":"打分局限研究","theme":"搞清楚对接分数\"坑\"在哪","learn":["查文献：Vina 对甾体、大环类分子打分偏低是公认的"],"card":{"task":"把对接分数的局限性写成\"方法说明\"一节草稿：每条局限配文献或实测","cmd":"文档（进结题方法章）","expected":"每条局限都有依据；和旧课题自己披露的方向一致","source":"旧课题验证报告模块F 的标注","criteria":"把局限写清楚是严谨，不是减分","verifier":"王启龙（工程）"},"tasks":[["D9-A1","方法说明节草稿"]],"checks":[{"id":"D-C9-01","desc":"局限说明成文","exp":"每条有依据","src":"verify_repro 模块F"}],"coord":["期中检查材料（验证部分）"]},{"no":10,"dates":"11/09–11/15","stage":"对照实验","theme":"盯住对照实验\"三同\"","learn":["不用新视频"],"card":{"task":"给参数搜索跑批做抽查：同一份数据、同一个切分、同一套指标，抽查零\"走样\"","cmd":"抽查脚本","expected":"抽查零走样","source":"WP4 步骤 3","criteria":"发现走样立即停下来重跑","verifier":"宁显泷（模型）"},"tasks":[["D10-A1","对照实验抽查记录"]],"checks":[{"id":"D-C10-01","desc":"三同抽查","exp":"零走样","src":"WP4 步骤3"}],"coord":["WP4 验收会"]},{"no":11,"dates":"11/16–11/22","stage":"一致性核验","theme":"结合图和药效团说法要互相印证","learn":["复习 PyMOL 看相互作用图"],"card":{"task":"把前 10 名的真实对接结合图和文献里的药效团说法逐条对照","cmd":"核验记录表","expected":"前 10 名逐条无矛盾；有矛盾的定位原因（构象、加氢）并记录","source":"WP5 验收第 4 条","criteria":"没矛盾也要留痕：谁验的、什么时候、看了什么","verifier":"王散曼（WP5 主责）复核"},"tasks":[["D11-A1","一致性核验表（前 10 名）"]],"checks":[{"id":"D-C11-01","desc":"一致性核验","exp":"零未处置矛盾","src":"WP5 验收第4条"}],"coord":["配合负责人的结合图工程"]},{"no":12,"dates":"11/23–11/29","stage":"机制互证","theme":"文献机制和对接证据互相打分","learn":["不用新视频"],"card":{"task":"做一张互证表：每个候选一行（文献说啥、对接图显示啥、互相印证吗）","cmd":"表格入库","expected":"前 10 名行齐；\"印证/部分/空白\"三态如实标","source":"WP5 步骤 2","criteria":"文献没写就标空白，不许硬凑","verifier":"王散曼（WP5 主责）"},"tasks":[["D12-A1","互证表前 10 名"]],"checks":[{"id":"D-C12-01","desc":"互证表齐","exp":"三态标全","src":"WP5 步骤2"}],"coord":["文献核对进度会"]},{"no":13,"dates":"11/30–12/06","stage":"收尾整合","theme":"三版排名并排看","learn":["不用新视频"],"card":{"task":"把三个版本（假分数版、真分数版、新模型版）的排名放进一张表，变化能一路追","cmd":"对照表入库","expected":"前 10 名每一步变化都有解释（接着第 6 周的口径）","source":"WP2 步骤 7","criteria":"变化链断了的补中间版本","verifier":"王启龙（工程）"},"tasks":[["D13-A1","三版对照表"]],"checks":[{"id":"D-C13-01","desc":"三版可追","exp":"变化逐条解释","src":"WP2 步骤7"}],"coord":["阶段目标 M6：讲验证侧"]},{"no":14,"dates":"12/07–12/13","stage":"收尾与答辩","theme":"写结题报告的验证章节","learn":["看参数表怎么写清楚（可复现）"],"card":{"task":"验证章节初稿：参照模型、对接步骤（参数写成表）、可靠性证据","cmd":"文档写到 reports/ 流程里","expected":"每个数字有出处；对接参数和 grid_box.py、脚本完全一致","source":"docs/03_docking_protocol.md","criteria":"参数抄错一位都是事故，找个人互相看一遍","verifier":"王启龙（工程）"},"tasks":[["D14-A1","验证章节初稿＋参数表"]],"checks":[{"id":"D-C14-01","desc":"验证章全有出处","exp":"参数双人互查","src":"03_docking_protocol"}],"coord":["结题章节分工确认"]},{"no":15,"dates":"12/14–12/20","stage":"从头校验","theme":"对接部分重跑对账","learn":["复习旧课题怎么重跑：同盒子、同随机数，分数要一模一样"],"card":{"task":"抽 10 个分子用完全相同的条件重跑，和存档分数对账；偏移值自己重算一遍","cmd":"python tools/semester_flow.py check 15 --deep","expected":"10 个分数全一致（旧课题曾逐位复现，可行）；偏移重算在浮点误差内","source":"verify_repro 模块F 先例","criteria":"不一致查随机数、盒子、参数三方；查不清如实标 ❌","verifier":"全员互验"},"tasks":[["D15-A1","对接重跑对账"],["D15-A2","偏移值独立重算"]],"checks":[{"id":"D-C15-01","desc":"重跑一致","exp":"10/10 分数一致","src":"verify_repro 模块F"}],"coord":["校验报告对接节署名"]},{"no":16,"dates":"12/21–12/27","stage":"收尾与答辩","theme":"答辩验证问答＋现场演示保障","learn":["把项目简介第六节\"对接分是真的吗\"那问答背熟"],"card":{"task":"写 8 问验证问答；给现场演示做\"零事故\"预案（提前跑好、截图兜底）","cmd":"预答辩","expected":"预答辩验证环节不卡壳；演示有备份方案","source":"项目简介 md 第六节","criteria":"演示失败就用本地截图顶上，不许现场干等","verifier":"导师＋全员"},"tasks":[["D16-A1","验证问答 8 问"],["D16-A2","演示零事故预案"]],"checks":[{"id":"D-C16-01","desc":"问答＋预案齐","exp":"预答辩通过","src":"预答辩记录"}],"coord":["结题材料提交"]}
@@ -169,7 +177,7 @@ function msDone(m){ return m.need.length>0 && m.need.every(id => S.checks[id] ||
 function findTask(id){ for(const w of WEEKS){ for(const [tid,tx] of w.tasks){ if(tid===id) return {tx,week:w.no}; } } for(const m of MANUALS){ if(m.id===id) return {tx:m.text,week:m.week,manual:true}; } for(const w of WEEKS){ for(const c of w.checks){ if(c.id===id) return {tx:c.desc,week:w.no,check:true}; } } for(const r of RES){ if(r.id===id) return {tx:r.name,week:r.wk,res:true}; } return {tx:id,week:"?"}; }
 
 /* ================= 视图 ================= */
-let VIEW = "dash", CURW = Math.max(1,Math.min(NWEEK,weekNoNow()||1));
+let VIEW = "mywork", CURW = Math.max(1,Math.min(NWEEK,weekNoNow()||1));
 
 function header(){
   const wn = weekNoNow(); const [d,t] = overall(); const pct = t? Math.round(d*100/t):0;
@@ -187,13 +195,43 @@ function header(){
 function render(){
   header();
   const app = document.getElementById("app");
-  if(VIEW==="dash") app.innerHTML = vDash();
+  if(VIEW==="mywork") app.innerHTML = vMyWork();
+  else if(VIEW==="dash") app.innerHTML = vDash();
   else if(VIEW==="overview") app.innerHTML = vOverview();
   else if(VIEW==="week") app.innerHTML = vWeek(CURW);
   else if(VIEW==="res") app.innerHTML = vRes();
   else if(VIEW==="ledger") app.innerHTML = vLedger();
   else if(VIEW==="data") app.innerHTML = vData();
   bind();
+}
+
+/* ---- 我的工作台 ---- */
+function vMyWork(){
+  const M = MYWORK;
+  const tasks = M.tasks.map(t=>`<tr><td><span class="id">${t[0]}</span></td><td>${esc(t[1])}</td><td>${esc(t[2])}</td></tr>`).join("");
+  const files = M.files.map(g=>`<h3>${esc(g[0])}</h3><table>${g[1].map(r=>`<tr><td style="font-family:Consolas,monospace;font-size:12px;white-space:normal">${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>`).join("");
+  const ops = M.ops.map(o=>`<div class="item"><span class="tx"><b>${esc(o[0])}</b>——${esc(o[1])}</span></div>`).join("");
+  const links = M.ghlinks.map(l=>`<div class="logline"><span class="t">${esc(l[0])}</span><a href="${l[1]}" target="_blank" rel="noopener">GitHub 上打开 ↗</a></div>`).join("");
+  const team = M.team.map(t=>`<tr><td><b>${t[0]}</b></td><td>${esc(t[1])}</td><td><span class="cmd">${esc(t[2])}</span>（tools/ 目录，浏览器打开）</td></tr>`).join("");
+  return `
+  <div class="card" style="border-left:4px solid var(--brand2)">
+    <h2>🧭 ${esc(M.fullname)} 的工作台（进来先看这页）</h2>
+    <div class="kv" style="font-size:14px"><b>${esc(M.fullname)}</b> ｜ ${esc(M.roleTag)} ｜ <span class="tag g">${esc(M.lineTag)}</span> ｜ 名下待核文件 <b>${M.fileCount}</b> 个 ｜ 时限 <b>${esc(M.deadline)}</b></div>
+    <div class="exp">职责一句话：${esc(M.duty)}</div>
+  </div>
+  <div class="card"><h2>📌 我的校验任务（来源 docs/VERIFY_TASKS.md）</h2>
+    <table><tr><th>编号</th><th>要做什么</th><th>过关口径（出处）</th></tr>${tasks}</table>
+    <div class="hint">做完在 docs/VERIFY_TASKS.md 第 4 节完成记录表签名；学期推进按本页「📋 周卡片·打卡」逐周走。</div>
+  </div>
+  <div class="card"><h2>🗂 我的文件（附录A 映射，共 ${M.fileCount} 个）</h2>${files}
+    <div class="hint">每组的"怎么核"就是该组文件的核验方法；交叉复核文件已标注第二核对人。</div>
+  </div>
+  <div class="card"><h2>🚀 怎么操作（五步上手）</h2>${ops}</div>
+  <div class="card"><h2>🔗 仓库直链（GitHub）</h2>${links}</div>
+  <div class="card"><h2>👥 全队入口（五人五页，进度互不影响）</h2>
+    <table><tr><th>成员</th><th>角色·校验线</th><th>打卡页</th></tr>${team}</table>
+    <div class="hint">每人打开自己名字的 HTML 就是自己的部分：任务、文件、学习、打卡都在这一页。</div>
+  </div>`;
 }
 
 /* ---- 本周看板 ---- */
