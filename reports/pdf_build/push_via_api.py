@@ -26,17 +26,46 @@ def git(*args):
                           capture_output=True, text=True, encoding="utf-8").stdout
 
 
+REQ_TMP = os.path.join(os.environ.get("TEMP", "/tmp"), "hepato_req.json")
+
+
+def _curl(path, payload, method):
+    import subprocess
+    for attempt in range(5):
+        args = ["curl", "-s", "--max-time", "300", "-X", method,
+                "-H", "Authorization: " + HEADERS["Authorization"],
+                "-H", "Accept: " + HEADERS["Accept"],
+                "-H", "User-Agent: hepato-uploader"]
+        if payload is not None:
+            with open(REQ_TMP, "w", encoding="utf-8") as f:
+                json.dump(payload, f)
+            args += ["-H", "Content-Type: application/json",
+                     "--data-binary", "@" + REQ_TMP]
+        args.append(API + path)
+        out = subprocess.run(args, capture_output=True, text=True, encoding="utf-8")
+        body = out.stdout.strip()
+        if not body:
+            time.sleep(8)
+            continue
+        try:
+            res = json.loads(body)
+        except json.JSONDecodeError:
+            time.sleep(8)
+            continue
+        if isinstance(res, dict) and "sha" not in res and "tree" not in res and "object" not in res and "commit" not in res:
+            print("  API错误:", str(res.get("message", ""))[:70], "重试", attempt, flush=True)
+            time.sleep(20)
+            continue
+        return res
+    raise RuntimeError(f"api调用失败 {method} {path}")
+
+
 def api_post(path, payload, method="POST"):
-    req = urllib.request.Request(API + path, data=json.dumps(payload).encode("utf-8"),
-                                 headers=HEADERS, method=method)
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read())
+    return _curl(path, payload, method)
 
 
 def api_get(path):
-    req = urllib.request.Request(API + path, headers=HEADERS)
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read())
+    return _curl(path, None, "GET")
 
 
 commits = git("rev-list", "--reverse", "main").split()
