@@ -5,7 +5,7 @@ import json, io
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-F = ROOT / "tools" / "学期推进流_王启龙.html"
+F = ROOT / "王启龙" / "打卡.html"
 t = F.read_text(encoding="utf-8")
 
 def js(x): return json.dumps(x, ensure_ascii=False, separators=(",", ":"))

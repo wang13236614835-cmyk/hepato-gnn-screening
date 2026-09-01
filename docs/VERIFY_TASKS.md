@@ -119,6 +119,9 @@
 > "任务号"指第 2 节任务明细中的编号；预期值来源见对应任务行。
 > 与模块归属（CONTRIBUTORS.md）不一致处以本表校验线为准，模块主
 > 作为第二核对人（复核栏）。
+> 本表为**公用一份**的总表；每人自己的任务勾选表、文件清单、完成记录
+> 在**各自全名文件夹**里另有一份（`<姓名>/工作台.md`＋`<姓名>/打卡.html`），
+> 改本表须同步个人份。
 
 ### A1 宁显泷 · 代码验证（12 文件）
 
@@ -144,7 +147,7 @@
 | docs/minutes/week1-2、3-4、5-6.md | L4 | 时间线与 PHASE_PLAN 里程碑一致 |
 | docs/personal/（6 文件：总表+P1–P5） | L2 | 各成员自维护；王启龙汇总核对存在性与口径一致 |
 | phase2_semester/（6 文件：WP1–WP5+推进程序） | L4 | 计划文档：周次/主责/验收三要素齐全（各 WP 主责人执行时验收） |
-| tools/（10 文件：semester_flow.py、gen_member_pages.py、revise_plain_leader.py、exe、5 个 html、使用说明） | L1 | `check 1 --deep` 全过；成员页与分工一致（工程工具，非科学结论） |
+| tools/（5 文件：semester_flow.py、gen_member_pages.py、revise_plain_leader.py、exe、使用说明）＋五人打卡页（已迁至各自全名文件夹/打卡.html） | L1 | `check 1 --deep` 全过；成员页与分工一致（工程工具，非科学结论） |
 | learning/王启龙/（3 文件） | L4 | 台账自管；ledger 可回放 |
 | reports/pdf_build/（verify.py 之外的 23 文件：build/merge/上传脚本、中间产物、文件备注清单） | L1 | 构建工具链与中间产物：能再生成、与 md 源一致即可，不核科学数字 |
 | reports/pdf_all/（27 个 PDF 镜像） | L2 | md 为源：md 变更后重跑 md2pdf.py 同步；不单独核验数字 |

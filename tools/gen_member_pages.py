@@ -9,7 +9,7 @@ import json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TPL = ROOT / "tools" / "学期推进流_王启龙.html"
+TPL = ROOT / "王启龙" / "打卡.html"
 D = ["09/07–09/13","09/14–09/20","09/21–09/27","09/28–10/04","10/05–10/11","10/12–10/18",
      "10/19–10/25","10/26–11/01","11/02–11/08","11/09–11/15","11/16–11/22","11/23–11/29",
      "11/30–12/06","12/07–12/13","12/14–12/20","12/21–12/27"]
@@ -757,21 +757,22 @@ GH = "https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main"
 def MW(name, roleTag, lineTag, fileCount, deadline, duty, tasks, files, sec, own_link):
     ops = [
      ["① 拿到仓库", f"git clone {GH.replace('/blob/main','')}.git（或 GitHub 页面绿色 Code → Download ZIP）"],
-     ["② 先读两份文件", f"docs/VERIFY_TASKS.md 第 {sec} 节（我的任务）＋ 附录A（我的文件清单）"],
+     ["② 先读两份文件", f"{name}/工作台.md（本文件夹·我的一份）＋ docs/VERIFY_TASKS.md 第 {sec} 节（公用一份）"],
      ["③ 动手核验", "按上方任务表逐条执行；预期值以 docs/VERIFY_MANUAL.md 对应小节为准，不凭记忆填"],
      ["④ 记录结果", "docs/VERIFY_TASKS.md 第 4 节完成记录表签名；发现问题记第 5 节问题登记表（A 级先停线报告）"],
      ["⑤ 每周打卡", "本页「📋 周卡片·打卡」按周推进；周五生成周报发导师；换电脑在「💾 数据管理」导出导入"]]
     ghlinks = [
-     ["docs/VERIFY_TASKS.md（任务分派表＋附录A 文件映射）", f"{GH}/docs/VERIFY_TASKS.md"],
+     [f"{name}/工作台.md（本文件夹，我的任务/文件/记录各一份）", f"{GH}/{name}/工作台.md"],
+     ["docs/VERIFY_TASKS.md（全队任务分派表·公用一份）", f"{GH}/docs/VERIFY_TASKS.md"],
      ["docs/VERIFY_MANUAL.md（核验手册 §0–§5）", f"{GH}/docs/VERIFY_MANUAL.md"],
      ["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）", f"{GH}/docs/MEMBER_WORKBENCH.md"],
      ["results/rankings/final_ranking.csv（Top-60 排名）", f"{GH}/results/rankings/final_ranking.csv"],
      own_link]
-    team = [["王启龙", "负责人·辅助/工程（A2·90文件）", "学期推进流_王启龙.html"],
-            ["宁显泷", "算法·代码验证（A1·12文件）", "学期推进流_宁显泷.html"],
-            ["衣思淼", "数据·数据线A（A3·14文件）", "学期推进流_衣思淼.html"],
-            ["代维斯丹", "验证·数据线B（A4·18文件）", "学期推进流_代维斯丹.html"],
-            ["王散曼", "文献·文献线（A5·4文件）", "学期推进流_王散曼.html"]]
+    team = [["王启龙", "负责人·辅助/工程（A2·90文件）", "王启龙/打卡.html"],
+            ["宁显泷", "算法·代码验证（A1·12文件）", "宁显泷/打卡.html"],
+            ["衣思淼", "数据·数据线A（A3·14文件）", "衣思淼/打卡.html"],
+            ["代维斯丹", "验证·数据线B（A4·18文件）", "代维斯丹/打卡.html"],
+            ["王散曼", "文献·文献线（A5·4文件）", "王散曼/打卡.html"]]
     return dict(fullname=name, roleTag=roleTag, lineTag=lineTag, fileCount=fileCount,
                 deadline=deadline, duty=duty, tasks=tasks, files=files,
                 ops=ops, ghlinks=ghlinks, team=team)
@@ -893,7 +894,7 @@ for m in MEMBERS:
     out = swap_block(out, "const MILESTONES = [", "\n];\n\n/* ---- 学习资源", js(ms)[1:-1])
     out = swap_block(out, "const RES=[", "\n];\n\n/* ---- 网站、论文和名词解释", js(res_items)[1:-1])
     out = swap_block(out, "const MYWORK = {", "\n};\n\n\nconst WEEKS", js(MYWORKS[m["name"]])[1:-1])
-    dest = ROOT / "tools" / f'学期推进流_{m["name"]}.html'
+    dest = ROOT / m["name"] / "打卡.html"
     dest.write_text(out, encoding="utf-8")
-    print("生成", dest.name, f'{len(out)//1024}KB，{len(m["weeks"])}周，视频{len(res_items)}条')
+    print("生成", str(dest).replace(str(ROOT)+"\\", "").replace("\\","/"), f'{len(out)//1024}K字符，{len(m["weeks"])}周，视频{len(res_items)}条')
 print("done")
