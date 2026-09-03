@@ -76,7 +76,7 @@ FILES = {
         "docs/personal/P4_代维斯丹.md", "docs/personal/P5_王散曼.md",
         # 工具与学习（轻量部分；exe 与成员打卡页不入快照）
         "tools/semester_flow.py", "tools/gen_member_pages.py",
-        "tools/revise_plain_leader.py", "tools/使用说明_学期推进流exe.md",
+        "tools/使用说明_学期推进流exe.md",
         "learning/王启龙/flow_state.json", "learning/王启龙/week01_exercise.py",
         "learning/王启龙/week03_rdkit_recalc.py",
         # 报告（reports/ 根 3 件中的 md；两份大 PDF 以根目录为准）

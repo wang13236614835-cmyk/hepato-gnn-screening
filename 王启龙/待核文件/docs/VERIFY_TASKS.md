@@ -1,7 +1,7 @@
 # 人工校验任务分派表（AI 产出的文献·数据·筛选 真人核验）
 
 > 背景：暑假阶段全部结果（文献整理稿、数据集、模型打分、Top-60 排名）由
-> AI 辅助流水线产出。在作为国创赛报名（9/25 截止）与结题依据之前，
+> AI 辅助流水线产出。在作为结题依据之前，
 > 必须由真人分模块完成校验。执行手册为 `docs/VERIFY_MANUAL.md`，
 > 本文件只做**任务到人**的分派、交付物定义与时间节点。
 > 方法论沿用三原则：分模块独立复算、逆推法溯源、引擎级重跑；
@@ -127,7 +127,7 @@
 > 在**各自全名文件夹**里另有一份（`<姓名>/工作台.md`＋`<姓名>/打卡.html`），
 > 改本表须同步个人份。
 
-### A1 宁显泷 · 代码验证（12 文件）
+### A1 宁显泷 · 代码验证（22 文件＝原12＋学习练习9＋状态1）
 
 | 路径 | 任务号 | 看什么 |
 |---|---|---|
@@ -140,8 +140,9 @@
 | reports/pdf_build/verify.py | N3 | 独立复算"通过 45 项；不符 0 项" |
 | results/metrics/baseline.csv、reliability_curve.csv | N1/N3 | 数字由重跑与 verify.py 双重覆盖（模块主：代维斯丹复核） |
 | results/predictions/test_predictions.csv、fullpool_predictions.csv | N1 | 重跑后逐字节一致（npy 为缓存不入库） |
+| learning/宁显泷/（10 文件） | — | 名下学习练习骨架 W2/3/4/5/6/8/9/10/11＋状态文件：`semester_flow.py --member 宁显泷 check N` 判定 [FLOW]（学习线，非核验任务） |
 
-### A2 王启龙 · 辅助/工程（90 文件）
+### A2 王启龙 · 辅助/工程（101 文件＝原90＋学习练习11）
 
 | 路径 | 任务号 | 看什么 |
 |---|---|---|
@@ -151,14 +152,14 @@
 | docs/minutes/week1-2、3-4、5-6.md | L4 | 时间线与 PHASE_PLAN 里程碑一致 |
 | docs/personal/（6 文件：总表+P1–P5） | L2 | 各成员自维护；王启龙汇总核对存在性与口径一致 |
 | phase2_semester/（6 文件：WP1–WP5+推进程序） | L4 | 计划文档：周次/主责/验收三要素齐全（各 WP 主责人执行时验收） |
-| tools/（6 文件：semester_flow.py、gen_member_pages.py、revise_plain_leader.py、snapshot_member_files.py、exe、使用说明）＋五人打卡页（已迁至各自全名文件夹/打卡.html）＋五份 待核文件/ 快照 | L1 | `check 1 --deep` 全过；成员页与分工一致；快照数=附录A 各线文件数（工程工具与快照，非科学结论） |
-| learning/王启龙/（3 文件） | L4 | 台账自管；ledger 可回放 |
+| tools/（6 文件：semester_flow.py、gen_member_pages.py、snapshot_member_files.py、push_incremental_api.py、exe、使用说明）＋五人打卡页（已迁至各自全名文件夹/打卡.html）＋五份 待核文件/ 快照 | L1 | `check 1 --deep` 全过；成员页与分工一致；快照数=附录A 各线文件数（工程工具与快照，非科学结论） |
+| learning/王启龙/（14 文件） | L4 | 台账自管；ledger 可回放；各周练习骨架已生成（W1 完整版＋W2–W14 骨架） |
 | reports/pdf_build/（verify.py 之外的 23 文件：build/merge/上传脚本、中间产物、文件备注清单） | L1 | 构建工具链与中间产物：能再生成、与 md 源一致即可，不核科学数字 |
 | reports/pdf_all/（27 个 PDF 镜像） | L2 | md 为源：md 变更后重跑 md2pdf.py 同步；不单独核验数字 |
 | reports/midterm_report.md、暑假阶段报告汇总.pdf、课题详解与阶段结果说明.pdf | L2 | 报告引用数字与 results/ 一致（发现不符→B级登记） |
 | results/logs/（L2 新建） | L2 | verify.py 截图与汇总记录落位 |
 
-### A3 衣思淼 · 数据线A（14 文件）
+### A3 衣思淼 · 数据线A（21 文件＝原14＋学习练习6＋状态1）
 
 | 路径 | 任务号 | 看什么 |
 |---|---|---|
@@ -170,8 +171,9 @@
 | docs/01_data_dictionary.md | Y1 | 字段口径与 CSV 表头逐列对照 |
 | results/ad/ad_report.csv | Y6 | h*=0.362；域外 7/12 标记 |
 | results/rankings/final_ranking.csv | Y3/Y4 | 61 行 rank 连续；Top-3 与第 0 节一致；手工验算 ±0.002 |
+| learning/衣思淼/（7 文件） | — | 名下学习练习骨架 W2/4/7/8/10/12＋状态文件：`--member 衣思淼 check N`（学习线，非核验任务） |
 
-### A4 代维斯丹 · 数据线B（18 文件）
+### A4 代维斯丹 · 数据线B（22 文件＝原18＋学习练习3＋状态1）
 
 | 路径 | 任务号 | 看什么 |
 |---|---|---|
@@ -183,8 +185,9 @@
 | results/docking/docking_scores.csv | D2 | 均值/分靶点分与文档口径一致 |
 | docs/03_docking_protocol.md | D4/D5 | 盒子参数一致；演示模式局限性已写明 |
 | src/ 各级 __init__.py（7 个） | — | 存在即可（随 D 线顺带） |
+| learning/代维斯丹/（4 文件） | — | 名下学习练习骨架 W3(bash)/W7/W8＋状态文件：`--member 代维斯丹 check N`；W3 服务器跑后 record 补录（学习线，非核验任务） |
 
-### A5 王散曼 · 文献（4 文件）
+### A5 王散曼 · 文献（6 文件＝原4＋学习练习1＋状态1）
 
 | 路径 | 任务号 | 看什么 |
 |---|---|---|
@@ -192,14 +195,15 @@
 | literature/02_novel_terpenes_lignans.md | M2 | NV-009 松脂素、NV-010 落叶松脂素重点溯源 |
 | literature/03_top_candidate_mechanisms.md | M2 | Top-10 机制描述与 01/02 证据不矛盾 |
 | data/raw/novel_terpenes_lignans.csv | M2 | 13 行含表头；NV-011=奥贝胆酸（与 A3 衣思淼 Y1 交叉） |
+| learning/王散曼/（2 文件） | — | 名下学习练习骨架 W5（大模型辅助文献闭环表）＋状态文件：`--member 王散曼 check 5`（学习线，非核验任务） |
 
 ### A6 覆盖性对账
 
 | 校验线 | 文件数 | 对账说明 |
 |---|---|---|
-| A1 宁显泷 | 12 | run_all+核心 src+模型产物+02 模型文档 |
-| A2 王启龙 | 90 | 总纲/工具/PDF镜像/报告为主，多为工程与再生产物 |
-| A3 衣思淼 | 14 | 数据集全链+描述符+数据字典+排名表 |
-| A4 代维斯丹 | 18 | 对接/指纹/图+03 对接文档+7 个 __init__ |
-| A5 王散曼 | 4 | 文献三件+新分子池源表 |
-| 合计 | **138** | 与 `git ls-files \| wc -l` =138 逐一相符；3 处交叉复核已标注（fuse→衣、baseline→代、novel CSV→衣） |
+| A1 宁显泷 | 22（12＋学习9＋状态1） | run_all+核心 src+模型产物+02 模型文档 |
+| A2 王启龙 | 101（90＋学习11） | 总纲/工具/PDF镜像/报告为主，多为工程与再生产物 |
+| A3 衣思淼 | 21（14＋学习6＋状态1） | 数据集全链+描述符+数据字典+排名表 |
+| A4 代维斯丹 | 22（18＋学习3＋状态1） | 对接/指纹/图+03 对接文档+7 个 __init__ |
+| A5 王散曼 | 6（4＋练习1＋状态1） | 文献三件+新分子池源表 |
+| 合计 | **172** | 附录A 登记的名下文件＝原 138 ＋ 学习练习骨架 30（龙11/宁9/衣6/代3/曼1）＋ 成员状态文件 4；另有不入本表口径的 git 跟踪文件 102（五人 待核文件/ 快照副本 85＋reports/pdf_build 中间产物 17），`git ls-files \| wc -l` = 274；快照以各自 快照清单.md 对账；3 处交叉复核已标注（fuse→衣、baseline→代、novel CSV→衣） |

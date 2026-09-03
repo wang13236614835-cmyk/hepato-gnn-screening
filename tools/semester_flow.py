@@ -25,7 +25,7 @@
   python tools/semester_flow.py scaffold 3      # 生成第 3 周练习骨架
   python tools/semester_flow.py done W1-A1      # 勾选任务
   python tools/semester_flow.py undo W1-A1      # 取消勾选
-  python tools/semester_flow.py record MAN-W2-01 pass "截图已存results/logs/"
+  python tools/semester_flow.py record MAN-W14-01 pass "演练报告已存learning/王启龙/"
   python tools/semester_flow.py ledger          # 学习验证台账
   python tools/semester_flow.py report 1        # 生成周报 md
   python tools/semester_flow.py milestones      # 里程碑状态
@@ -138,9 +138,9 @@ WEEKS = [
                   criteria="env=ok 即通过；服务器端缺包逐个补装并记录", verifier="宁显泷"),
         tasks=[("W1-A1", "组织全员按 VERIFY_MANUAL §0–§2 复现并收集5人结果"),
                ("W1-A2", "分派 §3 深度核验：宁§3.1 / 衣§3.4+3.5 / 代§3.3 / 王§3.4 / 本人汇总"),
-               ("W1-A3", "确认4名成员完成大创网注册+学籍校验（报名前置）")],
+               ],
         coord=["周一组会宣讲学期排期（本程序）", "周五向导师报全员复现结果"]),
-    dict(no=2, dates="09/14–09/20", stage="AIDD①基础筑基(收尾)", theme="WP1 收尾 · 基线固化 · 报名终检",
+    dict(no=2, dates="09/14–09/20", stage="AIDD①基础筑基(收尾)", theme="WP1 收尾 · 基线固化 · 核验签名汇总",
         learn=["校验自动化思维：精读 reports/pdf_build/verify.py 的45项断言范式", "assert+期望值表：人工对数字→脚本断言"],
         card=dict(task="给 verify.py 45项断言逐条标注来源文件，产出 week02_notes.md 注释表",
                   cmd="python reports/pdf_build/verify.py",
@@ -149,20 +149,18 @@ WEEKS = [
                   criteria="注释表45行齐全；核验人抽5项对锚定CSV", verifier="衣思淼"),
         tasks=[("W2-A1", "汇总5人核验签名表；verify.py 通过截图存 results/logs/（新建并登记MANIFEST）"),
                ("W2-A2", "git tag -a v1.0-summer 固化暑假基线"),
-               ("W2-A3", "cy.ncss.cn 创建项目：名称照简介md，概述595字/简介232字纯中文版，上传计划书v2"),
-               ("W2-A4", "向4名成员发邀请并盯确认（截止9/25 12:00，不压线）")],
-        coord=["周五前完成创建+上传", "提醒：报名后勿改绑定手机号"]),
-    dict(no=3, dates="09/21–09/27", stage="AIDD②数据与表征", theme="报名冲刺 · RDKit 上手",
+               ],
+        coord=["周五前收齐5人核验签名并存results/logs/", "45项注释表抽查5项对锚定CSV"]),
+    dict(no=3, dates="09/21–09/27", stage="AIDD②数据与表征", theme="RDKit 上手 · 描述符重算",
         learn=["SMILES/InChI/InChIKey、规范化与立体化学", "RDKit：Mol对象、MW/LogP/TPSA/HBD/HBA、Morgan指纹", "资源：RDKit 官方 Getting Started/Cookbook"],
         card=dict(task="week03_rdkit_recalc.py：100条(88+12) RDKit 重算描述符，与存档列对照出Δ分布",
                   cmd="python learning/王启龙/week03_rdkit_recalc.py",
                   expected="rows=100 parse_fail=0；Δ分布如实记录（存档为教学估算版，预期存在系统偏差——这正是WP3描述符升级的实测依据）",
                   source="data/processed/*.csv 存档列；README 复核清单第2条",
                   criteria="机器判 rows=100 parse_fail=0；Δ结论3行摘要写入笔记并移交衣思淼", verifier="衣思淼"),
-        tasks=[("W3-A1", "9/25 12:00 前完成全部报名动作（含成员确认）并截图归档"),
-               ("W3-A2", "WP2启动会：确认服务器 ADFR/Vina 安装"),
+        tasks=[("W3-A2", "WP2启动会：确认服务器 ADFR/Vina 安装"),
                ("W3-A3", "WP3启动会：定 TCMSP/PubChem 导出字段(source_db/std_smiles/inchikey，保留HP/DC/NV前缀)")],
-        coord=["周五汇报：报名完成 + WP2/WP3 启动"]),
+        coord=["周五汇报：WP2/WP3 启动"]),
     dict(no=4, dates="09/28–10/04", stage="AIDD②数据与表征", theme="国庆轻量周 · 数据库API（只排学习，不排服务器任务）",
         learn=["PubChem PUG-REST 按名称/InChIKey 批量取标准SMILES", "ChEMBL webresource client；TCMSP 导出规则", "去重键升级：规范化串→InChIKey（WP3步骤3口径）"],
         card=dict(task="week04_pubchem_fetch.py：筛选池12条按名称取标准SMILES+InChIKey，输出 week04_pubchem_result.csv",
@@ -297,13 +295,11 @@ WEEKS = [
         tasks=[("W16-A1", "结题报告定稿+材料包入reports/+MANIFEST登记"),
                ("W16-A2", "预答辩(导师+全员)并按意见修订"),
                ("W16-A3", "演示彩排：现场python run_all.py一键复现(耗时如实更新)")],
-        coord=["向导师提交结题材料", "2027年1月结题答辩(M9)", "国创赛校赛节点盯平台通知(推荐省赛后补PPT/视频)"]),
+        coord=["向导师提交结题材料", "2027年1月结题答辩(M9)"]),
 ]
 
 # 手工补录项（外部平台/线下动作，无法自动核验，必须 record 留痕）
 MANUALS = [
-    dict(id="MAN-W2-01", week=2, text="国创赛：cy.ncss.cn 创建项目并上传计划书v2（截止2026-09-25 12:00，逾期不可补）", dead="2026-09-25 12:00"),
-    dict(id="MAN-W3-01", week=3, text="国创赛：4名成员邀请全部'已确认'+报名状态截图归档", dead="2026-09-25 12:00"),
     dict(id="MAN-W7-01", week=7, text="WP3 验收四条逐项打勾+核验人签字（WP3文件末尾核验表）", dead=None),
     dict(id="MAN-W9-01", week=9, text="期中检查材料提交（按学校通知时间，若变动按通知）", dead=None),
     dict(id="MAN-W10-01", week=10, text="WP4 验收四条逐项打勾+核验人签字", dead=None),
@@ -544,7 +540,6 @@ def exercises(member=None):
 
 MILESTONES = [
     dict(id="M1", week=2, name="基线固化 v1.0-summer（45项校验全过+标签）", checks=["C2-01", "C2-02"]),
-    dict(id="M2", week=3, name="国创赛报名完成（9/25前）", checks=["MAN-W2-01", "MAN-W3-01"]),
     dict(id="M3", week=6, name="真实对接排名 v2", checks=["C6-01", "C6-02"]),
     dict(id="M4", week=7, name="数据≥1000条+置信区间（WP3验收签字）", checks=["MAN-W7-01"]),
     dict(id="M5", week=10, name="PyG版+ECE<0.10（WP4验收）", checks=["C10-01", "C8-02", "MAN-W10-01"]),
