@@ -11,14 +11,14 @@
   --chip:#eef2f9; --radius:12px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65}
 header{background:linear-gradient(135deg,#24457c,#2b5fa8 55%,#2f7d63);color:#fff;padding:20px 26px 16px}
 header h1{margin:0;font-size:21px;letter-spacing:.5px}
 header .meta{margin-top:6px;font-size:13px;opacity:.92;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .chip{background:rgba(255,255,255,.16);border-radius:999px;padding:2px 12px;font-size:12.5px}
 .chip.dead{background:rgba(220,80,80,.35)}
 nav{display:flex;gap:6px;background:var(--card);border-bottom:1px solid var(--line);padding:0 18px;position:sticky;top:0;z-index:5}
-nav button{border:0;background:none;padding:13px 16px;font-size:15px;color:var(--sub);cursor:pointer;border-bottom:2.5px solid transparent;font-family:inherit}
+nav button{border:0;background:none;padding:13px 16px;font-size:15px;color:var(--sub);cursor:pointer;border-bottom:2.5px solid transparent;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}
 nav button.on{color:var(--brand);border-bottom-color:var(--brand);font-weight:600}
 main{max-width:1080px;margin:20px auto 60px;padding:0 18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(28,35,51,.05)}
@@ -35,7 +35,7 @@ h3{font-size:15px;margin:14px 0 6px}
 .item input[type=checkbox]{width:17px;height:17px;margin-top:3px;accent-color:var(--brand2);cursor:pointer;flex:none}
 .item .tx{flex:1}
 .item.done .tx{color:#8a93a5;text-decoration:line-through}
-.item .id{font-size:11.5px;color:var(--sub);background:var(--chip);border-radius:4px;padding:0 6px;margin-right:6px;font-family:Consolas,monospace}
+.item .id{font-size:11.5px;color:var(--sub);background:var(--chip);border-radius:4px;padding:0 6px;margin-right:6px;font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}
 .item .ts{font-size:11.5px;color:var(--brand2);margin-left:8px;white-space:nowrap}
 .item .dl{font-size:11.5px;color:var(--warn);margin-left:6px}
 .item.overdue .dl{color:var(--bad);font-weight:700}
@@ -52,20 +52,20 @@ tr.now{background:#eef5ff}
 .tag.r{color:var(--bad);background:#fdeaea}
 .mst{border-left:3px solid var(--line);padding:6px 12px}
 .mst.ok{border-left-color:var(--brand2)}
-.mst .mid{font-family:Consolas,monospace;font-weight:700;margin-right:8px}
-.cmd{font-family:Consolas,monospace;background:#182234;color:#d7e4ff;border-radius:6px;padding:2px 8px;font-size:12.5px;display:inline-block;margin:2px 4px 2px 0}
+.mst .mid{font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-weight:700;margin-right:8px}
+.cmd{font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";background:#182234;color:#d7e4ff;border-radius:6px;padding:2px 8px;font-size:12.5px;display:inline-block;margin:2px 4px 2px 0}
 a.pl{color:var(--brand);text-decoration:underline;word-break:break-all}
-textarea{width:100%;min-height:70px;border:1px solid var(--line);border-radius:8px;padding:8px;font-family:inherit;font-size:13.5px;resize:vertical}
-button.act{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:inherit}
+textarea{width:100%;min-height:70px;border:1px solid var(--line);border-radius:8px;padding:8px;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-size:13.5px;resize:vertical}
+button.act{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}
 button.act.g{background:var(--brand2)}
 button.act.o{background:#fff;color:var(--brand);border:1px solid var(--brand)}
 button.act.d{background:#fff;color:var(--bad);border:1px solid var(--bad)}
 .wknav{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
-.wknav select{padding:7px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;background:#fff}
+.wknav select{padding:7px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";background:#fff}
 .lead{font-size:13px;color:var(--sub)}
 .count{font-size:12px;color:var(--sub);white-space:nowrap}
 .logline{font-size:13px;padding:5px 8px;border-bottom:1px dashed var(--line);display:flex;gap:10px;flex-wrap:wrap}
-.logline .t{color:var(--sub);font-family:Consolas,monospace;font-size:12px}
+.logline .t{color:var(--sub);font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-size:12px}
 .ok-emoji{color:var(--brand2);font-weight:700}
 .hint{font-size:12.5px;color:var(--sub);background:var(--chip);border-radius:8px;padding:8px 12px;margin-top:10px}
 .res a,.card a{color:var(--brand);text-decoration:none;border-bottom:1px dashed var(--brand);white-space:nowrap}
@@ -92,7 +92,7 @@ footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color
 </nav>
 <main id="app"></main>
 <noscript><div style="max-width:960px;margin:16px auto;padding:14px 18px;border:2px solid #d33;border-radius:10px;font-size:15px;line-height:1.8">
-⚠️ 本页需要启用 JavaScript。GitHub 网页端打开 .html 只显示源码（平台限制）：请 git clone 或 Download ZIP 后，双击各成员文件夹里的 打卡_姓名.html。</div></noscript>
+⚠️️ 本页需要启用 JavaScript。GitHub 网页端打开 .html 只显示源码（平台限制）：请 git clone 或 Download ZIP 后，双击各成员文件夹里的 打卡_姓名.html。</div></noscript>
 <footer>过关标准的数字都注明出处文件；打勾前先跑 <span class="cmd">python tools/semester_flow.py --member 宁显泷 check 周号 --deep</span>（成员加 --member 姓名），看到[通过]再勾。进度存本机浏览器，换电脑用「数据管理」导出导入。<br>铁律：模型给的是"<b>值得验证的假设</b>"，不是"被证明的药物结论"；数据与证据只认<b>公开权威数据库</b>。</footer>
 <script>
 /* ================= 数据（与 tools/semester_flow.py 同源，预期值锚定存档文件） ================= */
@@ -190,7 +190,7 @@ const DAYS28=[
 const SKEY = "semester_flow_ningxl_v1";
 let S = {done:{}, checks:{}, notes:{}, log:[], res:{}};
 function load(){ try{ const raw = localStorage.getItem(SKEY); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){ warnLS(); } }
-function warnLS(){ setTimeout(()=>{ const el=document.getElementById('hmeta'); if(el) el.insertAdjacentHTML('beforeend','<span class="chip dead">⚠ 本浏览器禁止本地存储，进度仅本次有效，请及时导出</span>'); },0); }
+function warnLS(){ setTimeout(()=>{ const el=document.getElementById('hmeta'); if(el) el.insertAdjacentHTML('beforeend','<span class="chip dead">⚠️ 本浏览器禁止本地存储，进度仅本次有效，请及时导出</span>'); },0); }
 function save(){ try{ localStorage.setItem(SKEY, JSON.stringify(S)); }catch(e){} }
 function logAct(action, id, text){ S.log.unshift({t:fmtDT(new Date()),action,id,text}); if(S.log.length>800) S.log.length=800; save(); }
 function fmtDT(d){ const p=n=>String(n).padStart(2,"0"); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; }
@@ -254,7 +254,7 @@ function render(){
 function vMyWork(){
   const M = MYWORK;
   const tasks = M.tasks.map(t=>`<tr><td><span class="id">${t[0]}</span></td><td>${esc(t[1])}</td><td>${linkPaths(t[2])}</td></tr>`).join("");
-  const files = M.files.map(g=>`<h3>${esc(g[0])}</h3><table>${g[1].map(r=>`<tr><td style="font-family:Consolas,monospace;font-size:12px;white-space:normal">${linkPaths(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>`).join("");
+  const files = M.files.map(g=>`<h3>${esc(g[0])}</h3><table>${g[1].map(r=>`<tr><td style="font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-size:12px;white-space:normal">${linkPaths(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>`).join("");
   const ops = M.ops.map(o=>`<div class="item"><span class="tx"><b>${esc(o[0])}</b>——${linkPaths(o[1])}</span></div>`).join("");
   const links = M.ghlinks.map(l=>`<div class="logline"><span class="t">${esc(l[0])}</span><a href="${l[1]}" target="_blank" rel="noopener">GitHub 上打开 ↗</a></div>`).join("");
   const team = M.team.map(t=>`<tr><td><b>${t[0]}</b></td><td>${esc(t[1])}</td><td><a class="cmd" style="text-decoration:underline;cursor:pointer" href="../${esc(t[2])}" title="本地打开（克隆/下载仓库后）点这里直达 TA 的打卡页">${esc(t[2])}</a>｜<a href="${GHREPO}/blob/main/${t[2]}" target="_blank" rel="noopener">GitHub↗</a></td></tr>`).join("");
@@ -395,7 +395,7 @@ function vRes(){
     <tr><td><b>数据</b></td><td>88 条带标签 + 12 候选池，骨架划分防泄漏</td><td>data/ 与附录A</td></tr>
     <tr><td><b>模型</b></td><td>GNN+MC Dropout：给分数同时给把握度</td><td>src/models</td></tr>
     <tr><td><b>决策</b></td><td>Top-60 协同评分排名（Top-10 待真人核验）</td><td>VERIFY_TASKS</td></tr></table>
-    <div class="hint">⚠️ 铁律：模型给出的永远是"<b>值得验证的假设</b>"，不是"被证明的药物结论"——所以排名出来后还有真人核验和（下学期）细胞实验这两关。</div></div>`;
+    <div class="hint">⚠️️ 铁律：模型给出的永远是"<b>值得验证的假设</b>"，不是"被证明的药物结论"——所以排名出来后还有真人核验和（下学期）细胞实验这两关。</div></div>`;
   html += `<div class="card res"><h2>📺 教学视频（看完 ${resDone}/${RES.length}）</h2>`;
   const g0 = RES.filter(r=>r.wk===0);
   if(g0.length) html += `<h3>🧭 随时能看的补课（生信那几集是旧课题的基因数据材料）</h3>` + g0.map(item).join("");
@@ -431,7 +431,7 @@ function jSet(k,v){ const j=jGet(); j[k]=v; localStorage.setItem(SKEY+"_journal"
 function vLedger(){
   const [d,t] = overall();
   const J = jGet();
-  const sel=(k,label)=>`<div class="prow" style="margin:4px 0"><span style="width:150px" class="kv">${label}</span><select onchange="jSet('${k}',this.value)" style="padding:5px 8px;border:1px solid var(--line);border-radius:6px;font-family:inherit">${["不会","听过","会用","能教别人"].map(o=>`<option ${J[k]===o?"selected":""}>${o}</option>`).join("")}</select>${J[k]?`<span class="tag g">已评：${esc(J[k])}</span>`:`<span class="tag y">开学第1周评一次，期末再看进步</span>`}</div>`;
+  const sel=(k,label)=>`<div class="prow" style="margin:4px 0"><span style="width:150px" class="kv">${label}</span><select onchange="jSet('${k}',this.value)" style="padding:5px 8px;border:1px solid var(--line);border-radius:6px;font-family:inherit">${["不会","听过","会用","能教别人"].map(o=>`<option ${J[k]===o?"selected":"","Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}>${o}</option>`).join("")}</select>${J[k]?`<span class="tag g">已评：${esc(J[k])}</span>`:`<span class="tag y">开学第1周评一次，期末再看进步</span>`}</div>`;
   const lines = S.log.map(l=>{
     const icon = l.action==="打卡"?"✅":(l.action==="取消"?"↩️":(l.action==="核验"?"🧪":"📝"));
     return `<div class="logline"><span class="t">${l.t}</span><span>${icon} ${esc(l.action)}</span><span class="id">${esc(l.id)}</span><span>${esc(l.text)}</span></div>`; }).join("");
@@ -510,7 +510,7 @@ function report(n){
   document.body.removeChild(ta);
   if(navigator.clipboard) navigator.clipboard.writeText(md).catch(()=>{});
   const w2=window.open("","_blank");
-  if(w2){ w2.document.write(`<pre style="font-family:Consolas,monospace;white-space:pre-wrap;padding:20px">${md.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</pre>`); }
+  if(w2){ w2.document.write(`<pre style="font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";white-space:pre-wrap;padding:20px">${md.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</pre>`); }
   alert(ok?"周报已复制到剪贴板（可直接粘贴发导师），同时在新窗口打开预览":"周报已在新窗口打开，可全选复制");
 }
 

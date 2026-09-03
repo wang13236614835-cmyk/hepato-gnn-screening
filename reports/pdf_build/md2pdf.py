@@ -6,7 +6,9 @@ import os
 import re
 import sys
 
-PDF_SKILL_DIR = r"C:\Users\user\.zcode\cli\plugins\cache\zcode-plugins-official\document-skills\0.1.0\skills\pdf"
+import glob as _glob
+_skill_candidates = sorted(_glob.glob(r"C:\Users\user\.zcode\cli\plugins\cache\zcode-plugins-official\document-skills\*\skills\pdf"))
+PDF_SKILL_DIR = _skill_candidates[-1] if _skill_candidates else r"C:\Users\user\.zcode\cli\plugins\cache\zcode-plugins-official\document-skills\0.1.4\skills\pdf"
 sys.path.insert(0, os.path.join(PDF_SKILL_DIR, "scripts"))
 
 from reportlab.lib import colors
@@ -231,6 +233,8 @@ META = {
     '代维斯丹/工作台.md': '个人工作台（公用一份+我的一份） | 代维斯丹 | 一级按人',
     '王散曼/工作台.md': '个人工作台（公用一份+我的一份） | 王散曼 | 一级按人',
     'reports/midterm_report.md': '中期考核报告 | 汇编：王启龙 | 阶段：第一阶段（暑假）',
+    'reports/真实对接与统一筛选报告.md': '真实对接与统一筛选报告 | 主责：代维斯丹+全员 | 阶段：真实版',
+    'results/docking/real/README.md': '真实对接数据说明 | 主责：代维斯丹 | 阶段：暑期后增量（真实对接主线）',
     'docs/personal/00_工作量与成果总表.md': '工作量与成果总表 | 负责人：王启龙 | 阶段：两阶段',
     'docs/personal/P1_王启龙.md': '个人工作档案 | 王启龙 | 阶段：两阶段',
     'docs/personal/P2_宁显泷.md': '个人工作档案 | 宁显泷 | 阶段：两阶段',

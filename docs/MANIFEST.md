@@ -8,7 +8,7 @@
 
 | 文件 | 阶段 | 负责人 | 用途 | 人工核验方法 |
 |---|---|---|---|---|
-| README.md | 暑假 | 王启龙 | 项目总览、速览指标、复核清单 | 打开核对：Top-3 与 results/rankings/final_ranking.csv 前三行一致；指标表与 results/metrics/baseline.csv 及 5.2 节数字一致 |
+| README.md | 暑假 | 王启龙 | 项目总览、速览指标、复核清单 | 打开核对："怎么做"三步命令可执行；目录三组分类与实际一级目录一一对应；"当前在哪一步"与 PHASE_PLAN 的 WP2 注记一致 |
 | CONTRIBUTORS.md | 暑假 | 王启龙 | 成员-模块映射 | 与 `git shortlog -sn HEAD`、各文件头"负责人"三方对照，无错配 |
 | requirements.txt | 暑假 | 王启龙 | 依赖声明（仅 numpy 必需） | 核对列出的版本与 docs/00_environment.md 一致 |
 | .gitignore | 暑假 | 王启龙 | 忽略缓存/venv/npy | 确认 results/*.csv 未被忽略（结果需入库） |
@@ -91,6 +91,7 @@
 | 暑假阶段报告汇总.pdf | 暑假 | 王启龙 | **本阶段汇总报告（交付姜老师）** | 目录可点击；第6章数字与 verify.py 输出一致 |
 | pdf_build/build_body.py, build_phase1.py | 暑假 | 王启龙 | 详解PDF与阶段报告PDF的正文生成脚本 | 改内容后重跑+merge+QA |
 | pdf_build/md2pdf.py | 暑假 | 王启龙 | Markdown批量转PDF转换器（27份镜像的生成器） | `python reports/pdf_build/md2pdf.py` 重新生成 pdf_all |
+| 真实对接与统一筛选报告.md | 真实版 | 代维斯丹（主责WP2）+全员拆分 | 144 次真实对接的结论与五人新任务(D6/D7/N7/Y7/M5/L6) | 打开核对：新增任务编号与五人工作台一致；靶点/次数与 real/ 两份 CSV 一致 |
 | pdf_build/cover*.html, cover*.pdf | 暑假 | 王启龙 | 两份报告的HTML封面源码与渲染产物 | 封面校验无重叠 |
 | pdf_build/merge_final.py, patch*.py | 暑假 | 王启龙 | 封面正文合并脚本与内容修正补丁 | 合并后页数13/10 |
 | pdf_build/verify.py | 暑假 | 王启龙 | 45项独立数字校验脚本 | 重跑输出"通过45项；不符0项" |
@@ -162,3 +163,8 @@ md 与 待核文件/ 快照副本**不参与镜像**，它们是个人份而非�
 | 王启龙/ 宁显泷/ 衣思淼/ 代维斯丹/ 王散曼/ | 各自成员 | 每人三件：**工作台.md**（我是谁/任务勾选表/名下文件/公用资源指引/操作五步/完成记录）＋**打卡_姓名.html**（学习·打卡·周报，浏览器打开）＋**待核文件/**（名下要核验的具体文件快照副本，按原目录结构摆放；快照清单.md 记录来源/大小/md5 与生成时的 git 版本） | 任务行数=VERIFY_TASKS 对应小节（6/6/5/4/5）；待核文件数=附录A 该线（12/14/18/4/王启龙31+大件清单）；打卡页首屏姓名与文件夹名一致；与 docs/ 公用总表不矛盾（改公用表须同步个人份并重跑快照脚本） |
 | 待核文件快照大件豁免 | 王启龙 | exe（8MB 二进制）、reports/pdf_all 27 份 PDF 镜像、pdf_build 中间产物、2 份大 PDF 报告**不入快照**：属可再生产物，复制即纯冗余数据；以根目录为准 | 快照清单.md 尾部逐条标注豁免原因；需要时在根目录核验（exe 双击、PDF 直接打开） |
 | semester_flow.py v1.1 | 王启龙 | 修复 cmd 窗口中文乱码：仅输出被管道时才强制 UTF-8，直接在 cmd 运行走系统 Unicode 接口 | cmd 中运行 python tools/semester_flow.py check 1 中文正常显示 |
+| docking/real/docking_real_4targets_16ligands.csv | 真实版 | 代维斯丹(D6复核) | 真实Vina对接:4靶点×16分子=64次 | 行数=65(含表头);target列4类各16;抽一行分数与原始log一致 |
+| docking/real/docking_real_ppar_prior40.csv | 真实版 | 代维斯丹(D6复核) | 真实Vina对接:PPARα/δ×前40成分=80次 | 行数=81;两靶点各40 |
+| docking/real/README.md | 真实版 | 代维斯丹 | 真实数据说明:参数/坑位/与本项目关系 | 参数与 WP2 文档进度注记一致 |
+| rankings/v2/Top10_最终候选.csv | 真实版 | 衣思淼(Y7关联) | MASH新候选Top10(非本组排名) | 与 reports/新候选排名 md 的表一致 |
+| rankings/v2/ppar_new_candidates.json | 真实版 | 衣思淼 | 30个新候选六维数据 | json可解析;与prior40 CSV分子数一致 |
