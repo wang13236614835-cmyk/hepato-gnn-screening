@@ -76,7 +76,7 @@ FILES = {
         "docs/personal/P4_代维斯丹.md", "docs/personal/P5_王散曼.md",
         # 工具与学习（轻量部分；exe 与成员打卡页不入快照）
         "tools/semester_flow.py", "tools/gen_member_pages.py",
-        "tools/使用说明_学期推进流exe.md",
+        "tools/使用说明_学期推进流.md",
         "learning/王启龙/flow_state.json", "learning/王启龙/week01_exercise.py",
         "learning/王启龙/week03_rdkit_recalc.py",
         # 报告（reports/ 根 3 件中的 md；两份大 PDF 以根目录为准）
@@ -87,7 +87,6 @@ FILES = {
 # 王启龙名下体积大/可再生产物：不复制，清单中标注以根目录为准
 NO_COPY = {
     "王启龙": [
-        ("tools/学期推进流_王启龙.exe", "8MB 工具二进制；双击核验即可，不需副本"),
         ("reports/暑假阶段报告汇总.pdf", "大 PDF；以根目录为准"),
         ("reports/课题详解与阶段结果说明.pdf", "大 PDF；以根目录为准"),
         ("reports/pdf_build/（23 个中间产物）", "构建链中间物；核验方法=能再生成"),

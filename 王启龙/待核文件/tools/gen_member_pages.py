@@ -9,7 +9,7 @@ import json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TPL = ROOT / "王启龙" / "打卡.html"
+TPL = ROOT / "王启龙" / "打卡_王启龙.html"
 D = ["09/07–09/13","09/14–09/20","09/21–09/27","09/28–10/04","10/05–10/11","10/12–10/18",
      "10/19–10/25","10/26–11/01","11/02–11/08","11/09–11/15","11/16–11/22","11/23–11/29",
      "11/30–12/06","12/07–12/13","12/14–12/20","12/21–12/27"]
@@ -796,11 +796,11 @@ def MW(name, roleTag, lineTag, fileCount, deadline, duty, tasks, files, sec, own
      ["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）", f"{GH}/docs/MEMBER_WORKBENCH.md"],
      ["results/rankings/final_ranking.csv（Top-60 排名）", f"{GH}/results/rankings/final_ranking.csv"],
      own_link]
-    team = [["王启龙", "负责人·辅助/工程（A2·90文件）", "王启龙/打卡.html"],
-            ["宁显泷", "算法·代码验证（A1·12文件）", "宁显泷/打卡.html"],
-            ["衣思淼", "数据·数据线A（A3·14文件）", "衣思淼/打卡.html"],
-            ["代维斯丹", "验证·数据线B（A4·18文件）", "代维斯丹/打卡.html"],
-            ["王散曼", "文献·文献线（A5·4文件）", "王散曼/打卡.html"]]
+    team = [["王启龙", "负责人·辅助/工程（A2·90文件）", "王启龙/打卡_王启龙.html"],
+            ["宁显泷", "算法·代码验证（A1·12文件）", "宁显泷/打卡_宁显泷.html"],
+            ["衣思淼", "数据·数据线A（A3·14文件）", "衣思淼/打卡_衣思淼.html"],
+            ["代维斯丹", "验证·数据线B（A4·18文件）", "代维斯丹/打卡_代维斯丹.html"],
+            ["王散曼", "文献·文献线（A5·4文件）", "王散曼/打卡_王散曼.html"]]
     return dict(fullname=name, roleTag=roleTag, lineTag=lineTag, fileCount=fileCount,
                 deadline=deadline, duty=duty, tasks=tasks, files=files,
                 ops=ops, ghlinks=ghlinks, team=team)
@@ -913,14 +913,14 @@ for m in MEMBERS:
     out = out.replace("负责人 王启龙", f'{m["role"]} {m["name"]}')
     out = out.replace('const SKEY = "semester_flow_leader_v1";', f'const SKEY = "{m["key"]}";')
     out = out.replace("learning/王启龙/", f'learning/{m["name"]}/')
-    out = out.replace("学期推进流_王启龙.exe", f'python tools/semester_flow.py --member {m["name"]}')
+    out = out.replace("python tools/semester_flow.py ", f'python tools/semester_flow.py --member {m["name"]} ')
     out = out.replace("👥 负责人统筹", "👥 组内安排")
     out = swap_block(out, "const WEEKS = [", "\n];\n\nconst MANUALS", js(m["weeks"])[1:-1])
     out = swap_block(out, "const MANUALS = [", "\n];\n\nconst MILESTONES", js(manuals)[1:-1])
     out = swap_block(out, "const MILESTONES = [", "\n];\n\n/* ---- 学习资源", js(ms)[1:-1])
     out = swap_block(out, "const RES=[", "\n];\n\n/* ---- 网站、论文和名词解释", js(res_items)[1:-1])
     out = swap_block(out, "const MYWORK = {", "\n};\n\n\nconst WEEKS", js(MYWORKS[m["name"]])[1:-1])
-    dest = ROOT / m["name"] / "打卡.html"
+    dest = ROOT / m["name"] / f"打卡_{m['name']}.html"
     dest.write_text(out, encoding="utf-8")
     print("生成", str(dest).replace(str(ROOT)+"\\", "").replace("\\","/"), f'{len(out)//1024}K字符，{len(m["weeks"])}周，视频{len(res_items)}条')
 print("done")

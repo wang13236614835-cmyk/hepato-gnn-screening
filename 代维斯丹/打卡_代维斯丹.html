@@ -92,8 +92,8 @@ footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color
 </nav>
 <main id="app"></main>
 <noscript><div style="max-width:960px;margin:16px auto;padding:14px 18px;border:2px solid #d33;border-radius:10px;font-size:15px;line-height:1.8">
-⚠️ 本页内容需要浏览器启用 JavaScript 才能显示。特别注意：<b>GitHub 网页端点开 .html 文件只会显示源代码，这是平台限制，不是文件坏了</b>。正确用法：把仓库 <b>git clone 或 Download ZIP</b> 到本地后，双击各成员文件夹里的 打卡.html 用浏览器打开。</div></noscript>
-<footer>怎么保证不糊弄：每个"过关标准"后面都写了出处文件，数字不是拍脑袋定的；打勾前先跑命令 <span class="cmd">python tools/semester_flow.py --member 代维斯丹 check 周号 --deep</span>，看到[通过]再勾。进度存在这台电脑的浏览器里，换电脑到"数据管理"页导出、再导入就行。<br>记住这条铁律：模型给出的永远是"<b>值得验证的假设</b>"，不是"被证明的药物结论"（《AIDD 100天计划》）。｜数据与证据只认<b>公开权威数据库</b>（老师要求）：二手网页只能当线索，必须回到权威库核实后才能入库引用。</footer>
+⚠️ 本页需要启用 JavaScript。GitHub 网页端打开 .html 只显示源码（平台限制）：请 git clone 或 Download ZIP 后，双击各成员文件夹里的 打卡_姓名.html。</div></noscript>
+<footer>过关标准的数字都注明出处文件；打勾前先跑 <span class="cmd">python tools/semester_flow.py --member 代维斯丹 check 周号 --deep</span>（成员加 --member 姓名），看到[通过]再勾。进度存本机浏览器，换电脑用「数据管理」导出导入。<br>铁律：模型给的是"<b>值得验证的假设</b>"，不是"被证明的药物结论"；数据与证据只认<b>公开权威数据库</b>。</footer>
 <script>
 /* ================= 数据（与 tools/semester_flow.py 同源，预期值锚定存档文件） ================= */
 const START = new Date(2026,8,7);   // 开学周一 2026-09-07（0基月份：8=9月）
@@ -102,7 +102,7 @@ const GHREPO = "https://github.com/wang13236614835-cmyk/hepato-gnn-screening"; /
 
 /* ---- 我的工作台（与 docs/VERIFY_TASKS.md 同源；生成成员页时整体替换本块） ---- */
 const MYWORK = {
-"fullname":"代维斯丹","roleTag":"验证 · 数据线B","lineTag":"校验线：对接·指纹·图（VERIFY_TASKS 附录A·A4）","fileCount":18,"deadline":"2026-09-13（W1 周五）","duty":"证明打分与图忠实于代码输出：指纹确定性、演示对接重跑比对、四图对照 CSV、盒子参数核对","tasks":[["D1","指纹确定性 src/chem/fingerprints.py","同一分子两次调用比特位一致（§3.3）"],["D2","演示对接分重跑 mock_docking","保肝 -5.46 vs 负参照 -5.05（差 0.42）逐字节复现（§2.1 [docking]）"],["D3","四张图与 CSV 对照","top_candidates.png 顺序=前15行；可靠性图与 ECE=0.210 方向一致（§3.6）"],["D4","盒子参数核对 grid_box.py vs docs/03","FXR=1OSH、Keap1=2FLU 中心/尺寸一致（MANIFEST §3）"],["D5","演示模式局限性确认＋WP2 排期建议","03 文档含局限性声明；排期建议写入 WP2"]],"files":[["指纹（1 个）",[["src/chem/fingerprints.py","两次调用一致、置位数相同（D1）"]]],["对接代码与文档（4 个）",[["src/docking/grid_box.py","两靶点盒子中心/尺寸与 03 文档一致（D4）"],["src/docking/mock_docking.py","哈希定种子重跑逐字节一致（D2）"],["src/docking/run_vina.sh","下学期 WP2 执行；本次核脚本与协议一致（D5）"],["docs/03_docking_protocol.md","盒子参数一致；演示模式局限性已写明（D4/D5）"]]],["对接与图产物（5 个）",[["results/docking/docking_scores.csv","均值/分靶点分与文档口径一致（D2）"],["results/figures/ 4 张 png","逐图与 CSV 对照（D3）"]]],["图代码与包初始化（8 个）",[["src/viz/plots.py","画图读表口径核对（D3）"],["src/ 各级 __init__.py（7 个）","存在即可，顺带过一遍"]]]],"ops":[["① 拿到仓库","git clone https://github.com/wang13236614835-cmyk/hepato-gnn-screening.git（或 GitHub 页面绿色 Code → Download ZIP）"],["② 先读两份文件","代维斯丹/工作台.md（本文件夹·我的一份）＋ docs/VERIFY_TASKS.md 第 2.4 节（公用一份）"],["③ 动手核验","按上方任务表逐条执行；预期值以 docs/VERIFY_MANUAL.md 对应小节为准，不凭记忆填"],["④ 记录结果","docs/VERIFY_TASKS.md 第 4 节完成记录表签名；发现问题记第 5 节问题登记表（A 级先停线报告）"],["⑤ 每周打卡","本页「📋 周卡片·打卡」按周推进；周五生成周报发导师；换电脑在「💾 数据管理」导出导入"]],"ghlinks":[["代维斯丹/工作台.md（本文件夹，我的任务/文件/记录各一份）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/代维斯丹/工作台.md"],["docs/VERIFY_TASKS.md（全队任务分派表·公用一份）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_TASKS.md"],["docs/VERIFY_MANUAL.md（核验手册 §0–§5）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_MANUAL.md"],["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/MEMBER_WORKBENCH.md"],["results/rankings/final_ranking.csv（Top-60 排名）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/results/rankings/final_ranking.csv"],["docs/03_docking_protocol.md（对接协议）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/03_docking_protocol.md"]],"team":[["王启龙","负责人·辅助/工程（A2·90文件）","王启龙/打卡.html"],["宁显泷","算法·代码验证（A1·12文件）","宁显泷/打卡.html"],["衣思淼","数据·数据线A（A3·14文件）","衣思淼/打卡.html"],["代维斯丹","验证·数据线B（A4·18文件）","代维斯丹/打卡.html"],["王散曼","文献·文献线（A5·4文件）","王散曼/打卡.html"]]
+"fullname":"代维斯丹","roleTag":"验证 · 数据线B","lineTag":"校验线：对接·指纹·图（VERIFY_TASKS 附录A·A4）","fileCount":18,"deadline":"2026-09-13（W1 周五）","duty":"证明打分与图忠实于代码输出：指纹确定性、演示对接重跑比对、四图对照 CSV、盒子参数核对","tasks":[["D1","指纹确定性 src/chem/fingerprints.py","同一分子两次调用比特位一致（§3.3）"],["D2","演示对接分重跑 mock_docking","保肝 -5.46 vs 负参照 -5.05（差 0.42）逐字节复现（§2.1 [docking]）"],["D3","四张图与 CSV 对照","top_candidates.png 顺序=前15行；可靠性图与 ECE=0.210 方向一致（§3.6）"],["D4","盒子参数核对 grid_box.py vs docs/03","FXR=1OSH、Keap1=2FLU 中心/尺寸一致（MANIFEST §3）"],["D5","演示模式局限性确认＋WP2 排期建议","03 文档含局限性声明；排期建议写入 WP2"]],"files":[["指纹（1 个）",[["src/chem/fingerprints.py","两次调用一致、置位数相同（D1）"]]],["对接代码与文档（4 个）",[["src/docking/grid_box.py","两靶点盒子中心/尺寸与 03 文档一致（D4）"],["src/docking/mock_docking.py","哈希定种子重跑逐字节一致（D2）"],["src/docking/run_vina.sh","下学期 WP2 执行；本次核脚本与协议一致（D5）"],["docs/03_docking_protocol.md","盒子参数一致；演示模式局限性已写明（D4/D5）"]]],["对接与图产物（5 个）",[["results/docking/docking_scores.csv","均值/分靶点分与文档口径一致（D2）"],["results/figures/ 4 张 png","逐图与 CSV 对照（D3）"]]],["图代码与包初始化（8 个）",[["src/viz/plots.py","画图读表口径核对（D3）"],["src/ 各级 __init__.py（7 个）","存在即可，顺带过一遍"]]]],"ops":[["① 拿到仓库","git clone https://github.com/wang13236614835-cmyk/hepato-gnn-screening.git（或 GitHub 页面绿色 Code → Download ZIP）"],["② 先读两份文件","代维斯丹/工作台.md（本文件夹·我的一份）＋ docs/VERIFY_TASKS.md 第 2.4 节（公用一份）"],["③ 动手核验","按上方任务表逐条执行；预期值以 docs/VERIFY_MANUAL.md 对应小节为准，不凭记忆填"],["④ 记录结果","docs/VERIFY_TASKS.md 第 4 节完成记录表签名；发现问题记第 5 节问题登记表（A 级先停线报告）"],["⑤ 每周打卡","本页「📋 周卡片·打卡」按周推进；周五生成周报发导师；换电脑在「💾 数据管理」导出导入"]],"ghlinks":[["代维斯丹/工作台.md（本文件夹，我的任务/文件/记录各一份）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/代维斯丹/工作台.md"],["docs/VERIFY_TASKS.md（全队任务分派表·公用一份）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_TASKS.md"],["docs/VERIFY_MANUAL.md（核验手册 §0–§5）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/VERIFY_MANUAL.md"],["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/MEMBER_WORKBENCH.md"],["results/rankings/final_ranking.csv（Top-60 排名）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/results/rankings/final_ranking.csv"],["docs/03_docking_protocol.md（对接协议）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/03_docking_protocol.md"]],"team":[["王启龙","负责人·辅助/工程（A2·90文件）","王启龙/打卡_王启龙.html"],["宁显泷","算法·代码验证（A1·12文件）","宁显泷/打卡_宁显泷.html"],["衣思淼","数据·数据线A（A3·14文件）","衣思淼/打卡_衣思淼.html"],["代维斯丹","验证·数据线B（A4·18文件）","代维斯丹/打卡_代维斯丹.html"],["王散曼","文献·文献线（A5·4文件）","王散曼/打卡_王散曼.html"]]
 
 };
 
@@ -204,8 +204,21 @@ function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").rep
 /* 路径直达链接：只链接"带目录的仓库内路径"或少数根目录文件，裸文件名不链接（防误链） */
 const ROOTFILES = new Set(["run_all.py","README.md","requirements.txt","CONTRIBUTORS.md"]);
 function linkPaths(s){
-  return esc(s).replace(/([A-Za-z0-9_\/\.\-一-鿿]+\.(?:py|md|csv|sh|json|txt|html|png|pdf))/g,
-    m => (m.includes("/")||ROOTFILES.has(m)) ? `<a class="pl" href="../${m}" title="本地打开直达（克隆/下载仓库后点击）">${m}</a>` : m);
+  let lastDir = "";
+  return esc(s).split(/(、|，|,)/).map(part=>{
+    const m = part.match(/^([A-Za-z0-9_\/\.\-一-鿿]+)\.(py|md|csv|sh|json|txt|html|png|pdf)$/);
+    if(!m){
+      const d = part.match(/^([A-Za-z0-9_\-一-鿿]+(?:\/[A-Za-z0-9_\-一-鿿]+)+\/)$/);
+      if(d) lastDir = d[1];
+      return part;
+    }
+    const tok = m[0];
+    if(tok.includes("/")){ lastDir = tok.slice(0, tok.lastIndexOf("/")+1);
+      return `<a class="pl" href="../${tok}" title="本地打开直达">${tok}</a>`; }
+    if(ROOTFILES.has(tok)) return `<a class="pl" href="../${tok}">${tok}</a>`;
+    if(lastDir) return `<a class="pl" href="../${lastDir}${tok}" title="本地打开直达">${tok}</a>`;
+    return tok;
+  }).join("");
 }
 function msDone(m){ return m.need.length>0 && m.need.every(id => S.checks[id] || S.done[id]); }
 function findTask(id){ for(const w of WEEKS){ for(const [tid,tx] of w.tasks){ if(tid===id) return {tx,week:w.no}; } } for(const m of MANUALS){ if(m.id===id) return {tx:m.text,week:m.week,manual:true}; } for(const w of WEEKS){ for(const c of w.checks){ if(c.id===id) return {tx:c.desc,week:w.no,check:true}; } } for(const r of RES){ if(r.id===id) return {tx:r.name,week:r.wk,res:true}; } return {tx:id,week:"?"}; }
@@ -246,8 +259,13 @@ function vMyWork(){
   const links = M.ghlinks.map(l=>`<div class="logline"><span class="t">${esc(l[0])}</span><a href="${l[1]}" target="_blank" rel="noopener">GitHub 上打开 ↗</a></div>`).join("");
   const team = M.team.map(t=>`<tr><td><b>${t[0]}</b></td><td>${esc(t[1])}</td><td><a class="cmd" style="text-decoration:underline;cursor:pointer" href="../${esc(t[2])}" title="本地打开（克隆/下载仓库后）点这里直达 TA 的打卡页">${esc(t[2])}</a>｜<a href="${GHREPO}/blob/main/${t[2]}" target="_blank" rel="noopener">GitHub↗</a></td></tr>`).join("");
   return `
+  <div class="card" style="border-left:4px solid var(--warn)"><h2>📍 项目坐标（先搞清现在在哪一步）</h2>
+    <div class="kv">① 暑假跑通的＝<b>演示版全流程</b>（演示对接分＋教学数据集＋numpy 版 GNN）——结果都在仓库，但还不是"真实版"。</div>
+    <div class="kv">② <b>9/20 前＝人人复核暑假结果</b>：照 ${linkPaths("docs/VERIFY_MANUAL.md")} 跑命令、对数字、在工作台签名——<b>不需要研究基础</b>，会照手册操作就行。</div>
+    <div class="kv">③ 复核完才开工<b>真实版</b>：WP2 真实对接／WP3 数据扩充／WP4 模型升级／WP5 实验衔接——每周学习线就是给各自的活铺路的。</div>
+  </div>
   <div class="card" style="border-left:4px solid var(--brand2)">
-    <h2>🧭 ${esc(M.fullname)} 的工作台（进来先看这页）</h2>
+    <h2>🧭 ${esc(M.fullname)} 的工作台</h2>
     <div class="kv" style="font-size:14px"><b>${esc(M.fullname)}</b> ｜ ${esc(M.roleTag)} ｜ <span class="tag g">${esc(M.lineTag)}</span> ｜ 名下待核文件 <b>${M.fileCount}</b> 个 ｜ 时限 <b>${esc(M.deadline)}</b></div>
     <div class="exp">职责一句话：${esc(M.duty)}</div>
   </div>
@@ -282,7 +300,7 @@ function vDash(){
     ${ms?`<h3>最近的阶段目标</h3><div class="mst ${msDone(ms)?"ok":""}"><span class="mid">${ms.id}</span>W${ms.week} ${esc(ms.name)} ${msDone(ms)?'<span class="ok-emoji">✓ 达成</span>':'<span class="count">进行中</span>'}</div>`:``}
     <div class="hint">完整内容在「周卡片·打卡」页；本页数字和仓库里的工具是同一套。</div>
   </div>
-  <div class="card"><h2>🙋 第一次用？先看这 3 步</h2><div class="item"><span class="tx">① <b>周一</b>：开组会，看"本周看板"领任务（下面"今天先做"就是第一件）</span></div><div class="item"><span class="tx">② <b>周中</b>：打开「周卡片·打卡」，照着"怎么动手"一步步做；教学视频看完就打勾</span></div><div class="item"><span class="tx">③ <b>周五</b>：跑卡片底部的检查命令，全[通过]再勾检查项 → 点"生成周报"发导师</span></div><div class="hint">看不懂的词（AUC、对接、骨架划分这些）到「📚 学习资源」页最下面有"名词小词典"。</div></div>
+  <div class="card"><h2>🙋 第一次用？三步</h2><div class="item"><span class="tx">① <b>周一</b>看板领任务 → ② <b>周中</b>照周卡片"怎么动手"做、视频看完打勾 → ③ <b>周五</b>跑检查命令，全[通过]再勾，生成周报发导师</span></div><div class="hint">看不懂的词到「学习资源」页底部查名词小词典。</div></div>
   <div class="card"><h2>⚡ 快捷动作</h2>
     <button class="act" onclick="goWeek(${w.no})">打开本周卡片打卡</button>
     <button class="act o" onclick="report(${w.no})">生成周报（自动复制，发给导师）</button>
@@ -350,14 +368,14 @@ function vWeek(n){
       <tr><td class="kv">没过怎么办</td><td>${esc(c.criteria)}</td></tr>
       <tr><td class="kv">谁来检查</td><td>${esc(c.verifier)}</td></tr>
     </table>
-    ${w.ex?`<div class="exp">练习文件：${linkPaths("learning/代维斯丹/"+w.ex.file)} ｜ 生成练习模板：<span class="cmd">python tools/semester_flow.py --member 代维斯丹 ${w.ex.gen}</span> ｜ 写完自动判分：<span class="cmd">check ${w.no}</span></div>`:''}
+    ${w.ex?`<div class="exp">练习文件：${linkPaths("learning/代维斯丹/"+w.ex.file)} ｜ 生成练习模板：<span class="cmd">python tools/semester_flow.py --member 代维斯丹 ${w.ex.gen}</span> ｜ 写完自动判分：<span class="cmd">python tools/semester_flow.py --member 代维斯丹 check ${w.no}</span></div>`:''}
     <h3>✅ 项目任务（做完就点一下打勾）</h3>${tasks}
     ${mans?`<h3>🧾 外部/手工事项（平台或线下，打卡留痕）</h3>${mans}`:''}
     <h3>🔍 本周自动检查（先跑命令，看到[通过]再勾）</h3>${checks}
     <h3>👥 组内安排</h3>${coord}
     <h3>📝 本周备注（记实测数字、遇到的问题、要交给谁）</h3>
     <textarea id="wnote" placeholder="例如：W3 RDKit重算 MW 偏差均值+18.2（三萜系统偏大），已移交衣思淼并入WP3。">${esc(S.notes[n]||"")}</textarea>
-    <div class="hint">检查命令：<span class="cmd">python tools/semester_flow.py --member 代维斯丹 check ${w.no} --deep</span>（在仓库 tools/ 文件夹里运行）。打勾记录都在「打卡台账」页。</div>
+    <div class="hint">检查命令：<span class="cmd">python tools/semester_flow.py --member 代维斯丹 check ${w.no} --deep</span>（仓库根目录运行）。打勾记录见「打卡台账」。</div>
   </div>`;
 }
 

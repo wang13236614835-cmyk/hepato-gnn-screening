@@ -40,7 +40,7 @@
 
 exe 版（PyInstaller 打包）：
   · 双击 = 本周看板（看完回车退出）；
-  · 命令行用法同上，如 `学期推进流_王启龙.exe check 1 --deep`；
+  · 命令行用法同上，如 `python tools/semester_flow.py check 1 --deep`；
   · 仓库探测：exe 所在目录 → 其上级 → 当前目录向上；也可 --repo 指定；
   · 快速核验（文件/行数/git/文本锚点）开箱即用；深度核验（run_all/
     verify45/练习运行/确定性重跑）需要本机装有 Python（自动从 PATH 找
@@ -1295,7 +1295,7 @@ def cmd_report(week_no, repo, state):
     p = repo / "learning" / CURRENT_MEMBER / f"周报_第{week_no}周_{dt.date.today():%Y%m%d}.md"
     p.parent.mkdir(parents=True, exist_ok=True)
     if CURRENT_MEMBER != "王启龙":
-        # 成员版周报：练习状态 + 勾选/补录记录（16 周卡片内容以打卡.html 为准）
+        # 成员版周报：练习状态 + 勾选/补录记录（16 周卡片内容以打卡_姓名.html 为准）
         ex = exercises().get(week_no)
         f = repo / "learning" / CURRENT_MEMBER / ex["file"] if ex else None
         flow_now = ""
@@ -1310,14 +1310,14 @@ def cmd_report(week_no, repo, state):
                 fh.write(f"- 文件: learning/{CURRENT_MEMBER}/{ex['file']}\n- 任务: {ex.get('task', '')}\n")
                 fh.write(f"- 过关契约: [FLOW] {ex['flow']}\n- 当前状态: {'已创建' if f and f.exists() else '未创建（scaffold 生成）'}｜{flow_now or '未实现'}\n")
             else:
-                fh.write("- 本周无代码练习（按打卡.html 周卡片执行）\n")
+                fh.write("- 本周无代码练习（按打卡_姓名.html 周卡片执行）\n")
             fh.write("\n## 已勾选任务（done）\n\n")
             for k, v in sorted(state.get("done", {}).items()):
                 fh.write(f"- [x] {k}（{v[:16]}）\n")
             fh.write("\n## 核验/补录记录（check/record）\n\n")
             for cid, r in sorted(state.get("records", {}).items()):
                 fh.write(f"- {r['verdict']} {cid}｜{r['ts'][:16]}｜{r['observed']}\n")
-            fh.write("\n（完整周卡片任务/视频/检查项见本人打卡.html；数字锚定仓库存档文件）\n")
+            fh.write("\n（完整周卡片任务/视频/检查项见本人打卡_姓名.html；数字锚定仓库存档文件）\n")
         print(f"周报已生成: {p}")
         return
     w = WEEKS[week_no - 1]
@@ -1355,7 +1355,7 @@ def member_dashboard(repo, state):
     print(f"成员模式 · {CURRENT_MEMBER}（{MEMBER_ROLE[CURRENT_MEMBER]}）")
     print(f"状态文件: learning/{CURRENT_MEMBER}/flow_state.json")
     print("─" * 66)
-    print("16 周卡片/任务/视频/打卡 → 你的 打卡.html（克隆仓库后本地浏览器打开）")
+    print("16 周卡片/任务/视频/打卡 → 你的 打卡_姓名.html（克隆仓库后本地浏览器打开）")
     print("本工具管：练习骨架 scaffold N ｜ 练习核验 check N ｜ 勾选 done/undo")
     print("          ｜ 手工补录 record ｜ 台账 ledger ｜ 周报 report N")
     print("═" * 66)
@@ -1431,7 +1431,7 @@ def main():
         if is_member:
             ex = exercises().get(args.n)
             if not ex:
-                sys.exit(f"第 {args.n} 周无成员练习（16 周完整卡片见你的 打卡.html）")
+                sys.exit(f"第 {args.n} 周无成员练习（16 周完整卡片见你的 打卡_姓名.html）")
             print(f"第 {args.n} 周练习 · learning/{CURRENT_MEMBER}/{ex['file']}")
             print(f"任务: {ex.get('task', '')}")
             print(f"契约: [FLOW] {ex['flow']}")
@@ -1446,7 +1446,7 @@ def main():
         member_dashboard(repo, state) if is_member else cmd_milestones(repo, state)
     elif cmd == "check":
         if is_member:
-            print("成员模式：只核验你的学习练习 [FLOW] 契约（项目任务/文件核验按打卡.html 与 VERIFY_TASKS 执行）")
+            print("成员模式：只核验你的学习练习 [FLOW] 契约（项目任务/文件核验按打卡_姓名.html 与 VERIFY_TASKS 执行）")
         if args.n is None:
             weeks = {max(1, min(N_WEEKS, week_of_today()))}
         elif args.n == "all":
@@ -1497,9 +1497,8 @@ def main():
 
     if is_frozen() and len(sys.argv) == 1:
         try:
-            input("\n（exe 直接运行：看完板后回车退出。命令用法：在 cmd 中进入 tools/ 后运行 "
-                  "学期推进流_王启龙.exe plan / check / week N；成员：加 --member 姓名，"
-                  "如 学期推进流_王启龙.exe --member 宁显泷 dashboard）")
+            input("\n（打包版直接运行：看完板后回车退出。日常请用 python tools/semester_flow.py "
+                  "[--member 姓名] 子命令；成员用法如：python tools/semester_flow.py --member 宁显泷）")
         except EOFError:
             pass
 

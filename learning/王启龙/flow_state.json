@@ -4,22 +4,22 @@
     "C1-01": {
       "verdict": "PASS",
       "observed": "5 项全部存在",
-      "ts": "2026-09-03 13:49:03"
+      "ts": "2026-09-03 16:44:14"
     },
     "C1-02": {
       "verdict": "PASS",
-      "observed": "提交数=41 ≥ 12",
-      "ts": "2026-09-03 13:49:03"
+      "observed": "提交数=42 ≥ 12",
+      "ts": "2026-09-03 16:44:14"
     },
     "C1-03": {
       "verdict": "PASS",
       "observed": "8 个CSV行数全部与基线一致",
-      "ts": "2026-09-03 13:49:03"
+      "ts": "2026-09-03 16:44:14"
     },
     "C1-04": {
       "verdict": "PASS",
       "observed": "[FLOW] env=ok python=3.12.0 numpy=1.26.4 rdkit=ok torch=ok pyg=ok vina=MISSING",
-      "ts": "2026-09-03 13:49:09"
+      "ts": "2026-09-03 16:44:20"
     },
     "C1-05": {
       "verdict": "PASS",
