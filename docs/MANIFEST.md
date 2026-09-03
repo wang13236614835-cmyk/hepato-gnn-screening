@@ -125,15 +125,19 @@ md 与 待核文件/ 快照副本**不参与镜像**，它们是个人份而非�
 `reports/pdf_build/md2pdf.py` 一键再生成。md 为源文件、PDF 为
 阅读/打印版；修改 md 后重跑转换器即可同步。
 
-## 11. 工具层 tools/ 与学习档案 learning/王启龙/
+## 11. 工具层 tools/ 与学习档案 learning/（按人五份）
 
 | 文件 | 负责人 | 内容 | 核验方法 |
 |---|---|---|---|
-| tools/semester_flow.py | 王启龙 | 学期学习推进流工具（负责人版）：内置16周三线程序（AIDD学习×WP推进×重头校验），按日期定位周次、任务勾选、自动核验引擎（真实执行 run_all.py/verify.py/git/CSV行数比对存档基线）、练习骨架生成（[FLOW]契约）、台账与周报 | 运行 `python tools/semester_flow.py check 1 --deep`：预期 C1-01~05 全部[通过]（12条关键行逐字一致）；预期值来源均标注于各检查项 source 字段 |
+| tools/semester_flow.py | 王启龙 | 学期学习推进流工具（全员版 v1.1）：负责人默认完整三线（AIDD学习×WP推进×重头校验）；`--member 姓名` 成员模式（各自练习契约 scaffold/check、独立状态文件、成员周报/台账）；按日期定位周次、任务勾选、自动核验引擎（真实执行 run_all.py/verify.py/git/CSV行数比对存档基线）、[FLOW]契约判定、台账与周报 | 负责人：`python tools/semester_flow.py check 1 --deep` 预期 C1-01~05 全[通过]；成员：`python tools/semester_flow.py --member 宁显泷 dashboard` 列出该人练习与状态 |
 | tools/snapshot_member_files.py | 王启龙 | 个人待核文件快照生成器：按 VERIFY_TASKS 附录A 映射把每人名下文件复制到 `<姓名>/待核文件/`（按原目录结构），生成快照清单.md（来源/大小/md5/生成时 git 版本；大件豁免标注原因）；附录A 变更后重跑同步 | 重跑后各人待核文件数与附录A 一致（12/14/18/4/32）；清单 md5 与根目录原件一致；五人文件夹内无清单之外的多余文件 |
 | learning/王启龙/flow_state.json | 王启龙 | 推进流工具状态（任务勾选/核验记录，含时间戳） | 由工具自管；ledger 命令可回放全部记录 |
 | learning/王启龙/week01_exercise.py | 王启龙 | W1 环境自检练习（工具 scaffold 1 生成，开箱即用） | 运行输出 [FLOW] env=ok ... |
-| learning/王启龙/weekNN_*.py/md | 王启龙 | 各周学习练习（scaffold N 生成骨架后按验证卡实现） | `check N` 机器判定 [FLOW] 契约行；每项预期值锚定存档文件 |
+| learning/王启龙/weekNN_*.py/md | 王启龙 | 负责人各周学习练习（scaffold N 生成骨架后按验证卡实现；W1完整+W2注释表+W3起骨架共13个练习文件+周报） | `check N` 机器判定 [FLOW] 契约行；每项预期值锚定存档文件 |
+| learning/宁显泷/（10 文件） | 宁显泷 | 模型线学习练习骨架 W2/3/4/5/6/8/9/10/11（backprop手算/PyG转换/numpy图卷积/GCN-GIN对比/torch演练/MC Dropout/校准/HPO/解释器）+ flow_state.json | `python tools/semester_flow.py --member 宁显泷 check N` 判定 [FLOW]；文件头注释含任务/契约/依赖 |
+| learning/衣思淼/（7 文件） | 衣思淼 | 数据线学习练习骨架 W2/4/7/8/10/12（RDKit重算/查重/bootstrap/切分AD/全库体检/权重敏感性）+ flow_state.json | 同上 `--member 衣思淼 check N` |
+| learning/代维斯丹/（4 文件） | 代维斯丹 | 对接线学习练习骨架 W3(bash重对接)/W7(基准重跑)/W8(可靠性重算) + flow_state.json | 同上 `--member 代维斯丹 check N`；W3 为 bash 在服务器跑，本机 check 会提示 record 补录 |
+| learning/王散曼/（2 文件） | 王散曼 | 文献线学习练习骨架 W5（大模型辅助文献闭环 md 表）+ flow_state.json | 同上 `--member 王散曼 check 5`（md 内 [FLOW] 行判定） |
 
 | 学期推进流_王启龙.exe | 王启龙 | 学期推进流工具的 Windows 独立运行版（PyInstaller 单文件，双击=本周看板） | 双击显示看板；命令行 check/plan/week 等用法见 tools/使用说明_学期推进流exe.md |
 | 使用说明_学期推进流exe.md | 王启龙 | exe 用法/放置/核验口径/重打包命令 | 与 semester_flow.py 文档头一致 |
@@ -146,6 +150,7 @@ md 与 待核文件/ 快照副本**不参与镜像**，它们是个人份而非�
 | 学期推进流五页 v3（我的工作台版） | 王启龙 | 首屏默认「🧭 我的工作台」：身份卡＋任务表（与VERIFY_TASKS同源）＋文件清单（附录A）＋五步操作＋GitHub直链＋全队入口；生成器注入，页面在各成员文件夹 | 默认页姓名正确；任务数6/6/5/4/5、文件数12/90/14/18/4与公用表一致；改公用表须再生 |
 | 学期推进流五页 v4（学习指南融入版） | 王启龙 | 两篇微信文章落地：证据链卡（五对象×本项目实例）、100天10阶段地图、延伸资源与6新词条、AIDD学习日志（起点自评/目标/担心问题，独立localStorage）、页脚铁律 | 资源页含证据链卡与100天地图；学习日志刷新后保持；五页一致 |
 | 学期推进流五页 v5（权威来源纪律版） | 王启龙 | 老师要求落地：权威库白名单组名＋「权威来源纪律」卡（六类信息×只认库名×入库三要素＋四条硬规则）＋页脚第二条；配套WP3来源纪律节、VERIFY_TASKS纪律声明 | 资源页含纪律卡；WP3验收第1条含三要素；五页一致 |
+| 学期推进流五页 v6（全员互跳完善版） | 王启龙 | ①「全队入口」表改为真实可点链接（本地 ../<姓名>/打卡.html 直达 + GitHub↗ 双链），修正"tools/ 目录"错误文案；②五页同步新增 noscript 降级提示（GitHub 网页端只显源码的说明）；③成员页"阶段目标"标题按里程碑数动态显示；④打勾确认弹窗文案五页统一（含任务原文）；⑤成员周卡片显示"练习文件｜生成练习模板"行（ex 数据与 semester_flow --member 同源）；⑥成员补课资源组（wk:0 生信五条）对齐负责人页；⑦资源组③复旦课程/书籍/B站指北补检索直达链接 | 本地双击任一打卡页：「全队入口」行可跳其他四人页面；禁 JS 时显示打开指引；成员页总览标题=其里程碑数；`python tools/gen_member_pages.py` 五页同步再生 |
 
 ## 12. 成员工作区（一级按人，仓库根目录五个全名文件夹）
 

@@ -62,9 +62,24 @@ from pathlib import Path
 
 SEMESTER_START = dt.date(2026, 9, 7)   # 开学周一（校历变动时改这一处）
 N_WEEKS = 16
-TOOL_VERSION = "1.0"
-STATE_RELPATH = Path("learning") / "王启龙" / "flow_state.json"
-LEDGER_RELPATH = Path("learning") / "王启龙" / "VERIFY_LEDGER.md"
+TOOL_VERSION = "1.1"
+
+# ---------------------------------------------------------------- 成员（--member）
+# 全员 5 人：负责人版=完整三线数据（WEEKS/CHECKS/MILESTONES）；
+# 成员版=各自练习契约（EXERCISES_BY_MEMBER）＋独立状态文件＋scaffold/check/report/ledger。
+MEMBERS = ["王启龙", "宁显泷", "衣思淼", "代维斯丹", "王散曼"]
+MEMBER_PREFIX = {"王启龙": "", "宁显泷": "N", "衣思淼": "Y", "代维斯丹": "D", "王散曼": "S"}  # 打卡页检查项前缀
+MEMBER_ROLE = {"王启龙": "负责人·工程支撑", "宁显泷": "算法·模型线", "衣思淼": "数据·数据线A",
+               "代维斯丹": "验证·数据线B（对接）", "王散曼": "文献·文献线"}
+CURRENT_MEMBER = "王启龙"   # main() 里由 --member 覆盖；下方所有路径经由它取当前成员
+
+
+def state_relpath(member=None):
+    return Path("learning") / (member or CURRENT_MEMBER) / "flow_state.json"
+
+
+def ledger_relpath(member=None):
+    return Path("learning") / (member or CURRENT_MEMBER) / "VERIFY_LEDGER.md"
 
 # 编码策略（防乱码）：
 # · 直接在 cmd/PowerShell 窗口运行时（isatty），不强制改编码——Python 会用
@@ -301,6 +316,8 @@ MANUALS = [
 EXERCISES = {
     1: dict(file="week01_exercise.py", needs="标准库", flow="env=ok python={x} numpy={x} rdkit={ok} torch={ok} pyg={ok} vina={ok}",
             preds=[("env", "==", "ok")]),
+    2: dict(file="week02_notes.md", needs="人工整理", flow=None, preds=[], md=True,
+            task="45 项检查注释表：verify.py 每项断言对应哪个文件、对的是什么数字"),
     3: dict(file="week03_rdkit_recalc.py", needs="rdkit", flow="rows=100 parse_fail=0 mw_dev={f} logp_dev={f}",
             preds=[("rows", "==", "100"), ("parse_fail", "==", "0")]),
     4: dict(file="week04_pubchem_fetch.py", needs="网络+标准库", flow="rows=12 nv011=hit inchikey_dup=0 hit_rate={f}",
@@ -320,6 +337,8 @@ EXERCISES = {
     12: dict(file="week12_lit_llm_assist.md", needs="人工闭环", flow="closed=10/10 pmid=10 llm_hit_rate={f}",
             preds=[("closed", "==", "10/10"), ("pmid", "==", "10")], md=True),
     13: dict(file="week13_notes.md", needs="无", flow=None, preds=[], md=True, min_chars=400),
+    14: dict(file="week14_drill_report.md", needs="人工演练", flow=None, preds=[], md=True,
+            task="第三方空白环境复现演练报告：耗时/卡点/修复状态/结论"),
 }
 
 # 练习骨架的 TODO 说明（scaffold 用）
@@ -354,6 +373,174 @@ SCAFFOLD_TODO = {
          ("dist", "质心 vs grid_box.py中心([15.2,3.8,24.5]/[-11.5,20.4,-6.2])欧氏距离"),
          ("admet_side", "60候选Lipinski违规清单与数据字典已知偏差对照（重点三萜类）")],
 }
+
+# ---------------------------------------------------------------- 成员练习契约
+# 与 tools/gen_member_pages.py 的 EX 登记及各成员打卡页周卡片同源；
+# 过关标准（flow/preds）逐条取自打卡页"过关标准"栏，不新设标准。
+
+EXERCISES_NXL = {  # 宁显泷（管模型）
+    2: dict(file="week02_backprop.py", needs="torch",
+            task="2层小网络：纸上手算梯度 vs PyTorch autograd 自动算，逐位对比",
+            flow="max_delta={f} lt_1e_6={bool}", preds=[("lt_1e_6", "==", "True")]),
+    3: dict(file="week03_pyg_convert.py", needs="torch+torch_geometric+仓库src",
+            task="暑假手写分子图 ↔ PyG Data 往返翻译，5 个分子零差异（邻接+13维特征）",
+            flow="match=5/5 adj_ok=5/5 feat_ok=5/5",
+            preds=[("match", "==", "5/5"), ("adj_ok", "==", "5/5"), ("feat_ok", "==", "5/5")]),
+    4: dict(file="week04_gcn_numpy.py", needs="numpy",
+            task="纯 numpy 徒手一层图卷积（对称归一化），与公式硬算对答案",
+            flow="shape_ok={bool} coef_sum={f} eq_formula={bool}",
+            preds=[("shape_ok", "==", "True"), ("eq_formula", "==", "True")]),
+    5: dict(file="week05_gcn_vs_gin.py", needs="torch+torch_geometric",
+            task="同一份数据 GCN式 vs 求和式(GIN) 各训一次小模型：两条曲线+考试分如实记（学习实验不预设谁赢）",
+            flow="curves=2 auc_gcn={f} auc_gin={f} recorded=True",
+            preds=[("curves", "==", "2"), ("recorded", "==", "True")]),
+    6: dict(file="week06_torch_trial.py", needs="torch+torch_geometric",
+            task="新框架完整训练暑假模型（演练允许差距）：指标对照表＋结构/参数/代码三方面差距清单",
+            flow="table_rows={n} gap_list={n} recorded=True", preds=[("recorded", "==", "True")]),
+    8: dict(file="week08_mc_dropout.py", needs="torch",
+            task="新框架 MC Dropout 连答30遍：ρ（方差-|误差|排序相关）实测＋可靠性图入库（图内英文）",
+            flow="rho={f} ge_057={bool} fig_saved=True",
+            preds=[("ge_057", "==", "True"), ("fig_saved", "==", "True")]),
+    9: dict(file="week09_calibration.py", needs="torch",
+            task="验证集温度 T 网格搜索最优点：ECE<0.10 且 ρ≥0.6 两条同时过",
+            flow="T={f} ece={f} rho={f} pass_ece={bool} pass_rho={bool}",
+            preds=[("pass_ece", "==", "True"), ("pass_rho", "==", "True")]),
+    10: dict(file="week10_hpo.py", needs="torch(建议服务器)",
+             task="27 种参数组合 × 5 折交叉验证：结果表 135 行＋汇总行入库",
+             flow="rows=135 summary=1", preds=[("rows", "==", "135")]),
+    11: dict(file="week11_explainer.py", needs="torch+torch_geometric",
+             task="GNNExplainer 对前 10 名候选标最看重原子；季铵氮方向与旧课题模块G对照（新分子如实记）",
+             flow="top10=10 first_atom_table=True direction_note=True", preds=[("top10", "==", "10")]),
+}
+
+EXERCISES_YSM = {  # 衣思淼（数据线A）
+    2: dict(file="week02_rdkit_recalc.py", needs="rdkit",
+            task="100 个分子 5 性质 RDKit 重算 vs 暑假表：0 失败＋差距表＋3 句话规律",
+            flow="rows=100 parse_fail=0", preds=[("rows", "==", "100"), ("parse_fail", "==", "0")]),
+    4: dict(file="week04_dedup.py", needs="网络+rdkit",
+            task="全部分子配标准 SMILES＋InChIKey 并查重；重复处置有规则（优先正式来源）并留清单",
+            flow="inchikey_dup=0 rule_written=True", preds=[("inchikey_dup", "==", "0")]),
+    7: dict(file="week07_bootstrap.py", needs="numpy(建议服务器)",
+            task="bootstrap 反复抽样给考试分数配 95% 可信区间；数据≥1000、考试集≥150、区间较暑假更窄",
+            flow="ge1000=True test_ge150=True ci95=True",
+            preds=[("ge1000", "==", "True"), ("test_ge150", "==", "True")]),
+    8: dict(file="week08_split_ad.py", needs="rdkit+numpy",
+            task="新数据重新骨架切分自查零泄漏；陌生结构判定线新旧两版对比如实记",
+            flow="leak=0 compared=True", preds=[("leak", "==", "0")]),
+    10: dict(file="week10_audit.py", needs="标准库",
+             task="全库体检脚本：空值/单位错/极端值/来源分布扫描，问题分级全处置（零未处置）",
+             flow="issues={n} unresolved=0", preds=[("unresolved", "==", "0")]),
+    12: dict(file="week12_sensitivity.py", needs="标准库",
+             task="三个融合权重各±0.05 微调实验：前 10 名变化逐条解释（大变=偏科风险，如实记）",
+             flow="combos={n} changes={n} all_explained=True", preds=[("all_explained", "==", "True")]),
+}
+
+EXERCISES_DWS = {  # 代维斯丹（数据线B·对接）
+    3: dict(file="week03_redock.sh", needs="服务器 Vina/obabel", sh=True,
+            task="两蛋白去水加氢＋原配体取重塞回（重对接）：偏移各<2埃，排查过程留痕",
+            flow="fxr_rmsd={f} keap1_rmsd={f} both_lt2={bool}", preds=[("both_lt2", "==", "True")]),
+    7: dict(file="week07_baselines.py", needs="sklearn",
+            task="新数据重跑朴素贝叶斯＋逻辑回归两个参照模型，对照表入库（旧分数列保留，README 同步）",
+            flow="nb_auc={f} lr_auc={f} table_updated=True", preds=[("table_updated", "==", "True")]),
+    8: dict(file="week08_reliability.py", needs="numpy",
+            task="自写一版 ECE/覆盖率重算，与存档对账（浮点误差内一致）＋分箱边界规则写清楚",
+            flow="ece_match=True cov_match=True binning_note=True",
+            preds=[("ece_match", "==", "True"), ("cov_match", "==", "True")]),
+}
+
+EXERCISES_WSM = {  # 王散曼（文献线）
+    5: dict(file="week05_llm_assist.md", needs="人工闭环", md=True,
+            task="10 条重要文献闭环：大模型出检索词 → PubMed 人核 → 拿 PMID；命中率与编造案例如实记",
+            flow="closed=10/10 pmid=10 llm_hit_rate={f}",
+            preds=[("closed", "==", "10/10"), ("pmid", "==", "10")]),
+}
+
+EXERCISES_BY_MEMBER = {"王启龙": EXERCISES, "宁显泷": EXERCISES_NXL, "衣思淼": EXERCISES_YSM,
+                       "代维斯丹": EXERCISES_DWS, "王散曼": EXERCISES_WSM}
+
+SCAFFOLD_TODO_BY_MEMBER = {
+    "宁显泷": {
+        2: [("build_net", "定义2层小网络(如2-3-1)与小批量输入，权重手动设成简单数"),
+            ("hand_grad", "按链式法则在纸上/注释里手算各参数梯度，代码里填入手算值数组"),
+            ("auto_grad", "PyTorch autograd 反向传播自动梯度同输入计算"),
+            ("compare", "max_delta=两者最大绝对差；lt_1e_6=max_delta<1e-6")],
+        3: [("pick_cases", "取5个测试SMILES（含VERIFY_MANUAL §3.1最小用例）"),
+            ("to_pyg", "用src/chem/smiles_graph.py产出 → 组装PyG Data(edge_index+13维节点特征)"),
+            ("back_numpy", "PyG Data还原numpy邻接与特征"),
+            ("verify", "往返逐位比对：match/adj_ok/feat_ok各5/5")],
+        4: [("build_adj", "构造小图邻接矩阵A(含自环)与度矩阵D"),
+            ("gcn_layer", "numpy实现 H'=D^-0.5·(A+I)·D^-0.5·H·W（对称归一化）"),
+            ("formula", "同一公式硬算一遍（循环逐元素）对照"),
+            ("check", "shape_ok=输出形状正确；coef_sum=归一化系数和；eq_formula=两版一致")],
+        5: [("load_data", "读splits/三表与特征(与暑假口径一致，seed=42)"),
+            ("train_gcn", "GCN式(GCNConv或自实现)训练并记录学习曲线"),
+            ("train_sum", "求和式(GIN/SumAggregate)同数据训练记录曲线"),
+            ("record", "auc_gcn/auc_gin如实打印；curves=2；只记录不下结论")],
+        6: [("full_train", "PyG完整复刻暑假训练流程(88条，固定种子)"),
+            ("metrics", "AUC/ACC/BACC/F1/ECE/ρ主要项与results/metrics基线对照表"),
+            ("gaps", "差距清单：结构/参数/代码三方面各至少1条"),
+            ("record", "table_rows/gap_list条目数；recorded=True")],
+        8: [("mc_infer", "MC Dropout连答30遍(T=30，与暑假口径一致)收集预测"),
+            ("rho", "方差-|误差|Spearman ρ计算"),
+            ("figure", "可靠性图(英文标签)存learning/宁显泷/"),
+            ("check", "ge_057=ρ>=0.57(暑假0.718八成)；fig_saved=True")],
+        9: [("split_val", "验证集划分与已训练模型加载(口径同week08)"),
+            ("grid_T", "T∈[0.5,3.0]步长0.1网格搜最小NLL"),
+            ("ece_rho", "校准前后ECE+校准后ρ"),
+            ("check", "pass_ece=ece_after<0.10；pass_rho=rho>=0.6")],
+        10: [("grid", "27组合(隐藏维×层数×dropout等3×3×3)×5折"),
+             ("run", "逐组合训练评估(建议服务器)，结果追加CSV"),
+             ("summary", "汇总最优组合与各折均值行"),
+             ("check", "rows=135(数据行)；summary=1")],
+        11: [("load_model", "载入正式版模型与Top-10候选"),
+             ("explain", "GNNExplainer(或注意力权重替代)得各原子重要性"),
+             ("table", "前10名'最看重原子'表(名称/原子序号/是否季铵氮)"),
+             ("note", "direction_note=与旧课题模块G季铵氮结论方向对照说明")],
+    },
+    "衣思淼": {
+        2: [("load_data", "读processed/cleaned_compounds.csv(88)+screening_pool.csv(12)"),
+            ("rdkit_recalc", "RDKit重算 MW/LogP/TPSA/HBD/HBA；解析失败计数(预期0)"),
+            ("deviation", "各描述符Δ统计表＋3句规律(三萜体重方向等)"),
+            ("handoff", "差距结论写进数据字典'已知偏差'节")],
+        4: [("fetch", "PUG-REST批量取CanonicalSMILES+InChIKey，status记成功/失败原因"),
+            ("dedup", "InChIKey重复检测与处置(优先正式来源，留清单)"),
+            ("rule", "去重规则文字化(rule_written)"),
+            ("check", "inchikey_dup=0")],
+        7: [("bootstrap", "测试指标AUC等B=1000次重抽样95%CI"),
+            ("scale_gate", "数据行数与考试集行数门槛判定"),
+            ("compare", "CI宽度与暑假版对比"),
+            ("check", "ge1000/test_ge150/ci95")],
+        8: [("scaffold_split", "新数据骨架分组切分(口径同src/data/split.py,seed=42)"),
+            ("leak_audit", "任一骨架跨train/val/test即泄漏，计数leak"),
+            ("ad_compare", "陌生结构判定线旧(h*)vs新算法对比表"),
+            ("check", "leak=0；compared=True")],
+        10: [("scan", "全库逐列扫：空值/单位异常/极端值/来源分布"),
+             ("grade", "问题分级：错误/口径说明/笔误"),
+             ("dispose", "逐条处置(修或标注)，unresolved计数"),
+             ("check", "unresolved=0")],
+        12: [("perturb", "三权重0.45/0.35/0.20各±0.05重算final_score"),
+             ("rank_shift", "各组合Top-10与基线对比，变化逐条记录"),
+             ("explain", "每条变化解释(偏科/域外系数影响)"),
+             ("check", "combos/changes条数；all_explained=True")],
+    },
+    "代维斯丹": {
+        3: None,   # bash 脚本：骨架按注释步骤在服务器实现
+        7: [("load_new", "读新数据splits(扩库后)与特征管线"),
+            ("rerun", "sklearn重跑GNB(描述符)+LR(2048bit指纹)两参照"),
+            ("table", "新旧分数同表入库(nb_auc/lr_auc)，README指标表同步"),
+            ("check", "table_updated=True")],
+        8: [("load_pred", "读results/predictions/test_predictions.csv与mean/var"),
+            ("ece", "自写分箱ECE(写清左闭右开边界)与存档0.210对账"),
+            ("coverage", "覆盖率曲线重算对账"),
+            ("check", "ece_match/cov_match；binning_note=True")],
+    },
+    "王散曼": {},
+}
+
+
+def exercises(member=None):
+    """当前成员（或指定成员）的练习契约表。"""
+    return EXERCISES_BY_MEMBER[member or CURRENT_MEMBER]
 
 MILESTONES = [
     dict(id="M1", week=2, name="基线固化 v1.0-summer（45项校验全过+标签）", checks=["C2-01", "C2-02"]),
@@ -569,10 +756,10 @@ def week_of_today():
 
 def load_state(repo):
     if repo:
-        f = repo / STATE_RELPATH
+        f = repo / state_relpath()
     else:
         base = Path(sys.executable).resolve().parent if is_frozen() else Path(__file__).resolve().parent
-        f = base / "semester_flow_state.json"
+        f = base / f"semester_flow_state_{CURRENT_MEMBER}.json"
     if f.exists():
         try:
             return json.loads(read_text(f)), f
@@ -734,10 +921,10 @@ def run_check(ck, repo, deep=False):
         return dict(verdict="FAIL", observed=f"{tag}不一致文件: {diff}")
 
     if k == "learning_flow":
-        ex = EXERCISES[p["week"]]
-        f = repo / "learning" / "王启龙" / ex["file"]
+        ex = exercises()[p["week"]]
+        f = repo / "learning" / CURRENT_MEMBER / ex["file"]
         if not f.exists():
-            return dict(verdict="FAIL", observed=f"{tag}练习未创建：learning/王启龙/{ex['file']}（可先 scaffold {p['week']} 生成骨架）")
+            return dict(verdict="FAIL", observed=f"{tag}练习未创建：learning/{CURRENT_MEMBER}/{ex['file']}（可先 scaffold {p['week']} 生成骨架）")
         if ex.get("md"):
             # 笔记类：文本内找 [FLOW] 行
             m = re.search(r"\[FLOW\]\s*(.+)", read_text(f))
@@ -747,13 +934,24 @@ def run_check(ck, repo, deep=False):
                 return dict(verdict="FAIL", observed=f"{tag}笔记缺 [FLOW] 契约行（文末手填）")
             ok, why = _pred_ok(ex["preds"], m.group(1))
             return dict(verdict="PASS" if ok else "FAIL", observed=f"{tag}[FLOW] {m.group(1)}" + ("" if ok else f" → {why}"))
+        if ex.get("sh"):
+            # bash 脚本类（服务器练习）：本机有 bash 就跑，没有则 SKIP 提示 record 补录
+            rc, out = sh(["bash", str(f)], cwd=repo, timeout=1800)
+            if rc == 127 or "命令不存在" in out:
+                return dict(verdict="SKIP", observed=f"{tag}本机无 bash（Windows）：到服务器跑通后 record {p['id']} pass '服务器实测值'")
+            m = re.search(r"\[FLOW\]\s*(.+)", out)
+            if rc != 0 or not m:
+                tail = " | ".join(out.strip().splitlines()[-3:])[:200]
+                return dict(verdict="FAIL", observed=f"{tag}练习未完成或未输出契约行（rc={rc}）: {tail}")
+            ok, why = _pred_ok(ex["preds"], m.group(1))
+            return dict(verdict="PASS" if ok else "FAIL", observed=f"{tag}[FLOW] {m.group(1)}" + ("" if ok else f" → {why}"))
         py = python_exe()
         if not py:
             return dict(verdict="SKIP", observed="exe 模式未找到本机 Python：练习需 Python 运行（快速核验不受影响）")
         rc, out = sh(py + [str(f)], cwd=repo, timeout=900)
         m = re.search(r"\[FLOW\]\s*(.+)", out)
         if "ModuleNotFoundError" in out or "ImportError" in out:
-            return dict(verdict="SKIP", observed=f"{tag}本地缺依赖（{ex['needs']}）→ 到服务器跑通后：record {flow_id(p['week'])} pass '服务器实测值'")
+            return dict(verdict="SKIP", observed=f"{tag}本地缺依赖（{ex['needs']}）→ 到服务器跑通后：record {p['id']} pass '服务器实测值'")
         if rc != 0 or not m:
             tail = " | ".join(out.strip().splitlines()[-3:])[:200]
             return dict(verdict="FAIL", observed=f"{tag}练习未完成或未输出契约行（rc={rc}）: {tail}")
@@ -783,9 +981,20 @@ def flow_id(week):
 VERDICT_TAG = {"PASS": "[通过]", "FAIL": "[不符]", "SKIP": "[跳过]"}
 
 
+def member_check_defs(member):
+    """成员模式的检查集：只含各自练习的 [FLOW] 判定（编号与打卡页检查项同前缀）。
+    项目任务/文件核验在成员打卡页与 docs/VERIFY_TASKS.md，不在本工具重复。"""
+    pfx = MEMBER_PREFIX[member]
+    return [dict(id=f"{pfx}-C{w}-01", week=w, kind="learning_flow", target=True,
+                 desc=f"W{w} 学习练习 {exercises(member)[w]['file']}",
+                 source="成员打卡页·本周自动检查（过关标准与页面一致）",
+                 params={"week": w}) for w in sorted(exercises(member))]
+
+
 def eval_checks(repo, weeks=None, deep=False, state=None):
     out = []
-    for ck in CHECKS:
+    pool = CHECKS if CURRENT_MEMBER == "王启龙" else member_check_defs(CURRENT_MEMBER)
+    for ck in pool:
         if weeks and ck["week"] not in weeks:
             continue
         r = run_check(ck, repo, deep=deep)
@@ -817,18 +1026,20 @@ def print_check_results(results):
 # ---------------------------------------------------------------- 骨架生成
 
 def gen_scaffold(week, repo):
-    ex = EXERCISES.get(week)
+    ex = exercises().get(week)
     if not ex:
         print(f"第 {week} 周无练习骨架（该周为文档/工程类任务）")
         return
     w = WEEKS[week - 1]
-    f = repo / "learning" / "王启龙" / ex["file"]
+    task_txt = ex.get("task") or w["card"]["task"]
+    f = repo / "learning" / CURRENT_MEMBER / ex["file"]
     if f.exists():
         print(f"已存在: {f}（如需重新生成请先删除）")
         return
     f.parent.mkdir(parents=True, exist_ok=True)
+    member_cmd = "" if CURRENT_MEMBER == "王启龙" else f" --member {CURRENT_MEMBER}"
 
-    if week == 1:  # W1 骨架即完整可用实现
+    if CURRENT_MEMBER == "王启龙" and week == 1:  # W1 骨架即完整可用实现
         code = '''# -*- coding: utf-8 -*-
 # W1 学习验证卡 · 环境自检（本骨架开箱即用，本地与服务器各跑一遍）
 # 预期: [FLOW] env=ok ... 零 ImportError（来源: docs/00_environment.md §1/§2）
@@ -850,34 +1061,64 @@ print("[FLOW] env=" + env_ok + " python=" + sys.version.split()[0] +
       " vina=" + ("ok" if vers["vina"] != "MISSING" else "MISSING"))
 '''
         f.write_text(code, encoding="utf-8")
+    elif ex.get("sh"):
+        code = f'''#!/usr/bin/env bash
+# 第 {week} 周 学习练习骨架 · 由 semester_flow.py scaffold {week} 生成（{CURRENT_MEMBER}）
+# 任务: {task_txt}
+# 预期契约: [FLOW] {ex['flow']}
+#           判定: {ex['preds']}
+# 依赖: {ex['needs']}（服务器运行；跑通后本机可 check {week} 或 record 补录）
+# 完成后核验: python tools/semester_flow.py{member_cmd} check {week}
+set -euo pipefail
+# TODO 1: 两个蛋白结构处理（去水、加氢、转 pdbqt）——盒子中心用 src/docking/grid_box.py，勿手改
+# TODO 2: 抽出 1OSH / 2FLU 各自的原配体（保留原始坐标作参照）
+# TODO 3: Vina 重对接（同盒子同种子，exh=16）
+# TODO 4: 对接口袋构象 vs 原配体 计算 RMSD（fxr_rmsd / keap1_rmsd）
+# TODO 5: both_lt2=两个 RMSD 都 <2 才为 True；≥2 按 WP2 排查清单记录过程
+echo "[FLOW] 未完成：先实现上方 TODO（实测值禁止手填）"; exit 1
+# 实现后把上一行替换为:
+# echo "[FLOW] fxr_rmsd=<实测> keap1_rmsd=<实测> both_lt2=<True|False>"
+'''
+        f.write_text(code, encoding="utf-8")
     elif ex.get("md"):
-        body = f"# 第 {week} 周 · {w['card']['task']}\n\n"
-        if week == 12:
+        body = f"# 第 {week} 周 · {task_txt}\n\n（成员：{CURRENT_MEMBER}｜生成：scaffold {week}）\n\n"
+        if (CURRENT_MEMBER == "王启龙" and week == 2):
+            body += ("verify.py 的 45 项检查注释表：每项断言对应哪个文件、对的是什么数字。\n\n"
+                     "| # | 断言内容 | 对的文件 | 对的数字 |\n|---|---|---|---|\n" +
+                     "| 1 | | | |\n" * 45 +
+                     "\n凑满 45 行后本练习即完成（C2-04 核验『week02_notes.md 里有 45 行』）。\n")
+        elif (CURRENT_MEMBER == "王启龙" and week == 14):
+            body += ("第三方空白环境复现演练报告（W14 学习检查）。\n\n"
+                     "- 演练人／时间／机器：\n- 只给手册，能否 30 分钟内复现排名 v3：\n"
+                     "- 总耗时（如实）：\n\n## 卡点清单\n\n| # | 卡在哪一步 | 原因 | 当天修了吗 |\n|---|---|---|---|\n| 1 | | | |\n\n"
+                     "## 修复状态与结论\n\n（有没修完的卡点就不算过；全程计时记录）\n")
+        elif ex["flow"] and "closed=" in (ex["flow"] or ""):
             body += ("| 条目 | 原文关键句 | LLM检索式 | PubMed命中 | 最终PMID/处置 |\n|---|---|---|---|---|\n"
                      "| 1 | | | | |\n" * 10 +
                      "\nLLM命中率/人工修正率（如实记录）: \nLLM幻觉案例（答辩素材）: \n\n"
-                     "完成10条闭环后，把下面契约行的 {f} 改为实测值：\n[FLOW] closed=10/10 pmid=10 llm_hit_rate={f}\n")
+                     "完成10条闭环后，把下面契约行的 {f} 改为实测值：\n[FLOW] " + ex["flow"] + "\n")
         else:
             body += ("要点（三类模型各一句原理：RNN / VAE / 扩散）：\n\n\n"
                      "对本课题候选扩充的潜在用法：\n\n\n（400–600字）\n")
         f.write_text(body, encoding="utf-8")
     else:
-        todos = SCAFFOLD_TODO.get(week, [])
+        todos = (SCAFFOLD_TODO_BY_MEMBER.get(CURRENT_MEMBER, {}).get(week)
+                 or SCAFFOLD_TODO.get(week, []))
         keys = [p[0] for p in ex["preds"]] or ["done"]
         funcs = "\n".join(
             f"def {name}():\n    \"\"\"TODO {i+1}: {doc}\"\"\"\n    raise NotImplementedError(\"TODO: 按验证卡实现\")\n"
             for i, (name, doc) in enumerate(todos)) or \
-            f"def compute():\n    \"\"\"TODO: {w['card']['task']}\"\"\"\n    raise NotImplementedError(\"TODO: 按验证卡实现\")\n"
+            f"def compute():\n    \"\"\"TODO: {task_txt}\"\"\"\n    raise NotImplementedError(\"TODO: 按验证卡实现\")\n"
         code = f'''# -*- coding: utf-8 -*-
-# 第 {week} 周 学习练习骨架 · 由 semester_flow.py scaffold {week} 生成
-# 任务: {w['card']['task']}
+# 第 {week} 周 学习练习骨架 · 由 semester_flow.py scaffold {week} 生成（{CURRENT_MEMBER}）
+# 任务: {task_txt}
 # 预期契约: [FLOW] {ex['flow']}
-#           判定: {ex['preds']}   依据: {w['card']['source']}
+#           判定: {ex['preds']}   过关标准与打卡页一致
 # 依赖: {ex['needs']}（本地缺依赖时到服务器跑，再 record 补录）
-# 完成后核验: python tools/semester_flow.py check {week}
+# 完成后核验: python tools/semester_flow.py{member_cmd} check {week}
 import sys
 from pathlib import Path
-REPO = Path(__file__).resolve().parents[2]  # learning/王启龙/ → 仓库根
+REPO = Path(__file__).resolve().parents[2]  # learning/{CURRENT_MEMBER}/ → 仓库根
 
 {funcs}
 
@@ -895,7 +1136,7 @@ if __name__ == "__main__":
 '''
         f.write_text(code, encoding="utf-8")
     print(f"已生成: {f}")
-    print(f"下一步: 按文件内 TODO 实现 → 运行它 → python tools/semester_flow.py check {week}")
+    print(f"下一步: 按文件内 TODO 实现 → 运行它 → python tools/semester_flow.py{member_cmd} check {week}")
 
 # ---------------------------------------------------------------- 输出视图
 
@@ -928,12 +1169,12 @@ def show_week(w, state, repo):
     print("【负责人统筹】")
     for t in w["coord"]:
         print("  · " + t)
-    ex = EXERCISES.get(w["no"])
+    ex = exercises().get(w["no"])
     if ex:
-        f = repo / "learning" / "王启龙" / ex["file"] if repo else None
+        f = repo / "learning" / CURRENT_MEMBER / ex["file"] if repo else None
         exists = f.exists() if f else False
         hint = "已存在" if exists else f"未创建（先运行 scaffold {w['no']} 生成）"
-        print(f"【练习文件】learning/王启龙/{ex['file']}  {hint}")
+        print(f"【练习文件】learning/{CURRENT_MEMBER}/{ex['file']}  {hint}")
     print("═" * 66)
 
 
@@ -1025,9 +1266,9 @@ def cmd_ledger(repo, state, sync=False):
     print("═" * 88)
     rows = []
     for wk in WEEKS:
-        ex = EXERCISES.get(wk["no"])
+        ex = exercises().get(wk["no"])
         if ex:
-            f = repo / "learning" / "王启龙" / ex["file"] if repo else None
+            f = repo / "learning" / CURRENT_MEMBER / ex["file"] if repo else None
             if f and f.exists():
                 t = read_text(f)
                 m = re.search(r"\[FLOW\]\s*(.+)", t)
@@ -1046,7 +1287,7 @@ def cmd_ledger(repo, state, sync=False):
     else:
         print("（暂无核验记录，先运行 check）")
     if sync and repo:
-        p = repo / LEDGER_RELPATH
+        p = repo / ledger_relpath()
         p.parent.mkdir(parents=True, exist_ok=True)
         with p.open("a", encoding="utf-8") as fh:
             fh.write(f"\n## 台账同步 {now_str()}\n")
@@ -1056,9 +1297,36 @@ def cmd_ledger(repo, state, sync=False):
 
 
 def cmd_report(week_no, repo, state):
+    p = repo / "learning" / CURRENT_MEMBER / f"周报_第{week_no}周_{dt.date.today():%Y%m%d}.md"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    if CURRENT_MEMBER != "王启龙":
+        # 成员版周报：练习状态 + 勾选/补录记录（16 周卡片内容以打卡.html 为准）
+        ex = exercises().get(week_no)
+        f = repo / "learning" / CURRENT_MEMBER / ex["file"] if ex else None
+        flow_now = ""
+        if f and f.exists():
+            m = re.search(r"\[FLOW\]\s*(.+)", read_text(f))
+            flow_now = m.group(1) if m else "（无契约行）"
+        with p.open("w", encoding="utf-8") as fh:
+            fh.write(f"# 周报 · 第 {week_no} 周 · {CURRENT_MEMBER}（{MEMBER_ROLE[CURRENT_MEMBER]}）\n\n")
+            fh.write(f"生成: semester_flow.py v{TOOL_VERSION} --member {CURRENT_MEMBER} · {now_str()}\n\n")
+            fh.write("## 本周学习练习\n\n")
+            if ex:
+                fh.write(f"- 文件: learning/{CURRENT_MEMBER}/{ex['file']}\n- 任务: {ex.get('task', '')}\n")
+                fh.write(f"- 过关契约: [FLOW] {ex['flow']}\n- 当前状态: {'已创建' if f and f.exists() else '未创建（scaffold 生成）'}｜{flow_now or '未实现'}\n")
+            else:
+                fh.write("- 本周无代码练习（按打卡.html 周卡片执行）\n")
+            fh.write("\n## 已勾选任务（done）\n\n")
+            for k, v in sorted(state.get("done", {}).items()):
+                fh.write(f"- [x] {k}（{v[:16]}）\n")
+            fh.write("\n## 核验/补录记录（check/record）\n\n")
+            for cid, r in sorted(state.get("records", {}).items()):
+                fh.write(f"- {r['verdict']} {cid}｜{r['ts'][:16]}｜{r['observed']}\n")
+            fh.write("\n（完整周卡片任务/视频/检查项见本人打卡.html；数字锚定仓库存档文件）\n")
+        print(f"周报已生成: {p}")
+        return
     w = WEEKS[week_no - 1]
     res = eval_checks(repo, weeks={week_no}, deep=False, state=state)
-    p = repo / "learning" / "王启龙" / f"周报_第{week_no}周_{dt.date.today():%Y%m%d}.md"
     p.parent.mkdir(parents=True, exist_ok=True)
     with p.open("w", encoding="utf-8") as fh:
         fh.write(f"# 周报 · 第 {week_no} 周（{w['dates']}）· {w['theme']}\n\n")
@@ -1087,10 +1355,33 @@ def cmd_report(week_no, repo, state):
 
 # ---------------------------------------------------------------- main
 
+def member_dashboard(repo, state):
+    print("═" * 66)
+    print(f"成员模式 · {CURRENT_MEMBER}（{MEMBER_ROLE[CURRENT_MEMBER]}）")
+    print(f"状态文件: learning/{CURRENT_MEMBER}/flow_state.json")
+    print("─" * 66)
+    print("16 周卡片/任务/视频/打卡 → 你的 打卡.html（克隆仓库后本地浏览器打开）")
+    print("本工具管：练习骨架 scaffold N ｜ 练习核验 check N ｜ 勾选 done/undo")
+    print("          ｜ 手工补录 record ｜ 台账 ledger ｜ 周报 report N")
+    print("═" * 66)
+    print(pad("周", 4) + pad("练习文件", 34) + "状态")
+    for wk in sorted(exercises()):
+        ex = exercises()[wk]
+        f = repo / "learning" / CURRENT_MEMBER / ex["file"] if repo else None
+        st = "已创建" if (f and f.exists()) else f"未创建（scaffold {wk} 生成）"
+        print(pad(wk, 4) + pad(ex["file"], 34) + st)
+    print("─" * 66)
+    print(f"已勾选 {len(state.get('done', {}))} 项 ｜ 核验/补录 {len(state.get('records', {}))} 条")
+    print("本周练习核验: check <周号>（all = 全部练习周；过关标准与打卡页一致）")
+
+
 def main():
+    global CURRENT_MEMBER
     ap = argparse.ArgumentParser(prog="semester_flow.py",
-                                 description="学期学习推进流工具（负责人·王启龙版）——三线合一：AIDD学习×工作包推进×重头校验")
+                                 description="学期学习推进流工具（全员版）——负责人三线合一；成员用 --member 姓名")
     ap.add_argument("--repo", default=None, help="仓库路径（默认自动探测）")
+    ap.add_argument("--member", default="王启龙", choices=MEMBERS,
+                    help="成员名（默认王启龙=负责人完整版；成员版=各自练习契约/状态/周报）")
     sub = ap.add_subparsers(dest="cmd")
 
     sub.add_parser("plan", help="学期总览+里程碑清单")
@@ -1122,29 +1413,45 @@ def main():
     p_rep.add_argument("n", nargs="?", type=int, default=None)
 
     args = ap.parse_args()
+    CURRENT_MEMBER = args.member
     repo = find_repo(args.repo)
     state, sfile = load_state(repo)
 
+    is_member = CURRENT_MEMBER != "王启龙"
     if repo is None and args.cmd not in ("plan",):
         print("⚠ 未找到仓库根（run_all.py）。学习卡/台账可用，自动核验将跳过。用 --repo 指定。")
+        print(f"⚠ 无仓库时状态将写到本工具旁 semester_flow_state_{CURRENT_MEMBER}.json（不进 git，进度与仓库脱钩）")
     else:
-        print(f"仓库: {repo}")
+        print(f"仓库: {repo}" + (f" ｜ 成员: {CURRENT_MEMBER}（{MEMBER_ROLE[CURRENT_MEMBER]}）" if is_member else ""))
 
     cmd = args.cmd or "dashboard"
 
     if cmd == "dashboard":
-        dashboard(repo, state)
+        member_dashboard(repo, state) if is_member else dashboard(repo, state)
     elif cmd == "plan":
-        cmd_plan(state)
+        member_dashboard(repo, state) if is_member else cmd_plan(state)
     elif cmd == "week":
         if not (1 <= args.n <= N_WEEKS):
             sys.exit(f"周号 1–{N_WEEKS}")
-        show_week(WEEKS[args.n - 1], state, repo)
+        if is_member:
+            ex = exercises().get(args.n)
+            if not ex:
+                sys.exit(f"第 {args.n} 周无成员练习（16 周完整卡片见你的 打卡.html）")
+            print(f"第 {args.n} 周练习 · learning/{CURRENT_MEMBER}/{ex['file']}")
+            print(f"任务: {ex.get('task', '')}")
+            print(f"契约: [FLOW] {ex['flow']}")
+            print(f"判定: {ex['preds']} ｜ 依赖: {ex['needs']}")
+            f = repo / "learning" / CURRENT_MEMBER / ex["file"] if repo else None
+            print("状态:", "已创建" if (f and f.exists()) else f"未创建（先 scaffold {args.n} 生成）")
+        else:
+            show_week(WEEKS[args.n - 1], state, repo)
     elif cmd == "next":
-        cmd_next(repo, state)
+        member_dashboard(repo, state) if is_member else cmd_next(repo, state)
     elif cmd == "milestones":
-        cmd_milestones(repo, state)
+        member_dashboard(repo, state) if is_member else cmd_milestones(repo, state)
     elif cmd == "check":
+        if is_member:
+            print("成员模式：只核验你的学习练习 [FLOW] 契约（项目任务/文件核验按打卡.html 与 VERIFY_TASKS 执行）")
         if args.n is None:
             weeks = {max(1, min(N_WEEKS, week_of_today()))}
         elif args.n == "all":
@@ -1164,21 +1471,25 @@ def main():
             sys.exit(f"周号 1–{N_WEEKS}")
         gen_scaffold(args.n, repo)
     elif cmd == "done":
-        valid = {t for w in WEEKS for t, _ in w["tasks"]} | {m["id"] for m in MANUALS}
-        if args.id not in valid:
-            sys.exit(f"未知任务号。可用示例: {sorted(valid)[:6]} ...")
+        if is_member:
+            print("（成员模式：任务号按你打卡页上的编号勾选，如 W2-A1 / N1 / Y3）")
+        else:
+            valid = {t for w in WEEKS for t, _ in w["tasks"]} | {m["id"] for m in MANUALS}
+            if args.id not in valid:
+                sys.exit(f"未知任务号。可用示例: {sorted(valid)[:6]} ...")
         state["done"][args.id] = now_str()
         save_state(state, sfile)
-        print(f"✓ 已勾选 {args.id}")
+        print(f"✓ 已勾选 {args.id}（{CURRENT_MEMBER}）")
     elif cmd == "undo":
         state["done"].pop(args.id, None)
         state["records"].pop(args.id, None)
         save_state(state, sfile)
         print(f"↺ 已取消 {args.id}")
     elif cmd == "record":
-        valid = {m["id"] for m in MANUALS} | {c["id"] for c in CHECKS}
-        if args.id not in valid:
-            sys.exit(f"未知编号 {args.id}（手工项 MAN-* / 检查项 C*）")
+        if not is_member:
+            valid = {m["id"] for m in MANUALS} | {c["id"] for c in CHECKS}
+            if args.id not in valid:
+                sys.exit(f"未知编号 {args.id}（手工项 MAN-* / 检查项 C*）")
         record_verdict(state, args.id, args.verdict, args.observed)
         save_state(state, sfile)
         print(f"✓ 已记录 {args.id} = {args.verdict}：{args.observed}")
@@ -1191,8 +1502,9 @@ def main():
 
     if is_frozen() and len(sys.argv) == 1:
         try:
-            input("\n（exe 直接运行：看完板后回车退出。命令用法：在 cmd 中运行 "
-                  "学期推进流_王启龙.exe plan / check / week N 等回车）")
+            input("\n（exe 直接运行：看完板后回车退出。命令用法：在 cmd 中进入 tools/ 后运行 "
+                  "学期推进流_王启龙.exe plan / check / week N；成员：加 --member 姓名，"
+                  "如 学期推进流_王启龙.exe --member 宁显泷 dashboard）")
         except EOFError:
             pass
 

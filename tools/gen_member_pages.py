@@ -416,7 +416,7 @@ W(2,"分子对接（提前学）","第2周：服务器装好对接工具＋背�
 W(3,"真实对接（主战场）","第3周：处理蛋白＋\"塞回去\"自测",
  ["复习 Vina 教程里\"重对接\"：把原配体拿出来再塞回去"],
  C("给两个蛋白\"洗澡\"（去水加氢）；把原配体拿出来塞回去，看偏多少",
-   "bash 学习/代维斯丹/week03_redock.sh（在服务器）",
+   "bash learning/代维斯丹/week03_redock.sh（在服务器）",
    "两个蛋白的偏移都小于 2 埃（具体数字如实记）",
    "WP2 验收第 1 条",
    "超过 2 埃按清单查：盒子、加氢、酸碱性；过程写下来，不许只报失败",D2),
@@ -749,6 +749,38 @@ res=[["R-S01",1,"B站搜：PubMed 检索教程","AND/OR/NOT 怎么用（提前�
      ["R-S04",4,"B站搜：RDKit 入门（选学）","看懂分子结构图","RDKit 入门教程"],
      ["R-S05",5,"B站搜：大模型辅助文献检索","提示词怎么写（人把关的前提）","大模型 文献检索"]]))
 
+# ---- 成员补充处理：练习文件标注（ex）＋ 工具命令带 --member ＋ 补课资源对齐 ----
+# 与 tools/semester_flow.py 的 EXERCISES_BY_MEMBER 同源：页面引用的练习文件在这里登记后，
+# 周卡片才会显示"练习文件｜生成练习模板"行，且路径与 scaffold 实际生成的一致。
+EX = {
+ "宁显泷": {2:"week02_backprop.py",3:"week03_pyg_convert.py",4:"week04_gcn_numpy.py",5:"week05_gcn_vs_gin.py",
+            6:"week06_torch_trial.py",8:"week08_mc_dropout.py",9:"week09_calibration.py",10:"week10_hpo.py",11:"week11_explainer.py"},
+ "衣思淼": {2:"week02_rdkit_recalc.py",4:"week04_dedup.py",7:"week07_bootstrap.py",8:"week08_split_ad.py",
+            10:"week10_audit.py",12:"week12_sensitivity.py"},
+ "代维斯丹": {3:"week03_redock.sh",7:"week07_baselines.py",8:"week08_reliability.py"},
+ "王散曼": {5:"week05_llm_assist.md"},
+}
+# 补课资源（与队长页 RES 的 wk:0 五条同源；成员页同样显示"随时能看的补课"）
+CATCHUP = [
+ ["R-G01",0,"黑马程序员 Pandas 教程","看讲\"读表格、选列\"的那几集（参考 P30–P35）","黑马程序员 Pandas 教程"],
+ ["R-G02",0,"生信技能树 GEO 数据挖掘","看怎么把基因表达量表抠出来（参考 P5–P8）；旧课题基因数据的补课","生信技能树 GEO数据挖掘"],
+ ["R-G03",0,"生信技能树 limma 差异分析","看怎么找出病人和健康人不一样的基因","生信技能树 limma"],
+ ["R-G04",0,"生信技能树 ggplot2 画图","看火山图怎么画（参考 P40–P52）","生信技能树 ggplot2"],
+ ["R-G05",0,"生信技能树 clusterProfiler","看通路\"气泡图\"怎么出（参考 P60–P64）","生信技能树 clusterProfiler"],
+]
+for m in MEMBERS:
+    nm = m["name"]
+    for w in m["weeks"]:
+        f = EX[nm].get(w["no"])
+        if f:
+            w["ex"] = {"file": f, "gen": f"scaffold {w['no']}"}
+        cmd = w["card"].get("cmd") or ""
+        if "python tools/semester_flow.py" in cmd and "--member" not in cmd:
+            w["card"]["cmd"] = cmd.replace("python tools/semester_flow.py",
+                                           f"python tools/semester_flow.py --member {nm}", 1)
+    if not any(r[1] == 0 for r in m["res"]):
+        m["res"] = CATCHUP + m["res"]
+
 # ================= 生成 =================
 tpl = TPL.read_text(encoding="utf-8")
 
@@ -882,12 +914,10 @@ for m in MEMBERS:
     ms = [dict(id=a, week=b, name=c, need=d) for a, b, c, d in m["ms"]]
 
     out = tpl
-    out = out.replace("检查纪律：${id} 这件事真的做完了吗？要有证据（命令显示[通过]、生成的文件、截图、文献编号）才能打勾，不凭印象。",
-                      "检查纪律：『${info.tx}』真的做完了吗？要有证据（命令结果、生成的文件、截图、PMID）才能打勾，不凭印象。")
     out = out.replace("负责人 王启龙", f'{m["role"]} {m["name"]}')
     out = out.replace('const SKEY = "semester_flow_leader_v1";', f'const SKEY = "{m["key"]}";')
     out = out.replace("learning/王启龙/", f'learning/{m["name"]}/')
-    out = out.replace("学期推进流_王启龙.exe", "python tools/semester_flow.py")
+    out = out.replace("学期推进流_王启龙.exe", f'python tools/semester_flow.py --member {m["name"]}')
     out = out.replace("👥 负责人统筹", "👥 组内安排")
     out = swap_block(out, "const WEEKS = [", "\n];\n\nconst MANUALS", js(m["weeks"])[1:-1])
     out = swap_block(out, "const MANUALS = [", "\n];\n\nconst MILESTONES", js(manuals)[1:-1])

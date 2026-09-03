@@ -36,7 +36,7 @@
 - **怎么操作**：`python tools/semester_flow.py check 1 --deep`（工具自检）；
   `python reports/pdf_build/verify.py`（45 项截图存档）；`git tag -a v1.0-summer`。
 - **名下文件（90 个，明细附录A·A2）**：总纲四件＋环境、组会纪要、WP 计划、
-  personal 档案、tools/ 工具链、learning/王启龙/、reports/ 报告与 27 个 PDF 镜像。
+  personal 档案、tools/ 工具链、reports/ 报告与 27 个 PDF 镜像；learning/ 按人五份（练习骨架已全部生成）。
 - **学习线**：Git 进阶→校验自动化→RDKit→数据库 API→对接→PyTorch→PyG→
   校准→大模型辅助核验→打包结题（16 周逐周见打卡页）。
 
@@ -104,5 +104,5 @@
 
 - 完成：`docs/VERIFY_TASKS.md` §4 完成记录表（日期/任务编号/签名）；
 - 问题：`docs/VERIFY_TASKS.md` §5 问题登记表（A 致命停线 / B 偏差登记 / C 建议）；
-- 每周证据：各打卡页「✅ 打卡台账」＋ `learning/<姓名>/` 学习产物；
+- 每周证据：各打卡页「✅ 打卡台账」＋ `learning/<姓名>/` 学习产物（骨架已生成；核验 `python tools/semester_flow.py --member <姓名> check <周号>`，负责人不加 --member）；
 - 汇总：王启龙每周五收齐，周日 `git push`。

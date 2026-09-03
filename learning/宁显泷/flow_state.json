@@ -1,0 +1,11 @@
+{
+  "done": {},
+  "records": {
+    "N-C2-01": {
+      "verdict": "FAIL",
+      "observed": "【目标态】练习未创建：learning/宁显泷/week02_backprop.py（可先 scaffold 2 生成骨架）",
+      "ts": "2026-09-03 13:00:18"
+    }
+  },
+  "notes": {}
+}
