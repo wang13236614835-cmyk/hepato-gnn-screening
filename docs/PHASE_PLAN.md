@@ -62,7 +62,7 @@ Top-3 候选：黄芩苷、二氢杨梅素、葛根素。
 | 工作包 | 名称 | 周次 | 主责 | 核验人 | 文件 |
 |---|---|---|---|---|---|
 | WP1 | 复现核验与基线固化 | 第1–2周 | 王启龙 | 全员（各自模块） | phase2_semester/WP1_verify_baseline.md |
-| WP2 | 真实分子对接 | 第3–6周 | 代维斯丹 | 宁显泷 | phase2_semester/WP2_real_docking.md<br/>**对接管线已验证**(144 次真实对接已入库,见 results/docking/real/;剩余为 60 候选×1OSH/2FLU 批量) |
+| WP2 | 真实分子对接 | 第3–6周 | 代维斯丹 | 宁显泷 | phase2_semester/WP2_real_docking.md<br/>**同构流程已试跑**(144 次,系另建同类管线,未用本项目代码;见 results/docking/real/;WP2 本身仍待按原步骤执行) |
 | WP3 | 数据扩充与正式库导出 | 第3–8周 | 衣思淼 | 王散曼 | phase2_semester/WP3_data_expansion.md |
 | WP4 | 模型升级与校准 | 第7–10周 | 宁显泷 | 衣思淼 | phase2_semester/WP4_model_upgrade.md |
 | WP5 | 文献深化与实验衔接 | 第9–16周 | 王散曼 | 代维斯丹 | phase2_semester/WP5_experiment_bridge.md |
