@@ -4,3 +4,6 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 *.npy
+docking/vina.exe
+final-aidd-screening/docking/vina.exe
+final-aidd-screening/**/__pycache__/

@@ -1,0 +1,43 @@
+{
+ "w_pos": 1.0,
+ "temperature": 5.0,
+ "baselines": {
+  "ECFP+RF": {
+   "AUC": 0.983,
+   "BACC": 0.833,
+   "F1": 0.8,
+   "ECE": 0.344
+  },
+  "Desc+LR": {
+   "AUC": 0.983,
+   "BACC": 0.858,
+   "F1": 0.917,
+   "ECE": 0.144
+  }
+ },
+ "gnn": {
+  "AUC": 0.95,
+  "BACC": 0.833,
+  "F1": 0.8,
+  "ECE": 0.247,
+  "ECE_before_cal": 0.247,
+  "ECE_after_cal": 0.319,
+  "spearman_var_err": 0.676
+ },
+ "ad_h_star": 0.362,
+ "ad_pool_out": 7,
+ "splits": {
+  "train": {
+   "n": 58,
+   "pos": 28
+  },
+  "val": {
+   "n": 13,
+   "pos": 8
+  },
+  "test": {
+   "n": 17,
+   "pos": 12
+  }
+ }
+}

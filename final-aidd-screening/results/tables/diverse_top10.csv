@@ -1,0 +1,11 @@
+rank,compound_id,name_cn,category,source_herb,scaffold,pred_mean,pred_var,confidence,dock_avg_kcal,lipinski_violations,pains_alert,ad_warning,final_score,cluster
+1,HP-007,黄芩苷,黄酮苷类,黄芩,O=c1cc(-c2ccccc2)oc2cc(OC3CCCCO3)ccc12,0.9657,0.0008,0.887,-9.62,0,,,0.9601,6
+2,HP-005,木犀草素,黄酮类,金银花,O=c1cc(-c2ccccc2)oc2ccccc12,0.9681,0.0011,0.867,-8.83,0,catechol_A(92),,0.9325,1
+5,HP-032,大黄酸,蒽醌类,大黄,O=C1c2ccccc2C(=O)c2ccccc21,0.9953,0.0,0.981,-8.3,0,quinone_A(370),,0.9032,9
+7,HP-031,大黄素,蒽醌类,大黄/何首乌,O=C1c2ccccc2C(=O)c2ccccc21,0.9242,0.0019,0.828,-8.67,0,quinone_A(370),,0.8878,27
+8,HP-029,牛蒡苷,木脂素苷类,牛蒡子,O=C1OC(c2ccccc2)C1Cc1cccc(OC2CCCCO2)c1,0.9386,0.0014,0.853,-9.54,1,,,0.8853,3
+9,HP-013,葛根素,异黄酮苷类,葛根,O=c1c(-c2ccccc2)coc2ccc(C3CCCCO3)cc12,0.9576,0.0011,0.867,-9.17,1,,,0.8841,5
+10,HP-014,二氢杨梅素,黄酮醇类,显齿蛇葡萄(藤茶),O=C1CC(c2ccccc2)Oc2ccccc21,0.9916,0.0001,0.958,-8.58,1,catechol_A(92),,0.8764,35
+11,HP-048,丹参酮IIA,二萜醌类,丹参,O=C1C=Cc2c1oc1ccccc1c2=O,0.9301,0.0021,0.817,-8.4,0,,,0.8578,19
+12,HP-016,姜黄素,多酚类,姜黄,O=C(C=Cc1ccccc1)CC(=O)C=Cc1ccccc1,0.8649,0.0083,0.635,-8.81,0,,,0.8381,4
+13,HP-008,汉黄芩素,黄酮类,黄芩,O=c1cc(-c2ccccc2)oc2ccccc12,0.8546,0.0025,0.801,-8.51,0,,,0.83,2

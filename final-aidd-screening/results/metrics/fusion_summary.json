@@ -1,0 +1,67 @@
+{
+ "n_candidates": 59,
+ "n_clusters": 37,
+ "spearman_model_dock": 0.17,
+ "top10": [
+  {
+   "name": "黄芩苷",
+   "score": 0.9601,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "木犀草素",
+   "score": 0.9325,
+   "pains": "catechol_A(92)",
+   "ad": ""
+  },
+  {
+   "name": "大黄酸",
+   "score": 0.9032,
+   "pains": "quinone_A(370)",
+   "ad": ""
+  },
+  {
+   "name": "大黄素",
+   "score": 0.8878,
+   "pains": "quinone_A(370)",
+   "ad": ""
+  },
+  {
+   "name": "牛蒡苷",
+   "score": 0.8853,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "葛根素",
+   "score": 0.8841,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "二氢杨梅素",
+   "score": 0.8764,
+   "pains": "catechol_A(92)",
+   "ad": ""
+  },
+  {
+   "name": "丹参酮IIA",
+   "score": 0.8578,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "姜黄素",
+   "score": 0.8381,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "汉黄芩素",
+   "score": 0.83,
+   "pains": "",
+   "ad": ""
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "HP-014": {
+  "name_en": "dihydromyricetin",
+  "old": "O=C1CC(c2cc(O)c(O)c(O)c(O)c2)Oc2cc(O)cc(O)c2C1",
+  "new": "C1=C(C=C(C(=C1O)O)O)[C@@H]2[C@H](C(=O)C3=C(C=C(C=C3O2)O)O)O",
+  "valid": true
+ },
+ "HP-016": {
+  "name_en": "curcumin",
+  "old": "COc1cc(/C=C/C(=O)CC(=O)/C=C/c2ccc(O)c(OC)c2)cc1O",
+  "new": "COC1=C(C=CC(=C1)/C=C/C(=O)CC(=O)/C=C/C2=CC(=C(C=C2)O)OC)O",
+  "valid": true
+ },
+ "HP-030": {
+  "name_en": "secoisolariciresinol",
+  "old": "COc1cc(CC[C@H](CO)[C@H](O)CCc2cc(O)c(OC)c2)ccc1OC",
+  "new": "COC1=C(C=CC(=C1)C[C@@H](CO)[C@@H](CC2=CC(=C(C=C2)O)OC)CO)O",
+  "valid": true
+ },
+ "NV-008": {
+  "name_en": "gomisin A",
+  "old": "COc1cc(C)c(OC)c(CC(C)C[C@@H]2COc3cc(OC)c(C)c(OC)c3C2)cc1O",
+  "new": "C[C@H]1CC2=CC3=C(C(=C2C4=C(C(=C(C=C4C[C@@]1(C)O)OC)OC)OC)OC)OCO3",
+  "valid": true
+ },
+ "NV-009": {
+  "name_en": "pinoresinol",
+  "old": "COc1cc2C[C@@H]3COc4cc(OC)ccc4[C@H](O3)Cc2c1",
+  "new": "COC1=C(C=CC(=C1)[C@@H]2[C@H]3CO[C@@H]([C@H]3CO2)C4=CC(=C(C=C4)O)OC)O",
+  "valid": true
+ }
+}
