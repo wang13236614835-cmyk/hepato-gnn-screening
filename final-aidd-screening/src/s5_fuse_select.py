@@ -105,7 +105,7 @@ def run():
             break
     write_csv(os.path.join(RES, "tables", "diverse_top10.csv"), picked)
 
-    # 模型分与真实对接分的一致性(替代原"演示分相关性"核验项)
+    # 模型分与真实对接分的一致性(两证据源独立性参考)
     ms = np.array([r["pred_mean"] for r in rows])
     ds = np.array([r["dock_avg_kcal"] for r in rows])
     rho = spearman(ms, -ds)  # 对接分越负越强, 取负号统一方向

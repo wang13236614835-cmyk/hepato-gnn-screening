@@ -3,7 +3,7 @@
 
 预过滤: Lipinski 违规计数 + RDKit FilterCatalog PAINS 预警(课程五级漏斗第 2 级;
         天然多酚常被 PAINS 误报, 故采取"标记不剔除", 排名保留、报告披露)。
-对接: AutoDock Vina 1.2.7 真实打分(exh=8, seed=42), 替换主线演示分;
+对接: AutoDock Vina 1.2.7 打分(exh=8, seed=42);
       只有通过 s2 redock 门控(RMSD<2Å)的靶点才参与。
 断点续跑: 已有条目(状态表)自动跳过, 中断后重跑即可续。
 """

@@ -2,8 +2,8 @@
 """SOP 步骤 1 · 选题与靶点档案(证据四栏: 遗传/功能/表达/安全)
 
 靶点: FXR(胆汁酸核受体, 1OSH+fexaramine) 与 Keap1-Kelch(Nrf2 通路, 4IQK+小分子 IQK)。
-说明: 原主线 2FLU 为 Keap1-ETGE 肽复合物, 无小分子共晶配体, 无法执行课程要求的
-redock 门控, 故换用同为 Kelch 区、携带小分子抑制剂 IQK 的 4IQK(占据 Nrf2 结合口袋)。
+说明: 两结构均携带小分子共晶配体, 满足课程要求的 redock 门控(RMSD<2Å)前提;
+IQK 为占据 Nrf2 结合口袋的小分子抑制剂, 盒子即落在该口袋。
 """
 import json
 import os

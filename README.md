@@ -20,8 +20,8 @@ python run_all.py        # 仅需 numpy,约 6 秒跑通全流程
 |---|---|
 | `data/` | 原始与清洗数据、训练/验证/测试划分 |
 | `src/` | 全部代码:图解析、GNN 模型、基线、对接、融合评分 |
-| **`final-aidd-screening/`** | **最终融合包(2026-09-04 新增)**:按复旦 AIDD 课程 8 步 SOP 重组的全链路真实版——redock 门控(FXR 0.74Å/Keap1 1.10Å)、双基线+GNN、Lipinski/PAINS 预过滤、**真实 Vina 对接 120 次、排名 v2、骨架多样性 Top-10**;解读见其 `REPORT.md` |
-| `results/` | 产出:`docking/` 演示分(v1 对照,复核标的)+ `docking/real/` 真实对接 144 次 · `rankings/` v1 · `figures/` `metrics/` `predictions/` `ad/` `logs/` |
+| **`final-aidd-screening/`** | **完整研究管线**：按复旦 AIDD 课程 8 步 SOP 组织——redock 门控(FXR 0.74Å/Keap1 1.10Å)、双基线+GNN、Lipinski/PAINS 预过滤、真实 Vina 对接(118/120 次)、三源共识排名、骨架多样性 Top-10；解读见其 `REPORT.md` |
+| `results/` | 产出:`docking/` 演示分(45项核验锚点)+ `docking/real/` 真实对接 144 次 · `rankings/` 排名表 · `figures/` `metrics/` `predictions/` `ad/` `logs/` |
 | `literature/` | 文献证据库(经典证据/新分子调研/机制溯源) |
 
 **② 项目管理**
@@ -44,6 +44,10 @@ python run_all.py        # 仅需 numpy,约 6 秒跑通全流程
 
 ## 当前在哪一步
 
-暑假演示版全流程已跑通 → **9/20 前:人人复核暑假结果** → 真实对接已由 `final-aidd-screening/` 提前落地(双靶 redock 门控通过 + 120 次真实对接 + **排名 v2 已出**,见 [final-aidd-screening/REPORT.md](final-aidd-screening/REPORT.md))→ 学期任务转为:服务器复现对账 + PyMOL 目检 + 数据/模型线扩展。
+**全线流程与当前进度**(打卡页「🔬 全线流程」标签页同步):
 
-**核验锚点**:[docs/全线研究流程与暑假文件验证对照.md](docs/全线研究流程与暑假文件验证对照.md) —— 全线流程图 + 暑假文件逐项验证状态(含 5 条 SMILES 修复记录)。
+- ✅ 完整研究管线已就绪:双靶 redock 门控(FXR 0.74Å/Keap1 1.10Å) + 118 次真实对接 + 三源共识排名(黄芩苷居首) + 多样性 Top-10,见 [final-aidd-screening/REPORT.md](final-aidd-screening/REPORT.md);
+- 🔄 进行中:9/20 前人人复核暑假结果(45 项锚点)、服务器复现对账、PyMOL 目检;
+- ⏳ 待办:数据扩充 ≥1000 条、模型迁移 PyG+校准、Top-10 文献专查与体外衔接。
+
+**逐文件核验锚点与状态**:[docs/全线研究流程与暑假文件验证对照.md](docs/全线研究流程与暑假文件验证对照.md)。

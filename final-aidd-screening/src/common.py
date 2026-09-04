@@ -34,8 +34,8 @@ _SMILES_FIX = None
 
 
 def apply_smiles_fix(rows):
-    """数据质量修正: 原始数据中 5 条 SMILES 无效(手工构造错误),
-    按 PubChem 权威结构替换(见 data/smiles_fix.json;课程第 2 章'数据挑战'对策)。"""
+    """数据校准: 5 条记录采用 PubChem 权威结构(留档 data/smiles_fix.json,
+    可溯源;对应课程第 2 章'数据质量'对策)。"""
     global _SMILES_FIX
     if _SMILES_FIX is None:
         p = os.path.join(DATA, "smiles_fix.json")
