@@ -282,7 +282,7 @@ function vPipeline(){
   const prog = PIPELINE.progress.map(p=>`<div class="item"><span class="tx"><b>${p[0]} ${esc(p[1])}</b>——${esc(p[2])}</span></div>`).join("");
   return `
   <div class="card"><h2>🔬 全线研究流程（8 步 SOP · final-aidd-screening）</h2>
-    <div class="kv">流程标准＝复旦 MOOC《人工智能药物设计》第 11 章实战 8 步 SOP＋第 6 章虚拟筛选五级漏斗；下表数字均为仓库实测（${PIPELINE.updated}）。全文解读：${linkPaths("final-aidd-screening/REPORT.md")}</div>
+    <div class="kv">流程标准＝复旦 MOOC《人工智能药物设计》M01–M08 学习卡与研究应用闭环；下表数字均为仓库实测（${PIPELINE.updated}）。全文解读：${linkPaths("final-aidd-screening/REPORT.md")}</div>
     <table><tr><th>步骤</th><th>内容·实测</th><th>代码/产物</th><th>状态</th></tr>${steps}</table>
     <div class="hint">一键复现：<span class="cmd">python final-aidd-screening/run_all.py --model</span>（约 1 分钟，复用对接缓存）；全量重跑 <span class="cmd">python final-aidd-screening/run_all.py</span>。</div>
   </div>

@@ -806,6 +806,10 @@ def repair_historical_wording(text):
         ("45 项全过", "旧 45 项基线（历史，当前结果见 results/validation/software_checks.json）"),
         ("45/45 通过", "旧 45/45 基线（历史，当前结果见 results/validation/software_checks.json）"),
         ("看完就打勾", "记录实际视频标题、时长、闭卷回忆和研究应用后再提交"),
+        ("按 12章×16周 表看 MOOC 视频：先看第11章实战8步SOP与第6章分子对接/虚拟筛选，再推进其余章节；计划表见 learning/共享/复旦AIDD课程_学习任务.md（配套手写笔记仅课后速查用）",
+         "按 learning/共享/复旦AIDD课程_学习任务.md 的 M01–M08 学习卡提前推进：W1–W2 完成核心主题，W3 完成已开放视频与练习，W4 只做轻量补漏；每次记录标题、分钟、复述、教回题、研究应用和同伴复核"),
+        ("复旦 MOOC《人工智能药物设计》第 11 章实战 8 步 SOP＋第 6 章虚拟筛选五级漏斗",
+         "复旦 MOOC《人工智能药物设计》M01–M08 学习卡与研究应用闭环"),
     ]
     for old, new in replacements:
         text = text.replace(old, new)
