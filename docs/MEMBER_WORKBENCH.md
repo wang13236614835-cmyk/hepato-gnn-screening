@@ -38,7 +38,7 @@
   A/B 级问题的工程修复与全量复跑（L1–L5，明细见 VERIFY_TASKS §2.2）。
 - **是什么**：全流程托底人——别人核验卡住时由你修到能继续。
 - **怎么操作**：`python tools/semester_flow.py check 1 --deep`（工具自检）；
-  `python reports/pdf_build/verify.py`（45 项截图存档）；`git tag -a v1.0-summer`。
+  `python reports/pdf_build/verify.py`（45 项截图存档；旧工作库口径·审计F11，最终包另以 `tools/verify_fixes.py` 20 项验收）；`git tag -a v1.0-summer`。
 - **名下文件（90 个，明细附录A·A2）**：总纲四件＋环境、组会纪要、WP 计划、
   personal 档案、tools/ 工具链、reports/ 报告与 27 个 PDF 镜像；learning/ 按人五份（练习骨架已全部生成）。
 - **学习线**：Git 进阶→校验自动化→RDKit→数据库 API→对接→PyTorch→PyG→
@@ -47,7 +47,7 @@
 ## 宁显泷（算法 · 代码验证）
 
 - **要做什么**：N1 一键复现 12 关键行逐字一致；N2 连跑两次 md5"一致"；
-  N3 `verify.py` 45 项全过；N4 解析器 5 用例；N5 超参（p_drop=0.3/T=30/epoch=300）
+  N3 `verify.py` 45 项全过（旧库口径·F11）；N4 解析器 5 用例；N5 超参（p_drop=0.3/T=30/epoch=300）
   代码与文档互查；N6 融合公式（0.45/0.35/0.20、域外×0.9）核对。
 - **是什么**：证明"代码跑得对、结果可复现"的第一责任人。
 - **怎么操作**：`python run_all.py`；`python reports/pdf_build/verify.py`；

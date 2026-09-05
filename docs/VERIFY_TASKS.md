@@ -50,7 +50,7 @@
 |---|---|---|---|
 | N1 | §2.1 一键复现 `python run_all.py` | 12 条关键行逐字一致，含 60 候选入库（VERIFY_MANUAL §2.1） | 控制台输出粘贴本文件末尾记录表 |
 | N2 | §2.2 确定性连跑两次 md5 比对 | 输出"一致"（§2.2） | 同上 |
-| N3 | §2.3 独立数字核验 `python reports/pdf_build/verify.py` | 最后一行"通过 45 项；不符 0 项"（§2.3） | 输出存 `results/logs/`（新建） |
+| N3 | §2.3 独立数字核验 `python reports/pdf_build/verify.py` | 最后一行"通过 45 项；不符 0 项"（§2.3；旧工作库口径·审计F11，最终包另以 `tools/verify_fixes.py` 20 项验收） | 输出存 `results/logs/`（新建） |
 | N4 | §3.1 解析器 5 用例 | 全 OK，重原子数 3/6/20/12/5（§3.1） | 记录表打勾 |
 | N5 | 超参一致性抽查：`src/models/gnn.py` vs `docs/02_model_notes.md` | p_drop=0.3, T=30, epoch=300（MANIFEST §3） | 不一致项登记问题表 |
 | N6 | 融合公式代码核对：`src/scoring/fuse.py` | 权重 0.45/0.35/0.20、域外×0.9，与文档 4.7 一致（MANIFEST §3） | 同上 |
@@ -63,7 +63,7 @@
 | L2 | 汇总 5 人核验记录表；收齐 verify.py 截图 | 记录表 5 行签名（WP1 验收标准） | 汇总表 + `results/logs/` 截图 |
 | L3 | 基线固化：`git tag -a v1.0-summer` 并推送 | 任何人 §2 失败则先修复再打标（WP1 步骤3） | 标签可见 |
 | L4 | 每周日 `git push` 备份；周一组会按本表分派 | 推进程序 SOP（推进程序_负责人_王启龙.md §2.2） | 组会纪要 |
-| L5 | A/B 级问题的工程修复与全量复跑 | 修复后 verify.py 仍 45 项全过 | 修复说明 + 复跑输出 |
+| L5 | A/B 级问题的工程修复与全量复跑 | 修复后旧库 verify.py 仍 45 项全过；最终包以 verify_fixes.py 20 项为准 | 修复说明 + 复跑输出 |
 
 ### 2.3 衣思淼 — 数据线 A（数据集与排名表）
 
@@ -141,7 +141,7 @@
 | src/models/gnn.py、src/models/dataset.py | N5 | 超参 p_drop=0.3/T=30/epoch=300 与 02 文档一致；全精度输出 |
 | src/models/baseline.py | N1 | 重跑指标与 metrics/baseline.csv 一致（模块主：代维斯丹复核） |
 | src/scoring/fuse.py | N6 | 权重 0.45/0.35/0.20、域外×0.9（模块主：衣思淼复核） |
-| reports/pdf_build/verify.py | N3 | 独立复算"通过 45 项；不符 0 项" |
+| reports/pdf_build/verify.py | N3 | 独立复算"通过 45 项；不符 0 项"（旧工作库口径·F11） |
 | results/metrics/baseline.csv、reliability_curve.csv | N1/N3 | 数字由重跑与 verify.py 双重覆盖（模块主：代维斯丹复核） |
 | results/predictions/test_predictions.csv、fullpool_predictions.csv | N1 | 重跑后逐字节一致（npy 为缓存不入库） |
 | learning/宁显泷/（10 文件） | — | 名下学习练习骨架 W2/3/4/5/6/8/9/10/11＋状态文件：`semester_flow.py --member 宁显泷 check N` 判定 [FLOW]（学习线，非核验任务） |
