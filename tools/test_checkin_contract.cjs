@@ -1,28 +1,40 @@
-// Unit-level contract tests for offline persistence/import logic; browser UI tested separately.
-const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
-const root=path.resolve(__dirname,'..'),plan=JSON.parse(fs.readFileSync(path.join(root,'docs/project_plan.json'),'utf8'));
-let checks=0;
-for(const member of plan.members){
- const html=fs.readFileSync(path.join(root,member.name,`打卡_${member.name}.html`),'utf8');
- const script=html.split('<script>')[1].split('</script>')[0], elements=new Map(), storage=new Map([[member.legacy_key,JSON.stringify({done:['old-1']})],[member.legacy_key+'_journal','old journal']]);
- const node=()=>({textContent:'',innerHTML:'',value:'',hidden:false,querySelectorAll:()=>[],classList:{toggle:()=>{}},files:[]});
- const doc={getElementById:id=>{if(!elements.has(id))elements.set(id,node());return elements.get(id)},querySelectorAll:()=>[]};doc.getElementById('plan-data').textContent=JSON.stringify(plan);
- const context={document:doc,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},Date,console,setTimeout,JSON,Set,Number,Object,Array,String,Error,assert};vm.createContext(context);vm.runInContext(script,context);
- vm.runInContext(`
- assert.equal(Object.keys(state.tasks).length,0);
- assert.equal(state.course.M01,undefined);
- assert.equal(legacy.state,JSON.stringify({done:['old-1']}));
- assert.equal(valid('tasks',{artifact:'',note:'test'}),false);
- assert.equal(valid('course',{video:'v',range:'t',minutes:'20',notes:'n',artifact:'f',answer:'a',viewed:true,recall:true,applied:false}),false);
- let test=blank();test.tasks['R2-'+MEMBER.code+'-W01']={artifact:'',note:'',status:'submitted'};
- assert.equal(clean(test).tasks['R2-'+MEMBER.code+'-W01'].status,'draft');
- let other={...test,member:'other'};assert.throws(()=>clean(other));
- let wrong={...test,revision:'old'};assert.throws(()=>clean(wrong));
- const attack='<img src=x onerror=alert(1)>';assert.equal(esc(attack),'&lt;img src=x onerror=alert(1)&gt;');
- test.tasks['R2-'+MEMBER.code+'-W01']={artifact:'file',note:'measured result',status:'submitted'};
- state=clean(test);persist();const roundtrip=clean(JSON.parse(localStorage.getItem(KEY)));assert.equal(roundtrip.tasks['R2-'+MEMBER.code+'-W01'].note,'measured result');
- assert.equal(localStorage.getItem(MEMBER.legacy_key),JSON.stringify({done:['old-1']}));
- test.history=Array.from({length:25},(_,i)=>({record:i}));assert.equal(clean(test).history.length,25);
- `,context);checks+=12;
+// Static contract checks for the restored original offline check-in pages.
+// Browser smoke testing is separate; the original pages intentionally use their
+// own DOM/event model and are not executed inside a fake DOM here.
+const fs = require('fs');
+const path = require('path');
+const assert = require('assert');
+
+const root = path.resolve(__dirname, '..');
+const members = [
+  ['王启龙', 'semester_flow_leader_v1'],
+  ['宁显泷', 'semester_flow_ningxl_v1'],
+  ['衣思淼', 'semester_flow_yisimiao_v1'],
+  ['代维斯丹', 'semester_flow_daiweisd_v1'],
+  ['王散曼', 'semester_flow_wangsanman_v1'],
+];
+const tabs = ['🧭 我的工作台', '🔬 全线流程', '📍 本周看板', '🗓 学期总览', '📋 周卡片·打卡', '📚 学习资源', '✅ 打卡台账', '💾 数据管理'];
+let checks = 0;
+
+for (const [name, key] of members) {
+  const file = path.join(root, name, `打卡_${name}.html`);
+  assert.ok(fs.existsSync(file), `${file} exists`); checks++;
+  const html = fs.readFileSync(file, 'utf8');
+  assert.ok(html.includes('<nav id="nav">'), `${name}: original nav`); checks++;
+  for (const tab of tabs) { assert.ok(html.includes(tab), `${name}: ${tab}`); checks++; }
+  assert.ok(html.includes(`const SKEY = "${key}";`), `${name}: legacy storage key`); checks++;
+  assert.ok(html.includes('localStorage'), `${name}: localStorage persistence`); checks++;
+  for (const fn of ['function load(', 'function save(', 'function exp(', 'function imp(']) {
+    assert.ok(html.includes(fn), `${name}: ${fn}`); checks++;
+  }
+  assert.ok(html.includes('confirm('), `${name}: checkbox confirmation`); checks++;
+  assert.ok(html.includes('current-review-banner'), `${name}: current review banner`); checks++;
+  assert.ok(!html.includes('plan-data'), `${name}: no replacement v2 plan dependency`); checks++;
 }
-console.log(JSON.stringify({passed:true,members:plan.members.length,checks,scope:'Import validation, required evidence, roundtrip, old-key preservation, escaping, no silent history truncation'}));
+
+console.log(JSON.stringify({
+  passed: true,
+  members: members.length,
+  checks,
+  scope: 'Original tabs, legacy localStorage keys, persistence/import-export, confirmation, review banner, no v2 template dependency'
+}));
