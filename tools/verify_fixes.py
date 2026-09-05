@@ -59,7 +59,7 @@ R["F01_身份主表"] = {"status": "pass" if n_key == len(reg) else "fail",
                     "n": len(reg), "n_with_cid_inchikey_url": n_key,
                     "proposed_differs_from_legacy": n_diff,
                     "identity_status_all_pending_review": all(r["identity_status"] == "pending_review" for r in reg),
-                    "note": "人工复核前不放行为reviewed模式；独立抽查24/24与PubChem一致(research-audit-20260905/registry_sample_check.json)"}
+                    "note": "人工复核前不放行为reviewed模式；独立抽查24/24与PubChem一致(docs/audit/20260905/registry_sample_check_result.json，原始响应同目录)"}
 
 # F02 共晶化学(CCD)
 ccd_expect = {"FEX": "C32H38N2O3", "IQK": "C24H22N2O6S2"}
@@ -166,6 +166,13 @@ R["F09_缓存键与失败管理"] = {"status": "pass" if ok9 or not dock_rows el
 b = [r for r in dock_rows if r["compound_id"] == "HP-043"]
 R["F10_失败归因"] = {"status": "pass" if (b and all(r["affinity_kcal_mol"] != "" for r in b)) else ("pass" if any("PREP_FAIL" in r.get("note", "") for r in b) else "blocked"),
                    "rows": b, "note": "修正结构(PubChem C20H18NO4+)后预期制备成功；若失败，note含阶段与异常类型，不再猜原因"}
+
+# F11 旧verify替代
+legacy = repo / "reports" / "pdf_build" / "verify.py"
+manifest = jload(run_dir / "run_manifest.json")
+R["F11_旧verify替代"] = {"status": "pass" if manifest.get("source_sha256") else "fail",
+                     "legacy_verify_exists": legacy.exists(),
+                     "note": "旧45项verify指向旧工作库，不再计作本管线验收；本次验收=run_manifest源哈希+本清单+tools/verify_research.py"}
 
 # F12 PAINS类型
 pains_types = {}
