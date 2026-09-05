@@ -1,0 +1,154 @@
+{
+ "run_dir": "D:\\zcode-workspace\\hepato-gnn-screening\\final-aidd-screening\\results\\runs\\20260905-165717-235376",
+ "checks": {
+  "F01_身份主表": {
+   "status": "pass",
+   "n": 100,
+   "n_with_cid_inchikey_url": 100,
+   "proposed_differs_from_legacy": 56,
+   "identity_status_all_pending_review": true,
+   "note": "人工复核前不放行为reviewed模式；独立抽查24/24与PubChem一致(docs/audit/20260905/registry_sample_check_result.json，原始响应同目录)"
+  },
+  "F02_共晶CCD化学": {
+   "status": "pass",
+   "formula_vs_rcsb": {
+    "FEX": "C32H38N2O3",
+    "IQK": "C24H22N2O6S2"
+   },
+   "local_check": {
+    "FXR_LBD": true
+   }
+  },
+  "F03_骨架跨集断言": {
+   "status": "pass",
+   "sizes": {
+    "train": 58,
+    "val": 13,
+    "test": 17
+   },
+   "n_scaffold_groups": 48,
+   "cross": []
+  },
+  "F04_梯度校验": {
+   "status": "pass",
+   "max_abs_error": 4.3020892404044275e-11
+  },
+  "F05_标签结构化": {
+   "status": "open",
+   "detail": "标签全部unresolved待人工按统一终点复核；DC-030反例PMID已写入review_note",
+   "dc030_note_has_pmids": true,
+   "none_auto_verified": true
+  },
+  "F06_描述符实算": {
+   "status": "pass",
+   "recompute_matches_prefilter_5sample": true,
+   "source": "common.rdkit_descriptors(实际结构)，不再读CSV估算列"
+  },
+  "F07_不叠合RMSD": {
+   "status": "pass",
+   "methods": {
+    "FXR_LBD": "CalcRMS_no_alignment"
+   },
+   "per_seed": {
+    "FXR_LBD": {
+     "42": 0.8507494400311106,
+     "7": 0.748574663973697,
+     "123": 0.7677617538681119,
+     "2026": 0.7211134987427109,
+     "555": 0.9087138807528131
+    }
+   }
+  },
+  "F08_散点数值轴": {
+   "status": "pass",
+   "note": "fig_scatter对两轴显式float()转换；图存在"
+  },
+  "F09_缓存键与失败管理": {
+   "status": "pass",
+   "rows": 60,
+   "cached_verified": 0,
+   "failed_rows": 1,
+   "cache_metadata_files": 59,
+   "note": "失败条目status=failed不重用；输入/参数变更触发重算(结构/受体/盒子/种子/版本入键)"
+  },
+  "F10_失败归因": {
+   "status": "pass",
+   "rows": [
+    {
+     "compound_id": "HP-043",
+     "name_cn": "小檗碱",
+     "target": "FXR_LBD",
+     "affinity_kcal_mol": "-8.392",
+     "note": "computed"
+    }
+   ],
+   "note": "修正结构(PubChem C20H18NO4+)后预期制备成功；若失败，note含阶段与异常类型，不再猜原因"
+  },
+  "F11_旧verify替代": {
+   "status": "pass",
+   "legacy_verify_exists": true,
+   "note": "旧45项verify指向旧工作库，不再计作本管线验收；本次验收=run_manifest源哈希+本清单+tools/verify_research.py"
+  },
+  "F12_PAINS类型": {
+   "status": "pass",
+   "types": {
+    "catechol_A(92)": 10,
+    "quinone_A(370)": 4,
+    "imine_one_A(321)": 1
+   },
+   "note": "按FilterCatalog实际类别分型统计，保留标记制"
+  },
+  "F13_相关性口径": {
+   "status": "pass",
+   "spearman_model_dock": 0.267,
+   "note": "s5明确'描述性相关不证明独立'；融合权重为组会决议口径，正式验证列入学期任务"
+  },
+  "F14_分榜与对照": {
+   "status": "pass",
+   "n": 58,
+   "control_in_ranking": [],
+   "split_counts": {
+    "train": 27,
+    "val": 7,
+    "test": 13,
+    "screening_pool": 11
+   }
+  },
+  "F15_AUC区间": {
+   "status": "pass",
+   "ci": [
+    0.714,
+    1.0
+   ],
+   "note": "固定预测重抽样3000次；不含训练/划分/身份修订不确定性"
+  },
+  "F16_奥贝胆酸撤市": {
+   "status": "pass"
+  },
+  "F17_簇口径": {
+   "status": "pass",
+   "n_unique_scaffolds_in_top": 8,
+   "n": 10
+  },
+  "F18_种子清单": {
+   "status": "pass",
+   "model_seed": 42,
+   "gate_seeds": [
+    42,
+    7,
+    123,
+    2026,
+    555
+   ],
+   "docking_seed": "seed在缓存键内"
+  },
+  "F19_可移植性": {
+   "status": "partial",
+   "note": "VINA_BIN环境变量已支持；requirements-validated.txt在库根；Linux/净环境一键复现仍开放，列入学期WP"
+  },
+  "F20_报告生成": {
+   "status": "pass",
+   "note": "每次运行自动生成RUN_REPORT与summary.json；旧REPORT.md仅历史"
+  }
+ }
+}

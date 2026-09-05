@@ -1,0 +1,26 @@
+{
+  "mode": "proposed_structure_legacy_label_diagnostic",
+  "scientific_validation": "not_granted_by_this_run",
+  "wetlab_ready": false,
+  "registry_sha256": "4ef23d6c68f365590058908021d5ebefbc4cadad8b646e82ff95a177e2dbbaa3",
+  "argv": [
+    "--diagnostic",
+    "--targets",
+    "FXR_LBD"
+  ],
+  "status": "completed",
+  "source_sha256": {
+    "src/batch_docking.py": "392c692c50c5015a2536f3dec6a4c12b97939116109437a334eb63a01f02a1c5",
+    "src/common.py": "6e2b91dbb33d18f6e2b10fa61afad9387e9821ec5391ca8069c216a90bf43164",
+    "src/provenance.py": "630bdc93fc331ec2ae2b747bf32e37cd1942f53cf3ebbf344bc9c0b8d6ea55b7",
+    "src/redock.py": "a8c08d98fdce977bf282ab78d86aaccc5d0d5317f99701b99e237671c5f3c1be",
+    "src/s1_target_profile.py": "29c342918e15b0da85d30c1b2ed1f0f04535f3fc73bf12986c44b7df5dee484a",
+    "src/s2_prep_redock.py": "6de37037eafafe90d29ba9a91575d7cd4c8146ea1b99bab102ea326a364aa911",
+    "src/s3_model.py": "855595b245d9611910d665a43e719061e1eeafe446993c8e3d1c5293f9d2c37d",
+    "src/s4_dock.py": "04008714aecb5b1566bcc06e7f72c9a6bc528d08421b5d9c8ec10feaaf3ded7d",
+    "src/s5_fuse_select.py": "8a708be0d3ba3e544f586f4d027fc401dc3c97d7ec086f22d76de18fe5b04a7b",
+    "src/s6_report.py": "9488c6f462779b19198bd912ad4287bb628f8e175676dc41b1546d694c575f0e",
+    "run_revised.py": "fcee94a304ac0db9b719bcbc298cdb4697be456027b5bfd8365959ce9754daa3"
+  },
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]"
+}

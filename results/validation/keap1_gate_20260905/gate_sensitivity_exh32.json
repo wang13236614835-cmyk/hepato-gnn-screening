@@ -1,0 +1,35 @@
+{
+ "run_dir": "D:\\zcode-workspace\\hepato-gnn-screening\\final-aidd-screening\\results\\runs\\20260905-162905-336627",
+ "exhaustiveness": 32,
+ "policy": "pass if >=3/5 seeds RMSD<2A and median RMSD<2A; all seeds recorded",
+ "threshold_angstrom": 2.0,
+ "targets": {
+  "KEAP1_KELCH": {
+   "per_seed": {
+    "42": {
+     "rmsd": 2.0822,
+     "affinity": -10.59
+    },
+    "7": {
+     "rmsd": 1.8668,
+     "affinity": -10.7
+    },
+    "123": {
+     "rmsd": 1.8539,
+     "affinity": -10.69
+    },
+    "2026": {
+     "rmsd": 2.1236,
+     "affinity": -10.62
+    },
+    "555": {
+     "rmsd": 2.0957,
+     "affinity": -10.59
+    }
+   },
+   "median_rmsd": 2.0822,
+   "n_pass": 2,
+   "pass": false
+  }
+ }
+}

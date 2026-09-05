@@ -1,0 +1,51 @@
+{
+  "FXR_LBD": {
+    "ligand": "FEX",
+    "rmsd": 0.7677617538681119,
+    "rmsd_method": "CalcRMS_no_alignment",
+    "rmsd_by_seed": {
+      "42": 0.8507494400311106,
+      "7": 0.748574663973697,
+      "123": 0.7677617538681119,
+      "2026": 0.7211134987427109,
+      "555": 0.9087138807528131
+    },
+    "affinity_by_seed": {
+      "42": -11.29,
+      "7": -11.41,
+      "123": -11.05,
+      "2026": -11.49,
+      "555": -10.95
+    },
+    "n_pass_seeds": 5,
+    "n_seeds": 5,
+    "policy": "pass if >=3/5 seeds RMSD<2A and median RMSD<2A; all seeds recorded",
+    "affinity": -11.49,
+    "pass_gate": true,
+    "independent_start": true,
+    "seed": [
+      42,
+      7,
+      123,
+      2026,
+      555
+    ],
+    "context": "7f6f9d18817f4ac5d2d520d3234ba00e0b65291cbd8c03ba01112a98406e301c",
+    "receptor_hash": "3ba5f9faf94b93ea9fb795f035891017181ee2e4c495c2a5fc79b0fcc3fc4c3c",
+    "pose_hash": "0ae8be982bab1f397d866ad982b916da71261e96301f8d5f85d641ebc580f30d",
+    "box": {
+      "pdb": "1OSH",
+      "ligand": "FEX",
+      "center": [
+        5.23,
+        29.0,
+        53.67
+      ],
+      "size": [
+        19.4,
+        22.5,
+        24.8
+      ]
+    }
+  }
+}

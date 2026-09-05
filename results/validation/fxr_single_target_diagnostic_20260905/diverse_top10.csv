@@ -1,0 +1,11 @@
+rank,compound_id,name_cn,category,source_herb,role,legacy_label,model_split,pubchem_cid,data_mode,scaffold,pred_mean,pred_var,confidence,dock_avg_kcal,lipinski_violations,pains_alert,ad_warning,final_score,cluster
+1,HP-004,芹菜素,黄酮类,菊花,candidate,1,train,5280443,proposed,O=c1cc(-c2ccccc2)oc2ccccc12,0.9728,0.0008,0.884,-9.06,0,,,0.9501,1
+3,HP-009,柚皮素,黄烷酮类,枳实/骨碎补,candidate,1,train,439246,proposed,O=C1CC(c2ccccc2)Oc2ccccc21,0.9733,0.0008,0.884,-9.04,0,,,0.9442,31
+7,HP-016,姜黄素,多酚类,姜黄,candidate,1,train,969516,proposed,O=C(C=Cc1ccccc1)CC(=O)C=Cc1ccccc1,0.9079,0.0056,0.7,-9.33,0,,,0.8972,5
+8,HP-012,大豆苷元,异黄酮类,葛根,candidate,1,test,5281708,proposed,O=c1c(-c2ccccc2)coc2ccccc12,0.9501,0.0014,0.85,-8.79,0,,,0.878,15
+9,HP-048,丹参酮IIA,二萜醌类,丹参,candidate,1,train,164676,proposed,O=C1C(=O)c2c(ccc3c2CCCC3)-c2occc21,0.9493,0.0008,0.883,-8.71,0,imine_one_A(321),,0.8725,21
+10,NV-009,松脂素,木脂素类,连翘/杜仲,candidate,,screening_pool,73399,proposed,c1ccc(C2OCC3C(c4ccccc4)OCC23)cc1,0.9313,0.0025,0.799,-8.65,0,,,0.841,2
+11,HP-014,二氢杨梅素,黄酮醇类,显齿蛇葡萄(藤茶),candidate,1,train,161557,proposed,O=C1CC(c2ccccc2)Oc2ccccc21,0.9875,0.0004,0.922,-8.47,1,catechol_A(92),,0.8165,14
+14,HP-020,绿原酸,有机酸类,金银花/杜仲,candidate,1,train,1794427,proposed,O=C(C=Cc1ccccc1)OC1CCCCC1,0.9377,0.0061,0.688,-8.89,1,catechol_A(92),,0.7947,27
+15,HP-032,大黄酸,蒽醌类,大黄,candidate,1,test,10168,proposed,O=C1c2ccccc2C(=O)c2ccccc21,0.9931,0.0002,0.947,-7.45,0,quinone_A(370),,0.7762,9
+16,HP-008,汉黄芩素,黄酮类,黄芩,candidate,1,train,5281703,proposed,O=c1cc(-c2ccccc2)oc2ccccc12,0.9193,0.0033,0.771,-8.01,0,,,0.7751,16

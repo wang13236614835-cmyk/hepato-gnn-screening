@@ -1,0 +1,50 @@
+{
+ "w_pos": 1.0,
+ "temperature": 1.0,
+ "seed": 42,
+ "data_mode": "proposed",
+ "baselines": {
+  "ECFP+RF": {
+   "AUC": 1.0,
+   "BACC": 0.857,
+   "F1": 0.833,
+   "ECE": 0.331
+  },
+  "Desc+LR": {
+   "AUC": 1.0,
+   "BACC": 0.893,
+   "F1": 0.88,
+   "ECE": 0.2
+  }
+ },
+ "gnn": {
+  "AUC": 0.929,
+  "BACC": 0.893,
+  "F1": 0.88,
+  "ECE": 0.204,
+  "ECE_before_cal": 0.204,
+  "ECE_after_cal": 0.204,
+  "spearman_var_err": 0.936,
+  "AUC_95CI_stratified_bootstrap": [
+   0.714,
+   1.0
+  ],
+  "AUC_95CI_note": "固定预测重抽样3000次；不含训练/划分/身份修订不确定性"
+ },
+ "ad_h_star": 0.362,
+ "ad_pool_out": 6,
+ "splits": {
+  "train": {
+   "n": 58,
+   "pos": 27
+  },
+  "val": {
+   "n": 13,
+   "pos": 7
+  },
+  "test": {
+   "n": 17,
+   "pos": 14
+  }
+ }
+}

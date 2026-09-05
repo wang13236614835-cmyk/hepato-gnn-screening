@@ -1,0 +1,100 @@
+{
+  "FXR_LBD": {
+    "ligand": "FEX",
+    "rmsd": 0.7677617538681119,
+    "rmsd_method": "CalcRMS_no_alignment",
+    "rmsd_by_seed": {
+      "42": 0.8507494400311106,
+      "7": 0.748574663973697,
+      "123": 0.7677617538681119,
+      "2026": 0.7211134987427109,
+      "555": 0.9087138807528131
+    },
+    "affinity_by_seed": {
+      "42": -11.29,
+      "7": -11.41,
+      "123": -11.05,
+      "2026": -11.49,
+      "555": -10.95
+    },
+    "n_pass_seeds": 5,
+    "n_seeds": 5,
+    "policy": "pass if >=3/5 seeds RMSD<2A and median RMSD<2A; all seeds recorded",
+    "affinity": -11.49,
+    "pass_gate": true,
+    "independent_start": true,
+    "seed": [
+      42,
+      7,
+      123,
+      2026,
+      555
+    ],
+    "context": "7f6f9d18817f4ac5d2d520d3234ba00e0b65291cbd8c03ba01112a98406e301c",
+    "receptor_hash": "3ba5f9faf94b93ea9fb795f035891017181ee2e4c495c2a5fc79b0fcc3fc4c3c",
+    "pose_hash": "0ae8be982bab1f397d866ad982b916da71261e96301f8d5f85d641ebc580f30d",
+    "box": {
+      "pdb": "1OSH",
+      "ligand": "FEX",
+      "center": [
+        5.23,
+        29.0,
+        53.67
+      ],
+      "size": [
+        19.4,
+        22.5,
+        24.8
+      ]
+    }
+  },
+  "KEAP1_KELCH": {
+    "ligand": "IQK",
+    "rmsd": 2.0821945121878547,
+    "rmsd_method": "CalcRMS_no_alignment",
+    "rmsd_by_seed": {
+      "42": 2.0821945121878547,
+      "7": 1.8859613853470683,
+      "123": 1.811158822864268,
+      "2026": 2.123619615392686,
+      "555": 2.095673580087877
+    },
+    "affinity_by_seed": {
+      "42": -10.59,
+      "7": -10.73,
+      "123": -10.69,
+      "2026": -10.62,
+      "555": -10.59
+    },
+    "n_pass_seeds": 2,
+    "n_seeds": 5,
+    "policy": "pass if >=3/5 seeds RMSD<2A and median RMSD<2A; all seeds recorded",
+    "affinity": -10.69,
+    "pass_gate": false,
+    "independent_start": true,
+    "seed": [
+      42,
+      7,
+      123,
+      2026,
+      555
+    ],
+    "context": "07b5011186604ae2e8394cf4610e6dfc4f5c74007826d1697a854ac49df08ae0",
+    "receptor_hash": "1f703f1dfb7d0b0d365659257e4f8dd24a2ccab5d5f7069e7598f14c2aa59b4d",
+    "pose_hash": "264b093fdc6577416e0db8c7971975fe8d33552076256b64b1b8964e9be2842e",
+    "box": {
+      "pdb": "4IQK",
+      "ligand": "IQK",
+      "center": [
+        -47.07,
+        4.21,
+        -13.13
+      ],
+      "size": [
+        22.1,
+        21.9,
+        18.6
+      ]
+    }
+  }
+}

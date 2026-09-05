@@ -1,0 +1,136 @@
+{
+ "reference_smiles": "COc1ccc(S(=O)(=O)Nc2ccc(NS(=O)(=O)c3ccc(OC)cc3)c3ccccc23)cc1",
+ "overall_rmsd_recorded": {},
+ "seeds": {
+  "42": {
+   "rmsd_noalign": 2.1604,
+   "max_atom_dev": 5.05,
+   "groups": {
+    "naphthalene_core": {
+     "n": 10,
+     "max": 4.71,
+     "mean": 1.97
+    },
+    "sulfonamide_S": {
+     "n": 8,
+     "max": 2.31,
+     "mean": 1.27
+    },
+    "methoxy_O": {
+     "n": 6,
+     "max": 4.26,
+     "mean": 1.65
+    },
+    "benzene_ring": {
+     "n": 22,
+     "max": 5.05,
+     "mean": 1.91
+    }
+   }
+  },
+  "7": {
+   "rmsd_noalign": 2.1775,
+   "max_atom_dev": 5.17,
+   "groups": {
+    "naphthalene_core": {
+     "n": 10,
+     "max": 4.84,
+     "mean": 2.25
+    },
+    "sulfonamide_S": {
+     "n": 8,
+     "max": 2.9,
+     "mean": 1.1
+    },
+    "methoxy_O": {
+     "n": 6,
+     "max": 2.56,
+     "mean": 1.14
+    },
+    "benzene_ring": {
+     "n": 22,
+     "max": 5.17,
+     "mean": 2.15
+    }
+   }
+  },
+  "123": {
+   "rmsd_noalign": 1.8112,
+   "max_atom_dev": 5.0,
+   "groups": {
+    "naphthalene_core": {
+     "n": 10,
+     "max": 4.66,
+     "mean": 1.92
+    },
+    "sulfonamide_S": {
+     "n": 8,
+     "max": 0.99,
+     "mean": 0.68
+    },
+    "methoxy_O": {
+     "n": 6,
+     "max": 1.42,
+     "mean": 0.81
+    },
+    "benzene_ring": {
+     "n": 22,
+     "max": 5.0,
+     "mean": 1.67
+    }
+   }
+  },
+  "2026": {
+   "rmsd_noalign": 2.3114,
+   "max_atom_dev": 5.13,
+   "groups": {
+    "naphthalene_core": {
+     "n": 10,
+     "max": 2.35,
+     "mean": 1.05
+    },
+    "sulfonamide_S": {
+     "n": 8,
+     "max": 4.8,
+     "mean": 1.96
+    },
+    "methoxy_O": {
+     "n": 6,
+     "max": 5.13,
+     "mean": 2.18
+    },
+    "benzene_ring": {
+     "n": 22,
+     "max": 4.26,
+     "mean": 1.68
+    }
+   }
+  },
+  "555": {
+   "rmsd_noalign": 2.3093,
+   "max_atom_dev": 5.16,
+   "groups": {
+    "naphthalene_core": {
+     "n": 10,
+     "max": 2.91,
+     "mean": 1.38
+    },
+    "sulfonamide_S": {
+     "n": 8,
+     "max": 4.81,
+     "mean": 1.87
+    },
+    "methoxy_O": {
+     "n": 6,
+     "max": 5.16,
+     "mean": 2.28
+    },
+    "benzene_ring": {
+     "n": 22,
+     "max": 4.25,
+     "mean": 1.72
+    }
+   }
+  }
+ }
+}

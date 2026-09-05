@@ -37,6 +37,19 @@ MOOC 提前学为当日保留的可信设计：开学前（至 09/06）即可按
 
 [GNN组员库](https://github.com/wang13236614835-cmyk/hepato-gnn-screening) · [AIDD完整研究库](https://github.com/wang13236614835-cmyk/aidd)
 
-## 本次新增实测
+## 本次新增实测（2026-09-05 修复批次）
 
-软件9组检查通过。独立初始构象redock：FXR 0.8507 angstrom；KEAP1 2.0822 angstrom未过2 angstrom，当前门控阻塞。诊断模型AUC 0.929仍使用旧一般保肝标签，不是MASH结果。详见 results/validation/README.md。
+**审计 F01–F20 修复验证：18 项通过 / 1 项部分（F19 Linux 移植性待测）/ 1 项按设计留人工（F05 标签复核）。**
+证据：[fixes_verification_20260905_fxr_run.json](../results/validation/fixes_verification_20260905_fxr_run.json)（含逐项明细）。
+
+- **多种子门控（预注册：5 独立起始种子，≥3/5 且中位 RMSD<2Å）**：FXR/1OSH 5/5 过（0.72–0.91Å，中位 0.77）；
+  **KEAP1/4IQK 2/5 过（中位 2.08）→ 如实拦截生产对接**。exh=32 敏感性显示与 exh=16 几乎一致（非采样问题）；
+  逐原子偏差归因显示未过种子含核心错位（非仅外围环翻转）。决策选项（换结构/改判据/单靶/维持拦截）
+  见 [KEAP1门控决策备忘录](../results/validation/keap1_gate_20260905/KEAP1门控决策备忘录.md)，开学后 W1–W2 全组议定。
+- **FXR 单靶诊断全链跑通**（明确标注"仅 FXR 证据，不得当双靶共识结论"）：60 候选制备（修正结构后小檗碱 HP-043 成功对接 −8.39），
+  59 对接成功（HP-039 甘草酸 MMFF 不收敛，失败阶段如实留档），58 进榜、32 指纹簇；
+  **Top-10 与旧榜完全重排（芹菜素居首）**——结构身份修正的直接后果；模型分-对接分 Spearman 0.267（描述性）。
+  产物：[fxr_single_target_diagnostic_20260905/](../results/validation/fxr_single_target_diagnostic_20260905/)。
+- **诊断模型**（建议结构+旧标签）：GNN AUC 0.929，95% 区间 [0.714, 1.0]（分层自助 3000 次；小样本如实报宽区间）；
+  基线 ECFP+RF / Desc+LR AUC 1.0（测试集仅 3 条旧阴性，不构成强证据）。
+- 机器验证通过不等于科学验收：身份/标签逐条人工复核（注册表 pending_review）仍是放行研究模式的前提。

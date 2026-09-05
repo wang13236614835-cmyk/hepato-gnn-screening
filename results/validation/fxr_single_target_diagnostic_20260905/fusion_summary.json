@@ -1,0 +1,71 @@
+{
+ "n_candidates": 58,
+ "n_clusters": 32,
+ "targets": [
+  "FXR_LBD"
+ ],
+ "single_target_note": "单靶诊断运行：KEAP1未过多种子门控，本榜仅FXR证据，不得当双靶共识结论",
+ "spearman_model_dock": 0.267,
+ "top10": [
+  {
+   "name": "芹菜素",
+   "score": 0.9501,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "柚皮素",
+   "score": 0.9442,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "姜黄素",
+   "score": 0.8972,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "大豆苷元",
+   "score": 0.878,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "丹参酮IIA",
+   "score": 0.8725,
+   "pains": "imine_one_A(321)",
+   "ad": ""
+  },
+  {
+   "name": "松脂素",
+   "score": 0.841,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "二氢杨梅素",
+   "score": 0.8165,
+   "pains": "catechol_A(92)",
+   "ad": ""
+  },
+  {
+   "name": "绿原酸",
+   "score": 0.7947,
+   "pains": "catechol_A(92)",
+   "ad": ""
+  },
+  {
+   "name": "大黄酸",
+   "score": 0.7762,
+   "pains": "quinone_A(370)",
+   "ad": ""
+  },
+  {
+   "name": "汉黄芩素",
+   "score": 0.7751,
+   "pains": "",
+   "ad": ""
+  }
+ ]
+}
