@@ -309,10 +309,10 @@ const PIPELINE={
 updated:"2026-09-04",
 steps:[
  ["① 靶点档案","FXR（1OSH·共晶配体FEX，疏水口袋）＋Keap1-Kelch（4IQK·共晶配体IQK，Nrf2结合口袋）；证据四栏：遗传/功能/表达/安全","s1_target_profile.py → results/targets.json","✅ 完成"],
- ["② 结构·口袋·redock门控","盒子＝共晶配体包络+6Å；共晶配体回对接 RMSD＜2Å 才放行批量对接","s2_prep_redock.py → docking/redock_gate.json","历史门控；修正版：FXR五种子5/5通过，KEAP1 2/5仍阻断"],
+ ["② 结构·口袋·redock门控","盒子＝共晶配体包络+6Å；共晶配体回对接 RMSD＜2Å 才放行批量对接（历史门控；修正版：FXR五种子5/5通过，KEAP1 2/5仍阻断）","s2_prep_redock.py → docking/redock_gate.json","历史快照"],
  ["③ 数据·建模","【历史快照·教学诊断模式】88条标签（48正/40负）+12条NV池；骨架划分 58/13/17；基线 ECFP+RF 0.983、Desc+LR 0.983；GNN+MC Dropout AUC 0.95（方差-误差ρ=0.676）；适用域 h*=0.362（NV池 7/12 域外）——数字仅在源表运行ID/输入版本内有效","s3_model.py → results/metrics/model_summary.json","✅ 快照核验"],
  ["④ 预过滤·真实对接","60候选 Lipinski/PAINS 预过滤（标记保留）→ AutoDock Vina 1.2.7 真实对接（exh=8, seed=42）","s4_dock.py → results/tables/docking_real_scores.csv","✅ 118/120 次（-10.41~-3.90）"],
- ["⑤ 三源共识评分","final ＝ 0.45×模型 + 0.35×真实对接 + 0.20×类药；域外分子×0.9","s5_fuse_select.py → final_ranking_v2_real.csv","旧榜留档；当前为FXR单靶探索排序（三榜：已知回顾/独立测试/未标注）"],
+ ["⑤ 三源共识评分","final ＝ 0.45×模型 + 0.35×真实对接 + 0.20×类药；域外分子×0.9（旧榜留档；当前为FXR单靶探索排序，三榜=已知回顾/独立测试/未标注）","s5_fuse_select.py → final_ranking_v2_real.csv","旧榜留档"],
  ["⑥ 指纹相似性多样性Top-10","ECFP4 Tanimoto Butina 指纹相似性聚类（≠Murcko骨架），每簇总分最高为代表","→ diverse_top10.csv","快照留档（覆盖8个化学类别）"],
  ["⑦ 可得性","天然产物以药材来源（source_herb）标注——药材来源不等于可购标准品","数据列","✅ 完成"],
  ["⑧ 报告·一键复现","REPORT.md + summary.json + 3 图；python run_all.py（--model 快速模式）","run_all.py","✅ 完成"]
@@ -329,7 +329,7 @@ progress:[
 ]};
 
 function vPipeline(){
-  const steps = PIPELINE.steps.map(s=>`<tr><td style="white-space:nowrap"><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td><span class="cmd">${esc(s[2])}</span></td><td style="white-space:nowrap;color:var(--brand2);font-weight:600">${esc(s[3])}</td></tr>`).join("");
+  const steps = PIPELINE.steps.map(s=>`<tr><td style="white-space:nowrap"><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td><span class="cmd">${esc(s[2])}</span></td><td style="color:var(--brand2);font-weight:600;min-width:132px;white-space:normal;line-height:1.5">${esc(s[3])}</td></tr>`).join("");
   const prog = PIPELINE.progress.map(p=>`<div class="item"><span class="tx"><b>${p[0]} ${esc(p[1])}</b>——${esc(p[2])}</span></div>`).join("");
   return `
   <div class="card" style="border-left:4px solid var(--brand)"><h2>🧭 当前研究路线（AIDD 主线 · FXR/GNN/CW-BCS）</h2>
