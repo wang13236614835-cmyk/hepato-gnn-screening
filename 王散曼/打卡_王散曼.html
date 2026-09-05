@@ -74,6 +74,11 @@ table.d28 td{font-size:12.5px}
 .exp{background:#f7f9fc;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13px;color:var(--sub)}
 footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color:var(--sub)}
 @media print{nav,header .meta,.wknav,button{display:none}body{background:#fff}}
+/* v10.2 窄屏适配: 导航可换行, 表格超宽卡内横滚, 命令芯片可折行 */
+#nav{flex-wrap:wrap}
+.card table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmd{max-width:100%;overflow-wrap:anywhere;white-space:normal}
+@media (max-width:640px){table{font-size:12px}td{padding:6px 5px}}
 </style>
 </head>
 <body>
@@ -272,7 +277,7 @@ progress:[
 ]};
 
 function vPipeline(){
-  const steps = PIPELINE.steps.map(s=>`<tr><td style="white-space:nowrap"><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td><span class="cmd">${esc(s[2])}</span></td><td style="color:var(--brand2);font-weight:600;min-width:132px;white-space:normal;line-height:1.5">${esc(s[3])}</td></tr>`).join("");
+  const steps = PIPELINE.steps.map(s=>`<tr><td><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td><span class="cmd">${esc(s[2])}</span></td><td style="color:var(--brand2);font-weight:600;line-height:1.5">${esc(s[3])}</td></tr>`).join("");
   const prog = PIPELINE.progress.map(p=>`<div class="item"><span class="tx"><b>${p[0]} ${esc(p[1])}</b>——${esc(p[2])}</span></div>`).join("");
   return `
   <div class="card" style="border-left:4px solid var(--brand)"><h2>🧭 当前研究路线（AIDD 主线 · FXR/GNN/CW-BCS）</h2>

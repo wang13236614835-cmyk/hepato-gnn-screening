@@ -30,15 +30,16 @@
   "revision1_sync_20260905": {
     "scope": "五页同步完成：共用块(路线卡/8步卡快照口径/页眉/台账四态/资源页定位/证据链)+各人CSV行+投稿映射(Q/N/Y/D/S各5)+里程碑对齐semester_flow.py",
     "html_sha256_after": {
-      "打卡_王启龙.html": "d4db9e09d0abc65384a256621cd4d6eddf1e5fd93c22084b058d2d8571120108",
-      "打卡_宁显泷.html": "dbfc57ddc84e4e3045676292a4882cf6f63b6ec5f8def16765df42dd8b85aee5",
-      "打卡_衣思淼.html": "8d12565497a658bb2cd7a55425420ddabe02f942b2e64b6118418ccb594282c3",
-      "打卡_代维斯丹.html": "149a94c58ad0d8843af619839ecf9a86e4f12d6768a288725aced5bccf06a646",
-      "打卡_王散曼.html": "6e90addf8273e21e3cdfb3f2ce6484f008d4ccafc331aa724d9cfce3c7b354da"
+      "打卡_王启龙.html": "7aabebd88191a51b6407a19d40635381c21d1811a88d65e171b04d5717e91fda",
+      "打卡_宁显泷.html": "828cb2edd905e4f3280d382fafc7736cde3cc8a15609e0f3c3ac6f078230fb19",
+      "打卡_衣思淼.html": "493ce721a0bc5d9804a3f55b17add83323ce042e5555340c230604a55505ba06",
+      "打卡_代维斯丹.html": "a1e464fea45a653455b866c6b53e83d31b986a75ce717f81a89cac7fe12f6380",
+      "打卡_王散曼.html": "256ff03468bcece4c31252b0392b4dae8a6408224f7d7133fb62e579133bbe82"
     },
     "timeline": "争取2027年2月达到投稿水准；湿实验=按时/优秀/新颖前提下的可选锦上添花",
     "verification": "node语法+数据解析五页通过；存储代码零diff；结题答辩/旧门槛文字零残留",
     "sync_script": "docs/打卡修缮/sync_member_pages.py(逐项断言唯一命中)",
-    "v10_1_fix": "8步表状态列nowrap移除+长状态精简(乱码修复)"
+    "v10_1_fix": "8步表状态列nowrap移除+长状态精简(乱码修复)",
+    "v10_2_fix": "窄屏适配: #nav可换行+.card table卡内横滚+.cmd可折行+8步表解除nowrap/mini-width(480px溢出清零)"
   }
 }
