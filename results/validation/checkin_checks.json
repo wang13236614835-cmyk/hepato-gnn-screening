@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "contract_checks": 60,
+  "members": 5,
+  "browser_checks": [
+    "task empty submission blocked",
+    "course missing evidence blocked",
+    "draft persists across reload",
+    "draft does not increase completion counter",
+    "test draft text cleared"
+  ],
+  "scientific_validation": "not_granted"
+}

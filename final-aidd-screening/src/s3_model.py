@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-"""SOP 步骤 3 · 活性数据建模: 骨架划分 -> 基线(ECFP+RF / 描述符+LR) -> GNN+MC Dropout
-       -> 温度校准 -> 适用域(杠杆值法) -> 全池推理
-
-课程标准: "基线先行,深度在后;新模型先跟 ECFP+RF 比划"(第 2 章);
-          scaffold split 必须报告(第 3 章);OECD 适用域声明(第 6 章)。
-"""
+"""暑假方法诊断模块。课程对应主题见 learning/共享；不宣称未经核实的课程章号或原话。
+PAINS命中仅为干扰风险提示，不能称为已证实假阳性。研究身份/标签审核独立于代码运行。"""
 import csv
 import json
 import os
@@ -17,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 
 from common import (DATA, RES, SPLITS, GraphRecord, auc, ece, ecfp_bits,
-                    load_labeled, load_pool, metrics, read_csv, records_of,
+                    load_labeled, load_pool, metrics, read_csv, records_of, scaffold_smiles, mol_of,
                     rdkit_descriptors, spearman, write_csv, DESC_FEATS)
 
 SEED = 42
@@ -72,7 +68,7 @@ class GCN:
         dpool = self.W3[:, 0] * dz
         dpool = dpool if m2 is None else dpool * m2
         dU = np.tile(dpool / n, (n, 1)) * (1 - H2 ** 2)
-        H1d = H1 if m1 is None else H1 * m1
+        H1d = H1  # 前向缓存已施加 Dropout
         g["W2"] += (rec.A @ H1d).T @ dU; g["b2"] += dU.sum(0)
         dH1d = rec.A.T @ (dU @ self.W2.T)
         dZ1 = (dH1d if m1 is None else dH1d * m1) * (1 - np.tanh(Z1) ** 2)
@@ -119,6 +115,7 @@ def make_splits():
     rows = load_labeled()
     groups = defaultdict(list)
     for r in rows:
+        r["scaffold"] = scaffold_smiles(mol_of(r["smiles"]))
         groups[r["scaffold"]].append(r)
     keys = sorted(groups, key=lambda k: (-len(groups[k]), k))
     random.shuffle(keys)
@@ -143,7 +140,7 @@ def make_splits():
 
 
 def _desc_matrix(rows):
-    return np.array([[float(r[c]) for c in DESC_FEATS] for r in rows])
+    return np.array([[rdkit_descriptors(mol_of(r["smiles"]))[k] for k in DESC_FEATS] for r in rows])
 
 
 def applicability_domain(train_rows, eval_rows_list):
@@ -165,8 +162,8 @@ def applicability_domain(train_rows, eval_rows_list):
 def fit_temperature(z_val, y_val):
     """温度缩放: 网格搜索 T 最小化验证集 NLL;仅当验证集 ECE 实际改善(>=0.02)才启用。
 
-    小样本(验证集 13 条)下校准参数本身高方差, 盲目套用反而恶化测试集 ECE
-    (实测: T=5.0 时测试集 ECE 0.247->0.319), 故采用"验证集确认有效才启用"规则。
+    小验证集下参数有较高方差；本规则仅在验证集上决定，测试集不参与选择。
+    同一验证集用于模型选择与校准，当前仅为诊断，正式研究需独立校准设计。
     """
     p_val = _sig(z_val)
     ece_before = ece(y_val, p_val)
@@ -192,6 +189,10 @@ def run():
     ytr = np.array([int(r["label"]) for r in train_rows])
     yva = np.array([int(r["label"]) for r in val_rows])
     yte = np.array([int(r["label"]) for r in test_rows])
+    if any(len(np.unique(y)) < 2 for y in (ytr, yva, yte)):
+        raise ValueError("规范骨架划分后某集合不足两类；需要更多经核验数据或另行预注册分组方案，不能回退到泄漏划分")
+    sets = [{scaffold_smiles(mol_of(r["smiles"])) for r in rs} for rs in (train_rows,val_rows,test_rows)]
+    assert all(not sets[i] & sets[j] for i in range(3) for j in range(i)), "骨架跨集"
 
     train = [GraphRecord(r) for r in train_rows]
     val = [GraphRecord(r) for r in val_rows]
@@ -222,13 +223,15 @@ def run():
         if best is None or f1v > best[1]:
             best = (wp, f1v)
     wp, _ = best
-    gnn = GCN(seed=7).fit(train, ytr, epochs=300, w_pos=wp)
+    gnn = GCN(seed=SEED).fit(train, ytr, epochs=300, w_pos=wp)
     pm, pv = gnn.predict_mc(test, T=30)
     m_gnn = metrics(yte, pm); m_gnn["ECE"] = ece(yte, pm)
     rho = spearman(pv, np.abs(yte - pm))
 
     # ---- 温度校准(验证集拟合 T, 测试集只报指标) ----
-    z_val = gnn.forward_batch(val, use_drop=False)[0]
+    p_val_mc, _ = gnn.predict_mc(val, T=30)
+    p_val_mc = np.clip(p_val_mc, 1e-9, 1 - 1e-9)
+    z_val = np.log(p_val_mc / (1 - p_val_mc))
     T_best = fit_temperature(z_val, yva.astype(float))
     pm_cal = _sig(np.log(np.clip(pm, 1e-9, 1 - 1e-9) / np.clip(1 - pm, 1e-9, None)) / T_best)
     ece_cal = ece(yte, pm_cal)
@@ -259,8 +262,11 @@ def run():
                 "in_domain": ad_map.get(r.cid, 1)}
                for r, a, b in zip(cands, pm_c, pv_c)])
 
+    np.savez(os.path.join(RES, "metrics", "gnn_weights.npz"), **{k: getattr(gnn,k) for k in gnn.params})
+    write_csv(os.path.join(RES, "predictions", "baseline_test_predictions.csv"),
+              [{"compound_id": r["compound_id"], "label": int(r["label"]), "rf": float(a), "lr": float(b)} for r,a,b in zip(test_rows,p_rf,p_lr)])
     summary = {
-        "w_pos": wp, "temperature": T_best,
+        "w_pos": wp, "temperature": T_best, "seed": SEED, "data_mode": os.environ.get("HEPATO_DATA_MODE", "reviewed"),
         "baselines": {"ECFP+RF": m_rf, "Desc+LR": m_lr},
         "gnn": {**m_gnn, "ECE_before_cal": m_gnn["ECE"], "ECE_after_cal": ece_cal,
                 "spearman_var_err": round(rho, 3)},

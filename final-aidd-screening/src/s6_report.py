@@ -21,16 +21,16 @@ FIG = os.path.join(RES, "figures")
 
 
 def fig_scatter(rank_rows):
-    ms = np.array([r["pred_mean"] for r in rank_rows])
-    ds = np.array([r["dock_avg_kcal"] for r in rank_rows])
+    ms = np.array([float(r["pred_mean"]) for r in rank_rows])
+    ds = np.array([float(r["dock_avg_kcal"]) for r in rank_rows])
     fig, ax = plt.subplots(figsize=(6, 5))
     ax.scatter(ms, ds, s=28, c="#2b6cb0", alpha=0.75)
     for r in rank_rows[:10]:
-        ax.annotate(r["name_cn"], (r["pred_mean"], r["dock_avg_kcal"]),
+        ax.annotate(r["name_cn"], (float(r["pred_mean"]), float(r["dock_avg_kcal"])),
                     fontsize=8, xytext=(4, 3), textcoords="offset points")
     ax.set_xlabel("GNN 预测活性 (MC Dropout 均值)")
     ax.set_ylabel("真实 Vina 对接分均值 (kcal/mol)")
-    ax.set_title("模型证据 × 结构证据 (60 候选, AutoDock Vina 1.2.7)")
+    ax.set_title(f"模型预测与对接评分 ({len(rank_rows)} 候选；待实验验证)")
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "model_vs_dock_real.png"), dpi=160)
     plt.close(fig)
@@ -99,6 +99,8 @@ def run():
                            "diverse_top10.png"]}
     json.dump(summary, open(os.path.join(RES, "summary.json"), "w",
                             encoding="utf-8"), ensure_ascii=False, indent=1)
+    with open(os.path.join(RES,"RUN_REPORT.md"),"w",encoding="utf-8") as f:
+        f.write("# 本次计算记录\n\n数据模式：" + os.environ.get("HEPATO_DATA_MODE","reviewed") + "。计算完成不代表药效或湿实验准入。\n\n指标与排名见本目录 summary.json 和 tables；历史 REPORT.md 不适用于此次运行。\n")
     print(f"[s6] 图 3 张与 summary.json 已生成: {FIG}")
     return summary
 

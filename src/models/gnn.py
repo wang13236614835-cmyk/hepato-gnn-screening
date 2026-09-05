@@ -85,7 +85,7 @@ class GCN:
         dpool = self._undropout(dpool, m2)
         # 池化: pooled = mean_i H2[i]
         dU = np.tile(dpool / n, (n, 1)) * (1.0 - H2 ** 2)
-        H1d = H1 if m1 is None else H1 * m1
+        H1d = H1  # 前向缓存已包含 Dropout；W2 梯度不得重复乘掩码
         gW2 += (rec.A @ H1d).T @ dU
         gb2 += dU.sum(0)
         dH1d = rec.A.T @ (dU @ self.W2.T)

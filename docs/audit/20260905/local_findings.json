@@ -1,0 +1,280 @@
+{
+  "environment": {
+    "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.22621-SP0",
+    "packages": {
+      "numpy": "1.26.4",
+      "scipy": "1.16.3",
+      "scikit-learn": "1.4.0",
+      "rdkit": "2026.3.3",
+      "meeko": "0.7.1",
+      "matplotlib": "3.8.2"
+    }
+  },
+  "data": {
+    "n": 100,
+    "split_sizes": {
+      "train": 58,
+      "val": 13,
+      "test": 17
+    },
+    "canonical_duplicate_groups": [],
+    "rdkit_scaffold_count_labeled": 47,
+    "cross_split_scaffolds": [
+      {
+        "scaffold": "c1ccc(Cc2ccccc2)cc1",
+        "ids": [
+          "HP-025",
+          "HP-026",
+          "HP-027",
+          "DC-014",
+          "DC-015"
+        ],
+        "splits": [
+          "test",
+          "train",
+          "val"
+        ]
+      },
+      {
+        "scaffold": "O=C1c2ccccc2C(=O)c2ccccc21",
+        "ids": [
+          "HP-031",
+          "HP-032",
+          "HP-033",
+          "HP-034"
+        ],
+        "splits": [
+          "test",
+          "train"
+        ]
+      },
+      {
+        "scaffold": "O=c1[nH]c(=O)c2[nH]cnc2[nH]1",
+        "ids": [
+          "DC-009",
+          "DC-010"
+        ],
+        "splits": [
+          "train",
+          "val"
+        ]
+      },
+      {
+        "scaffold": "c1ccc2ccccc2c1",
+        "ids": [
+          "DC-018",
+          "DC-038"
+        ],
+        "splits": [
+          "train",
+          "val"
+        ]
+      }
+    ],
+    "descriptor_different_molecules": 100,
+    "descriptor_differences_by_feature": {
+      "logP_est": 98,
+      "TPSA_est": 99,
+      "nRot": 48,
+      "nAromSystems": 29,
+      "MW": 94,
+      "nHBA": 46,
+      "nHBD": 3
+    }
+  },
+  "metrics": {
+    "AUC": 0.95,
+    "BACC": 0.8333333333333333,
+    "F1": 0.8,
+    "ECE": 0.247,
+    "Brier": 0.19470323133705217,
+    "var_error_spearman": 0.6764705882352942,
+    "var_error_pvalue": 0.0028650638653291475,
+    "AUC_stratified_bootstrap_95_CI": [
+      0.8,
+      1.0
+    ],
+    "pred_ids_match_test": true
+  },
+  "gradient": [
+    {
+      "parameter": "W1",
+      "index": "(10, 5)",
+      "analytic": 0.49870728032988104,
+      "numeric": 0.49870728030532163,
+      "ratio": 1.0000000000492462,
+      "abs_error": 2.455941006118678e-11
+    },
+    {
+      "parameter": "b1",
+      "index": "(5,)",
+      "analytic": 0.6621786497339289,
+      "numeric": 0.6621786496907589,
+      "ratio": 1.0000000000651939,
+      "abs_error": 4.317002311182705e-11
+    },
+    {
+      "parameter": "W2",
+      "index": "(25, 5)",
+      "analytic": -1.0169177388166226,
+      "numeric": -0.7118424171226323,
+      "ratio": 1.428571428669772,
+      "abs_error": 0.3050753216939903
+    },
+    {
+      "parameter": "b2",
+      "index": "(5,)",
+      "analytic": 0.7886278305562026,
+      "numeric": 0.7886278305391237,
+      "ratio": 1.0000000000216565,
+      "abs_error": 1.707889385471617e-11
+    },
+    {
+      "parameter": "W3",
+      "index": "(13, 0)",
+      "analytic": 1.2758584553250412,
+      "numeric": 1.2758584552741148,
+      "ratio": 1.0000000000399154,
+      "abs_error": 5.092637422876578e-11
+    },
+    {
+      "parameter": "b3",
+      "index": "(0,)",
+      "analytic": 1.0,
+      "numeric": 0.9999999999732445,
+      "ratio": 1.0000000000267555,
+      "abs_error": 2.6755486715046572e-11
+    }
+  ],
+  "prefilter": {
+    "mismatches": [],
+    "pains_types": {
+      "catechol_A(92)": 9,
+      "quinone_A(370)": 4
+    },
+    "lipinski_nonzero": 20
+  },
+  "ranking": {
+    "n": 59,
+    "top10_training_members": [
+      "HP-005",
+      "HP-032",
+      "HP-013",
+      "HP-014",
+      "HP-016",
+      "HP-008"
+    ],
+    "top10_splits": {
+      "val": 3,
+      "train": 6,
+      "test": 1
+    },
+    "top10_unique_scaffolds": 8,
+    "top10_unique_categories": 8,
+    "nv_rankings": [
+      {
+        "id": "NV-009",
+        "rank": "16"
+      },
+      {
+        "id": "NV-008",
+        "rank": "38"
+      },
+      {
+        "id": "NV-010",
+        "rank": "39"
+      },
+      {
+        "id": "NV-001",
+        "rank": "41"
+      },
+      {
+        "id": "NV-006",
+        "rank": "44"
+      },
+      {
+        "id": "NV-012",
+        "rank": "45"
+      },
+      {
+        "id": "NV-007",
+        "rank": "46"
+      },
+      {
+        "id": "NV-003",
+        "rank": "47"
+      },
+      {
+        "id": "NV-004",
+        "rank": "54"
+      },
+      {
+        "id": "NV-011",
+        "rank": "55"
+      },
+      {
+        "id": "NV-005",
+        "rank": "58"
+      },
+      {
+        "id": "NV-002",
+        "rank": "59"
+      }
+    ],
+    "spearman_correct": 0.16902890214412494
+  },
+  "docking": {
+    "rows": 120,
+    "successful": 118,
+    "score_match": 118,
+    "failures": [
+      {
+        "compound_id": "HP-043",
+        "name_cn": "小檗碱",
+        "target": "FXR_LBD",
+        "affinity_kcal_mol": "",
+        "note": "PREP_FAIL"
+      },
+      {
+        "compound_id": "HP-043",
+        "name_cn": "小檗碱",
+        "target": "KEAP1_KELCH",
+        "affinity_kcal_mol": "",
+        "note": "PREP_FAIL"
+      }
+    ]
+  },
+  "redock": {
+    "FXR_LBD": {
+      "CalcRMS_no_alignment": 0.7688856567357131,
+      "GetBestRMS_aligned": 0.7354083497793161,
+      "reference_formula": "C32H58N2O3",
+      "reference_smiles": "CO[C@@H](O)CC[C@H]1CCC[C@H](N(C[C@H]2CC[C@H]([C@H]3CC[C@H](N(C)C)CC3)CC2)[C@H]2OC23CCCCC3)C1",
+      "reference_bond_types": {
+        "SINGLE": 41
+      },
+      "centroid_distance": 0.13640988084680747
+    },
+    "KEAP1_KELCH": {
+      "CalcRMS_no_alignment": 1.8518661626509634,
+      "GetBestRMS_aligned": 1.0950266030076914,
+      "reference_formula": "C24H48N2O6S2",
+      "reference_smiles": "CO[C@H]1CC[C@H](S(O)(O)N[C@H]2CC[C@@H](NS(O)(O)[C@H]3CC[C@@H](OC)CC3)[C@H]3CCCC[C@@H]32)CC1",
+      "reference_bond_types": {
+        "SINGLE": 37
+      },
+      "centroid_distance": 0.9337116827217614
+    }
+  },
+  "version_comparison": {
+    "working": {
+      "changed": [],
+      "missing": []
+    },
+    "archive": {
+      "changed": [],
+      "missing": []
+    }
+  }
+}

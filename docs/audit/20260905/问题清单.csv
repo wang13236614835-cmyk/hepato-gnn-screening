@@ -1,0 +1,21 @@
+﻿编号,严重性,问题,研究文件定位,证据,修复及验收条件,核查证据文件
+F01,阻断,分子名称与实际结构不一致,data/cleaned_compounds.csv; data/screening_pool.csv; data/smiles_fix.json,52/100连接结构不匹配，含43分子式差异；Top-10中7个不匹配,核实CID、盐型和立体身份；重建全部派生数据和缓存,pubchem_identity_check.csv
+F02,阻断,共晶配体键级和连接错误,src/s2_prep_redock.py:46,原FEX和IQK参照全为单键，分子式与CCD不同,CONECT保留；CCD模板分配键级；重新redock,local_findings.json; corrected_redock_controls.json
+F03,阻断,骨架跨集泄漏,src/s3_model.py:122,47个RDKit骨架中4组跨集，2组涉及train-test,权威结构重建规范骨架；新划分两两交集为空,cross_split_scaffolds.csv
+F04,阻断,GNN W2梯度重复乘Dropout掩码,src/s3_model.py:75,W2数值导数比值1.428571，固定掩码确认,修正反传；梯度检验；重训评估,gradient_check.csv
+F05,阻断,阴性标签定义和文献依据不可靠,../hepato-gnn-screening/docs/01_data_dictionary.md; ../hepato-gnn-screening/literature/01_classic_evidence.md,无证据被当阴性；DC-030有保肝研究反例,统一终点，未知单列；逐条PMID/DOI和实验条件,研究完整验证与问题检查报告.md
+F06,阻断,建模和适用域使用旧演示描述符,src/s3_model.py:145; src/common.py:35,100条至少一项不同；仅换描述符LR AUC 0.983→0.7833、域外7→9,按最终身份统一RDKit描述符；重训、重算适用域,descriptor_differences.csv; supplement_findings.json
+F07,重要,RMSD重新叠合导致位置误差被低估,src/s2_prep_redock.py:100,KEAP1原姿态1.095→不叠合1.852 Å,固定受体坐标系CalcRMS；独立构象、多种子验证,local_findings.json; corrected_redock_controls.json
+F08,重要,散点图将数值字符串当成类别,src/s6_report.py:24,原图出现虚假近对角线，实际59条,显式数值转换；轴数值及点数检查,scatter_numeric_audit.png
+F09,重要,缓存没有输入参数哈希且失败可被缓存,src/s4_dock.py:120; src/s2_prep_redock.py:123,只凭文件存在或ID-target跳过计算；变更输入无法保证更新,输入/参数/软件版本进入缓存键；失败重试,研究完整验证与问题检查报告.md
+F10,重要,小檗碱失败原因误归因Meeko,REPORT.md:78; src/s4_dock.py:43,原式C21H22NO4+嵌入失败；正确C20H18NO4+可制备,修正身份；逐阶段记录异常；修改说明,berberine_preparation_check.json
+F11,重要,45项验证针对旧版本,../hepato-gnn-screening/reports/pdf_build/verify.py:9,核对AUC0.967与旧对接表，而非最终包；失败不非零退出,参数化目标目录；当前版本专用验收；失败退出非零,legacy_verify.log
+F12,重要,PAINS类型和全部误报叙述失实,REPORT.md:76; REPORT.md:132,实际9 catechol+4 quinone,按结构重新标记；实验确认干扰，撤下全部误报断言,local_findings.json
+F13,重要,低相关被推断为独立，融合效益未验证,src/s5_fuse_select.py:60; src/common.py,标准Spearman0.16903；权重和confidence为启发式,平均秩；融合消融与敏感性分析；双靶缺失规则,local_findings.json; supplement_findings.json
+F14,重要,训练阳性与新候选/对照混合,src/common.py:74; src/s5_fuse_select.py:44,Top-10全为HP，6来自训练，0来自NV；NV-011对照入榜,按训练/已知阳性/未知/对照标明并分榜,local_findings.json
+F15,重要,不确定性与显著性结论证据不足,src/s3_model.py:225; REPORT.md:67,17测试样本；AUC条件bootstrap区间0.80–1.00；校准恶化,报告区间；统一校准预测方式；增加外部/多划分对照,local_findings.json
+F16,重要,靶点安全资料的监管状态过时,src/s1_target_profile.py:24,美国奥贝胆酸批准2025-11-24撤回,更新监管来源，区分历史批准、当前安全和具体机制,研究完整验证与问题检查报告.md
+F17,一般,指纹簇误称互异骨架,src/s5_fuse_select.py:28; REPORT.md:104,Top-10确有10指纹簇，但仅8个Murcko骨架,改名指纹相似性簇；必要时加骨架唯一约束,local_findings.json
+F18,一般,固定种子及快速模式说明不准确,src/s3_model.py:225; run_all.py:47,最终GNN seed=7；--model仍redock并可能生产对接,逐模块记录种子；快速模式语义与代码一致,reproduction.log
+F19,重要,缺少可移植环境和模型运行清单,README.md; src/s2_prep_redock.py:29,Python312和vina.exe硬编码；无依赖锁定与模型权重,版本锁/可配置可执行文件；模型及参数哈希；干净环境验收,local_findings.json
+F20,重要,结构来源追踪和报告自动更新不足,data/smiles_fix.json; src/s6_report.py:92,原修订无CID/时间/URL；运行不更新REPORT.md,主表带版本来源；图表正文来自统一运行数据,研究完整验证与问题检查报告.md

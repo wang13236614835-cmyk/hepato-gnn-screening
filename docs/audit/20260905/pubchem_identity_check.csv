@@ -1,0 +1,101 @@
+compound_id,name_cn,query_name,local_formula,CID,pubchem_formula,formula_match,connectivity_match,stereo_match,status,source_url
+HP-001,槲皮素,quercetin,C15H10O7,5280343,C15H10O7,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5280343
+HP-002,山奈酚,kaempferol,C15H10O6,5280863,C15H10O6,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5280863
+HP-003,芦丁,rutin,C27H30O16,5280805,C27H30O16,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5280805
+HP-004,芹菜素,apigenin,C15H10O5,5280443,C15H10O5,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5280443
+HP-005,木犀草素,luteolin,C15H10O6,5280445,C15H10O6,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5280445
+HP-006,黄芩素,baicalein,C15H10O4,5281605,C15H10O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5281605
+HP-007,黄芩苷,baicalin,C21H18O10,64982,C21H18O11,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/64982
+HP-008,汉黄芩素,wogonin,C16H12O4,5281703,C16H12O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5281703
+HP-009,柚皮素,naringenin,C16H14O5,439246,C15H12O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/439246
+HP-010,橙皮苷,hesperidin,C29H36O15,10621,C28H34O15,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/10621
+HP-011,染料木素,genistein,C15H10O5,5280961,C15H10O5,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5280961
+HP-012,大豆苷元,daidzein,C15H10O4,5281708,C15H10O4,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5281708
+HP-013,葛根素,puerarin,C21H20O9,5281807,C21H20O9,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5281807
+HP-014,二氢杨梅素,dihydromyricetin,C15H12O8,161557,C15H12O8,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/161557
+HP-015,水飞蓟宾,silybin,C18H20O8,31553,C25H22O10,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/31553
+HP-016,姜黄素,curcumin,C21H20O6,969516,C21H20O6,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/969516
+HP-017,白藜芦醇,resveratrol,C14H12O3,445154,C14H12O3,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/445154
+HP-018,虎杖苷,polydatin,C20H22O8,5281718,C20H22O8,True,False,False,checked_verified_CID,https://pubchem.ncbi.nlm.nih.gov/compound/5281718
+HP-019,红景天苷,salidroside,C14H20O7,159278,C14H20O7,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/159278
+HP-020,绿原酸,chlorogenic acid,C12H14O9,1794427,C16H18O9,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/1794427
+HP-021,没食子酸,gallic acid,C7H6O5,370,C7H6O5,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/370
+HP-022,原儿茶酸,protocatechuic acid,C7H6O4,72,C7H6O4,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/72
+HP-023,咖啡酸,caffeic acid,C9H8O4,689043,C9H8O4,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/689043
+HP-024,阿魏酸,ferulic acid,C10H10O4,445858,C10H10O4,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/445858
+HP-025,厚朴酚,magnolol,C15H16O2,72300,C18H18O2,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/72300
+HP-026,和厚朴酚,honokiol,C16H18O2,72303,C18H18O2,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/72303
+HP-027,五味子乙素,schisandrin B,C21H28O4,108130,C23H28O6,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/108130
+HP-028,牛蒡苷元,arctigenin,C19H20O6,64981,C21H24O6,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/64981
+HP-029,牛蒡苷,arctiin,C24H28O11,100528,C27H34O11,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/100528
+HP-030,开环异落叶松脂素,secoisolariciresinol,C20H26O6,65373,C20H26O6,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/65373
+HP-031,大黄素,emodin,C16H12O4,3220,C15H10O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3220
+HP-032,大黄酸,rhein,C15H8O6,10168,C15H8O6,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/10168
+HP-033,芦荟大黄素,aloe-emodin,C15H10O4,10207,C15H10O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/10207
+HP-034,大黄素甲醚,physcion,C17H14O5,10639,C16H12O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/10639
+HP-035,栀子苷,geniposide,C14H20O10,107848,C17H24O10,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/107848
+HP-036,龙胆苦苷,gentiopicroside,C14H20O9,88708,C16H20O9,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/88708
+HP-037,桃叶珊瑚苷,aucubin,C12H18O10,91458,C15H22O9,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/91458
+HP-038,甘草次酸,glycyrrhetinic acid,C30H48O4,10114,C30H46O4,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/10114
+HP-039,甘草酸,glycyrrhizin,C42H64O16,14982,C42H62O16,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/14982
+HP-040,齐墩果酸,oleanolic acid,C30H50O3,10494,C30H48O3,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/10494
+HP-041,熊果酸,ursolic acid,C30H50O3,64945,C30H48O3,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/64945
+HP-042,穿心莲内酯,andrographolide,C14H20O3,5318517,C20H30O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5318517
+HP-043,小檗碱,berberine,C21H22NO4+,2353,C20H18NO4+,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2353
+HP-044,苦参碱,matrine,C11H18N2O,91466,C15H24N2O,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/91466
+HP-045,伞形花内酯,umbelliferone,C9H6O3,5281426,C9H6O3,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5281426
+HP-046,滨蒿内酯,scoparone,C11H10O4,8417,C11H10O4,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/8417
+HP-047,东莨菪素,scopoletin,C10H8O4,5280460,C10H8O4,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5280460
+HP-048,丹参酮IIA,tanshinone IIA,C14H10O3,164676,C19H18O3,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/164676
+DC-001,对乙酰氨基酚,acetaminophen,C8H9NO2,1983,C8H9NO2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/1983
+DC-002,阿司匹林,aspirin,C9H8O4,2244,C9H8O4,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2244
+DC-003,布洛芬,ibuprofen,C13H18O2,3672,C13H18O2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3672
+DC-004,双氯芬酸,diclofenac,C14H11Cl2NO2,3033,C14H11Cl2NO2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3033
+DC-005,丙戊酸钠,valproic acid,C9H18O2,3121,C8H16O2,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3121
+DC-006,二甲双胍,metformin,C4H11N5,4091,C4H11N5,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/4091
+DC-007,华法林,warfarin,C19H16O4,54678486,C19H16O4,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/54678486
+DC-008,奥美拉唑,omeprazole,C17H19N3O4S,4594,C17H19N3O3S,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/4594
+DC-009,咖啡因,caffeine,C8H10N4O2,2519,C8H10N4O2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2519
+DC-010,茶碱,theophylline,C7H8N4O2,2153,C7H8N4O2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2153
+DC-011,薄荷脑,menthol,C10H20O,1254,C10H20O,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/1254
+DC-012,樟脑,camphor,C10H16O,2537,C10H16O,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2537
+DC-013,柠檬烯,limonene,C10H16,22311,C10H16,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/22311
+DC-014,苯海拉明,diphenhydramine,C17H21NO,3100,C17H21NO,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3100
+DC-015,氯苯那敏,chlorpheniramine,C17H20ClN,2725,C16H19ClN2,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2725
+DC-016,愈创甘油醚,guaifenesin,C10H14O4,3516,C10H14O4,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3516
+DC-017,阿替洛尔,atenolol,C14H22N2O3,2249,C14H22N2O3,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2249
+DC-018,普萘洛尔,propranolol,C16H21NO2,4946,C16H21NO2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/4946
+DC-019,呋塞米,furosemide,C12H11ClN2O5S,3440,C12H11ClN2O5S,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3440
+DC-020,别嘌醇,allopurinol,C5H4N4O,135401907,C5H4N4O,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/135401907
+DC-021,葡萄糖,glucose,C6H12O6,5793,C6H12O6,True,True,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5793
+DC-022,甘油,glycerol,C3H8O3,753,C3H8O3,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/753
+DC-023,尿素,urea,CH4N2O,1176,CH4N2O,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/1176
+DC-024,烟酰胺,nicotinamide,C6H6N2O,936,C6H6N2O,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/936
+DC-025,水杨酰胺,salicylamide,C7H7NO2,5147,C7H7NO2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5147
+DC-026,肉桂酸,cinnamic acid,C9H8O2,444539,C9H8O2,True,True,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/444539
+DC-027,香草醛,vanillin,C8H8O3,1183,C8H8O3,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/1183
+DC-028,丁香酚,eugenol,C10H12O2,3314,C10H12O2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3314
+DC-029,香豆素,coumarin,C9H6O2,323,C9H6O2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/323
+DC-030,麝香草酚,thymol,C9H12O,6989,C10H14O,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/6989
+DC-031,氯霉素,chloramphenicol,C11H12Cl2N2O5,5959,C11H12Cl2N2O5,True,True,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5959
+DC-032,甲氨蝶呤,methotrexate,C20H22N8O5,126941,C20H22N8O5,True,True,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/126941
+DC-033,异烟肼,isoniazid,C6H7N3O,3767,C6H7N3O,True,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3767
+DC-034,吡嗪酰胺,pyrazinamide,C5H5N3O,1046,C5H5N3O,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/1046
+DC-035,苯佐卡因,benzocaine,C9H11NO2,2337,C9H11NO2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/2337
+DC-036,利多卡因,lidocaine,C14H22N2O,3676,C14H22N2O,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3676
+DC-037,酮洛芬,ketoprofen,C14H10O3,3825,C16H14O3,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/3825
+DC-038,萘普生,naproxen,C15H16O3,156391,C14H14O3,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/156391
+DC-039,甲苯磺丁脲,tolbutamide,C13H20N2O3S,5505,C12H18N2O3S,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/5505
+DC-040,苯甲酸,benzoic acid,C7H6O2,243,C7H6O2,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/243
+NV-001,科罗索酸,corosolic acid,C34H56O2,6918774,C30H48O4,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/6918774
+NV-002,马斯里酸,maslinic acid,C30H50O4,73659,C30H48O4,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/73659
+NV-003,积雪草酸,asiatic acid,C29H48O5,119034,C30H48O5,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/119034
+NV-004,羟基积雪草酸,madecassic acid,C29H48O6,73412,C30H48O6,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/73412
+NV-005,β-乳香酸,boswellic acid,C22H32O2,168928,C30H48O3,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/168928
+NV-006,去氢松香酸,dehydroabietic acid,C22H32O2,94391,C20H28O2,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/94391
+NV-007,五味子甲素,schisandrin A,C23H32O4,155256,C24H32O6,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/155256
+NV-008,戈米辛A,gomisin A,C23H28O7,15608605,C23H28O7,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/15608605
+NV-009,松脂素,pinoresinol,C20H22O6,73399,C20H22O6,True,True,True,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/73399
+NV-010,落叶松脂素,lariciresinol,C18H22O5,332427,C20H24O6,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/332427
+NV-011,奥贝胆酸,obeticholic acid,C27H46O3,447715,C26H44O4,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/447715
+NV-012,灵芝酸A,ganoderic acid,C28H44O4,73554535,C30H44O7,False,False,False,checked_name_lookup,https://pubchem.ncbi.nlm.nih.gov/compound/73554535

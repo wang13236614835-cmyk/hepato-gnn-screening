@@ -1,0 +1,8 @@
+{
+  "ok": false,
+  "error": {
+    "code": "network_error",
+    "message": "Request failed: 404 Client Error: PUGREST.NotFound for url: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/polydatin/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON"
+  },
+  "warnings": []
+}

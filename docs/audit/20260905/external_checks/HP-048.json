@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/tanshinone%20IIA/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 164676,
+      "MolecularFormula": "C19H18O3",
+      "MolecularWeight": "294.3",
+      "SMILES": "CC1=COC2=C1C(=O)C(=O)C3=C2C=CC4=C3CCCC4(C)C",
+      "ConnectivitySMILES": "CC1=COC2=C1C(=O)C(=O)C3=C2C=CC4=C3CCCC4(C)C",
+      "InChIKey": "HYXITZLLTYIPOF-UHFFFAOYSA-N"
+    }
+  ]
+}

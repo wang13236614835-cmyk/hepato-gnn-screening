@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/ketoprofen/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 3825,
+      "MolecularFormula": "C16H14O3",
+      "MolecularWeight": "254.28",
+      "SMILES": "CC(C1=CC(=CC=C1)C(=O)C2=CC=CC=C2)C(=O)O",
+      "ConnectivitySMILES": "CC(C1=CC(=CC=C1)C(=O)C2=CC=CC=C2)C(=O)O",
+      "InChIKey": "DKYWVDODHFEZIM-UHFFFAOYSA-N"
+    }
+  ]
+}

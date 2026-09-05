@@ -1,0 +1,13 @@
+{
+  "mode": "proposed_structure_legacy_label_diagnostic",
+  "scientific_validation": "not_granted_by_this_run",
+  "wetlab_ready": false,
+  "registry_sha256": "f8ef4de9783325c1fb8e04aef1add332a358ad1fb0d7b172517a87e4ea9d320f",
+  "argv": [
+    "--diagnostic",
+    "--model",
+    "--output",
+    "D:/zcode-workspace/research-audit-20260905/revised-model-test"
+  ],
+  "status": "completed"
+}

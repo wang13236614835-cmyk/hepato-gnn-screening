@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/caffeic%20acid/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 689043,
+      "MolecularFormula": "C9H8O4",
+      "MolecularWeight": "180.16",
+      "SMILES": "C1=CC(=C(C=C1/C=C/C(=O)O)O)O",
+      "ConnectivitySMILES": "C1=CC(=C(C=C1C=CC(=O)O)O)O",
+      "InChIKey": "QAIPRVGONGVQAS-DUXPYHPUSA-N"
+    }
+  ]
+}

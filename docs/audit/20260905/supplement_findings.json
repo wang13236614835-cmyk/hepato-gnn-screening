@@ -1,0 +1,28 @@
+{
+  "domain_descriptor_control": {
+    "original_pool_out": 7,
+    "rdkit_descriptor_pool_out": 9,
+    "flipped_ids": [
+      "NV-006",
+      "NV-008"
+    ],
+    "note": "Same current, potentially misidentified structures and old split; changes descriptors only."
+  },
+  "LR_RDKit_descriptors_AUC": 0.7833333333333333,
+  "independent_fusion_mismatches": [],
+  "receptor_repreparation": {
+    "FXR_LBD": {
+      "exists": true,
+      "byte_identical": true
+    },
+    "KEAP1_KELCH": {
+      "exists": true,
+      "byte_identical": true
+    }
+  },
+  "ligand_preparation": {
+    "n": 60,
+    "success": 59,
+    "byte_identical": 59
+  }
+}

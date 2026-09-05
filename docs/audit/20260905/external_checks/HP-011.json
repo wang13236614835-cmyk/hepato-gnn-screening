@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/genistein/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 5280961,
+      "MolecularFormula": "C15H10O5",
+      "MolecularWeight": "270.24",
+      "SMILES": "C1=CC(=CC=C1C2=COC3=CC(=CC(=C3C2=O)O)O)O",
+      "ConnectivitySMILES": "C1=CC(=CC=C1C2=COC3=CC(=CC(=C3C2=O)O)O)O",
+      "InChIKey": "TZBJGXHYKVUXJN-UHFFFAOYSA-N"
+    }
+  ]
+}

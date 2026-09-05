@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/urea/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 1176,
+      "MolecularFormula": "CH4N2O",
+      "MolecularWeight": "60.056",
+      "SMILES": "C(=O)(N)N",
+      "ConnectivitySMILES": "C(=O)(N)N",
+      "InChIKey": "XSQUKJJJFZCRTK-UHFFFAOYSA-N"
+    }
+  ]
+}

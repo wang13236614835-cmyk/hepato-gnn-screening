@@ -1,0 +1,68 @@
+REMARK SMILES COC(=O)CCc1cccc(N(Cc2ccc(-c3ccc(N(C)C)cc3)cc2)C(=O)C2CCCCC2)c1
+REMARK SMILES IDX 7 1 8 2 9 3 10 4 11 5 37 6 6 7 5 8 3 9 4 10 2 11 1 12 12 13
+REMARK SMILES IDX 13 14 14 15 15 16 28 17 16 18 27 19 17 20 18 21 19 22 26 23
+REMARK SMILES IDX 20 24 25 25 21 26 22 27 23 28 24 29 29 30 30 31 31 32 32 33
+REMARK SMILES IDX 36 34 33 35 35 36 34 37
+REMARK H PARENT
+ROOT
+ATOM      1  C21 FEX A   1      -3.850   2.930  -1.071  1.00  0.00    -0.045 A 
+ATOM      2  C20 FEX A   1      -3.873   2.858  -2.466  1.00  0.00     0.004 A 
+ATOM      3  C19 FEX A   1      -3.321   1.759  -3.114  1.00  0.00     0.002 A 
+ATOM      4  C18 FEX A   1      -2.735   0.726  -2.376  1.00  0.00     0.026 A 
+ATOM      5  C17 FEX A   1      -2.685   0.767  -0.975  1.00  0.00     0.044 A 
+ATOM      6  C22 FEX A   1      -3.257   1.884  -0.341  1.00  0.00     0.030 A 
+ENDROOT
+BRANCH   1   7
+ATOM      7  C23 FEX A   1      -4.477   4.103  -0.355  1.00  0.00     0.047 C 
+BRANCH   7   8
+ATOM      8  C24 FEX A   1      -6.004   4.066  -0.351  1.00  0.00     0.127 C 
+BRANCH   8   9
+ATOM      9  C25 FEX A   1      -6.589   2.899   0.405  1.00  0.00     0.305 C 
+ATOM     10  O3  FEX A   1      -7.542   2.242   0.006  1.00  0.00    -0.252 OA
+BRANCH   9  11
+ATOM     11  O2  FEX A   1      -5.980   2.732   1.612  1.00  0.00    -0.469 OA
+ATOM     12  C26 FEX A   1      -6.510   1.650   2.380  1.00  0.00     0.282 C 
+ENDBRANCH   9  11
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   1   7
+BRANCH   5  13
+ATOM     13  N2  FEX A   1      -2.055  -0.285  -0.208  1.00  0.00    -0.308 N 
+BRANCH  13  14
+ATOM     14  C15 FEX A   1      -1.268   0.125   0.974  1.00  0.00     0.161 C 
+BRANCH  14  15
+ATOM     15  C12 FEX A   1       0.231   0.192   0.734  1.00  0.00    -0.028 A 
+ATOM     16  C13 FEX A   1       0.773   0.712  -0.448  1.00  0.00     0.006 A 
+ATOM     17  C11 FEX A   1       1.112  -0.215   1.746  1.00  0.00     0.006 A 
+ATOM     18  C14 FEX A   1       2.159   0.788  -0.626  1.00  0.00     0.009 A 
+ATOM     19  C10 FEX A   1       2.498  -0.138   1.563  1.00  0.00     0.009 A 
+ATOM     20  C9  FEX A   1       3.046   0.362   0.373  1.00  0.00    -0.018 A 
+BRANCH  20  21
+ATOM     21  C6  FEX A   1       4.502   0.443   0.183  1.00  0.00    -0.018 A 
+ATOM     22  C7  FEX A   1       5.324  -0.673   0.367  1.00  0.00     0.011 A 
+ATOM     23  C5  FEX A   1       5.123   1.637  -0.195  1.00  0.00     0.011 A 
+ATOM     24  C8  FEX A   1       6.714  -0.592   0.184  1.00  0.00     0.026 A 
+ATOM     25  C4  FEX A   1       6.514   1.710  -0.375  1.00  0.00     0.026 A 
+ATOM     26  C1  FEX A   1       7.358   0.603  -0.179  1.00  0.00     0.036 A 
+BRANCH  26  27
+ATOM     27  N1  FEX A   1       8.742   0.676  -0.375  1.00  0.00    -0.378 N 
+ATOM     28  C2  FEX A   1       9.379   1.989  -0.452  1.00  0.00     0.143 C 
+ATOM     29  C3  FEX A   1       9.587  -0.408   0.123  1.00  0.00     0.143 C 
+ENDBRANCH  26  27
+ENDBRANCH  20  21
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+BRANCH  13  30
+ATOM     30  C16 FEX A   1      -2.105  -1.622  -0.657  1.00  0.00     0.230 C 
+ATOM     31  O1  FEX A   1      -2.690  -1.971  -1.687  1.00  0.00    -0.274 OA
+BRANCH  30  32
+ATOM     32  C27 FEX A   1      -1.495  -2.716   0.243  1.00  0.00     0.079 C 
+ATOM     33  C28 FEX A   1      -2.471  -3.105   1.365  1.00  0.00     0.013 C 
+ATOM     34  C32 FEX A   1      -1.031  -3.944  -0.563  1.00  0.00     0.013 C 
+ATOM     35  C29 FEX A   1      -3.589  -4.035   0.898  1.00  0.00     0.001 C 
+ATOM     36  C31 FEX A   1      -2.147  -4.909  -0.964  1.00  0.00     0.001 C 
+ATOM     37  C30 FEX A   1      -3.035  -5.278   0.215  1.00  0.00     0.000 C 
+ENDBRANCH  30  32
+ENDBRANCH  13  30
+ENDBRANCH   5  13
+TORSDOF 11

@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-09-05T04:43:15.467478+00:00",
+  "software_passed": true,
+  "scientific_validation": "not_granted",
+  "wetlab_ready": false,
+  "checks": [
+    {
+      "name": "fixed_mask_gradients",
+      "passed": true,
+      "detail": {
+        "final": {
+          "max_abs_error": 5.6799676073637784e-11,
+          "coordinates": 94
+        },
+        "legacy": {
+          "max_abs_error": 5.6799676073637784e-11,
+          "coordinates": 94
+        }
+      }
+    },
+    {
+      "name": "no_alignment_RMSD",
+      "passed": true,
+      "detail": {
+        "translation_angstrom": 5,
+        "fixed_RMSD": 5.0,
+        "aligned_RMSD": 0.0
+      }
+    },
+    {
+      "name": "CCD_chemical_identity",
+      "passed": true,
+      "detail": {
+        "FEX": "C32H38N2O3",
+        "IQK": "C24H22N2O6S2"
+      }
+    },
+    {
+      "name": "cache_invalidation",
+      "passed": true,
+      "detail": "Content/parameter/output changes invalidate success cache; failures never reused."
+    },
+    {
+      "name": "unreviewed_data_block",
+      "passed": true,
+      "detail": {
+        "count": 100,
+        "default_unreviewed_run": "blocked_as_expected",
+        "mode": "diagnostic_only"
+      }
+    },
+    {
+      "name": "canonical_scaffold_isolation",
+      "passed": true,
+      "detail": "88 historical labels, canonical Murcko groups disjoint; not MASH labels."
+    },
+    {
+      "name": "plan_and_pages",
+      "passed": true,
+      "detail": "80 unique evidence tasks, Friday deadlines, 8 course modules by W3, 5 pages."
+    },
+    {
+      "name": "python_syntax",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "name": "fusion_eligibility_and_ties",
+      "passed": true,
+      "detail": "Incomplete dual-target candidates and controls excluded; ties get identical scores; output generated."
+    }
+  ]
+}

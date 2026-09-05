@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/ganoderic%20acid/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 73554535,
+      "MolecularFormula": "C30H44O7",
+      "MolecularWeight": "516.7",
+      "SMILES": "C[C@H](CC(=O)C[C@@H](C)C(=O)O)[C@H]1C[C@@H]([C@@]2([C@@]1(CC(=O)C3=C2[C@H](CC4[C@@]3(CCC(=O)C4(C)C)C)O)C)C)O",
+      "ConnectivitySMILES": "CC(CC(=O)CC(C)C(=O)O)C1CC(C2(C1(CC(=O)C3=C2C(CC4C3(CCC(=O)C4(C)C)C)O)C)C)O",
+      "InChIKey": "DYOKDAQBNHPJFD-PMVVSAHYSA-N"
+    }
+  ]
+}

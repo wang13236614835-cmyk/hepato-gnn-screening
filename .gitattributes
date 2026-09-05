@@ -1,0 +1,6 @@
+# Preserve molecular coordinate bytes and historical audit snapshots.
+*.pdb -text -diff
+*.pdbqt -text -diff
+*.sdf -text -diff
+docs/archive/** -diff
+*.log -text -diff

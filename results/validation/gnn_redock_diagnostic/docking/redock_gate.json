@@ -1,0 +1,54 @@
+{
+  "FXR_LBD": {
+    "ligand": "FEX",
+    "rmsd": 0.8507494400311106,
+    "rmsd_method": "CalcRMS_no_alignment",
+    "affinity": -11.29,
+    "pass_gate": true,
+    "independent_start": true,
+    "seed": 42,
+    "context": "6f628f0573448404b12213d7ce30a5043412a2500617294160859c1466d68068",
+    "receptor_hash": "3ba5f9faf94b93ea9fb795f035891017181ee2e4c495c2a5fc79b0fcc3fc4c3c",
+    "pose_hash": "fa6e08f68a28316b7cc28d7a168423646923eaf1fdd7bd2d873f1cecee25c08c",
+    "box": {
+      "pdb": "1OSH",
+      "ligand": "FEX",
+      "center": [
+        5.23,
+        29.0,
+        53.67
+      ],
+      "size": [
+        19.4,
+        22.5,
+        24.8
+      ]
+    }
+  },
+  "KEAP1_KELCH": {
+    "ligand": "IQK",
+    "rmsd": 2.0821945121878547,
+    "rmsd_method": "CalcRMS_no_alignment",
+    "affinity": -10.59,
+    "pass_gate": false,
+    "independent_start": true,
+    "seed": 42,
+    "context": "b71946ed9304ae5945a8f9935085e9c590a60dd75ce23f57db62ff0f24fe93b5",
+    "receptor_hash": "1f703f1dfb7d0b0d365659257e4f8dd24a2ccab5d5f7069e7598f14c2aa59b4d",
+    "pose_hash": "0ecefc88fd155fe2e4d7e124ba067715c6247e4df18b79619244ef3dd8b0a462",
+    "box": {
+      "pdb": "4IQK",
+      "ligand": "IQK",
+      "center": [
+        -47.07,
+        4.21,
+        -13.13
+      ],
+      "size": [
+        22.1,
+        21.9,
+        18.6
+      ]
+    }
+  }
+}

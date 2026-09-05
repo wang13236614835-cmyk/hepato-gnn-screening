@@ -1,0 +1,16 @@
+{
+  "local": {
+    "embed_return": -1,
+    "formal_charge": 1,
+    "radical_electrons": 0,
+    "formula": "C21H22NO4+"
+  },
+  "pubchem": {
+    "embed_return": 0,
+    "formal_charge": 1,
+    "radical_electrons": 0,
+    "formula": "C20H18NO4+",
+    "write_ok": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "command": "python run_all.py --model",
+  "returncode": 0,
+  "seconds": 144.92858219146729,
+  "changed_files": []
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/matrine/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 91466,
+      "MolecularFormula": "C15H24N2O",
+      "MolecularWeight": "248.36",
+      "SMILES": "C1C[C@@H]2[C@H]3CCCN4[C@H]3[C@@H](CCC4)CN2C(=O)C1",
+      "ConnectivitySMILES": "C1CC2C3CCCN4C3C(CCC4)CN2C(=O)C1",
+      "InChIKey": "ZSBXGIUJOOQZMP-JLNYLFASSA-N"
+    }
+  ]
+}

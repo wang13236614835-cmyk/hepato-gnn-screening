@@ -1,12 +1,16 @@
-# 贡献与分工映射
+# 五人核验与MASH干实验推进
 
-| 成员 | 角色 | 负责模块（本仓库内） |
+[GNN组员库](https://github.com/wang13236614835-cmyk/hepato-gnn-screening) · [AIDD完整研究库](https://github.com/wang13236614835-cmyk/aidd)
+
+王启龙带队。各成员主责与交叉复核不同；提交证据不等于复核通过。新增进度必须附文件、版本、实测结果及限制。
+
+| 成员 | 主责 | 交叉复核人 |
 |---|---|---|
-| 王启龙 | 工程支撑 | README、requirements、docs/00_environment.md、docs/minutes/*、src/data/ad.py(预警集成)、run_all.py、src/viz/plots.py(工程) |
-| 宁显泷 | 算法 | src/chem/smiles_graph.py、src/models/gnn.py、src/models/dataset.py、docs/02_model_notes.md |
-| 衣思淼 | 数据 | src/data/clean.py、src/data/split.py、src/data/ad.py(边界定义)、src/chem/descriptors.py、src/scoring/fuse.py(融合规则)、docs/01_data_dictionary.md |
-| 代维斯丹 | 验证 | src/docking/*、src/models/baseline.py、src/chem/fingerprints.py、docs/03_docking_protocol.md |
-| 王散曼 | 化学信息与文献 | data/raw/*.csv(数据整理)、literature/* |
+|王启龙|队长；版本统筹、验收与指导老师汇报|宁显泷|
+|宁显泷|算法与不确定性|衣思淼|
+|衣思淼|结构数据与划分|王散曼|
+|代维斯丹|结构对接与独立复算|宁显泷|
+|王散曼|MASH文献、标签与结论边界|代维斯丹|
 
-提交约定：模块归属者以本人身份提交；联合任务（适用域、评分融合、
-出图）按"主责+协作"双作者记录。
+
+以上是分工，不是已完成贡献声明。历史Git作者、AI生成文件和实际独立核验必须分别记录；成员贡献需有本人提交及复核证据。

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/wogonin/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 5281703,
+      "MolecularFormula": "C16H12O5",
+      "MolecularWeight": "284.26",
+      "SMILES": "COC1=C(C=C(C2=C1OC(=CC2=O)C3=CC=CC=C3)O)O",
+      "ConnectivitySMILES": "COC1=C(C=C(C2=C1OC(=CC2=O)C3=CC=CC=C3)O)O",
+      "InChIKey": "XLTFNNCXVBYBSX-UHFFFAOYSA-N"
+    }
+  ]
+}

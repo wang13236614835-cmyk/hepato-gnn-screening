@@ -1,0 +1,626 @@
+{
+  "ok": true,
+  "source": "data-rcsb-org",
+  "path": "core/entry/1OSH",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": null,
+  "raw_output_path": null,
+  "warnings": [],
+  "summary": {
+    "audit_author": [
+      {
+        "name": "Downes, M.",
+        "pdbx_ordinal": 1
+      },
+      {
+        "name": "Verdecia, M.A.",
+        "pdbx_ordinal": 2
+      },
+      {
+        "name": "Roecker, A.J.",
+        "pdbx_ordinal": 3
+      },
+      {
+        "name": "Hughes, R.",
+        "pdbx_ordinal": 4
+      },
+      {
+        "name": "Hogenesch, J.B.",
+        "pdbx_ordinal": 5
+      },
+      {
+        "name": "Kast-Woelbern, H.R.",
+        "pdbx_ordinal": 6
+      },
+      {
+        "name": "Bowman, M.E.",
+        "pdbx_ordinal": 7
+      },
+      {
+        "name": "Ferrer, J.-L.",
+        "pdbx_ordinal": 8
+      },
+      {
+        "name": "Anisfeld, A.M.",
+        "pdbx_ordinal": 9
+      },
+      {
+        "name": "Edwards, P.A.",
+        "pdbx_ordinal": 10
+      },
+      {
+        "name": "Rosenfeld, J.M.",
+        "pdbx_ordinal": 11
+      },
+      {
+        "name": "Alvarez, J.G.A.",
+        "pdbx_ordinal": 12
+      },
+      {
+        "name": "Noel, J.P.",
+        "pdbx_ordinal": 13
+      },
+      {
+        "name": "Nicolaou, K.C.",
+        "pdbx_ordinal": 14
+      },
+      {
+        "name": "Evans, R.M.",
+        "pdbx_ordinal": 15
+      }
+    ],
+    "cell": {
+      "Z_PDB": 4,
+      "angle_alpha": 90.0,
+      "angle_beta": 90.0,
+      "angle_gamma": 90.0,
+      "length_a": 36.656,
+      "length_b": 56.776,
+      "length_c": 117.646
+    },
+    "citation": [
+      {
+        "country": "US",
+        "id": "primary",
+        "journal_abbrev": "Mol.Cell",
+        "journal_id_ASTM": "MOCEFL",
+        "journal_id_CSD": "2168",
+        "journal_id_ISSN": "1097-2765",
+        "journal_volume": "11",
+        "page_first": "1079",
+        "page_last": "1092",
+        "pdbx_database_id_DOI": "10.1016/S1097-2765(03)00104-7",
+        "pdbx_database_id_PubMed": 12718892,
+        "rcsb_authors": [
+          "Downes, M.",
+          "Verdecia, M.A.",
+          "Roecker, A.J.",
+          "Hughes, R.",
+          "Hogenesch, J.B.",
+          "Kast-Woelbern, H.R.",
+          "Bowman, M.E.",
+          "Ferrer, J.-L.",
+          "Anisfeld, A.M.",
+          "Edwards, P.A.",
+          "Rosenfeld, J.M.",
+          "Alvarez, J.G.",
+          "Noel, J.P.",
+          "Nicolaou, K.C.",
+          "Evans, R.M."
+        ],
+        "rcsb_is_primary": "Y",
+        "rcsb_journal_abbrev": "Mol Cell",
+        "title": "A chemical, genetic, and structural analysis of the nuclear bile acid receptor FXR",
+        "year": 2003
+      }
+    ],
+    "database_2": [
+      {
+        "database_code": "1OSH",
+        "database_id": "PDB",
+        "pdbx_DOI": "10.2210/pdb1osh/pdb",
+        "pdbx_database_accession": "pdb_00001osh"
+      },
+      {
+        "database_code": "RCSB018625",
+        "database_id": "RCSB"
+      },
+      {
+        "database_code": "D_1000018625",
+        "database_id": "WWPDB"
+      }
+    ],
+    "diffrn": [
+      {
+        "ambient_temp": 100.0,
+        "crystal_id": "1",
+        "id": "1"
+      }
+    ],
+    "diffrn_detector": [
+      {
+        "detector": "CCD",
+        "diffrn_id": "1",
+        "pdbx_collection_date": "2002-09-01T00:00:00.000+00:00"
+      }
+    ],
+    "diffrn_radiation": [
+      {
+        "diffrn_id": "1",
+        "monochromator": "MIRRORS",
+        "pdbx_diffrn_protocol": "MAD",
+        "pdbx_monochromatic_or_laue_m_l": "M",
+        "pdbx_scattering_type": "x-ray",
+        "wavelength_id": "1"
+      }
+    ],
+    "diffrn_source": [
+      {
+        "diffrn_id": "1",
+        "pdbx_synchrotron_beamline": "BM30A",
+        "pdbx_synchrotron_site": "ESRF",
+        "source": "SYNCHROTRON",
+        "type": "ESRF BEAMLINE BM30A"
+      }
+    ],
+    "entry": {
+      "id": "1OSH"
+    },
+    "exptl": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "exptl_crystal": [
+      {
+        "density_Matthews": 2.26,
+        "density_percent_sol": 45.55,
+        "id": "1"
+      }
+    ],
+    "exptl_crystal_grow": [
+      {
+        "crystal_id": "1",
+        "method": "VAPOR DIFFUSION, HANGING DROP",
+        "pH": 7.5,
+        "pdbx_details": "PEG 8000, MgCl, HEPES, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K",
+        "temp": 298.0
+      }
+    ],
+    "pdbx_audit_revision_category": [
+      {
+        "category": "chem_comp_atom",
+        "data_content_type": "Structure model",
+        "ordinal": 1,
+        "revision_ordinal": 4
+      },
+      {
+        "category": "chem_comp_bond",
+        "data_content_type": "Structure model",
+        "ordinal": 2,
+        "revision_ordinal": 4
+      },
+      {
+        "category": "database_2",
+        "data_content_type": "Structure model",
+        "ordinal": 3,
+        "revision_ordinal": 4
+      },
+      {
+        "category": "struct_ref_seq_dif",
+        "data_content_type": "Structure model",
+        "ordinal": 4,
+        "revision_ordinal": 4
+      },
+      {
+        "category": "struct_site",
+        "data_content_type": "Structure model",
+        "ordinal": 5,
+        "revision_ordinal": 4
+      }
+    ],
+    "pdbx_audit_revision_details": [
+      {
+        "data_content_type": "Structure model",
+        "ordinal": 1,
+        "provider": "repository",
+        "revision_ordinal": 1,
+        "type": "Initial release"
+      }
+    ],
+    "pdbx_audit_revision_group": [
+      {
+        "data_content_type": "Structure model",
+        "group": "Version format compliance",
+        "ordinal": 1,
+        "revision_ordinal": 2
+      },
+      {
+        "data_content_type": "Structure model",
+        "group": "Version format compliance",
+        "ordinal": 2,
+        "revision_ordinal": 3
+      },
+      {
+        "data_content_type": "Structure model",
+        "group": "Data collection",
+        "ordinal": 3,
+        "revision_ordinal": 4
+      },
+      {
+        "data_content_type": "Structure model",
+        "group": "Database references",
+        "ordinal": 4,
+        "revision_ordinal": 4
+      },
+      {
+        "data_content_type": "Structure model",
+        "group": "Derived calculations",
+        "ordinal": 5,
+        "revision_ordinal": 4
+      }
+    ],
+    "pdbx_audit_revision_history": [
+      {
+        "data_content_type": "Structure model",
+        "major_revision": 1,
+        "minor_revision": 0,
+        "ordinal": 1,
+        "revision_date": "2003-09-23T00:00:00.000+00:00"
+      },
+      {
+        "data_content_type": "Structure model",
+        "major_revision": 1,
+        "minor_revision": 1,
+        "ordinal": 2,
+        "revision_date": "2008-04-29T00:00:00.000+00:00"
+      },
+      {
+        "data_content_type": "Structure model",
+        "major_revision": 1,
+        "minor_revision": 2,
+        "ordinal": 3,
+        "revision_date": "2011-07-13T00:00:00.000+00:00"
+      },
+      {
+        "data_content_type": "Structure model",
+        "major_revision": 1,
+        "minor_revision": 3,
+        "ordinal": 4,
+        "revision_date": "2024-02-14T00:00:00.000+00:00"
+      }
+    ],
+    "pdbx_audit_revision_item": [
+      {
+        "data_content_type": "Structure model",
+        "item": "_database_2.pdbx_DOI",
+        "ordinal": 1,
+        "revision_ordinal": 4
+      },
+      {
+        "data_content_type": "Structure model",
+        "item": "_database_2.pdbx_database_accession",
+        "ordinal": 2,
+        "revision_ordinal": 4
+      },
+      {
+        "data_content_type": "Structure model",
+        "item": "_struct_ref_seq_dif.details",
+        "ordinal": 3,
+        "revision_ordinal": 4
+      },
+      {
+        "data_content_type": "Structure model",
+        "item": "_struct_site.pdbx_auth_asym_id",
+        "ordinal": 4,
+        "revision_ordinal": 4
+      },
+      {
+        "data_content_type": "Structure model",
+        "item": "_struct_site.pdbx_auth_comp_id",
+        "ordinal": 5,
+        "revision_ordinal": 4
+      },
+      {
+        "data_content_type": "Structure model",
+        "item": "_struct_site.pdbx_auth_seq_id",
+        "ordinal": 6,
+        "revision_ordinal": 4
+      }
+    ],
+    "pdbx_database_status": {
+      "deposit_site": "RCSB",
+      "pdb_format_compatible": "Y",
+      "process_site": "RCSB",
+      "recvd_initial_deposition_date": "2003-03-19T00:00:00.000+00:00",
+      "status_code": "REL"
+    },
+    "pdbx_vrpt_summary": {
+      "attempted_validation_steps": "molprobity,validation-pack,mogul,buster-report,validation_schema,percentiles,writexml,writecif,writepdf",
+      "ligands_for_buster_report": "Y",
+      "report_creation_date": "2026-03-06T23:58:00.000+00:00"
+    },
+    "pdbx_vrpt_summary_geometry": [
+      {
+        "angles_RMSZ": 1.28,
+        "bonds_RMSZ": 1.26,
+        "clashscore": 29.44,
+        "num_H_reduce": 1795,
+        "num_angles_RMSZ": 2441,
+        "num_bonds_RMSZ": 1807,
+        "percent_ramachandran_outliers": 1.42,
+        "percent_rotamer_outliers": 10.05
+      }
+    ],
+    "rcsb_accession_info": {
+      "deposit_date": "2003-03-19T00:00:00.000+00:00",
+      "has_released_experimental_data": "N",
+      "initial_release_date": "2003-09-23T00:00:00.000+00:00",
+      "major_revision": 1,
+      "minor_revision": 3,
+      "revision_date": "2024-02-14T00:00:00.000+00:00",
+      "status_code": "REL"
+    },
+    "rcsb_entry_container_identifiers": {
+      "assembly_ids": [
+        "1"
+      ],
+      "entity_ids": [
+        "1",
+        "2",
+        "3"
+      ],
+      "entry_id": "1OSH",
+      "model_ids": [
+        1
+      ],
+      "non_polymer_entity_ids": [
+        "2"
+      ],
+      "polymer_entity_ids": [
+        "1"
+      ],
+      "pubmed_id": 12718892,
+      "rcsb_id": "1OSH"
+    },
+    "rcsb_entry_info": {
+      "assembly_count": 1,
+      "branched_entity_count": 0,
+      "cis_peptide_count": 0,
+      "deposited_atom_count": 1984,
+      "deposited_deuterated_water_count": 0,
+      "deposited_hydrogen_atom_count": 0,
+      "deposited_model_count": 1,
+      "deposited_modeled_polymer_monomer_count": 216,
+      "deposited_nonpolymer_entity_instance_count": 1,
+      "deposited_polymer_entity_instance_count": 1,
+      "deposited_polymer_monomer_count": 232,
+      "deposited_solvent_atom_count": 179,
+      "deposited_unmodeled_polymer_monomer_count": 16,
+      "disulfide_bond_count": 0,
+      "entity_count": 3,
+      "experimental_method": "X-ray",
+      "experimental_method_count": 1,
+      "inter_mol_covalent_bond_count": 0,
+      "inter_mol_metalic_bond_count": 0,
+      "molecular_weight": 27.58,
+      "na_polymer_entity_types": "Other",
+      "nonpolymer_entity_count": 1,
+      "nonpolymer_molecular_weight_maximum": 0.5,
+      "nonpolymer_molecular_weight_minimum": 0.5,
+      "polymer_composition": "homomeric protein",
+      "polymer_entity_count": 1,
+      "polymer_entity_count_DNA": 0,
+      "polymer_entity_count_RNA": 0,
+      "polymer_entity_count_nucleic_acid": 0,
+      "polymer_entity_count_nucleic_acid_hybrid": 0,
+      "_truncated_keys": 13
+    },
+    "rcsb_primary_citation": {
+      "country": "US",
+      "id": "primary",
+      "journal_abbrev": "Mol.Cell",
+      "journal_id_ASTM": "MOCEFL",
+      "journal_id_CSD": "2168",
+      "journal_id_ISSN": "1097-2765",
+      "journal_volume": "11",
+      "page_first": "1079",
+      "page_last": "1092",
+      "pdbx_database_id_DOI": "10.1016/S1097-2765(03)00104-7",
+      "pdbx_database_id_PubMed": 12718892,
+      "rcsb_ORCID_identifiers": [
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?"
+      ],
+      "rcsb_authors": [
+        "Downes, M.",
+        "Verdecia, M.A.",
+        "Roecker, A.J.",
+        "Hughes, R.",
+        "Hogenesch, J.B.",
+        "Kast-Woelbern, H.R.",
+        "Bowman, M.E.",
+        "Ferrer, J.-L.",
+        "Anisfeld, A.M.",
+        "Edwards, P.A.",
+        "Rosenfeld, J.M.",
+        "Alvarez, J.G.",
+        "Noel, J.P.",
+        "Nicolaou, K.C.",
+        "Evans, R.M."
+      ],
+      "rcsb_journal_abbrev": "Mol Cell",
+      "title": "A chemical, genetic, and structural analysis of the nuclear bile acid receptor FXR",
+      "year": 2003
+    },
+    "refine": [
+      {
+        "B_iso_mean": 28.8,
+        "aniso_B_1_1": 6.35,
+        "aniso_B_1_2": 0.0,
+        "aniso_B_1_3": 0.0,
+        "aniso_B_2_2": -3.48,
+        "aniso_B_2_3": 0.0,
+        "aniso_B_3_3": -2.87,
+        "ls_R_factor_R_free": 0.234,
+        "ls_R_factor_R_free_error": 0.006,
+        "ls_R_factor_R_work": 0.215,
+        "ls_R_factor_obs": 0.234,
+        "ls_d_res_high": 1.8,
+        "ls_d_res_low": 58.0,
+        "ls_number_reflns_R_free": 1165,
+        "ls_number_reflns_obs": 22591,
+        "ls_percent_reflns_R_free": 5.2,
+        "ls_percent_reflns_obs": 95.8,
+        "pdbx_R_Free_selection_details": "RANDOM",
+        "pdbx_data_cutoff_high_absF": 1374830.08,
+        "pdbx_data_cutoff_high_rms_absF": 1374830.08,
+        "pdbx_data_cutoff_low_absF": 0.0,
+        "pdbx_diffrn_id": [
+          "1"
+        ],
+        "pdbx_ls_cross_valid_method": "THROUGHOUT",
+        "pdbx_ls_sigma_F": 2.0,
+        "pdbx_method_to_determine_struct": "MAD",
+        "pdbx_refine_id": "X-RAY DIFFRACTION",
+        "pdbx_stereochemistry_target_values": "Engh & Huber",
+        "solvent_model_details": "FLAT MODEL",
+        "solvent_model_param_bsol": 41.8813,
+        "solvent_model_param_ksol": 0.367676
+      }
+    ],
+    "refine_analyze": [
+      {
+        "Luzzati_coordinate_error_free": 0.23,
+        "Luzzati_coordinate_error_obs": 0.25,
+        "Luzzati_d_res_low_obs": 5.0,
+        "Luzzati_sigma_a_free": 0.39,
+        "Luzzati_sigma_a_obs": 0.4,
+        "pdbx_refine_id": "X-RAY DIFFRACTION"
+      }
+    ],
+    "refine_hist": [
+      {
+        "cycle_id": "LAST",
+        "d_res_high": 1.8,
+        "d_res_low": 58.0,
+        "number_atoms_solvent": 179,
+        "number_atoms_total": 1984,
+        "pdbx_number_atoms_ligand": 37,
+        "pdbx_number_atoms_nucleic_acid": 0,
+        "pdbx_number_atoms_protein": 1768,
+        "pdbx_refine_id": "X-RAY DIFFRACTION"
+      }
+    ],
+    "refine_ls_restr": [
+      {
+        "dev_ideal": 0.024,
+        "pdbx_refine_id": "X-RAY DIFFRACTION",
+        "type": "c_bond_d"
+      },
+      {
+        "dev_ideal": 2.3,
+        "pdbx_refine_id": "X-RAY DIFFRACTION",
+        "type": "c_angle_deg"
+      },
+      {
+        "dev_ideal": 20.8,
+        "pdbx_refine_id": "X-RAY DIFFRACTION",
+        "type": "c_dihedral_angle_d"
+      },
+      {
+        "dev_ideal": 1.85,
+        "pdbx_refine_id": "X-RAY DIFFRACTION",
+        "type": "c_improper_angle_d"
+      }
+    ],
+    "reflns": [
+      {
+        "B_iso_Wilson_estimate": 22.0,
+        "d_resolution_high": 1.78,
+        "d_resolution_low": 58.72,
+        "observed_criterion_sigma_I": 2.0,
+        "pdbx_diffrn_id": [
+          "1"
+        ],
+        "pdbx_ordinal": 1
+      }
+    ],
+    "software": [
+      {
+        "classification": "refinement",
+        "name": "CNS",
+        "pdbx_ordinal": 1,
+        "version": "1.1"
+      },
+      {
+        "classification": "data reduction",
+        "name": "HKL-2000",
+        "pdbx_ordinal": 2
+      },
+      {
+        "classification": "data scaling",
+        "name": "SCALEPACK",
+        "pdbx_ordinal": 3
+      },
+      {
+        "classification": "phasing",
+        "name": "SOLVE",
+        "pdbx_ordinal": 4
+      },
+      {
+        "classification": "phasing",
+        "name": "RESOLVE",
+        "pdbx_ordinal": 5
+      }
+    ],
+    "_truncated_keys": 4
+  },
+  "top_keys": [
+    "audit_author",
+    "cell",
+    "citation",
+    "database_2",
+    "diffrn",
+    "diffrn_detector",
+    "diffrn_radiation",
+    "diffrn_source",
+    "entry",
+    "exptl",
+    "exptl_crystal",
+    "exptl_crystal_grow",
+    "pdbx_audit_revision_category",
+    "pdbx_audit_revision_details",
+    "pdbx_audit_revision_group",
+    "pdbx_audit_revision_history",
+    "pdbx_audit_revision_item",
+    "pdbx_database_status",
+    "pdbx_vrpt_summary",
+    "pdbx_vrpt_summary_geometry",
+    "rcsb_accession_info",
+    "rcsb_entry_container_identifiers",
+    "rcsb_entry_info",
+    "rcsb_primary_citation",
+    "refine",
+    "refine_analyze",
+    "refine_hist",
+    "refine_ls_restr",
+    "reflns",
+    "software"
+  ]
+}

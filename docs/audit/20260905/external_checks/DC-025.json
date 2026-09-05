@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/salicylamide/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 5147,
+      "MolecularFormula": "C7H7NO2",
+      "MolecularWeight": "137.14",
+      "SMILES": "C1=CC=C(C(=C1)C(=O)N)O",
+      "ConnectivitySMILES": "C1=CC=C(C(=C1)C(=O)N)O",
+      "InChIKey": "SKZKKFZAGNVIMN-UHFFFAOYSA-N"
+    }
+  ]
+}

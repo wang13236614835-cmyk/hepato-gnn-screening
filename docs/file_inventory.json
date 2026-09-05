@@ -1,0 +1,6 @@
+{
+  "files": 809,
+  "missing_tracked": [],
+  "meaning": "Local filesystem bytes at inventory generation; CRLF/LF checkout conversion can change hashes. Presence does not validate scientific content.",
+  "excluded": "Git metadata, pycache, untracked exe, inventory CSV/JSON themselves"
+}

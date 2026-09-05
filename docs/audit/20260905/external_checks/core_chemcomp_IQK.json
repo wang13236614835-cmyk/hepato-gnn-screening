@@ -1,0 +1,189 @@
+{
+  "ok": true,
+  "source": "data-rcsb-org",
+  "path": "core/chemcomp/IQK",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": null,
+  "raw_output_path": null,
+  "warnings": [],
+  "summary": {
+    "chem_comp": {
+      "formula": "C24 H22 N2 O6 S2",
+      "formula_weight": 498.571,
+      "id": "IQK",
+      "name": "N,N'-naphthalene-1,4-diylbis(4-methoxybenzenesulfonamide)",
+      "pdbx_ambiguous_flag": "N",
+      "pdbx_formal_charge": 0,
+      "pdbx_initial_date": "2013-01-15T00:00:00.000+00:00",
+      "pdbx_modified_date": "2013-05-10T00:00:00.000+00:00",
+      "pdbx_processing_site": "RCSB",
+      "pdbx_release_status": "REL",
+      "three_letter_code": "IQK",
+      "type": "non-polymer"
+    },
+    "pdbx_chem_comp_audit": [
+      {
+        "action_type": "Create component",
+        "comp_id": "IQK",
+        "date": "2013-01-15T00:00:00.000+00:00",
+        "ordinal": 1
+      },
+      {
+        "action_type": "Initial release",
+        "comp_id": "IQK",
+        "date": "2013-05-15T00:00:00.000+00:00",
+        "ordinal": 2
+      }
+    ],
+    "pdbx_chem_comp_descriptor": [
+      {
+        "comp_id": "IQK",
+        "descriptor": "O=S(=O)(Nc3c1ccccc1c(NS(=O)(=O)c2ccc(OC)cc2)cc3)c4ccc(OC)cc4",
+        "program": "ACDLabs",
+        "program_version": "12.01",
+        "type": "SMILES"
+      },
+      {
+        "comp_id": "IQK",
+        "descriptor": "InChI=1S/C24H22N2O6S2/c1-31-17-7-11-19(12-8-17)33(27,28)25-23-15-16-24(22-6-4-3-5-21(22)23)26-34(29,30)20-13-9-18(32-2)10-14-20/h3-16,25-26H,1-2H3",
+        "program": "InChI",
+        "program_version": "1.03",
+        "type": "InChI"
+      },
+      {
+        "comp_id": "IQK",
+        "descriptor": "XLLVCULLOGKYOO-UHFFFAOYSA-N",
+        "program": "InChI",
+        "program_version": "1.03",
+        "type": "InChIKey"
+      },
+      {
+        "comp_id": "IQK",
+        "descriptor": "COc1ccc(cc1)[S](=O)(=O)Nc2ccc(N[S](=O)(=O)c3ccc(OC)cc3)c4ccccc24",
+        "program": "CACTVS",
+        "program_version": "3.370",
+        "type": "SMILES_CANONICAL"
+      },
+      {
+        "comp_id": "IQK",
+        "descriptor": "COc1ccc(cc1)[S](=O)(=O)Nc2ccc(N[S](=O)(=O)c3ccc(OC)cc3)c4ccccc24",
+        "program": "CACTVS",
+        "program_version": "3.370",
+        "type": "SMILES"
+      },
+      {
+        "comp_id": "IQK",
+        "descriptor": "COc1ccc(cc1)S(=O)(=O)Nc2ccc(c3c2cccc3)NS(=O)(=O)c4ccc(cc4)OC",
+        "program": "OpenEye OEToolkits",
+        "program_version": "1.7.6",
+        "type": "SMILES_CANONICAL"
+      },
+      {
+        "comp_id": "IQK",
+        "descriptor": "COc1ccc(cc1)S(=O)(=O)Nc2ccc(c3c2cccc3)NS(=O)(=O)c4ccc(cc4)OC",
+        "program": "OpenEye OEToolkits",
+        "program_version": "1.7.6",
+        "type": "SMILES"
+      }
+    ],
+    "pdbx_chem_comp_identifier": [
+      {
+        "comp_id": "IQK",
+        "identifier": "N,N'-naphthalene-1,4-diylbis(4-methoxybenzenesulfonamide)",
+        "program": "ACDLabs",
+        "program_version": "12.01",
+        "type": "SYSTEMATIC NAME"
+      },
+      {
+        "comp_id": "IQK",
+        "identifier": "4-methoxy-N-[4-[(4-methoxyphenyl)sulfonylamino]naphthalen-1-yl]benzenesulfonamide",
+        "program": "OpenEye OEToolkits",
+        "program_version": "1.7.6",
+        "type": "SYSTEMATIC NAME"
+      }
+    ],
+    "rcsb_chem_comp_container_identifiers": {
+      "comp_id": "IQK",
+      "rcsb_id": "IQK"
+    },
+    "rcsb_chem_comp_descriptor": {
+      "InChI": "InChI=1S/C24H22N2O6S2/c1-31-17-7-11-19(12-8-17)33(27,28)25-23-15-16-24(22-6-4-3-5-21(22)23)26-34(29,30)20-13-9-18(32-2)10-14-20/h3-16,25-26H,1-2H3",
+      "InChIKey": "XLLVCULLOGKYOO-UHFFFAOYSA-N",
+      "SMILES": "COc1ccc(cc1)S(=O)(=O)Nc2ccc(c3c2cccc3)NS(=O)(=O)c4ccc(cc4)OC",
+      "SMILES_stereo": "COc1ccc(cc1)S(=O)(=O)Nc2ccc(c3c2cccc3)NS(=O)(=O)c4ccc(cc4)OC",
+      "comp_id": "IQK"
+    },
+    "rcsb_chem_comp_info": {
+      "atom_count": 56,
+      "atom_count_chiral": 0,
+      "atom_count_heavy": 34,
+      "bond_count": 59,
+      "bond_count_aromatic": 23,
+      "comp_id": "IQK",
+      "initial_deposition_date": "2013-01-15T00:00:00.000+00:00",
+      "initial_release_date": "2013-05-15T00:00:00.000+00:00",
+      "release_status": "REL",
+      "revision_date": "2013-05-15T00:00:00.000+00:00"
+    },
+    "rcsb_chem_comp_related": [
+      {
+        "comp_id": "IQK",
+        "ordinal": 1,
+        "related_mapping_method": "matching InChIKey in PubChem",
+        "resource_accession_code": "1073725",
+        "resource_name": "PubChem"
+      },
+      {
+        "comp_id": "IQK",
+        "ordinal": 2,
+        "related_mapping_method": "assigned by PubChem resource",
+        "resource_accession_code": "CHEMBL2402207",
+        "resource_name": "ChEMBL"
+      },
+      {
+        "comp_id": "IQK",
+        "ordinal": 3,
+        "related_mapping_method": "matching ChEMBL ID in Pharos",
+        "resource_accession_code": "CHEMBL2402207",
+        "resource_name": "Pharos"
+      }
+    ],
+    "rcsb_chem_comp_synonyms": [
+      {
+        "comp_id": "IQK",
+        "name": "N,N'-naphthalene-1,4-diylbis(4-methoxybenzenesulfonamide)",
+        "ordinal": 1,
+        "provenance_source": "PDB Reference Data",
+        "type": "Preferred Name"
+      },
+      {
+        "comp_id": "IQK",
+        "name": "N,N'-naphthalene-1,4-diylbis(4-methoxybenzenesulfonamide)",
+        "ordinal": 2,
+        "provenance_source": "ACDLabs",
+        "type": "Systematic Name"
+      },
+      {
+        "comp_id": "IQK",
+        "name": "4-methoxy-N-[4-[(4-methoxyphenyl)sulfonylamino]naphthalen-1-yl]benzenesulfonamide",
+        "ordinal": 3,
+        "provenance_source": "OpenEye OEToolkits",
+        "type": "Systematic Name"
+      }
+    ],
+    "rcsb_id": "IQK"
+  },
+  "top_keys": [
+    "chem_comp",
+    "pdbx_chem_comp_audit",
+    "pdbx_chem_comp_descriptor",
+    "pdbx_chem_comp_identifier",
+    "rcsb_chem_comp_container_identifiers",
+    "rcsb_chem_comp_descriptor",
+    "rcsb_chem_comp_info",
+    "rcsb_chem_comp_related",
+    "rcsb_chem_comp_synonyms",
+    "rcsb_id"
+  ]
+}

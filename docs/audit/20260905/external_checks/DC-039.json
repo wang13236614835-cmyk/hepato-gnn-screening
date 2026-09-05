@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/tolbutamide/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 5505,
+      "MolecularFormula": "C12H18N2O3S",
+      "MolecularWeight": "270.35",
+      "SMILES": "CCCCNC(=O)NS(=O)(=O)C1=CC=C(C=C1)C",
+      "ConnectivitySMILES": "CCCCNC(=O)NS(=O)(=O)C1=CC=C(C=C1)C",
+      "InChIKey": "JLRGJRBPOGGCBT-UHFFFAOYSA-N"
+    }
+  ]
+}

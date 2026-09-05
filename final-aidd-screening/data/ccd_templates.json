@@ -1,0 +1,14 @@
+{
+  "FEX": {
+    "smiles": "CN(C)c1ccc(cc1)c2ccc(cc2)CN(c3cccc(c3)CCC(=O)OC)C(=O)C4CCCCC4",
+    "formula": "C32 H38 N2 O3",
+    "source_url": "https://www.rcsb.org/ligand/FEX",
+    "retrieved_at": "2026-09-05"
+  },
+  "IQK": {
+    "smiles": "COc1ccc(cc1)S(=O)(=O)Nc2ccc(c3c2cccc3)NS(=O)(=O)c4ccc(cc4)OC",
+    "formula": "C24 H22 N2 O6 S2",
+    "source_url": "https://www.rcsb.org/ligand/IQK",
+    "retrieved_at": "2026-09-05"
+  }
+}

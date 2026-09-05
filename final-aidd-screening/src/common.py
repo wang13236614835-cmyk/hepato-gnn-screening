@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """公共模块: 路径、数据装载、RDKit 图/描述符/指纹
 
-数据来源: hepato-gnn-screening 已清洗数据(88 条带标签 + 12 条新分子池),
-scaffold 列沿用原骨架签名, 保证与主线划分口径一致。
+数据来源: 待人工复核的统一结构注册表。规范骨架和描述符均由实际结构重算。
+默认阻止未审数据；proposed 模式仅用于诊断旧标签下的程序变化。
 """
 import csv
 import json
 import os
+import shutil
 
 import numpy as np
 from rdkit import Chem, DataStructs, RDLogger
@@ -16,10 +17,13 @@ RDLogger.DisableLog("rdApp.*")
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DATA = os.path.join(ROOT, "data")
-SPLITS = os.path.join(DATA, "splits")
-DOCK = os.path.join(ROOT, "docking")
-RES = os.path.join(ROOT, "results")
-VINA = os.path.join(DOCK, "vina.exe")
+RUN_ROOT = os.path.abspath(os.environ.get("HEPATO_RUN_ROOT", os.path.join(ROOT, "results", "revised")))
+SPLITS = os.path.join(RUN_ROOT, "splits")
+DOCK = os.path.join(RUN_ROOT, "docking")
+RES = os.path.join(RUN_ROOT, "results")
+SOURCE_DOCK = os.path.join(ROOT, "docking")
+VINA = os.environ.get("VINA_BIN") or shutil.which("vina") or os.path.join(SOURCE_DOCK, "vina.exe")
+REGISTRY = os.path.join(ROOT, "..", "data", "curation", "compound_registry.csv")
 
 ELEMS = ["C", "N", "O", "S", "P", "F", "Cl", "Br", "I", "B"]
 DESC_FEATS = ["MW", "logP_est", "TPSA_est", "nHBD", "nHBA", "nRot", "nAromSystems"]
@@ -56,20 +60,47 @@ def write_csv(path, rows):
         w.writerows(rows)
 
 
+def load_registry():
+    rows = read_csv(REGISTRY)
+    diagnostic = os.environ.get("HEPATO_DATA_MODE") == "proposed"
+    included = [r for r in rows if r.get("role") != "excluded"]
+    if not diagnostic:
+        problems = []
+        for r in included:
+            if (r.get("identity_status") != "verified" or not r.get("identity_reviewer")
+                    or not r.get("identity_reviewed_at") or not r.get("source_url") or not r.get("inchikey")):
+                problems.append(r["compound_id"] + ":身份未复核")
+            if r.get("legacy_label") and r.get("role") != "screening":
+                if (r.get("label_status") != "verified" or r.get("label") not in ("0","1")
+                        or not r.get("label_reviewer") or not r.get("label_reviewed_at")
+                        or not r.get("endpoint") or not r.get("evidence_url")):
+                    problems.append(r["compound_id"] + ":标签/终点未复核")
+        endpoints = {r["endpoint"] for r in included if r.get("label") in ("0","1")}
+        if len(endpoints) != 1:
+            problems.append("带标签数据必须使用同一明确终点")
+        if problems:
+            raise ValueError("研究数据尚未放行：" + "; ".join(problems[:6]) + "。见 data/curation/compound_registry.csv；诊断模式不构成科学验证。")
+    out = []
+    for r in included:
+        q = dict(r, smiles=r["proposed_smiles"], label=r["legacy_label"] if diagnostic else r["label"])
+        if not diagnostic and r.get("role") == "screening":
+            q["label"] = ""
+        m = mol_of(q["smiles"])
+        q.update(rdkit_descriptors(m)); q["scaffold"] = scaffold_smiles(m)
+        out.append(q)
+    return out
+
+
 def load_labeled():
-    """88 条带标签数据(HP 正 48 / DC 负 40)。"""
-    return apply_smiles_fix(read_csv(os.path.join(DATA, "cleaned_compounds.csv")))
+    return [r for r in load_registry() if r["label"] in ("0", "1")]
 
 
 def load_pool():
-    """12 条 NV 新分子池。"""
-    return apply_smiles_fix(read_csv(os.path.join(DATA, "screening_pool.csv")))
+    return [r for r in load_registry() if r["label"] == ""]
 
 
 def load_candidates():
-    """对接候选 = HP 活性分子 + NV 新分子(共 60);DC 负样本只用于训练。"""
-    actives = [r for r in load_labeled() if r["label"] == "1"]
-    return actives + load_pool()
+    return [r for r in load_registry() if r["label"] in ("1", "")]
 
 
 def mol_of(smiles):
@@ -191,8 +222,5 @@ def ece(y, p, bins=10):
 
 
 def spearman(a, b):
-    ra = np.argsort(np.argsort(a)).astype(float)
-    rb = np.argsort(np.argsort(b)).astype(float)
-    ra -= ra.mean(); rb -= rb.mean()
-    den = np.sqrt((ra ** 2).sum() * (rb ** 2).sum())
-    return float((ra * rb).sum() / den) if den else float("nan")
+    from scipy.stats import spearmanr
+    return float(spearmanr(a, b).statistic)

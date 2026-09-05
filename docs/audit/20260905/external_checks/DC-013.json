@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/limonene/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 1,
+  "record_count_available": 1,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 22311,
+      "MolecularFormula": "C10H16",
+      "MolecularWeight": "136.23",
+      "SMILES": "CC1=CCC(CC1)C(=C)C",
+      "ConnectivitySMILES": "CC1=CCC(CC1)C(=C)C",
+      "InChIKey": "XMGQYMWWDOXHJM-UHFFFAOYSA-N"
+    }
+  ]
+}

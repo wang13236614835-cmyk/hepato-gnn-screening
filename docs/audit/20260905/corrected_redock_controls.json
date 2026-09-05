@@ -1,0 +1,28 @@
+{
+  "FXR_LBD": {
+    "CCD_formula": "C32H38N2O3",
+    "bond_counts": {
+      "SINGLE": 20,
+      "DOUBLE": 2,
+      "AROMATIC": 18
+    },
+    "no_alignment_RMSD": 0.8016075060013257,
+    "pass_2A": true,
+    "score": -11.08,
+    "seconds": 83.81106996536255,
+    "note": "Diagnostic only: same cached receptor and original crystal coordinates, corrected ligand connectivity and bond orders; not independent-start or multi-seed validation."
+  },
+  "KEAP1_KELCH": {
+    "CCD_formula": "C24H22N2O6S2",
+    "bond_counts": {
+      "SINGLE": 10,
+      "DOUBLE": 4,
+      "AROMATIC": 23
+    },
+    "no_alignment_RMSD": 1.8367634851453176,
+    "pass_2A": true,
+    "score": -10.661,
+    "seconds": 49.39060974121094,
+    "note": "Diagnostic only: same cached receptor and original crystal coordinates, corrected ligand connectivity and bond orders; not independent-start or multi-seed validation."
+  }
+}

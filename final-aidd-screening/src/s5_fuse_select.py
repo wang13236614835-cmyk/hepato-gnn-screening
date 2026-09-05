@@ -6,7 +6,8 @@
   dock_term  = 1 - rank_pct(两靶点真实对接分均值)             # Vina 1.2.7
   dl_term    = 1 - 0.25*Lipinski 违规数
   final = 0.45*model + 0.35*dock + 0.20*dl;域外分子再乘 0.9
-多样性(课程步骤 6): ECFP4 Tanimoto Butina 聚类, 每簇取总分最高代表, 得跨骨架 Top-10。
+多样性: ECFP4 Tanimoto Butina 聚类，每簇取最高代表；指纹簇不等于不同Murcko骨架。
+confidence 为人为设置的方差降权启发式，不是校准后的正确概率。
 """
 import json
 import os
@@ -15,7 +16,7 @@ import numpy as np
 from rdkit import DataStructs
 from rdkit.Chem import AllChem
 
-from common import (RES, ecfp_bits, load_candidates, mol_of, read_csv,
+from common import (RES, DOCK, SPLITS, ecfp_bits, load_candidates, mol_of, read_csv,
                     scaffold_smiles, spearman, write_csv)
 
 W_MODEL, W_DOCK, W_DL = 0.45, 0.35, 0.20
@@ -47,7 +48,17 @@ def run():
     pre = {r["compound_id"]: r for r in read_csv(
         os.path.join(RES, "tables", "prefilter_report.csv"))}
     cand_rows = load_candidates()
+    split_of = {}
+    for part in ("train", "val", "test"):
+        path = os.path.join(SPLITS, part + ".csv")
+        if os.path.exists(path):
+            split_of.update({r["compound_id"]:part for r in read_csv(path)})
 
+    required_targets = set(json.load(open(os.path.join(DOCK,"boxes.json"))))
+    available = {}
+    for r in dock:
+        if r["affinity_kcal_mol"] not in ("",None):
+            available.setdefault(r["compound_id"], set()).add(r["target"])
     davg = {}
     for r in dock:
         if r["affinity_kcal_mol"] in ("", None):
@@ -55,10 +66,15 @@ def run():
         davg.setdefault(r["compound_id"], []).append(float(r["affinity_kcal_mol"]))
     davg = {k: float(np.mean(v)) for k, v in davg.items()}
 
-    cands = [r for r in cand_rows if r["compound_id"] in pred and r["compound_id"] in davg]
+    cands = [r for r in cand_rows if r["compound_id"] in pred and r["compound_id"] in davg
+             and available.get(r["compound_id"]) == required_targets and r.get("role") != "positive_control"]
+    if not cands:
+        raise ValueError("没有具备全部靶点结果的非对照候选")
     ids = [r["compound_id"] for r in cands]
     order = sorted(ids, key=lambda k: davg[k])
-    rank_pct = {k: i / max(1, len(order) - 1) for i, k in enumerate(order)}
+    from scipy.stats import rankdata
+    rr = rankdata([davg[k] for k in order], method="average") - 1
+    rank_pct = {k: float(i) / max(1, len(order)-1) for k,i in zip(order,rr)}
 
     rows = []
     for r in cands:
@@ -76,6 +92,9 @@ def run():
         m = mol_of(r["smiles"])
         rows.append({"rank": None, "compound_id": cid, "name_cn": r["name_cn"],
                      "category": r["category"], "source_herb": r.get("source_herb", ""),
+                     "role": r.get("role","candidate"), "legacy_label": r.get("legacy_label", ""),
+                     "model_split": split_of.get(cid, "screening_pool"),
+                     "pubchem_cid": r.get("pubchem_cid", ""), "data_mode": os.environ.get("HEPATO_DATA_MODE","reviewed"),
                      "scaffold": scaffold_smiles(m),
                      "pred_mean": round(mu, 4), "pred_var": round(var, 4),
                      "confidence": round(conf, 3),
@@ -89,10 +108,8 @@ def run():
     write_csv(os.path.join(RES, "tables", "final_ranking_v2_real.csv"), rows)
 
     # ---- 骨架聚类多样性挑选(课程步骤 6) ----
-    mols = [mol_of(r["smiles"]) for r in cand_rows
-            if r["compound_id"] in {x["compound_id"] for x in rows}]
-    idx_by_id = {r["compound_id"]: i for i, r in enumerate(cand_rows)}
-    labels, fps = butina_clusters([mol_of(r["smiles"]) for r in cand_rows])
+    idx_by_id = {r["compound_id"]: i for i, r in enumerate(cands)}
+    labels, fps = butina_clusters([mol_of(r["smiles"]) for r in cands])
     label_of = {cid: labels[idx_by_id[cid]] for cid in idx_by_id}
 
     picked, seen_clusters = [], set()
@@ -105,20 +122,20 @@ def run():
             break
     write_csv(os.path.join(RES, "tables", "diverse_top10.csv"), picked)
 
-    # 模型分与真实对接分的一致性(两证据源独立性参考)
+    # 描述性相关不能证明两证据源独立
     ms = np.array([r["pred_mean"] for r in rows])
     ds = np.array([r["dock_avg_kcal"] for r in rows])
     rho = spearman(ms, -ds)  # 对接分越负越强, 取负号统一方向
 
     summary = {"n_candidates": len(rows), "n_clusters": len(set(label_of.values())),
-               "spearman_model_dock": round(rho, 3),
+               "spearman_model_dock": round(rho, 3) if np.isfinite(rho) else None,
                "top10": [{"name": r["name_cn"], "score": r["final_score"],
                           "pains": r["pains_alert"], "ad": r["ad_warning"]} for r in picked]}
     json.dump(summary, open(os.path.join(RES, "metrics", "fusion_summary.json"), "w",
                             encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print(f"[s5] 共识排名 v2(真实对接): {len(rows)} 候选, 骨架簇 {summary['n_clusters']} 个")
-    print(f"[s5] 模型分-真实对接分 Spearman={rho:.3f} (两证据源独立性强弱参考)")
+    print(f"[s5] 模型分-真实对接分 Spearman={rho:.3f} (描述性相关，不证明独立性)")
     print(f"[s5] 多样性 Top-10(每簇最优):")
     for r in picked:
         flags = (" [PAINS]" if r["pains_alert"] else "") + (" [域外]" if r["ad_warning"] else "")

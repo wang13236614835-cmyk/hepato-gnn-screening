@@ -1,0 +1,5 @@
+﻿scaffold,ids,splits
+c1ccc(Cc2ccccc2)cc1,HP-025;HP-026;HP-027;DC-014;DC-015,test;train;val
+O=C1c2ccccc2C(=O)c2ccccc21,HP-031;HP-032;HP-033;HP-034,test;train
+O=c1[nH]c(=O)c2[nH]cnc2[nH]1,DC-009;DC-010,train;val
+c1ccc2ccccc2c1,DC-018;DC-038,train;val

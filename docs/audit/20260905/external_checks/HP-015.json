@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "source": "pubchem-ncbi-nlm-nih-gov",
+  "path": "compound/name/silybin/property/MolecularFormula,MolecularWeight,ConnectivitySMILES,SMILES,InChIKey/JSON",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": "PropertyTable.Properties",
+  "raw_output_path": null,
+  "warnings": [],
+  "record_count_returned": 7,
+  "record_count_available": 7,
+  "truncated": false,
+  "records": [
+    {
+      "CID": 31553,
+      "MolecularFormula": "C25H22O10",
+      "MolecularWeight": "482.4",
+      "SMILES": "COC1=C(C=CC(=C1)[C@@H]2[C@H](OC3=C(O2)C=C(C=C3)[C@@H]4[C@H](C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "ConnectivitySMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "InChIKey": "SEBFKMXJBCUCAI-HKTJVKLFSA-N"
+    },
+    {
+      "CID": 3086637,
+      "MolecularFormula": "C25H22O10",
+      "MolecularWeight": "482.4",
+      "SMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)[C@@H]4[C@H](C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "ConnectivitySMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "InChIKey": "SEBFKMXJBCUCAI-DBMPWETRSA-N"
+    },
+    {
+      "CID": 5213,
+      "MolecularFormula": "C25H22O10",
+      "MolecularWeight": "482.4",
+      "SMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "ConnectivitySMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "InChIKey": "SEBFKMXJBCUCAI-UHFFFAOYSA-N"
+    },
+    {
+      "CID": 1549163,
+      "MolecularFormula": "C25H22O10",
+      "MolecularWeight": "482.4",
+      "SMILES": "COC1=C(C=CC(=C1)[C@H]2[C@@H](OC3=C(O2)C=C(C=C3)[C@H]4[C@@H](C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "ConnectivitySMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "InChIKey": "SEBFKMXJBCUCAI-PQVVKJAFSA-N"
+    },
+    {
+      "CID": 24832061,
+      "MolecularFormula": "C25H22O10",
+      "MolecularWeight": "482.4",
+      "SMILES": "COC1=C(C=CC(=C1)[C@@H]2C(OC3=C(O2)C=C(C=C3)C4[C@H](C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "ConnectivitySMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "InChIKey": "SEBFKMXJBCUCAI-HHXGKTILSA-N"
+    },
+    {
+      "CID": 45933924,
+      "MolecularFormula": "C25H22O10",
+      "MolecularWeight": "482.4",
+      "SMILES": "COC1=C(C=CC(=C1)C2[C@H](OC3=C(O2)C=C(C=C3)[C@@H]4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "ConnectivitySMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "InChIKey": "SEBFKMXJBCUCAI-ZSAXZHEQSA-N"
+    },
+    {
+      "CID": 124304713,
+      "MolecularFormula": "C25H22O10",
+      "MolecularWeight": "482.4",
+      "SMILES": "COC1=C(C=CC(=C1)[C@H]2[C@H](OC3=C(O2)C=C(C=C3)[C@H]4[C@@H](C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "ConnectivitySMILES": "COC1=C(C=CC(=C1)C2C(OC3=C(O2)C=C(C=C3)C4C(C(=O)C5=C(C=C(C=C5O4)O)O)O)CO)O",
+      "InChIKey": "SEBFKMXJBCUCAI-GATIMQMVSA-N"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "audit_date": "2026-09-05",
+  "scope": "D:\\zcode-workspace\\final-aidd-screening",
+  "verdict": "NOT_VALIDATED_FOR_SCIENTIFIC_CONCLUSIONS",
+  "issues": {
+    "blocking": 6,
+    "important": 12,
+    "minor": 2
+  },
+  "identity_checks": {
+    "total": 100,
+    "connectivity_mismatch": 52,
+    "formula_mismatch": 43
+  },
+  "independent_docking_reruns": 10,
+  "docking_rerun_all_scores_match": true,
+  "original_files_checked": 226,
+  "original_files_changed": [],
+  "reproduction": {
+    "command": "python run_all.py --model",
+    "returncode": 0,
+    "seconds": 144.92858219146729,
+    "changed_files": []
+  },
+  "unverified": [
+    "all 118 production docking reruns",
+    "fresh cross-platform environment",
+    "full-text evidence for all 88 labels",
+    "wet-lab validation",
+    "manual pharmacological review of all poses",
+    "other historical MASH and exploration projects"
+  ]
+}

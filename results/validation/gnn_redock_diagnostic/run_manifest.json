@@ -1,0 +1,13 @@
+{
+  "mode": "redock_method_diagnostic",
+  "scientific_validation": "not_granted_by_this_run",
+  "wetlab_ready": false,
+  "registry_sha256": "f8ef4de9783325c1fb8e04aef1add332a358ad1fb0d7b172517a87e4ea9d320f",
+  "argv": [
+    "--redock-only",
+    "--output",
+    "D:/zcode-workspace/research-audit-20260905/revised-redock-test2"
+  ],
+  "status": "failed",
+  "error": "RuntimeError: 至少一个靶点未过门控，不执行生产筛选"
+}

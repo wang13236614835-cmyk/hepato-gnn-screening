@@ -1,0 +1,221 @@
+{
+  "ok": true,
+  "source": "data-rcsb-org",
+  "path": "core/chemcomp/FEX",
+  "method": "GET",
+  "status_code": 200,
+  "record_path": null,
+  "raw_output_path": null,
+  "warnings": [],
+  "summary": {
+    "chem_comp": {
+      "formula": "C32 H38 N2 O3",
+      "formula_weight": 498.656,
+      "id": "FEX",
+      "name": "METHYL 3-{3-[(CYCLOHEXYLCARBONYL){[4'-(DIMETHYLAMINO)BIPHENYL-4-YL]METHYL}AMINO]PHENYL}ACRYLATE",
+      "pdbx_ambiguous_flag": "N",
+      "pdbx_formal_charge": 0,
+      "pdbx_initial_date": "2003-03-20T00:00:00.000+00:00",
+      "pdbx_modified_date": "2021-03-01T00:00:00.000+00:00",
+      "pdbx_processing_site": "RCSB",
+      "pdbx_release_status": "REL",
+      "three_letter_code": "FEX",
+      "type": "non-polymer"
+    },
+    "pdbx_chem_comp_audit": [
+      {
+        "action_type": "Create component",
+        "comp_id": "FEX",
+        "date": "2003-03-20T00:00:00.000+00:00",
+        "ordinal": 1
+      },
+      {
+        "action_type": "Modify aromatic_flag",
+        "comp_id": "FEX",
+        "date": "2011-06-04T00:00:00.000+00:00",
+        "ordinal": 2
+      },
+      {
+        "action_type": "Modify descriptor",
+        "comp_id": "FEX",
+        "date": "2011-06-04T00:00:00.000+00:00",
+        "ordinal": 3
+      },
+      {
+        "action_type": "Modify synonyms",
+        "comp_id": "FEX",
+        "date": "2021-03-01T00:00:00.000+00:00",
+        "ordinal": 4
+      }
+    ],
+    "pdbx_chem_comp_descriptor": [
+      {
+        "comp_id": "FEX",
+        "descriptor": "O=C(N(c1cccc(c1)CCC(=O)OC)Cc3ccc(c2ccc(N(C)C)cc2)cc3)C4CCCCC4",
+        "program": "ACDLabs",
+        "program_version": "10.04",
+        "type": "SMILES"
+      },
+      {
+        "comp_id": "FEX",
+        "descriptor": "COC(=O)CCc1cccc(c1)N(Cc2ccc(cc2)c3ccc(cc3)N(C)C)C(=O)C4CCCCC4",
+        "program": "CACTVS",
+        "program_version": "3.341",
+        "type": "SMILES_CANONICAL"
+      },
+      {
+        "comp_id": "FEX",
+        "descriptor": "COC(=O)CCc1cccc(c1)N(Cc2ccc(cc2)c3ccc(cc3)N(C)C)C(=O)C4CCCCC4",
+        "program": "CACTVS",
+        "program_version": "3.341",
+        "type": "SMILES"
+      },
+      {
+        "comp_id": "FEX",
+        "descriptor": "CN(C)c1ccc(cc1)c2ccc(cc2)CN(c3cccc(c3)CCC(=O)OC)C(=O)C4CCCCC4",
+        "program": "OpenEye OEToolkits",
+        "program_version": "1.5.0",
+        "type": "SMILES_CANONICAL"
+      },
+      {
+        "comp_id": "FEX",
+        "descriptor": "CN(C)c1ccc(cc1)c2ccc(cc2)CN(c3cccc(c3)CCC(=O)OC)C(=O)C4CCCCC4",
+        "program": "OpenEye OEToolkits",
+        "program_version": "1.5.0",
+        "type": "SMILES"
+      },
+      {
+        "comp_id": "FEX",
+        "descriptor": "InChI=1S/C32H38N2O3/c1-33(2)29-19-17-27(18-20-29)26-15-12-25(13-16-26)23-34(32(36)28-9-5-4-6-10-28)30-11-7-8-24(22-30)14-21-31(35)37-3/h7-8,11-13,15-20,22,28H,4-6,9-10,14,21,23H2,1-3H3",
+        "program": "InChI",
+        "program_version": "1.03",
+        "type": "InChI"
+      },
+      {
+        "comp_id": "FEX",
+        "descriptor": "GXGGBYHHVMOCJL-UHFFFAOYSA-N",
+        "program": "InChI",
+        "program_version": "1.03",
+        "type": "InChIKey"
+      }
+    ],
+    "pdbx_chem_comp_identifier": [
+      {
+        "comp_id": "FEX",
+        "identifier": "methyl 3-{3-[(cyclohexylcarbonyl){[4'-(dimethylamino)biphenyl-4-yl]methyl}amino]phenyl}propanoate",
+        "program": "ACDLabs",
+        "program_version": "10.04",
+        "type": "SYSTEMATIC NAME"
+      },
+      {
+        "comp_id": "FEX",
+        "identifier": "methyl 3-[3-[cyclohexylcarbonyl-[[4-(4-dimethylaminophenyl)phenyl]methyl]amino]phenyl]propanoate",
+        "program": "OpenEye OEToolkits",
+        "program_version": "1.5.0",
+        "type": "SYSTEMATIC NAME"
+      }
+    ],
+    "rcsb_chem_comp_container_identifiers": {
+      "comp_id": "FEX",
+      "drugbank_id": "DB02545",
+      "rcsb_id": "FEX"
+    },
+    "rcsb_chem_comp_descriptor": {
+      "InChI": "InChI=1S/C32H38N2O3/c1-33(2)29-19-17-27(18-20-29)26-15-12-25(13-16-26)23-34(32(36)28-9-5-4-6-10-28)30-11-7-8-24(22-30)14-21-31(35)37-3/h7-8,11-13,15-20,22,28H,4-6,9-10,14,21,23H2,1-3H3",
+      "InChIKey": "GXGGBYHHVMOCJL-UHFFFAOYSA-N",
+      "SMILES": "CN(C)c1ccc(cc1)c2ccc(cc2)CN(c3cccc(c3)CCC(=O)OC)C(=O)C4CCCCC4",
+      "SMILES_stereo": "CN(C)c1ccc(cc1)c2ccc(cc2)CN(c3cccc(c3)CCC(=O)OC)C(=O)C4CCCCC4",
+      "comp_id": "FEX"
+    },
+    "rcsb_chem_comp_info": {
+      "atom_count": 75,
+      "atom_count_chiral": 0,
+      "atom_count_heavy": 37,
+      "bond_count": 78,
+      "bond_count_aromatic": 25,
+      "comp_id": "FEX",
+      "initial_deposition_date": "2003-03-20T00:00:00.000+00:00",
+      "initial_release_date": "2003-09-23T00:00:00.000+00:00",
+      "release_status": "REL",
+      "revision_date": "2021-03-01T00:00:00.000+00:00"
+    },
+    "rcsb_chem_comp_related": [
+      {
+        "comp_id": "FEX",
+        "ordinal": 1,
+        "related_mapping_method": "assigned by DrugBank resource",
+        "resource_accession_code": "DB02545",
+        "resource_name": "DrugBank"
+      },
+      {
+        "comp_id": "FEX",
+        "ordinal": 2,
+        "related_mapping_method": "matching InChIKey in PubChem",
+        "resource_accession_code": "49866978",
+        "resource_name": "PubChem"
+      }
+    ],
+    "rcsb_chem_comp_synonyms": [
+      {
+        "comp_id": "FEX",
+        "name": "METHYL 3-{3-[(CYCLOHEXYLCARBONYL){[4'-(DIMETHYLAMINO)BIPHENYL-4-YL]METHYL}AMINO]PHENYL}ACRYLATE",
+        "ordinal": 1,
+        "provenance_source": "PDB Reference Data",
+        "type": "Preferred Name"
+      },
+      {
+        "comp_id": "FEX",
+        "name": "FEXARAMINE",
+        "ordinal": 2,
+        "provenance_source": "PDB Reference Data",
+        "type": "Synonym"
+      },
+      {
+        "comp_id": "FEX",
+        "name": "methyl 3-{3-[(cyclohexylcarbonyl){[4'-(dimethylamino)biphenyl-4-yl]methyl}amino]phenyl}propanoate",
+        "ordinal": 3,
+        "provenance_source": "ACDLabs",
+        "type": "Systematic Name"
+      },
+      {
+        "comp_id": "FEX",
+        "name": "methyl 3-[3-[cyclohexylcarbonyl-[[4-(4-dimethylaminophenyl)phenyl]methyl]amino]phenyl]propanoate",
+        "ordinal": 4,
+        "provenance_source": "OpenEye OEToolkits",
+        "type": "Systematic Name"
+      },
+      {
+        "comp_id": "FEX",
+        "name": "Fexaramine",
+        "ordinal": 5,
+        "provenance_source": "DrugBank",
+        "type": "Synonym"
+      }
+    ],
+    "rcsb_chem_comp_target": [
+      {
+        "comp_id": "FEX",
+        "interaction_type": "target",
+        "name": "Bile acid receptor",
+        "ordinal": 1,
+        "provenance_source": "DrugBank",
+        "reference_database_accession_code": "Q96RI1",
+        "reference_database_name": "UniProt"
+      }
+    ],
+    "rcsb_id": "FEX"
+  },
+  "top_keys": [
+    "chem_comp",
+    "pdbx_chem_comp_audit",
+    "pdbx_chem_comp_descriptor",
+    "pdbx_chem_comp_identifier",
+    "rcsb_chem_comp_container_identifiers",
+    "rcsb_chem_comp_descriptor",
+    "rcsb_chem_comp_info",
+    "rcsb_chem_comp_related",
+    "rcsb_chem_comp_synonyms",
+    "rcsb_chem_comp_target",
+    "rcsb_id"
+  ]
+}

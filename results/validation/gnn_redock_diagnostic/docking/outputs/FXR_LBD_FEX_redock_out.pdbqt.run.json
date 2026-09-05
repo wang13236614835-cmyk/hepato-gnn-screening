@@ -1,0 +1,32 @@
+{
+  "command": [
+    "D:\\zcode-workspace\\hepato-gnn-screening\\final-aidd-screening\\docking\\vina.exe",
+    "--receptor",
+    "D:\\zcode-workspace\\research-audit-20260905\\revised-redock-test2\\docking\\receptors\\FXR_LBD_1OSH.pdbqt",
+    "--ligand",
+    "D:\\zcode-workspace\\research-audit-20260905\\revised-redock-test2\\docking\\ligands\\FXR_LBD_FEX_redock.pdbqt",
+    "--out",
+    "D:\\zcode-workspace\\research-audit-20260905\\revised-redock-test2\\docking\\outputs\\FXR_LBD_FEX_redock_out.pdbqt",
+    "--center_x",
+    "5.23",
+    "--center_y",
+    "29.0",
+    "--center_z",
+    "53.67",
+    "--size_x",
+    "19.4",
+    "--size_y",
+    "22.5",
+    "--size_z",
+    "24.8",
+    "--exhaustiveness",
+    "16",
+    "--seed",
+    "42",
+    "--num_modes",
+    "9",
+    "--cpu",
+    "4"
+  ],
+  "returncode": 0
+}
