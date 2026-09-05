@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
-  "revision": "2026-09-05-original-checkin-repair",
+  "revision": "2026-09-05-two-week-summer-closeout",
   "updated": "2026-09-05",
-  "semester_start": "2026-09-07",
+  "semester_start": "2026-08-24",
   "repo_url": "https://github.com/wang13236614835-cmyk/hepato-gnn-screening",
-  "verdict": "计算可复现；研究有效性未通过。旧Top-10不得作为已验证候选。",
-  "wetlab": "可选后续阶段，当前无材料；不把湿实验完成作为本学期必交目标。优先完成可复核的MASH干实验链。",
+  "verdict": "计算与证据链可复核；研究有效性未通过，旧Top-10不得作为已验证候选。",
+  "wetlab": "当前无湿实验材料；两周结束后根据干实验门控决定论文落地包或补湿实验评估，不预设结题答辩。",
   "members": [
     {
       "name": "王启龙",
@@ -46,1383 +46,179 @@
   "weeks": [
     {
       "no": 1,
-      "start": "2026-09-07",
-      "end": "2026-09-13",
-      "theme": "暑假问题核验与MASH问题定义",
-      "hours": "学习5–6小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
+      "start": "2026-08-24",
+      "end": "2026-08-30",
+      "theme": "仓库边界、数据身份与 MOOC M01–M04",
+      "hours": "学习4–6小时、研究4–6小时",
+      "rule": "完成证据卡与基础软件核验；未通过项保留为问题，不自动放行"
     },
     {
       "no": 2,
-      "start": "2026-09-14",
-      "end": "2026-09-20",
-      "theme": "核心课程前置与结构/标签审核",
-      "hours": "学习5–6小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 3,
-      "start": "2026-09-21",
-      "end": "2026-09-27",
-      "theme": "完成开放课程与MASH数据方案",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 4,
-      "start": "2026-09-28",
-      "end": "2026-10-04",
-      "theme": "国庆轻量补漏与交叉复核",
-      "hours": "假期轻量：学习2小时、任务1–2小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 5,
-      "start": "2026-10-05",
-      "end": "2026-10-11",
-      "theme": "MASH数据冻结与基线诊断",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 6,
-      "start": "2026-10-12",
-      "end": "2026-10-18",
-      "theme": "靶点功能/结构证据核验",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 7,
-      "start": "2026-10-19",
-      "end": "2026-10-25",
-      "theme": "模型与校准比较",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 8,
-      "start": "2026-10-26",
-      "end": "2026-11-01",
-      "theme": "独立复现与导师阶段汇报",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 9,
-      "start": "2026-11-02",
-      "end": "2026-11-08",
-      "theme": "外部数据验证",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 10,
-      "start": "2026-11-09",
-      "end": "2026-11-15",
-      "theme": "适用域与负例分析",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 11,
-      "start": "2026-11-16",
-      "end": "2026-11-22",
-      "theme": "对接稳健性和功能方向",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 12,
-      "start": "2026-11-23",
-      "end": "2026-11-29",
-      "theme": "融合敏感性与反例",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 13,
-      "start": "2026-11-30",
-      "end": "2026-12-06",
-      "theme": "候选证据矩阵",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 14,
-      "start": "2026-12-07",
-      "end": "2026-12-13",
-      "theme": "完整干实验链复现",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 15,
-      "start": "2026-12-14",
-      "end": "2026-12-20",
-      "theme": "导师材料交叉审阅",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
-    },
-    {
-      "no": 16,
-      "start": "2026-12-21",
-      "end": "2026-12-27",
-      "theme": "归档与后续可选实验计划",
-      "hours": "学习/复习2–4小时、研究4–6小时",
-      "rule": "周次是目标窗口；依赖未通过则继续修复，不按日期自动放行"
+      "start": "2026-08-31",
+      "end": "2026-09-06",
+      "theme": "图表/来源/版本审计、AIDD交接与 MOOC M05–M08",
+      "hours": "学习4–6小时、研究4–6小时",
+      "rule": "完成问题单与交接包；论文落地或补湿实验只形成条件清单"
     }
   ],
   "tasks": [
     {
-      "id": "R2-Q-W01",
-      "member": "王启龙",
+      "id": "Q-W1",
       "week": 1,
-      "title": "建当前验收入口；复现机器检查，列清尚未真人核验项",
+      "member": "王启龙",
       "reviewer": "宁显泷",
-      "due": "2026-09-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W01.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-08-28",
+      "text": "环境/范围证据卡；完成 MOOC M01–M04 学习卡（标题、分钟、3条复述、教回题、研究应用）",
+      "artifact": "docs/summer_closeout/王启龙_W1.md",
+      "status": "planned"
     },
     {
-      "id": "R2-N-W01",
-      "member": "宁显泷",
+      "id": "N-W1",
       "week": 1,
-      "title": "复核两处GCN梯度修复；解释对称归一化并做数值检验",
+      "member": "宁显泷",
       "reviewer": "衣思淼",
-      "due": "2026-09-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W01.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-08-28",
+      "text": "梯度、模型与独立软件核验；完成 MOOC M01–M04 学习卡（标题、分钟、3条复述、教回题、研究应用）",
+      "artifact": "docs/summer_closeout/宁显泷_W1.md",
+      "status": "planned"
     },
     {
-      "id": "R2-Y-W01",
-      "member": "衣思淼",
+      "id": "Y-W1",
       "week": 1,
-      "title": "审核Top-10及身份差异最大的结构，填CID/盐型/立体判断",
+      "member": "衣思淼",
       "reviewer": "王散曼",
-      "due": "2026-09-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W01.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-08-28",
+      "text": "身份、标签与数据台账核验；完成 MOOC M01–M04 学习卡（标题、分钟、3条复述、教回题、研究应用）",
+      "artifact": "docs/summer_closeout/衣思淼_W1.md",
+      "status": "planned"
     },
     {
-      "id": "R2-D-W01",
-      "member": "代维斯丹",
+      "id": "D-W1",
       "week": 1,
-      "title": "审核CCD共晶键级与不叠合RMSD；复核小檗碱失败阶段",
+      "member": "代维斯丹",
       "reviewer": "宁显泷",
-      "due": "2026-09-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W01.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-08-28",
+      "text": "CCD/重对接诊断与图文核对；完成 MOOC M01–M04 学习卡（标题、分钟、3条复述、教回题、研究应用）",
+      "artifact": "docs/summer_closeout/代维斯丹_W1.md",
+      "status": "planned"
     },
     {
-      "id": "R2-S-W01",
-      "member": "王散曼",
+      "id": "S-W1",
       "week": 1,
-      "title": "定义MASH研究问题与终点；核对DC-030反例，区分一般保肝与MASH证据",
+      "member": "王散曼",
       "reviewer": "代维斯丹",
-      "due": "2026-09-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W01.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-08-28",
+      "text": "终点/文献证据与结论口径；完成 MOOC M01–M04 学习卡（标题、分钟、3条复述、教回题、研究应用）",
+      "artifact": "docs/summer_closeout/王散曼_W1.md",
+      "status": "planned"
     },
     {
-      "id": "R2-Q-W02",
-      "member": "王启龙",
+      "id": "Q-W2",
       "week": 2,
-      "title": "核对5人证据与版本，失效旧缓存和历史验收",
+      "member": "王启龙",
       "reviewer": "宁显泷",
-      "due": "2026-09-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W02.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-09-04",
+      "text": "论文/湿实验评估交接包；完成 MOOC M05–M08 学习卡，并记录图表/来源/版本问题与 AIDD 交接条件",
+      "artifact": "docs/summer_closeout/王启龙_W2.md",
+      "status": "planned"
     },
     {
-      "id": "R2-N-W02",
-      "member": "宁显泷",
+      "id": "N-W2",
       "week": 2,
-      "title": "审核新骨架隔离和训练/验证使用边界；不锁旧AUC",
+      "member": "宁显泷",
       "reviewer": "衣思淼",
-      "due": "2026-09-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W02.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-09-04",
+      "text": "软件结果与限制清单；完成 MOOC M05–M08 学习卡，并记录图表/来源/版本问题与 AIDD 交接条件",
+      "artifact": "docs/summer_closeout/宁显泷_W2.md",
+      "status": "planned"
     },
     {
-      "id": "R2-Y-W02",
-      "member": "衣思淼",
+      "id": "Y-W2",
       "week": 2,
-      "title": "完成100条身份逐行核对，与文献线处理全部标签",
+      "member": "衣思淼",
       "reviewer": "王散曼",
-      "due": "2026-09-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W02.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-09-04",
+      "text": "数据字典与图表来源表；完成 MOOC M05–M08 学习卡，并记录图表/来源/版本问题与 AIDD 交接条件",
+      "artifact": "docs/summer_closeout/衣思淼_W2.md",
+      "status": "planned"
     },
     {
-      "id": "R2-D-W02",
-      "member": "代维斯丹",
+      "id": "D-W2",
       "week": 2,
-      "title": "使用独立初始构象与多个种子做redock并检查关键姿态",
+      "member": "代维斯丹",
       "reviewer": "宁显泷",
-      "due": "2026-09-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W02.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
+      "due": "2026-09-04",
+      "text": "结构问题单与复算证据；完成 MOOC M05–M08 学习卡，并记录图表/来源/版本问题与 AIDD 交接条件",
+      "artifact": "docs/summer_closeout/代维斯丹_W2.md",
+      "status": "planned"
     },
     {
-      "id": "R2-S-W02",
-      "member": "王散曼",
+      "id": "S-W2",
       "week": 2,
-      "title": "审核88条原标签，未知与测定阴性分开；不预设全能入模",
-      "reviewer": "代维斯丹",
-      "due": "2026-09-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W02.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
-    },
-    {
-      "id": "R2-Q-W03",
-      "member": "王启龙",
-      "week": 3,
-      "title": "发布可复现环境、数据哈希和运行说明",
-      "reviewer": "宁显泷",
-      "due": "2026-09-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W03.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
-    },
-    {
-      "id": "R2-N-W03",
-      "member": "宁显泷",
-      "week": 3,
-      "title": "确定可信数据可支持的任务；基线先行，PyG按需要引入",
-      "reviewer": "衣思淼",
-      "due": "2026-09-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W03.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
-    },
-    {
-      "id": "R2-Y-W03",
-      "member": "衣思淼",
-      "week": 3,
-      "title": "在AIDD输出可复核数据子集与assay谱系；GNN旧标签不可直接迁移MASH",
-      "reviewer": "王散曼",
-      "due": "2026-09-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W03.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
-    },
-    {
-      "id": "R2-D-W03",
-      "member": "代维斯丹",
-      "week": 3,
-      "title": "确认受体、盒子、质子化与日志；验证缓存失效",
-      "reviewer": "宁显泷",
-      "due": "2026-09-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W03.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
-    },
-    {
-      "id": "R2-S-W03",
       "member": "王散曼",
-      "week": 3,
-      "title": "与数据线签核可用子集；文献检索从W1开始，不拖到W9",
       "reviewer": "代维斯丹",
-      "due": "2026-09-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W03.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "GNN暑假核验及AIDD准备"
-    },
-    {
-      "id": "R2-Q-W04",
-      "member": "王启龙",
-      "week": 4,
-      "title": "核对目录链接与课程漏项，假期不排长服务器任务",
-      "reviewer": "宁显泷",
-      "due": "2026-10-02",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W04.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W04",
-      "member": "宁显泷",
-      "week": 4,
-      "title": "复习MOOC漏项，补模型方法卡",
-      "reviewer": "衣思淼",
-      "due": "2026-10-02",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W04.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W04",
-      "member": "衣思淼",
-      "week": 4,
-      "title": "补课程漏项与10条随机结构互查",
-      "reviewer": "王散曼",
-      "due": "2026-10-02",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W04.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W04",
-      "member": "代维斯丹",
-      "week": 4,
-      "title": "课程补漏与结构方法卡，假期不排长任务",
-      "reviewer": "宁显泷",
-      "due": "2026-10-02",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W04.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W04",
-      "member": "王散曼",
-      "week": 4,
-      "title": "核对MOOC目录与文献漏项；国庆轻量阅读",
-      "reviewer": "代维斯丹",
-      "due": "2026-10-02",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W04.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W05",
-      "member": "王启龙",
-      "week": 5,
-      "title": "归档基线/模型同条件比较与完整参数",
-      "reviewer": "宁显泷",
-      "due": "2026-10-09",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W05.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W05",
-      "member": "宁显泷",
-      "week": 5,
-      "title": "在同数据划分比较RF/LR/GCN，报告区间和不利结果",
-      "reviewer": "衣思淼",
-      "due": "2026-10-09",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W05.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W05",
-      "member": "衣思淼",
-      "week": 5,
-      "title": "按冻结规则提供划分、重复/泄漏检查与适用域",
-      "reviewer": "王散曼",
-      "due": "2026-10-09",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W05.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W05",
-      "member": "代维斯丹",
-      "week": 5,
-      "title": "在通过身份审核的候选上执行真实对接与对照",
-      "reviewer": "宁显泷",
-      "due": "2026-10-09",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W05.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W05",
-      "member": "王散曼",
-      "week": 5,
-      "title": "比较THRB/FASN/SCD1的MASH证据与功能方向，不从结合IC50推断激动",
-      "reviewer": "代维斯丹",
-      "due": "2026-10-09",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W05.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W06",
-      "member": "王启龙",
-      "week": 6,
-      "title": "建立候选版本和对接失败台账",
-      "reviewer": "宁显泷",
-      "due": "2026-10-16",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W06.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W06",
-      "member": "宁显泷",
-      "week": 6,
-      "title": "检验预测熵与MC方差，使用独立候选或外部集合",
-      "reviewer": "衣思淼",
-      "due": "2026-10-16",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W06.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W06",
-      "member": "衣思淼",
-      "week": 6,
-      "title": "扩充有明确终点的外部候选，数量服从质量",
-      "reviewer": "王散曼",
-      "due": "2026-10-16",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W06.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W06",
-      "member": "代维斯丹",
-      "week": 6,
-      "title": "记录每靶点分数、失败和姿态人工结论",
-      "reviewer": "宁显泷",
-      "due": "2026-10-16",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W06.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W06",
-      "member": "王散曼",
-      "week": 6,
-      "title": "整理MASH候选原始研究与反例，区分单体、提取物和药材临床证据",
-      "reviewer": "代维斯丹",
-      "due": "2026-10-16",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W06.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W07",
-      "member": "王启龙",
-      "week": 7,
-      "title": "跑融合消融并记录不利结果",
-      "reviewer": "宁显泷",
-      "due": "2026-10-23",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W07.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W07",
-      "member": "宁显泷",
-      "week": 7,
-      "title": "做校准与融合消融；不把方差直接叫可信概率",
-      "reviewer": "衣思淼",
-      "due": "2026-10-23",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W07.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W07",
-      "member": "衣思淼",
-      "week": 7,
-      "title": "审查降权及分簇：区分指纹簇与Murcko骨架",
-      "reviewer": "王散曼",
-      "due": "2026-10-23",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W07.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W07",
-      "member": "代维斯丹",
-      "week": 7,
-      "title": "核对融合双靶缺失处理及异常案例",
-      "reviewer": "宁显泷",
-      "due": "2026-10-23",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W07.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W07",
-      "member": "王散曼",
-      "week": 7,
-      "title": "审核转录组设计、FDR、混杂和meta分析；不把方向一致称为确证",
-      "reviewer": "代维斯丹",
-      "due": "2026-10-23",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W07.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W08",
-      "member": "王启龙",
-      "week": 8,
-      "title": "组织AIDD独立复现与指导老师阶段汇报；按证据发布干实验版本",
-      "reviewer": "宁显泷",
-      "due": "2026-10-30",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W08.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W08",
-      "member": "宁显泷",
-      "week": 8,
-      "title": "提交模型卡、权重和独立复现记录",
-      "reviewer": "衣思淼",
-      "due": "2026-10-30",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W08.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W08",
-      "member": "衣思淼",
-      "week": 8,
-      "title": "冻结数据版本和变更理由，交叉复核",
-      "reviewer": "王散曼",
-      "due": "2026-10-30",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W08.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W08",
-      "member": "代维斯丹",
-      "week": 8,
-      "title": "提供MASH结构核验与姿态复核包；说明GNN双靶门控不能替代MASH靶点",
-      "reviewer": "宁显泷",
-      "due": "2026-10-30",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W08.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W08",
-      "member": "王散曼",
-      "week": 8,
-      "title": "审核导师报告结论与文献，湿实验保持可选且当前无材料",
-      "reviewer": "代维斯丹",
-      "due": "2026-10-30",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W08.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W09",
-      "member": "王启龙",
-      "week": 9,
-      "title": "冻结AIDD外部验证方案，记录数据版本和职责",
-      "reviewer": "宁显泷",
-      "due": "2026-11-06",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W09.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W09",
-      "member": "宁显泷",
-      "week": 9,
-      "title": "在冻结外部集合评估，测试集不得调参",
-      "reviewer": "衣思淼",
-      "due": "2026-11-06",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W09.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W09",
-      "member": "衣思淼",
-      "week": 9,
-      "title": "整理外部数据逐条来源、终点、单位与去重",
-      "reviewer": "王散曼",
-      "due": "2026-11-06",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W09.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W09",
-      "member": "代维斯丹",
-      "week": 9,
-      "title": "准备与训练数据独立的结构/对照证据",
-      "reviewer": "宁显泷",
-      "due": "2026-11-06",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W09.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W09",
-      "member": "王散曼",
-      "week": 9,
-      "title": "补MASH外部文献证据及功能方向标签",
-      "reviewer": "代维斯丹",
-      "due": "2026-11-06",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W09.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W10",
-      "member": "王启龙",
-      "week": 10,
-      "title": "组织负例/域外结果复盘，不为达标换数据",
-      "reviewer": "宁显泷",
-      "due": "2026-11-13",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W10.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W10",
-      "member": "宁显泷",
-      "week": 10,
-      "title": "按适用域分层检验误差、覆盖和不确定性",
-      "reviewer": "衣思淼",
-      "due": "2026-11-13",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W10.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W10",
-      "member": "衣思淼",
-      "week": 10,
-      "title": "核验近邻/域阈值及跨集同系结构",
-      "reviewer": "王散曼",
-      "due": "2026-11-13",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W10.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W10",
-      "member": "代维斯丹",
-      "week": 10,
-      "title": "分析评分失败、PAINS和构象反例",
-      "reviewer": "宁显泷",
-      "due": "2026-11-13",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W10.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W10",
-      "member": "王散曼",
-      "week": 10,
-      "title": "检索无效、毒性、矛盾研究并记录检索范围",
-      "reviewer": "代维斯丹",
-      "due": "2026-11-13",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W10.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W11",
-      "member": "王启龙",
-      "week": 11,
-      "title": "确认对接参数变更有理由和完整尝试记录",
-      "reviewer": "宁显泷",
-      "due": "2026-11-20",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W11.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W11",
-      "member": "宁显泷",
-      "week": 11,
-      "title": "分析模型与对接的差异及非独立性",
-      "reviewer": "衣思淼",
-      "due": "2026-11-20",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W11.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W11",
-      "member": "衣思淼",
-      "week": 11,
-      "title": "复核配体身份、质子化、盐型与结构版本",
-      "reviewer": "王散曼",
-      "due": "2026-11-20",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W11.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W11",
-      "member": "代维斯丹",
-      "week": 11,
-      "title": "多种子/盒子/受体条件复核，不以最低RMSD挑结果",
-      "reviewer": "宁显泷",
-      "due": "2026-11-20",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W11.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W11",
-      "member": "王散曼",
-      "week": 11,
-      "title": "核对FASN结构域与抑制剂作用位点",
-      "reviewer": "代维斯丹",
-      "due": "2026-11-20",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W11.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W12",
-      "member": "王启龙",
-      "week": 12,
-      "title": "汇总敏感性，保留排名不稳定结论",
-      "reviewer": "宁显泷",
-      "due": "2026-11-27",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W12.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W12",
-      "member": "宁显泷",
-      "week": 12,
-      "title": "比较去掉QSAR/对接/证据权重后的排序",
-      "reviewer": "衣思淼",
-      "due": "2026-11-27",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W12.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W12",
-      "member": "衣思淼",
-      "week": 12,
-      "title": "评估不同规范化与划分对结论的影响",
-      "reviewer": "王散曼",
-      "due": "2026-11-27",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W12.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W12",
-      "member": "代维斯丹",
-      "week": 12,
-      "title": "复算排名对对接参数的敏感性",
-      "reviewer": "宁显泷",
-      "due": "2026-11-27",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W12.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W12",
-      "member": "王散曼",
-      "week": 12,
-      "title": "审核药材证据是否能支持单体、疾病与终点",
-      "reviewer": "代维斯丹",
-      "due": "2026-11-27",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W12.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W13",
-      "member": "王启龙",
-      "week": 13,
-      "title": "组织候选证据分级，确认没有药效承诺",
-      "reviewer": "宁显泷",
-      "due": "2026-12-04",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W13.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W13",
-      "member": "宁显泷",
-      "week": 13,
-      "title": "提供模型卡与不能支持的主张清单",
-      "reviewer": "衣思淼",
-      "due": "2026-12-04",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W13.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W13",
-      "member": "衣思淼",
-      "week": 13,
-      "title": "冻结候选身份和来源证据，明确已知阳性",
-      "reviewer": "王散曼",
-      "due": "2026-12-04",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W13.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W13",
-      "member": "代维斯丹",
-      "week": 13,
-      "title": "提交可复核姿态和不能推断激动/抑制的限制",
-      "reviewer": "宁显泷",
-      "due": "2026-12-04",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W13.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W13",
-      "member": "王散曼",
-      "week": 13,
-      "title": "逐候选形成支持/反对/未知证据矩阵",
-      "reviewer": "代维斯丹",
-      "due": "2026-12-04",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W13.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W14",
-      "member": "王启龙",
-      "week": 14,
-      "title": "从新环境演练AIDD完整干实验链",
-      "reviewer": "宁显泷",
-      "due": "2026-12-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W14.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W14",
-      "member": "宁显泷",
-      "week": 14,
-      "title": "独立重训复算，报告多种子差异",
-      "reviewer": "衣思淼",
-      "due": "2026-12-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W14.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W14",
-      "member": "衣思淼",
-      "week": 14,
-      "title": "从原始记录重建数据表并核对哈希",
-      "reviewer": "王散曼",
-      "due": "2026-12-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W14.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W14",
-      "member": "代维斯丹",
-      "week": 14,
-      "title": "独立重跑已通过门槛的结构计算",
-      "reviewer": "宁显泷",
-      "due": "2026-12-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W14.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W14",
-      "member": "王散曼",
-      "week": 14,
-      "title": "核验完整研究叙事不夸大疾病与机制结论",
-      "reviewer": "代维斯丹",
-      "due": "2026-12-11",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W14.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [
-        "G_DATA",
-        "G_METHOD"
-      ],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W15",
-      "member": "王启龙",
-      "week": 15,
-      "title": "整合指导老师报告并逐表核对出处",
-      "reviewer": "宁显泷",
-      "due": "2026-12-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W15.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W15",
-      "member": "宁显泷",
-      "week": 15,
-      "title": "核对所有模型数字、区间与划分",
-      "reviewer": "衣思淼",
-      "due": "2026-12-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W15.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W15",
-      "member": "衣思淼",
-      "week": 15,
-      "title": "核对正文表格与数据字典",
-      "reviewer": "王散曼",
-      "due": "2026-12-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W15.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W15",
-      "member": "代维斯丹",
-      "week": 15,
-      "title": "核对图注、单位、原始日志与失败记录",
-      "reviewer": "宁显泷",
-      "due": "2026-12-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W15.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W15",
-      "member": "王散曼",
-      "week": 15,
-      "title": "复查关键原文与导师报告表述",
-      "reviewer": "代维斯丹",
-      "due": "2026-12-18",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W15.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Q-W16",
-      "member": "王启龙",
-      "week": 16,
-      "title": "归档实际贡献和未解决项；湿实验仅列可选计划",
-      "reviewer": "宁显泷",
-      "due": "2026-12-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王启龙/W16.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-N-W16",
-      "member": "宁显泷",
-      "week": 16,
-      "title": "提交算法贡献证据与下一阶段建议",
-      "reviewer": "衣思淼",
-      "due": "2026-12-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/宁显泷/W16.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-Y-W16",
-      "member": "衣思淼",
-      "week": 16,
-      "title": "交付数据谱系及尚未解决的缺项",
-      "reviewer": "王散曼",
-      "due": "2026-12-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/衣思淼/W16.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-D-W16",
-      "member": "代维斯丹",
-      "week": 16,
-      "title": "归档结构验证；提出可选实验需求而不采购",
-      "reviewer": "宁显泷",
-      "due": "2026-12-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/代维斯丹/W16.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
-    },
-    {
-      "id": "R2-S-W16",
-      "member": "王散曼",
-      "week": 16,
-      "title": "交付文献证据表与条件具备后的可选湿实验方案",
-      "reviewer": "代维斯丹",
-      "due": "2026-12-25",
-      "artifact": "docs/archive/20260905/review_v2_experimental/王散曼/W16.md",
-      "acceptance": "证据文件/命令与实测结果齐全，包含反例或限制；交叉复核人独立记录结论。打卡提交不自动等于研究通过。 依赖未过可提交问题诊断，不得标记下游研究放行。",
-      "status": "not_started",
-      "depends_on": [],
-      "track": "AIDD干实验主线（GNN记录学习）"
+      "due": "2026-09-04",
+      "text": "导师审阅版证据矩阵；完成 MOOC M05–M08 学习卡，并记录图表/来源/版本问题与 AIDD 交接条件",
+      "artifact": "docs/summer_closeout/王散曼_W2.md",
+      "status": "planned"
     }
   ],
   "course": [
     {
       "id": "M01",
       "week": 1,
-      "title": "研究边界与全链条",
-      "topic_locator": "导论、方法与产业案例中的研究证据边界",
-      "artifact": "一页证据链：跑通、复现、有效性、湿实验分别需要什么",
-      "teachback": "为什么一般保肝分类器不能直接称为抗MASH模型？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "title": "研究问题与证据边界",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     },
     {
       "id": "M02",
       "week": 1,
-      "title": "靶点证据与蛋白结构",
-      "topic_locator": "靶标挖掘、AlphaFold/实验结构相关内容",
-      "artifact": "THRB/FASN/SCD1的MASH证据卡；比较GNN暑假FXR/KEAP1任务的差别",
-      "teachback": "高pLDDT或低redock RMSD能证明药效吗？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "title": "靶点、结构与受体证据",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     },
     {
       "id": "M03",
       "week": 1,
-      "title": "化合物身份与标签",
-      "topic_locator": "课程涉及化合物库、数据表征的内容；缺项用官方文档补充",
-      "artifact": "核对本人分派的结构记录并解释黄芩苷少氧案例",
-      "teachback": "同分子式为什么不一定是同一化合物？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "title": "化合物身份、标准化与数据质量",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     },
     {
       "id": "M04",
-      "week": 2,
-      "title": "模型、基线与划分",
-      "topic_locator": "AI基础与深度学习筛选相关内容",
-      "artifact": "一组骨架泄漏反例和固定掩码梯度复核",
-      "teachback": "对称归一化邻接的行和必须等于1吗？为什么？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "week": 1,
+      "title": "分子图、模型与数据划分",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     },
     {
       "id": "M05",
       "week": 2,
-      "title": "对接与虚拟筛选",
-      "topic_locator": "结构设计、分子对接和虚拟筛选相关内容",
-      "artifact": "展示同一姿态的叠合/不叠合RMSD与CCD键级检查",
-      "teachback": "Vina分数能分辨激动剂和拮抗剂吗？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "title": "对接与虚拟筛选的复核",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     },
     {
       "id": "M06",
       "week": 2,
-      "title": "ADMET、校准与筛选解释",
-      "topic_locator": "ADMET性质预测与模型评价相关内容",
-      "artifact": "一条PAINS风险解释，旧描述符与RDKit对比，不确定性局限",
-      "teachback": "低Spearman相关为什么不等于证据独立？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "title": "ADMET、不确定性与校准",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     },
     {
       "id": "M07",
-      "week": 3,
-      "title": "分子生成、逆合成与递送",
-      "topic_locator": "分子生成、逆合成；平台若有递送内容则完成对应部分",
-      "artifact": "选择一种生成方案，列出本项目目前缺少的验证条件",
-      "teachback": "生成有效SMILES是否等于得到可合成、有效的药？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "week": 2,
+      "title": "生成/逆合成与边界",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     },
     {
       "id": "M08",
-      "week": 3,
-      "title": "企业案例与干湿闭环",
-      "topic_locator": "英矽智能等企业案例、课程剩余已开放视频与练习",
-      "artifact": "核对实际课程目录，完成漏项清单和5分钟教回展示",
-      "teachback": "如何用实验结果更新下一轮筛选，而不修改过去结论？",
-      "source_url": "https://www.icourse163.org/course/FUDAN-1485348164",
-      "chapter_status": "具体章号和视频时间由成员按当前开放课次填写；不沿用未经核实的12章映射",
-      "weekly_hours": "W1/W2各约5–6小时；W3约4–5小时；W4国庆轻量补漏"
+      "week": 2,
+      "title": "干湿衔接、论文落地与条件评估",
+      "source": "learning/共享/复旦AIDD课程_学习任务.md",
+      "required": true
     }
   ],
   "gates": [
@@ -1477,5 +273,6 @@
     "aidd": "完整MASH研究链、正式数据版本与指导老师汇报",
     "leader": "王启龙"
   },
-  "aidd_url": "https://github.com/wang13236614835-cmyk/aidd"
+  "aidd_url": "https://github.com/wang13236614835-cmyk/aidd",
+  "closing_route": "thesis_landing_or_wetlab_evaluation"
 }

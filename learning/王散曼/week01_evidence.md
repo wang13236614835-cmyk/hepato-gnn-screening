@@ -1,0 +1,23 @@
+<!-- 当前 canonical evidence card: docs/summer_closeout/王散曼_W1.md；本文件保留原 semester_flow learning/ 入口。 -->
+
+# 王散曼 · W1 暑假收尾证据卡
+
+- 分工：MASH文献、标签与结论边界
+- 核验对象：终点/文献证据与结论口径
+- MOOC：M01–M04
+- 截止：2026-08-28
+
+## 课程证据
+
+| 模块 | 视频/章节标题 | 实际分钟 | 3条复述 | 教回题 | 研究应用 |
+|---|---|---:|---|---|---|
+| M01–M04 | 待观看后填写 |  |  |  |  |
+
+## 机器/文件证据
+
+- 命令或文件：
+- 实测输出/对象 ID：
+- 口径或限制：
+- 互查人：代维斯丹
+
+[FLOW] evidence_card=False course_record=False

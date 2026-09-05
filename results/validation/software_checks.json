@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T05:42:46.523892+00:00",
+  "generated_at": "2026-09-05T07:46:18.621214+00:00",
   "software_passed": true,
   "scientific_validation": "not_granted",
   "wetlab_ready": false,
@@ -57,7 +57,7 @@
     {
       "name": "plan_and_pages",
       "passed": true,
-      "detail": "80 unique evidence tasks, Friday deadlines, 8 course modules by W3, 5 pages."
+      "detail": "10 two-week evidence tasks, Friday deadlines, 8 course modules by W2, 5 pages."
     },
     {
       "name": "python_syntax",

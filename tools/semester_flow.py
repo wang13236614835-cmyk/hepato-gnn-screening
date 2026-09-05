@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-学期学习推进流工具（负责人·王启龙版）
+暑假两周收尾核验工具（负责人·王启龙版）
 ========================================================================
-一个能独立运行的程序：把「AIDD 学习线 × 工作包推进线 × 重头校验线」
-三线合一的 16 周学期程序内置为数据，并提供：
+一个能独立运行的程序：把「MOOC 学习线 × GNN 核验线 × AIDD 交接线」
+三线合一的两周暑假收尾程序内置为数据，并提供：
 
   1. 按日期自动定位周次，输出本周看板（学习卡 / 推进任务 / 统筹事项）
   2. 任务勾选与状态持久化（flow_state.json）
@@ -17,12 +17,12 @@
 用法（在仓库任意目录）：
   python tools/semester_flow.py                 # 本周看板
   python tools/semester_flow.py plan            # 学期总览 + 里程碑
-  python tools/semester_flow.py week 3          # 查看第 3 周完整卡片
+  python tools/semester_flow.py week 1          # 查看第 1 周完整卡片
   python tools/semester_flow.py next            # 下一个该做的事
   python tools/semester_flow.py check           # 本周快速核验
   python tools/semester_flow.py check 1 --deep  # 第 1 周深度核验(会跑 run_all.py)
-  python tools/semester_flow.py check all --deep# 全学期核验
-  python tools/semester_flow.py scaffold 3      # 生成第 3 周练习骨架
+  python tools/semester_flow.py check all --deep# 两周收尾核验
+  python tools/semester_flow.py scaffold 1      # 生成第 1 周练习骨架
   python tools/semester_flow.py done W1-A1      # 勾选任务
   python tools/semester_flow.py undo W1-A1      # 取消勾选
   python tools/semester_flow.py record MAN-W14-01 pass "演练报告已存learning/王启龙/"
@@ -60,16 +60,16 @@ from pathlib import Path
 
 # ---------------------------------------------------------------- 基础配置
 
-SEMESTER_START = dt.date(2026, 9, 7)   # 开学周一（校历变动时改这一处）
-N_WEEKS = 16
+SEMESTER_START = dt.date(2026, 8, 24)  # 暑假收尾第1周（两周压缩核验）
+N_WEEKS = 2
 TOOL_VERSION = "1.1"
 
-# 2026-09-05 复核口径：保留原版 16 周结构与命令接口；旧暑假数字只作历史基线。
+# 2026-09-05 复核口径：保留原版命令接口和页面框架；当前只执行两周暑假收尾卡。
 # GNN 仓库承担收尾核验/学习打卡，AIDD 仓库承担 MASH 干研究主线；当前无湿实验材料。
 CURRENT_REVIEW_NOTICE = (
-    "当前复核口径：GNN=暑假收尾核验与学习打卡；AIDD=MASH完整干研究主线；"
-    "旧AUC/Top-10/RMSD/湿实验安排仅作历史，先做数据、结构、独立复算与MOOC打卡；"
-    "湿实验材料缺失，未达到实验放行条件。"
+    "当前复核口径：GNN=暑假两周收尾核验与学习打卡；AIDD=MASH完整干研究主线；"
+    "旧AUC/Top-10/RMSD/湿实验安排仅作历史，先做数据、结构、图表、独立复算与MOOC打卡；"
+    "湿实验材料缺失，结尾按论文落地或补湿实验评估，不预设结题答辩。"
 )
 
 # ---------------------------------------------------------------- 成员（--member）
@@ -136,29 +136,26 @@ GRID_BOX_ANCHORS = ["[15.2, 3.8, 24.5]", "[-11.5, 20.4, -6.2]"]  # src/docking/g
 # ---------------------------------------------------------------- 学期程序数据
 
 WEEKS = [
-    dict(no=1, dates="09/07–09/13", stage="AIDD①基础筑基", theme="复现核验启动 · 工程环境就位",
-        learn=["Git 进阶：tag/branch/shortlog、署名提交规范", "Linux 服务器与 conda：按 docs/00_environment.md §2 建 hepato 环境(py3.11+rdkit+torch+PyG+vina)",
-               "资源：Git Pro Book 第2/3章；conda 官方文档"],
-        card=dict(task="week01_exercise.py 环境自检：打印 python/numpy/rdkit/torch/pyg/vina 版本，本地与服务器各跑一遍 run_all.py",
-                  cmd="python learning/王启龙/week01_exercise.py",
-                  expected="版本表完整、零 ImportError；run_all.py 约6秒完成",
-                  source="docs/00_environment.md §1/§2；VERIFY_MANUAL §2.1",
-                  criteria="env=ok 即通过；服务器端缺包逐个补装并记录", verifier="宁显泷"),
-        tasks=[("W1-A1", "组织全员按 VERIFY_MANUAL §0–§2 复现并收集5人结果"),
-               ("W1-A2", "分派 §3 深度核验：宁§3.1 / 衣§3.4+3.5 / 代§3.3 / 王§3.4 / 本人汇总"),
-               ],
-        coord=["周一组会宣讲学期排期（本程序）", "周五向导师报全员复现结果"]),
-    dict(no=2, dates="09/14–09/20", stage="AIDD①基础筑基(收尾)", theme="WP1 收尾 · 基线固化 · 核验签名汇总",
-        learn=["校验自动化思维：精读 reports/pdf_build/verify.py 的45项断言范式", "assert+期望值表：人工对数字→脚本断言"],
-        card=dict(task="给 verify.py 45项断言逐条标注来源文件，产出 week02_notes.md 注释表",
-                  cmd="python reports/pdf_build/verify.py",
-                  expected="通过 45 项；不符 0 项（实测基线）",
-                  source="reports/pdf_build/verify.py（2026-08-31 实测）",
-                  criteria="注释表45行齐全；核验人抽5项对锚定CSV", verifier="衣思淼"),
-        tasks=[("W2-A1", "汇总5人核验签名表；verify.py 通过截图存 results/logs/（新建并登记MANIFEST）"),
-               ("W2-A2", "git tag -a v1.0-summer 固化暑假基线"),
-               ],
-        coord=["周五前收齐5人核验签名并存results/logs/", "45项注释表抽查5项对锚定CSV"]),
+    dict(no=1, dates="08/24–08/30", stage="暑假收尾 W1", theme="仓库、研究边界与 MOOC 核心单元",
+        learn=["MOOC M01–M04：研究边界、靶点/结构、化合物身份、模型与划分", "实际观看后写标题/分钟/3条复述/教回题/研究应用"],
+        card=dict(task="完成本人分工的基础核验并提交证据卡；软件结果如实记录，旧结论统一标历史",
+                  cmd="python tools/verify_research.py",
+                  expected="9项软件检查结果可追溯；scientific_validation=not_granted；wetlab_ready=false",
+                  source="docs/REPO_SCOPE.md；learning/共享/复旦AIDD课程_学习任务.md M01–M04",
+                  criteria="缺命令输出、视频记录或文件出处不勾选", verifier="全员互查"),
+        tasks=[("W1-A1", "五人 MOOC M01–M04 记录与教回题收齐"),
+               ("W1-A2", "仓库/身份/标签/结构边界证据卡收齐")],
+        coord=["周中分派与互查", "周末汇总未解决问题"]),
+    dict(no=2, dates="08/31–09/06", stage="暑假收尾 W2", theme="数据、结构、图表和结论边界闭环",
+        learn=["MOOC M05–M08：对接/虚拟筛选、ADMET/校准、生成/逆合成、干湿闭环", "把课程概念写进图表、来源、版本和限制核验"],
+        card=dict(task="完成交叉核验和 AIDD 交接；论文落地或补湿实验只形成条件清单，不提前放行",
+                  cmd="python tools/semester_flow.py check 2",
+                  expected="问题清单、图表对照、来源/版本、责任人和下一步条件齐全",
+                  source="docs/audit/20260905/figure_text_alignment.md；AIDD/REPO_SCOPE.md；MOOC M05–M08",
+                  criteria="图文不匹配或门控未过时保留问题，不改写为通过", verifier="全员互查"),
+        tasks=[("W2-A1", "五人 MOOC M05–M08 应用反思收齐"),
+               ("W2-A2", "图片/表格对照、问题单与 AIDD 交接包完成")],
+        coord=["周中逐图核对来源表和对象 ID", "周末向老师提交论文/湿实验评估条件"]),
     dict(no=3, dates="09/21–09/27", stage="AIDD②数据与表征", theme="RDKit 上手 · 描述符重算",
         learn=["SMILES/InChI/InChIKey、规范化与立体化学", "RDKit：Mol对象、MW/LogP/TPSA/HBD/HBA、Morgan指纹", "资源：RDKit 官方 Getting Started/Cookbook"],
         card=dict(task="week03_rdkit_recalc.py：100条(88+12) RDKit 重算描述符，与存档列对照出Δ分布",
@@ -306,6 +303,9 @@ WEEKS = [
         coord=["向导师提交结题材料", "2027年1月结题答辩(M9)"]),
 ]
 
+# GNN 暑假收尾只保留两周核验卡；其余完整 MASH 链路在 AIDD 主库推进。
+WEEKS = WEEKS[:N_WEEKS]
+
 # 手工补录项（外部平台/线下动作，无法自动核验，必须 record 留痕）
 MANUALS = [
     dict(id="MAN-W7-01", week=7, text="WP3 验收四条逐项打勾+核验人签字（WP3文件末尾核验表）", dead=None),
@@ -315,6 +315,7 @@ MANUALS = [
     dict(id="MAN-W15-01", week=15, text="学期重头校验 ❌ 清零签字", dead=None),
     dict(id="MAN-W16-01", week=16, text="预答辩通过记录", dead=None),
 ]
+MANUALS = []
 
 # 学习练习契约（scaffold 生成骨架，check 机器判定；needs 列出依赖便于判断本地/服务器）
 EXERCISES = {
@@ -462,6 +463,14 @@ EXERCISES_WSM = {  # 王散曼（文献线）
 EXERCISES_BY_MEMBER = {"王启龙": EXERCISES, "宁显泷": EXERCISES_NXL, "衣思淼": EXERCISES_YSM,
                        "代维斯丹": EXERCISES_DWS, "王散曼": EXERCISES_WSM}
 
+# 两周暑假收尾契约：先记录实际证据，再由成员互查；不再要求学期迁移任务。
+EXERCISES_BY_MEMBER = {
+    name: {
+        1: dict(file="week01_evidence.md", needs="标准库+MOOC M01–M04", flow="evidence_card=True course_record=True", preds=[("evidence_card", "==", "True"), ("course_record", "==", "True")], md=True, task="基础证据卡：对象、命令、实测结果、限制、下一步；附 MOOC M01–M04 记录"),
+        2: dict(file="week02_handoff.md", needs="标准库+MOOC M05–M08", flow="figure_table_audit=True handoff=True course_record=True", preds=[("figure_table_audit", "==", "True"), ("handoff", "==", "True"), ("course_record", "==", "True")], md=True, task="图表/来源/版本对照、问题单、AIDD 交接；附 MOOC M05–M08 应用反思"),
+    } for name in MEMBERS
+}
+
 SCAFFOLD_TODO_BY_MEMBER = {
     "宁显泷": {
         2: [("build_net", "定义2层小网络(如2-3-1)与小批量输入，权重手动设成简单数"),
@@ -555,6 +564,11 @@ MILESTONES = [
     dict(id="M7", week=15, name="学期重头校验全过（❌清零）", checks=["C15-01", "MAN-W15-01"]),
     dict(id="M8", week=16, name="结题材料提交+预答辩", checks=["C16-01", "C16-02", "MAN-W16-01"]),
     dict(id="M9", week=17, name="结题答辩（2027年1月，现场）", checks=[]),
+]
+MILESTONES = [
+    dict(id="M1", week=1, name="W1 基础证据包与 MOOC M01–M04", checks=["W1-A1", "W1-A2"]),
+    dict(id="M2", week=2, name="W2 审计交接包与 MOOC M05–M08", checks=["W2-A1", "W2-A2"]),
+    dict(id="M3", week=3, name="后续评估：论文落地或补湿实验（条件审阅）", checks=[]),
 ]
 
 # ---------------------------------------------------------------- 自动核验定义
@@ -668,6 +682,9 @@ CHECKS = [
          desc="reports/ 下已有结题材料（目标态）", source="W16-A1",
          params={"pattern": "reports/*结题*", "min": 1}),
 ]
+
+# GNN 两周收尾只执行 W1/W2 的机器核验；旧学期检查仍保留在历史文档，不作为当前入口。
+CHECKS = [c for c in CHECKS if c["week"] <= N_WEEKS]
 
 # ---------------------------------------------------------------- 通用工具
 
@@ -1190,11 +1207,11 @@ def dashboard(repo, state):
         show_week(WEEKS[0], state, repo)
         return
     if wn > N_WEEKS:
-        print(f"学期 16 周已结束（当前第 {wn} 周段=结题/考试周）→ 看第 16 周")
+        print(f"暑假两周收尾已结束（当前第 {wn} 周段=后续评估准备）→ 转 AIDD 主库")
         show_week(WEEKS[-1], state, repo)
         return
     w = WEEKS[wn - 1]
-    print(f"今天 {dt.date.today()} → 学期第 {wn} 周")
+    print(f"今天 {dt.date.today()} → 暑假收尾第 {wn} 周")
     show_week(w, state, repo)
     # 本周快速核验
     res = eval_checks(repo, weeks={wn}, deep=False)
@@ -1206,7 +1223,7 @@ def dashboard(repo, state):
 
 def cmd_plan(state):
     print("═" * 72)
-    print(f"学期推进总览（{SEMESTER_START} 开学 · 16 周 · 负责人 王启龙）")
+    print(f"暑假两周收尾总览（{SEMESTER_START} 起 · 2 周 · 负责人 王启龙）")
     print("═" * 72)
     print(pad("周", 4) + pad("日期", 15) + pad("学习线", 22) + pad("主题", 24) + "任务完成")
     for w in WEEKS:
@@ -1284,12 +1301,17 @@ def cmd_ledger(repo, state, sync=False):
         for r in rows:
             print(pad(r[0], 4) + pad(r[1], 34) + r[2][:60])
     print("─" * 88)
-    if state["records"]:
+    current_check_ids = {c["id"] for c in CHECKS}
+    current_records = {cid: r for cid, r in state["records"].items() if cid in current_check_ids}
+    historical_count = len(state["records"]) - len(current_records)
+    if current_records:
         print(pad("项", 12) + pad("判定", 6) + pad("时间", 20) + "实测")
-        for cid, r in sorted(state["records"].items()):
+        for cid, r in sorted(current_records.items()):
             print(pad(cid, 12) + pad(r["verdict"], 6) + pad(r["ts"][:16], 20) + r["observed"][:70])
     else:
         print("（暂无核验记录，先运行 check）")
+    if historical_count:
+        print(f"（已隐藏 {historical_count} 条历史学期记录；当前只显示 W1/W2 核验）")
     if sync and repo:
         p = repo / ledger_relpath()
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -1304,7 +1326,7 @@ def cmd_report(week_no, repo, state):
     p = repo / "learning" / CURRENT_MEMBER / f"周报_第{week_no}周_{dt.date.today():%Y%m%d}.md"
     p.parent.mkdir(parents=True, exist_ok=True)
     if CURRENT_MEMBER != "王启龙":
-        # 成员版周报：练习状态 + 勾选/补录记录（16 周卡片内容以打卡_姓名.html 为准）
+        # 成员版周报：练习状态 + 勾选/补录记录（两周卡片内容以打卡_姓名.html 为准）
         ex = exercises().get(week_no)
         f = repo / "learning" / CURRENT_MEMBER / ex["file"] if ex else None
         flow_now = ""
@@ -1364,7 +1386,7 @@ def member_dashboard(repo, state):
     print(f"成员模式 · {CURRENT_MEMBER}（{MEMBER_ROLE[CURRENT_MEMBER]}）")
     print(f"状态文件: learning/{CURRENT_MEMBER}/flow_state.json")
     print("─" * 66)
-    print("16 周卡片/任务/视频/打卡 → 你的 打卡_姓名.html（克隆仓库后本地浏览器打开）")
+    print("两周卡片/任务/MOOC/打卡 → 你的 打卡_姓名.html（克隆仓库后本地浏览器打开）")
     print("本工具管：练习骨架 scaffold N ｜ 练习核验 check N ｜ 勾选 done/undo")
     print("          ｜ 手工补录 record ｜ 台账 ledger ｜ 周报 report N")
     print("═" * 66)
@@ -1442,7 +1464,7 @@ def main():
         if is_member:
             ex = exercises().get(args.n)
             if not ex:
-                sys.exit(f"第 {args.n} 周无成员练习（16 周完整卡片见你的 打卡_姓名.html）")
+                sys.exit(f"第 {args.n} 周无成员练习（两周完整卡片见你的 打卡_姓名.html）")
             print(f"第 {args.n} 周练习 · learning/{CURRENT_MEMBER}/{ex['file']}")
             print(f"任务: {ex.get('task', '')}")
             print(f"契约: [FLOW] {ex['flow']}")
@@ -1466,7 +1488,7 @@ def main():
             try:
                 weeks = {int(args.n)}
             except ValueError:
-                sys.exit("周号须为 1–16 或 all")
+                sys.exit("周号须为 1–2 或 all")
         res = eval_checks(repo, weeks=weeks, deep=args.deep, state=state)
         save_state(state, sfile)
         sys.exit(print_check_results(res))

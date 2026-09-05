@@ -79,15 +79,17 @@ def split():
   assert all(not(groups[i]&groups[j]) for i in range(3) for j in range(i))
  return '88 historical labels, canonical Murcko groups disjoint; not MASH labels.'
 def plan():
- p=json.loads((ROOT/'docs/project_plan.json').read_text(encoding='utf-8'));assert len(p['tasks'])==80 and len({t['id'] for t in p['tasks']})==80
+ p=json.loads((ROOT/'docs/project_plan.json').read_text(encoding='utf-8'));assert len(p['tasks'])==10 and len({t['id'] for t in p['tasks']})==10
+ assert p['semester_start']=='2026-08-24' and len(p['weeks'])==2
  for t in p['tasks']:
   assert datetime.date.fromisoformat(t['due']).weekday()==4
   assert t['reviewer']!=t['member'] and (ROOT/t['artifact']).exists()
- assert max(c['week'] for c in p['course'])==3
+ assert {t['week'] for t in p['tasks']}=={1,2}
+ assert max(c['week'] for c in p['course'])==2 and len(p['course'])==8
  for m in p['members']:
   page=(ROOT/m['name']/f"打卡_{m['name']}.html").read_text(encoding='utf-8')
   assert '__PLAN_JSON__' not in page and '__NAME_JSON__' not in page
- return '80 unique evidence tasks, Friday deadlines, 8 course modules by W3, 5 pages.'
+ return '10 two-week evidence tasks, Friday deadlines, 8 course modules by W2, 5 pages.'
 def syntax():
  paths=list((ROOT/'final-aidd-screening/src').glob('*.py'))+[ROOT/'final-aidd-screening/run_revised.py',ROOT/'tools/semester_flow.py',ROOT/'tools/gen_member_pages.py']
  for f in paths:ast.parse(f.read_text(encoding='utf-8-sig'))
