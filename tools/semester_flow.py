@@ -8,8 +8,8 @@
 
   1. 按日期自动定位周次，输出本周看板（学习卡 / 推进任务 / 统筹事项）
   2. 任务勾选与状态持久化（flow_state.json）
-  3. 自动核验引擎：真实执行仓库命令并逐项比对【存档基线数字】，
-     不信任自报完成——通过/不符都给出实测值与依据来源
+  3. 自动核验引擎：真实执行仓库命令并逐项比对【对应历史教学快照】的数字，
+     不信任自报完成——通过/不符都给出实测值与依据来源；旧数字不构成论文放行门槛
   4. 学习练习骨架生成（scaffold）：练习脚本与核验契约 [FLOW] 同源生成，
      保证"每周学习验证准确"可机器判定
   5. 台账与周报生成（markdown，直接发导师）
@@ -33,6 +33,7 @@
 准确性纪律（对应推进程序文档的"三原则"）：
   · 内置预期值全部来自仓库存档文件，并在输出中标注来源；
   · 尚未发生的目标态（如 vina 真实分）只判"目标态未达"，绝不预设数字；
+  · 45项、旧 AUC/ECE、1000条和旧榜只用于 GNN 教学复现，不自动转为 AIDD 投稿结论；
   · 本地缺依赖（rdkit/torch 等）的练习判 [跳过]，提示到服务器跑后用 record 补录，
     不谎报通过。
 
@@ -92,9 +93,9 @@ if not (hasattr(sys.stdout, "isatty") and sys.stdout.isatty()):
     except Exception:
         pass
 
-# ---------------------------------------------------------------- 基线事实
+# ---------------------------------------------------------------- 基线事实（历史教学快照）
 # 以下预期值全部实测/存档核对（核对日 2026-08-31），来源在每条 check 的
-# source 字段注明。修改任何数字必须先改来源文件，再同步这里。
+# source 字段注明。它们只用于复现旧版本和定位差异，不是当前论文放行条件。
 
 RUN_FLOW_REQUIRED = [  # run_all.py 控制台必含行（实测 2026-08-31，与 VERIFY_MANUAL §2.1 一致）
     "[clean] 带标签集: 88 条 (正样本 48 / 负样本 40)；筛选池: 12 条；剔除 0 条",
@@ -144,8 +145,8 @@ WEEKS = [
         learn=["校验自动化思维：精读 reports/pdf_build/verify.py 的45项断言范式", "assert+期望值表：人工对数字→脚本断言"],
         card=dict(task="给 verify.py 45项断言逐条标注来源文件，产出 week02_notes.md 注释表",
                   cmd="python reports/pdf_build/verify.py",
-                  expected="通过 45 项；不符 0 项（实测基线）",
-                  source="reports/pdf_build/verify.py（2026-08-31 实测）",
+                  expected="历史快照核对：通过 45 项；不符 0 项（不作为论文放行门槛）",
+                  source="reports/pdf_build/verify.py（2026-08-31 实测，教学快照）",
                   criteria="注释表45行齐全；核验人抽5项对锚定CSV", verifier="衣思淼"),
         tasks=[("W2-A1", "汇总5人核验签名表；verify.py 通过截图存 results/logs/（新建并登记MANIFEST）"),
                ("W2-A2", "git tag -a v1.0-summer 固化暑假基线"),
@@ -196,9 +197,9 @@ WEEKS = [
         learn=["PyTorch 张量/autograd/nn.Module/训练循环/早停；与numpy映射（团队已有numpy GNN基础，重点在翻译）", "资源：PyTorch 官方 60 Minute Blitz"],
         card=dict(task="week07_torch_lr.py：PyTorch手写逻辑回归(2048bit指纹，splits同划分seed=42)，输出测试AUC",
                   cmd="python learning/王启龙/week07_torch_lr.py",
-                  expected="auc_torch 与 sklearn LR基线0.967 差≤0.03；未达标允许调参但过程必须记录",
-                  source="results/metrics/baseline.csv（LR AUC=0.967）",
-                  criteria="机器判 abs_le_003；未达标附完整调参记录交核验人判", verifier="宁显泷"),
+                  expected="与历史 LR 快照做差异记录；不以 0.967 或固定差值作为论文门槛，未达标如实解释",
+                  source="results/metrics/baseline.csv（历史 LR AUC=0.967）",
+                  criteria="机器记录差异与原因；由核验人判断是否可解释", verifier="宁显泷"),
         tasks=[("W7-A1", "WP3验收四条逐项打勾：source_db标记/inchikey零重复/bootstrap置信区间收窄/抽检30条标签"),
                ("W7-A2", "新旧数据规模与指标对照表入库；三萜MW偏差在数据字典回填实测值")],
         coord=["组会宣布WP3关闭、WP4启动", "期中检查材料预备"]),
@@ -216,20 +217,20 @@ WEEKS = [
         learn=["GCN(Kipf2016)/MPNN(Gilmer2017)/GIN(Xu2018)消息传递；过平滑", "对照实验方法论：同数据同划分同指标，一次只变一个因素"],
         card=dict(task="week09_gnn_torch_train.py：PyG版GNN在splits(seed=42)完整训练+MC Dropout，输出对照表",
                   cmd="python learning/王启龙/week09_gnn_torch_train.py",
-                  expected="ge_base=真：torch版AUC不低于numpy版0.967(WP4验收第1条)；种子固定重跑两次一致",
-                  source="results/metrics 存档(numpy GNN AUC=0.967)；WP4 验收第1条",
-                  criteria="机器判 ge_base 与 rerun_stable；低于下界按架构/超参/实现三因素隔离排查记录", verifier="宁显泷"),
+                  expected="与历史 numpy GNN 快照对比并记录差异；固定种子重跑结果和原因可追溯",
+                  source="results/metrics 存档（历史 numpy GNN AUC=0.967）",
+                  criteria="机器记录差异与 rerun 稳定性；无增益也如实报告", verifier="宁显泷"),
         tasks=[("W9-A1", "超参搜索落库：hidden{32,64,128}×dropout{0.2,0.3,0.5}×T_MC{10,30,50}，5折=135行结果表"),
                ("W9-A2", "搜索作业批处理脚本与结果汇总自动化")],
         coord=["组会过对照表", "向导师汇报迁移不降性能证据链"]),
     dict(no=10, dates="11/09–11/15", stage="AIDD④图神经网络(评估)", theme="校准与可靠性 · WP4 收尾",
-        learn=["温度缩放(Guo2017)、ECE、可靠性图", "不确定性质量：方差-|误差|Spearman（本项目特色ρ=0.718的来源）"],
+        learn=["温度缩放(Guo2017)、ECE、可靠性图", "不确定性质量：方差-|误差|Spearman；历史ρ=0.718只作参照"],
         card=dict(task="week10_calibration.py：验证集网格搜T∈[0.5,3.0]步长0.1最小化NLL，输出校准前后ECE+可靠性图(图内英文标签)",
                   cmd="python learning/王启龙/week10_calibration.py",
-                  expected="ece_after<0.10（基线0.21）且 rho≥0.6 同时满足（WP4验收第2/3条）",
-                  source="WP4 验收标准第2/3条；README(当前ECE=0.21)",
-                  criteria="机器判 pass_ece与pass_rho双过；ECE过但ρ<0.6退回重算MC方差口径，不许静默弃条", verifier="衣思淼"),
-        tasks=[("W10-A1", "WP4四条验收全打勾：torch≥numpy / ECE<0.10图贴对角线 / ρ≥0.6 / 接口零改动"),
+                  expected="报告校准前后 ECE、区间和 rho；0.10/0.6 仅为历史教学参照，不作为当前放行阈值",
+                  source="WP4 与 README 的历史 ECE/rho 快照",
+                  criteria="机器记录数值、区间和失败原因；不因未达旧阈值静默重算", verifier="衣思淼"),
+        tasks=[("W10-A1", "WP4四条证据分开记录：基线比较 / 校准 / 不确定性 / 接口；不以固定阈值代替判断"),
                ("W10-A2", "(可选)序数回归启动评估——不挤占验收")],
         coord=["里程碑M5汇报", "启动WP5：认领W11相互作用图工程"]),
     dict(no=11, dates="11/16–11/22", stage="AIDD⑦蛋白结构 + ⑥ADMET", theme="受体质量审计 + 相互作用图",
@@ -241,7 +242,7 @@ WEEKS = [
                   criteria="机器判 both_lt3；附ADMET副练习：60候选Lipinski违规清单与数据字典已知偏差对照", verifier="代维斯丹"),
         tasks=[("W11-A1", "PyMOL批处理出Top-10真实对接相互作用图(用vina_out构象)供王散曼更新literature/03"),
                ("W11-A2", "相互作用图10张入库：命名规范+标注配体/受体/PDBID/对接分")],
-        coord=["组会确认湿实验衔接方案(HepG2 CCl4/APAP、ALT/AST/ROS、水飞蓟宾阳性对照，经导师确认)"]),
+        coord=["组会确认论文证据缺口与可选湿实验条件；无材料时只形成后续评估清单"]),
     dict(no=12, dates="11/23–11/29", stage="AIDD⑨大模型时代", theme="LLM 辅助文献核验",
         learn=["LLM辅助科研正确姿势：LLM出检索式/抽取候选，人核结论（幻觉引用是真实风险）", "Prompt模板化、RAG概念"],
         card=dict(task="week12_lit_llm_assist.md+模板集：literature/01抽10条A/B级，LLM生成PubMed检索式→人确认PMID→回填已核对✓",
@@ -250,7 +251,7 @@ WEEKS = [
                   source="WP5 步骤1核对口径(A/B级100%)",
                   criteria="零'LLM说了就信'条目，每条有PubMed页面证据；模板可复用；幻觉案例单独记录(答辩可用)", verifier="王散曼"),
         tasks=[("W12-A1", "模板移交王散曼全量跑literature/"),
-               ("W12-A2", "结题报告工程框架：目录树+图表位+数字引用全部锚定results/文件(延续45项断言思路)")],
+               ("W12-A2", "论文工程框架：目录树+图表位+数字引用全部锚定results/文件(延续历史断言的溯源思路)")],
         coord=["文献核对进度表每周更新；数字引用规范草案过组会"]),
     dict(no=13, dates="11/30–12/06", stage="AIDD⑤生成(选修)+⑨Agent", theme="排名 v3 全链路整合",
         learn=["分子生成概览：RNN/VAE/扩散三类一句话原理+MOSES基准——定位论文未来工作，不在本学期实施范围", "Agent工作流：把W12模板抽象为检索→核验→回填三步固定流"],
@@ -259,43 +260,43 @@ WEEKS = [
                   expected="笔记400–600字；三问(如'VAE隐空间为何可插值')能答原理层",
                   source="AIDD文章阶段⑤；MOSES基准论文",
                   criteria="字数与概念正确性由核验人判", verifier="宁显泷"),
-        tasks=[("W13-A1", "run_all.py 切换：数据v2(≥1000) + GNN torch校准版 + Vina真实分 → 排名v3"),
+        tasks=[("W13-A1", "run_all.py 切换：经审核的数据子集 + GNN/基线校准版 + 可用的真实或演示对接分 → 排名v3；不硬凑1000条"),
                ("W13-A2", "确定性核验：连跑两次md5一致(工具 deep check 13 自动执行)"),
                ("W13-A3", "verify.py 45项扩到学期版N项，每项锚定新results文件")],
-        coord=["里程碑M6汇报；结题报告章节认领到人"]),
-    dict(no=14, dates="12/07–12/13", stage="AIDD⑩实战与产出", theme="结题工程 · 可复现交付",
+        coord=["里程碑M6汇报；论文方法、数据和验证章节认领到人"]),
+    dict(no=14, dates="12/07–12/13", stage="AIDD⑩实战与产出", theme="论文方法与证据章节 · 可复现交付",
         learn=["可复现交付：环境锁定/README重写/发布打包", "科技图表规范：坐标轴/单位/色盲友好"],
         card=dict(task="交付包演练：找一名未参与者(或低年级同学)在空白环境仅凭VERIFY_MANUAL复现排名v3，计时并记卡点",
                   cmd="由演练者执行 §0→§2 全部命令",
                   expected="协议标准：30分钟内完成§0–§2关键行一致；卡点当日修复",
                   source="docs/VERIFY_MANUAL.md 全流程",
                   criteria="演练报告(耗时/卡点清单/修复状态)入库；存在未修复卡点即不通过", verifier="演练者签字+导师抽查"),
-        tasks=[("W14-A1", "README更新：v2指标、复核清单逐条销项(真实对接✓/正式数据✓/文献核对✓/PyG迁移✓)"),
+        tasks=[("W14-A1", "论文方法/数据/验证/文献章节初稿：每个数字锚定结果文件，未完成项标注状态"),
                ("W14-A2", "MANIFEST全量登记对账：登记数=实际新增文件数"),
                ("W14-A3", "git tag v2.0-semester")],
-        coord=["确认文献100%核对(WP5验收第1条：A/B级100%附PMID)"]),
-    dict(no=15, dates="12/14–12/20", stage="AIDD⑩实战与产出", theme="重头校验学期版（校验线主场）",
+        coord=["确认文献证据链与结论边界(WP5：A/B级逐条附来源或处置说明)"]),
+    dict(no=15, dates="12/14–12/20", stage="AIDD⑩实战与产出", theme="论文全链独立复现与图表审阅",
         learn=["方法论照搬verify_repro六原则：独立实现计算路径/引擎级重跑/逆推溯源/原目录零改动/问题三级分级/未覆盖范围声明"],
-        card=dict(task="verify_semester/：对数据v2、GNN v2(同种子重训)、校准(ECE独立重算)、Vina(抽10配体同盒子同种子重跑)、排名v3(融合公式独立重编)、结题报告数字逆推——六模块独立复算",
+                  card=dict(task="verify_semester/：对数据v2、GNN v2(同种子重训)、校准(ECE独立重算)、Vina(抽10配体同盒子同种子重跑)、排名v3(融合公式独立重编)、论文数字逆推——六模块独立复算",
                   cmd="python tools/semester_flow.py check 15",
-                  expected="六模块产物≥6个入verify_semester/outputs/；每模块✅/⚠️/❌三级；❌清零才进W16",
+                  expected="六模块产物入verify_semester/outputs/；每模块✅/⚠️/❌三级，未解决项有责任人和处理意见后进入W16",
                   source="verify_repro/复现验证报告.md 范式（v1课题已验证可行：7模块全过、2项引擎级逐位复现）",
                   criteria="产出自套v1报告格式《学期重头校验报告》", verifier="全员分工互验"),
         tasks=[("W15-A1", "六模块独立复算+逆推（不复用原脚本，产物独立落盘）"),
                ("W15-A2", "成员版推进程序执行情况总核验"),
                ("W15-A3", "《学期重头校验报告》成文")],
-        coord=["导师结题材料倒排预警会"]),
-    dict(no=16, dates="12/21–12/27", stage="AIDD⑩实战与产出", theme="结题定稿与预答辩",
-        learn=["答辩表达：10分钟讲清问题-方法-证据-结论", "FAQ应答训练：项目简介md第六节四问为底线题库，扩到20问"],
-        card=dict(task="结题材料包：结题报告(附W15校验报告——重头校验全过是最硬证据链)/排名v3/文献核对表/实验衔接一页纸/PPT",
+        coord=["导师审阅论文证据链与未解决问题，形成投稿倒排"]),
+    dict(no=16, dates="12/21–12/27", stage="AIDD⑩实战与产出", theme="审稿问答、复现演示与投稿材料复核",
+        learn=["审稿问答：10分钟讲清问题-方法-证据-限制", "FAQ应答训练：项目简介md第六节四问为底线题库，扩到20问"],
+        card=dict(task="投稿材料包：主稿/补充材料/独立复现报告/文献核对表/可选实验衔接一页纸/审稿问答稿",
                   cmd="python tools/semester_flow.py check 16",
-                  expected="W15❌清零；结题报告数字100%有锚点；预答辩通过；git tag v2.0-semester存在",
-                  source="W15校验结论；MANIFEST登记",
-                  criteria="材料全入reports/并登记；FAQ 20问不卡壳；现场run_all一键复现演示彩排计时", verifier="导师+全员"),
-        tasks=[("W16-A1", "结题报告定稿+材料包入reports/+MANIFEST登记"),
-               ("W16-A2", "预答辩(导师+全员)并按意见修订"),
-               ("W16-A3", "演示彩排：现场python run_all.py一键复现(耗时如实更新)")],
-        coord=["向导师提交结题材料", "2027年1月结题答辩(M9)"]),
+                  expected="每个数字有锚点；未解决项、限制和责任人明示；导师审阅意见入库；不预设结题答辩",
+                  source="W15独立复现结论；MANIFEST登记",
+                  criteria="投稿材料全入库并登记；FAQ 20问能回答；复现演示计时如实记录", verifier="导师+全员"),
+        tasks=[("W16-A1", "主稿/补充材料/复现报告定稿+MANIFEST登记"),
+               ("W16-A2", "审稿问答与导师意见记录并按意见修订"),
+               ("W16-A3", "演示彩排：现场python run_all.py或论文复现入口可重复运行")],
+        coord=["向导师提交投稿材料复核包", "12月后进入投稿、返修和归档"]),
 ]
 
 # 手工补录项（外部平台/线下动作，无法自动核验，必须 record 留痕）
@@ -305,7 +306,7 @@ MANUALS = [
     dict(id="MAN-W10-01", week=10, text="WP4 验收四条逐项打勾+核验人签字", dead=None),
     dict(id="MAN-W14-01", week=14, text="第三方空白环境复现演练报告（耗时/卡点/修复状态）", dead=None),
     dict(id="MAN-W15-01", week=15, text="学期重头校验 ❌ 清零签字", dead=None),
-    dict(id="MAN-W16-01", week=16, text="预答辩通过记录", dead=None),
+    dict(id="MAN-W16-01", week=16, text="投稿材料复核与导师意见记录（不预设结题答辩）", dead=None),
 ]
 
 # 学习练习契约（scaffold 生成骨架，check 机器判定；needs 列出依赖便于判断本地/服务器）
@@ -313,21 +314,21 @@ EXERCISES = {
     1: dict(file="week01_exercise.py", needs="标准库", flow="env=ok python={x} numpy={x} rdkit={ok} torch={ok} pyg={ok} vina={ok}",
             preds=[("env", "==", "ok")]),
     2: dict(file="week02_notes.md", needs="人工整理", flow=None, preds=[], md=True,
-            task="45 项检查注释表：verify.py 每项断言对应哪个文件、对的是什么数字"),
+            task="历史 45 项检查注释表：verify.py 每项断言对应哪个文件、数字来源和与当前论文口径的差异"),
     3: dict(file="week03_rdkit_recalc.py", needs="rdkit", flow="rows=100 parse_fail=0 mw_dev={f} logp_dev={f}",
             preds=[("rows", "==", "100"), ("parse_fail", "==", "0")]),
     4: dict(file="week04_pubchem_fetch.py", needs="网络+标准库", flow="rows=12 nv011=hit inchikey_dup=0 hit_rate={f}",
             preds=[("rows", "==", "12"), ("nv011", "==", "hit"), ("inchikey_dup", "==", "0")]),
     5: dict(file="week05_redock_selftest.py", needs="服务器Vina/obabel", flow="rmsd={f} protocol_lt2={bool}",
             preds=[("protocol_lt2", "==", "True")]),
-    7: dict(file="week07_torch_lr.py", needs="torch", flow="auc_torch={f} base_lr=0.967 delta={f} abs_le_003={bool}",
-            preds=[("abs_le_003", "==", "True")]),
+    7: dict(file="week07_torch_lr.py", needs="torch", flow="auc_torch={f} base_lr_history=0.967 delta={f} recorded=True",
+            preds=[("recorded", "==", "True")]),
     8: dict(file="week08_pyg_convert.py", needs="torch+torch_geometric", flow="match=5/5 adj_ok=5/5 feat_ok=5/5",
             preds=[("match", "==", "5/5"), ("adj_ok", "==", "5/5"), ("feat_ok", "==", "5/5")]),
-    9: dict(file="week09_gnn_torch_train.py", needs="torch+torch_geometric", flow="torch_auc={f} numpy_auc=0.967 ge_base={bool} rerun_stable={bool}",
-            preds=[("ge_base", "==", "True"), ("rerun_stable", "==", "True")]),
-    10: dict(file="week10_calibration.py", needs="torch+numpy", flow="T={f} ece_before={f} ece_after={f} rho={f} pass_ece={bool} pass_rho={bool}",
-            preds=[("pass_ece", "==", "True"), ("pass_rho", "==", "True")]),
+    9: dict(file="week09_gnn_torch_train.py", needs="torch+torch_geometric", flow="torch_auc={f} numpy_auc_history=0.967 delta={f} rerun_stable={bool}",
+            preds=[("rerun_stable", "==", "True")]),
+    10: dict(file="week10_calibration.py", needs="torch+numpy", flow="T={f} ece_before={f} ece_after={f} rho={f} recorded=True",
+            preds=[("recorded", "==", "True")]),
     11: dict(file="week11_receptor_audit.py", needs="网络/Gemmi或Biopython可选", flow="fxr_dist={f} keap1_dist={f} both_lt3={bool}",
             preds=[("both_lt3", "==", "True")]),
     12: dict(file="week12_lit_llm_assist.md", needs="人工闭环", flow="closed=10/10 pmid=10 llm_hit_rate={f}",
@@ -353,17 +354,17 @@ SCAFFOLD_TODO = {
         ("rmsd", "对接口袋构象 vs 原配象计算RMSD；<2通过，≥2按WP2排查清单记录排查过程")],
     7: [("load_split", "读 splits/train,val,test.csv + 2048bit指纹特征(src/chem/fingerprints.py同口径)，seed=42"),
         ("torch_lr", "nn.Linear+SGD/早停训练逻辑回归（手写训练循环）"),
-        ("compare", "测试AUC vs sklearn基线0.967，delta=auc_torch-0.967，|delta|≤0.03；调参过程全部记录")],
+        ("compare", "测试指标与历史 sklearn 基线记录对照，delta 和调参过程全部记录；不设固定差值门槛")],
     8: [("pick_cases", "取5个测试SMILES（含VERIFY_MANUAL §3.1最小用例）"),
         ("convert", "smiles_graph.py输出 → PyG Data(edge_index+13维节点特征)"),
         ("verify_adj", "edge_index还原稠密邻接矩阵，与numpy版逐位比对"),
         ("verify_feat", "节点特征13维逐位比对")],
     9: [("train_torch", "PyG GNN在splits(seed=42)训练+MC Dropout推理，固定种子"),
-        ("compare", "torch_auc vs numpy_auc=0.967，ge_base=torch_auc>=0.967"),
-        ("rerun", "同种子重跑一次，指标一致则rerun_stable=True；低于下界按架构/超参/实现三因素隔离记录")],
+        ("compare", "torch_auc 与历史 numpy 快照对照，记录 delta 与置信区间；不以旧值判优劣"),
+        ("rerun", "同种子重跑一次，记录稳定性；差异按架构/超参/实现三因素隔离记录")],
     10: [("grid_T", "验证集T∈[0.5,3.0]步长0.1网格搜最小NLL，p_cal=sigmoid(z/T)"),
          ("ece", "自写分箱ECE（校准前/后）+可靠性图（图内英文标签）"),
-         ("rho", "方差-|误差|Spearman（校准后口径）；pass_ece=ece_after<0.10，pass_rho=rho>=0.6")],
+         ("rho", "方差-|误差|Spearman（校准后口径）；报告数值、区间和是否适合拒判，不设固定阈值")],
     11: [("fetch", "RCSB拉1OSH/2FLU，记录分辨率/共晶配体/口袋残基"),
          ("centroid", "共晶配体质心计算"),
          ("dist", "质心 vs grid_box.py中心([15.2,3.8,24.5]/[-11.5,20.4,-6.2])欧氏距离"),
@@ -398,9 +399,9 @@ EXERCISES_NXL = {  # 宁显泷（管模型）
             flow="rho={f} ge_057={bool} fig_saved=True",
             preds=[("ge_057", "==", "True"), ("fig_saved", "==", "True")]),
     9: dict(file="week09_calibration.py", needs="torch",
-            task="验证集温度 T 网格搜索最优点：ECE<0.10 且 ρ≥0.6 两条同时过",
-            flow="T={f} ece={f} rho={f} pass_ece={bool} pass_rho={bool}",
-            preds=[("pass_ece", "==", "True"), ("pass_rho", "==", "True")]),
+            task="验证集温度 T 网格搜索：报告校准前后 ECE、ρ、区间和失败原因；旧阈值只作历史参照",
+            flow="T={f} ece={f} rho={f} recorded=True",
+            preds=[("recorded", "==", "True")]),
     10: dict(file="week10_hpo.py", needs="torch(建议服务器)",
              task="27 种参数组合 × 5 折交叉验证：结果表 135 行＋汇总行入库",
              flow="rows=135 summary=1", preds=[("rows", "==", "135")]),
@@ -417,9 +418,9 @@ EXERCISES_YSM = {  # 衣思淼（数据线A）
             task="全部分子配标准 SMILES＋InChIKey 并查重；重复处置有规则（优先正式来源）并留清单",
             flow="inchikey_dup=0 rule_written=True", preds=[("inchikey_dup", "==", "0")]),
     7: dict(file="week07_bootstrap.py", needs="numpy(建议服务器)",
-            task="bootstrap 反复抽样给考试分数配 95% 可信区间；数据≥1000、考试集≥150、区间较暑假更窄",
-            flow="ge1000=True test_ge150=True ci95=True",
-            preds=[("ge1000", "==", "True"), ("test_ge150", "==", "True")]),
+            task="bootstrap 反复抽样给指标配 95% 可信区间；样本量和区间宽度如实报告，不设固定规模门槛",
+            flow="ci95=True sample_note=True",
+            preds=[("ci95", "==", "True"), ("sample_note", "==", "True")]),
     8: dict(file="week08_split_ad.py", needs="rdkit+numpy",
             task="新数据重新骨架切分自查零泄漏；陌生结构判定线新旧两版对比如实记",
             flow="leak=0 compared=True", preds=[("leak", "==", "0")]),
@@ -439,9 +440,9 @@ EXERCISES_DWS = {  # 代维斯丹（数据线B·对接）
             task="新数据重跑朴素贝叶斯＋逻辑回归两个参照模型，对照表入库（旧分数列保留，README 同步）",
             flow="nb_auc={f} lr_auc={f} table_updated=True", preds=[("table_updated", "==", "True")]),
     8: dict(file="week08_reliability.py", needs="numpy",
-            task="自写一版 ECE/覆盖率重算，与存档对账（浮点误差内一致）＋分箱边界规则写清楚",
-            flow="ece_match=True cov_match=True binning_note=True",
-            preds=[("ece_match", "==", "True"), ("cov_match", "==", "True")]),
+            task="自写一版 ECE/覆盖率重算，记录与历史存档的差异和分箱边界规则；不以旧数值强制一致",
+            flow="ece_recorded=True cov_match={bool} binning_note=True",
+            preds=[("ece_recorded", "==", "True"), ("binning_note", "==", "True")]),
 }
 
 EXERCISES_WSM = {  # 王散曼（文献线）
@@ -479,16 +480,16 @@ SCAFFOLD_TODO_BY_MEMBER = {
         8: [("mc_infer", "MC Dropout连答30遍(T=30，与暑假口径一致)收集预测"),
             ("rho", "方差-|误差|Spearman ρ计算"),
             ("figure", "可靠性图(英文标签)存learning/宁显泷/"),
-            ("check", "ge_057=ρ>=0.57(暑假0.718八成)；fig_saved=True")],
+            ("check", "记录ρ、区间和适用域说明（历史0.718只作参照）；fig_saved=True")],
         9: [("split_val", "验证集划分与已训练模型加载(口径同week08)"),
             ("grid_T", "T∈[0.5,3.0]步长0.1网格搜最小NLL"),
             ("ece_rho", "校准前后ECE+校准后ρ"),
-            ("check", "pass_ece=ece_after<0.10；pass_rho=rho>=0.6")],
+            ("check", "记录校准/不确定性数值、区间和适用域说明；不设固定阈值")],
         10: [("grid", "27组合(隐藏维×层数×dropout等3×3×3)×5折"),
              ("run", "逐组合训练评估(建议服务器)，结果追加CSV"),
              ("summary", "汇总最优组合与各折均值行"),
              ("check", "rows=135(数据行)；summary=1")],
-        11: [("load_model", "载入正式版模型与Top-10候选"),
+        11: [("load_model", "载入模型与历史候选集合（待核验，不视为正式候选）"),
              ("explain", "GNNExplainer(或注意力权重替代)得各原子重要性"),
              ("table", "前10名'最看重原子'表(名称/原子序号/是否季铵氮)"),
              ("note", "direction_note=与旧课题模块G季铵氮结论方向对照说明")],
@@ -503,9 +504,9 @@ SCAFFOLD_TODO_BY_MEMBER = {
             ("rule", "去重规则文字化(rule_written)"),
             ("check", "inchikey_dup=0")],
         7: [("bootstrap", "测试指标AUC等B=1000次重抽样95%CI"),
-            ("scale_gate", "数据行数与考试集行数门槛判定"),
+            ("scale_gate", "记录数据行数、考试集行数和样本限制，不设固定规模门槛"),
             ("compare", "CI宽度与暑假版对比"),
-            ("check", "ge1000/test_ge150/ci95")],
+            ("check", "ci95/sample_note：样本量如实报告，不设固定规模门槛")],
         8: [("scaffold_split", "新数据骨架分组切分(口径同src/data/split.py,seed=42)"),
             ("leak_audit", "任一骨架跨train/val/test即泄漏，计数leak"),
             ("ad_compare", "陌生结构判定线旧(h*)vs新算法对比表"),
@@ -539,14 +540,14 @@ def exercises(member=None):
     return EXERCISES_BY_MEMBER[member or CURRENT_MEMBER]
 
 MILESTONES = [
-    dict(id="M1", week=2, name="基线固化 v1.0-summer（45项校验全过+标签）", checks=["C2-01", "C2-02"]),
+    dict(id="M1", week=2, name="暑假历史快照固化 v1.0-summer（45项仅作复现）", checks=["C2-01", "C2-02"]),
     dict(id="M3", week=6, name="真实对接排名 v2", checks=["C6-01", "C6-02"]),
-    dict(id="M4", week=7, name="数据≥1000条+置信区间（WP3验收签字）", checks=["MAN-W7-01"]),
-    dict(id="M5", week=10, name="PyG版+ECE<0.10（WP4验收）", checks=["C10-01", "C8-02", "MAN-W10-01"]),
+    dict(id="M4", week=7, name="数据审核与置信区间（样本量如实报告）", checks=["MAN-W7-01"]),
+    dict(id="M5", week=10, name="PyG版、校准与不确定性证据（不设固定阈值）", checks=["C10-01", "C8-02", "MAN-W10-01"]),
     dict(id="M6", week=13, name="排名v3一键复现（md5两次一致）", checks=["C13-01", "C13-02"]),
-    dict(id="M7", week=15, name="学期重头校验全过（❌清零）", checks=["C15-01", "MAN-W15-01"]),
-    dict(id="M8", week=16, name="结题材料提交+预答辩", checks=["C16-01", "C16-02", "MAN-W16-01"]),
-    dict(id="M9", week=17, name="结题答辩（2027年1月，现场）", checks=[]),
+    dict(id="M7", week=15, name="学期全链独立复现与图表审阅", checks=["C15-01", "MAN-W15-01"]),
+    dict(id="M8", week=16, name="投稿材料复核与导师意见记录", checks=["C16-01", "C16-02", "MAN-W16-01"]),
+    dict(id="M9", week=16, name="W16后投稿、返修和归档（不新增学习周）", checks=[]),
 ]
 
 # ---------------------------------------------------------------- 自动核验定义
@@ -577,13 +578,13 @@ CHECKS = [
          desc="基线标签 v1.0-summer 存在", source="WP1 步骤3",
          params={"tag": "v1.0-summer"}),
     dict(id="C2-02", week=2, kind="verify45", target=False, deep=True,
-         desc="verify.py 45项校验全过", source="reports/pdf_build/verify.py（实测：通过45项；不符0项）",
+         desc="历史 verify.py 45项快照可复现（不作为论文放行）", source="reports/pdf_build/verify.py（实测：通过45项；不符0项）",
          params={"expect": VERIFY45_LINE}),
     dict(id="C2-03", week=2, kind="file_exists", target=True,
          desc="results/logs/ 已建（verify截图存档处）", source="WP1 步骤2",
          params={"paths": ["results/logs"]}),
     dict(id="C2-04", week=2, kind="text_in_file", target=True,
-         desc="week02_notes.md 断言注释表已成（含45行口径）", source="W2 学习验证卡",
+         desc="week02_notes.md 历史断言注释表已成（含45行来源和当前差异）", source="W2 学习验证卡",
          params={"path": "learning/王启龙/week02_notes.md", "all_of": ["45"]}),
     # W3
     dict(id="C3-01", week=3, kind="learning_flow", target=True,
@@ -595,7 +596,7 @@ CHECKS = [
          params={"week": 4}),
     # W5
     dict(id="C5-01", week=5, kind="learning_flow", target=True,
-         desc="W5 学习验证卡：重对接自洽 RMSD<2Å", source="WP2 验收第1条（协议标准）",
+         desc="W5 学习验证卡：重对接自洽、结构身份与失败处置记录", source="WP2 结构审计口径",
          params={"week": 5}),
     dict(id="C5-02", week=5, kind="text_in_file", target=False,
          desc="grid_box.py 盒子中心未被手改（两个锚点常量在位）", source="src/docking/grid_box.py:15/23 实测",
@@ -612,7 +613,7 @@ CHECKS = [
          params={"baselines": {"results/rankings/final_ranking.csv": 60}}),
     # W7
     dict(id="C7-01", week=7, kind="learning_flow", target=True,
-         desc="W7 学习验证卡：PyTorch LR 与基线0.967 差≤0.03", source="results/metrics/baseline.csv",
+         desc="W7 学习验证卡：PyTorch LR 与历史基线差异记录", source="results/metrics/baseline.csv（历史快照）",
          params={"week": 7}),
     # W8
     dict(id="C8-01", week=8, kind="learning_flow", target=True,
@@ -623,15 +624,15 @@ CHECKS = [
          params={"paths": ["src/models/gnn_torch.py"]}),
     # W9
     dict(id="C9-01", week=9, kind="learning_flow", target=True,
-         desc="W9 学习验证卡：torch版AUC≥numpy下界0.967 且重跑稳定", source="WP4 验收第1条",
+         desc="W9 学习验证卡：torch版与历史numpy快照对照且重跑稳定", source="WP4 模型比较口径",
          params={"week": 9}),
     # W10
     dict(id="C10-01", week=10, kind="learning_flow", target=True,
-         desc="W10 学习验证卡：ECE<0.10 且 ρ≥0.60 双过", source="WP4 验收第2/3条",
+         desc="W10 学习验证卡：ECE、ρ、区间和适用域如实记录", source="WP4 不确定性与校准口径",
          params={"week": 10}),
     # W11
     dict(id="C11-01", week=11, kind="learning_flow", target=True,
-         desc="W11 学习验证卡：盒子-配体质心距离双<3Å（或附书面解释）", source="grid_box.py 实测中心；协议<3Å",
+         desc="W11 学习验证卡：盒子-配体质心距离及结构解释记录", source="grid_box.py 实测中心；结构审计口径",
          params={"week": 11}),
     # W12
     dict(id="C12-01", week=12, kind="learning_flow", target=True,
@@ -654,11 +655,11 @@ CHECKS = [
          params={"path": "verify_semester/outputs", "min": 6}),
     # W16
     dict(id="C16-01", week=16, kind="git_tag", target=True,
-         desc="结题标签 v2.0-semester 存在（目标态）", source="W14-A3/W16",
+         desc="学期复现/投稿材料标签 v2.0-semester 存在（目标态）", source="W14-A3/W16",
          params={"tag": "v2.0-semester"}),
     dict(id="C16-02", week=16, kind="glob_min", target=True,
-         desc="reports/ 下已有结题材料（目标态）", source="W16-A1",
-         params={"pattern": "reports/*结题*", "min": 1}),
+         desc="reports/ 下已有投稿材料（目标态）", source="W16-A1",
+         params={"pattern": "reports/*", "min": 1}),
 ]
 
 # ---------------------------------------------------------------- 通用工具
@@ -1127,6 +1128,7 @@ def main():
     print("[FLOW] " + " ".join(f"{{k}}={{vals[k]}}" for k in keys))
 
 if __name__ == "__main__":
+    print("[范围提示] 本工具保留历史教学任务/固定基线检查；不授予当前论文验收。当前周卡来源与规则见 docs/打卡修缮/验收规则.md；W1=2026-09-07。", file=sys.stderr)
     main()
 '''
         f.write_text(code, encoding="utf-8")
@@ -1181,7 +1183,7 @@ def dashboard(repo, state):
         show_week(WEEKS[0], state, repo)
         return
     if wn > N_WEEKS:
-        print(f"学期 16 周已结束（当前第 {wn} 周段=结题/考试周）→ 看第 16 周")
+        print(f"学期 16 周已结束（当前第 {wn} 周段=投稿材料复核/归档周）→ 看第 16 周")
         show_week(WEEKS[-1], state, repo)
         return
     w = WEEKS[wn - 1]
@@ -1504,4 +1506,5 @@ def main():
 
 
 if __name__ == "__main__":
+    print("[范围提示] 本工具保留历史教学任务/固定基线检查；不授予当前论文验收。当前周卡来源与规则见 docs/打卡修缮/验收规则.md；W1=2026-09-07。", file=sys.stderr)
     main()

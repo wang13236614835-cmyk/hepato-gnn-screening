@@ -4,6 +4,12 @@
 > 核验方法列给出"打开后看什么、预期是什么"；通用命令类核验的完整步骤见
 > `docs/VERIFY_MANUAL.md`。下学期新增文件必须在此登记。
 
+## 当前路线与版本边界
+
+非 HTML 文件统一按八步路线维护：历史结果核验 → FXR 主线数据、结构和终点审核 → GNN 与 RF/XGBoost/均值基线比较 → 随机划分与化学空间外推验证 → 不确定性、校准、适用域和拒判分析 → CW-BCS 及天然产物应用分析 → 独立复现和图表审阅 → 论文写作、审稿问答和投稿。GNN 库是教学核验与 MOOC 入口，AIDD 库是 FXR/GNN/CW-BCS 论文主线；湿实验为后续可选路线。
+
+本清单中的旧行数、AUC/ECE、45 项、旧双靶、Top-10 和 1000 条目标均标为历史快照或教学核验锚点，不能作为当前论文放行条件。新旧结果差异须记录原因，不修改数据去追旧值；排名仅是计算优先级。W1/W16 仍为 2026-09-07—09-13 与 2026-12-21—12-27，12 月后只做投稿、返修和归档，不新增第 17 周学习任务。
+
 ## 1. 仓库根目录
 
 | 文件 | 阶段 | 负责人 | 用途 | 人工核验方法 |
@@ -12,7 +18,7 @@
 | CONTRIBUTORS.md | 暑假 | 王启龙 | 成员-模块映射 | 与 `git shortlog -sn HEAD`、各文件头"负责人"三方对照，无错配 |
 | requirements.txt | 暑假 | 王启龙 | 依赖声明（仅 numpy 必需） | 核对列出的版本与 docs/00_environment.md 一致 |
 | .gitignore | 暑假 | 王启龙 | 忽略缓存/venv/npy | 确认 results/*.csv 未被忽略（结果需入库） |
-| run_all.py | 暑假 | 王启龙 | 一键复现八阶段流水线 | 运行 `python run_all.py`，控制台逐段输出与 VERIFY_MANUAL §2 的预期输出一致；总耗时约6秒 |
+| run_all.py | 暑假历史快照 | 王启龙 | 一键复现八阶段教学流水线 | 运行 `python run_all.py`，只核对对应历史版本输出和差异；不把旧数字当论文放行条件 |
 
 ## 2. 数据层 data/
 
@@ -56,8 +62,13 @@
 | minutes/week1-2,3-4,5-6.md | 暑假 | 王启龙 | 三次组会纪要 | 时间线与 PHASE_PLAN 里程碑一致 |
 | PHASE_PLAN.md | 总纲 | 王启龙 | 两阶段划分 | 分工表与 CONTRIBUTORS.md 一致 |
 | MANIFEST.md | 总纲 | 王启龙 | 本文件 | 覆盖仓库全部内容文件（pycache 除外） |
-| VERIFY_MANUAL.md | 总纲 | 王启龙 | 人工核验手册 | 按 §0–§5 走一遍能全过 |
-| VERIFY_TASKS.md | 总纲 | 王启龙 | 人工校验任务分派表（AI文献/数据/筛选真人核验：宁代码·龙辅助·衣+代数据·曼文献）+附录A全仓库138文件→校验人映射 | 分派与 CONTRIBUTORS/PHASE_PLAN 分工无冲突；任务编号引用的 VERIFY_MANUAL 小节真实存在；第0节 Top-10 与 final_ranking.csv 前10行一致；附录A五线文件数 12+90+14+18+4=138 与 git ls-files 总数相符 |
+| VERIFY_MANUAL.md | 总纲 | 王启龙 | 历史教学人工核验手册 | 按 §0–§5 核对对应快照和差异；通过不等于当前论文放行 |
+| VERIFY_TASKS.md | 总纲 | 王启龙 | 人工校验任务分派表（AI文献/数据/筛选真人核验：宁代码·龙辅助·衣+代数据·曼文献）+附录A全仓库138文件→校验人映射 | 分派与 CONTRIBUTORS/PHASE_PLAN 分工无冲突；任务编号引用的 VERIFY_MANUAL 小节真实存在；第0节历史 Top-10 与 final_ranking.csv 前10行一致；附录A五线文件数 12+90+14+18+4=138 与 git ls-files 总数相符 |
+| 中文核心投稿任务入口.md | 学期投稿 | 王启龙 | AIDD 主线入口、五人任务来源和状态边界 | 只做导航；任务编号/负责人/截止日期以 AIDD 投稿任务 JSON 为准，不记录成员完成 |
+| 打卡修缮/16周任务衔接表.md | 学期总纲 | 王启龙 | 原HTML周卡与AIDD投稿编号映射 | W1/W16日期、Q/N/Y/D/S编号与AIDD任务JSON一致；不新增HTML任务 |
+| 打卡修缮/验收规则.md | 学期总纲 | 王启龙 | 非HTML验收口径 | 旧数字、45项、固定阈值和答辩仅作历史；软件/数据/科学/真人/导师状态分开 |
+| 打卡修缮/HTML待同步文字清单.csv | 维护清单 | 王启龙 | 以后人工同步HTML的文字建议 | 仅供人工参考，本轮不得改写五个HTML |
+| 打卡修缮/*.json | 学期总纲 | 王启龙 | 周卡来源与本轮修改验证记录 | JSON可解析；记录HTML零修改与非HTML来源一致性 |
 | MEMBER_WORKBENCH.md | 总纲 | 王启龙 | 全员工作台·按全名导航：一级按人的结构说明+每人一节（是什么/做什么/怎么操作/名下文件/学习线）+全队速查表+五步通用上手 | 五节姓名与 CONTRIBUTORS 一致；每人任务编号/文件数与 VERIFY_TASKS §2 及附录A 对应小节一致；"我的文件夹"链接与根目录五个全名文件夹实际一致 |
 
 ## 5. 文献层 literature/
@@ -66,20 +77,20 @@
 |---|---|---|---|---|
 | 01_classic_evidence.md | 暑假 | 王散曼 | 种子集证据库 | **逐条**与 raw CSV 的 evidence 字段对照；引用条目下学期WP5人工查原文 |
 | 02_novel_terpenes_lignans.md | 暑假 | 王散曼 | 新分子调研 | 表格12行与 raw/novel CSV 的 NV 编号一一对应 |
-| 03_top_candidate_mechanisms.md | 暑假 | 王散曼 | Top-10机制溯源与药效团 | 表中模型分/对接分与 final_ranking.csv 前十行一致 |
+| 03_top_candidate_mechanisms.md | 暑假历史快照 | 王散曼 | 历史 Top-10机制溯源与药效团 | 表中模型分/对接分与 final_ranking.csv 前十行一致；不作为当前候选或机制证实 |
 
 ## 6. 结果层 results/
 
 | 文件 | 阶段 | 负责人 | 用途 | 人工核验方法 |
 |---|---|---|---|---|
-| metrics/baseline.csv | 暑假 | 代维斯丹 | 基准线指标 | 两行两模型，AUC 0.850/0.967 |
+| metrics/baseline.csv | 暑假历史快照 | 代维斯丹 | 基准线指标 | 两行两模型，AUC 0.850/0.967 仅用于历史复现；当前论文需按统一数据和划分重新比较 |
 | metrics/reliability_curve.csv | 暑假 | 王启龙 | 可靠性曲线数据 | 与 reliability_diagram.png 折线一致 |
 | predictions/test_predictions.csv | 暑假 | 宁显泷 | 测试集预测（17行） | 行数=18（含表头）；pred_var≥0 |
 | predictions/fullpool_predictions.csv | 暑假 | 宁显泷 | 全候选池预测（60行） | 行数=61；全精度小数 |
 | predictions/test_mean.npy, test_var.npy | 暑假 | 宁显泷 | 测试集数组缓存 | 可删（.gitignore忽略），重跑自动生成 |
 | docking/docking_scores.csv | 暑假 | 代维斯丹 | 演示对接分 | 行数=201（100分子×2靶点+表头）；mode列全为mock_local |
 | ad/ad_report.csv | 暑假 | 衣思淼 | 适用域报告（100行） | NV段7行in_domain=0 |
-| rankings/final_ranking.csv | 暑假 | 衣思淼+王启龙 | 最终排名（60行） | Top-3=黄芩苷/二氢杨梅素/葛根素；rank列1–60连续 |
+| rankings/final_ranking.csv | 暑假历史快照 | 衣思淼+王启龙 | 历史排名（60行） | Top-3=黄芩苷/二氢杨梅素/葛根素仅作版本锚点；rank列1–60连续，不等于当前候选 |
 | figures/*.png（4张） | 暑假 | 王启龙+代维斯丹 | 结果图 | 打开与对应CSV目视对照 |
 
 ## 7. 报告层 reports/
@@ -94,7 +105,7 @@
 | 真实对接与统一筛选报告.md | 真实版 | 代维斯丹（主责WP2）+全员拆分 | 144 次真实对接的结论与五人新任务(D6/D7/N7/Y7/M5/L6) | 打开核对：新增任务编号与五人工作台一致；靶点/次数与 real/ 两份 CSV 一致 |
 | pdf_build/cover*.html, cover*.pdf | 暑假 | 王启龙 | 两份报告的HTML封面源码与渲染产物 | 封面校验无重叠 |
 | pdf_build/merge_final.py, patch*.py | 暑假 | 王启龙 | 封面正文合并脚本与内容修正补丁 | 合并后页数13/10 |
-| pdf_build/verify.py | 暑假 | 王启龙 | 45项独立数字校验脚本 | 重跑输出"通过45项；不符0项" |
+| pdf_build/verify.py | 暑假历史快照 | 王启龙 | 45项独立数字校验脚本 | 重跑输出"通过45项；不符0项"仅用于历史复现，不作为论文放行 |
 | pdf_build/push_via_api.py, upload_aidd.py, finalize_aidd.py | 暑假 | 王启龙 | GitHub API上传工具链（绕过直连封锁：blob断点续传+分块链式建树） | 附aidd_blobs.json缓存（瞬态，不入库） |
 | pdf_build/body*.pdf | 暑假 | 王启龙 | 正文PDF中间产物 | 可由脚本再生 |
 
@@ -166,7 +177,7 @@ md 与 待核文件/ 快照副本**不参与镜像**，它们是个人份而非�
 | docking/real/docking_real_4targets_16ligands.csv | 真实版 | 代维斯丹(D6复核) | 真实Vina对接:4靶点×16分子=64次 | 行数=65(含表头);target列4类各16;抽一行分数与原始log一致 |
 | docking/real/docking_real_ppar_prior40.csv | 真实版 | 代维斯丹(D6复核) | 真实Vina对接:PPARα/δ×前40成分=80次 | 行数=81;两靶点各40 |
 | docking/real/README.md | 真实版 | 代维斯丹 | 真实数据说明:参数/坑位/与本项目关系 | 参数与 WP2 文档进度注记一致 |
-| rankings/v2/Top10_最终候选.csv | 真实版 | 衣思淼(Y7关联) | MASH新候选Top10(非本组排名) | 与 reports/新候选排名 md 的表一致 |
+| rankings/v2/Top10_最终候选.csv | 真实版历史快照 | 衣思淼(Y7关联) | MASH新候选Top10记录（非本组排名，仅计算优先级） | 与 reports/新候选排名 md 的表一致；不等于药效或机制证实 |
 | rankings/v2/ppar_new_candidates.json | 真实版 | 衣思淼 | 30个新候选六维数据 | json可解析;与prior40 CSV分子数一致 |
 
 ## 13. 2026-09-05 AI修订回滚与审计补充（当日两笔对冲）
@@ -175,7 +186,7 @@ md 与 待核文件/ 快照副本**不参与镜像**，它们是个人份而非�
 
 | 变更 | 负责人 | 内容 | 核验方法 |
 |---|---|---|---|
-| 节奏回滚（恢复 7af076b 版本） | 王启龙 | 五人打卡页+工作台、PHASE_PLAN、VERIFY_TASKS、VERIFY_MANUAL、MEMBER_WORKBENCH、MANIFEST、02_model_notes、全线研究流程对照、复旦MOOC学习任务（12章×16周）、semester_flow.py、gen_member_pages.py、使用说明、README——恢复 16 周口径（第1周 09/07–09/13 开学起） | 打卡页周历 W1=09/07–09/13；VERIFY_TASKS 时限 W1周五9/13、W2周五9/20 |
+| 节奏回滚（恢复 7af076b 版本） | 王启龙 | 五人打卡页+工作台、PHASE_PLAN、VERIFY_TASKS、VERIFY_MANUAL、MEMBER_WORKBENCH、MANIFEST、02_model_notes、全线研究流程对照、复旦MOOC学习任务（12章×16周）、semester_flow.py、gen_member_pages.py、使用说明、README——恢复 16 周口径（第1周 09/07–09/13 开学起） | 打卡页周历 W1=09/07–09/13；VERIFY_TASKS 时限 W1周日9/13、W2周日9/20 |
 | docs/project_plan.json 删除 | 王启龙 | AI 当日新造的"两周计划源"，与 16 周计划冲突 | 文件不存在；计划源回到 PHASE_PLAN+打卡页 |
 | AI生成_两周收尾提案/ | 王启龙 | 原 learning/姓名/week0* 与 docs/summer_closeout/ 的 AI 生成文件移入 audit 留档，README 声明"非真实打卡" | 目录含 README；learning/姓名/ 下无 week0* 文件；docs/summer_closeout/ 不存在 |
 | 保留的审计补充 | 王启龙 | docs/audit/20260905/（审计证据）、docs/archive/20260904/（历史快照）、data/curation/、docs/PROJECT_STATUS.md、docs/REPO_SCOPE.md（已改回16周口径）、docs/WETLAB_READINESS.md、tools/verify_research.py、results/validation/software_checks.json、data/STATUS.md、learning/共享/GCN归一化与梯度核验.md | python tools/verify_research.py 软件检查可跑 |

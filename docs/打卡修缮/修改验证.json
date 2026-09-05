@@ -1,0 +1,43 @@
+{
+  "html_sha256_before_and_after_identical": {
+    "D:\\zcode-workspace\\hepato-gnn-screening\\代维斯丹\\打卡_代维斯丹.html": "556bcc0ca2277c7be976ac6a1ec981b51fdec4ee9fc30bf8d173fb095c02f39f",
+    "D:\\zcode-workspace\\hepato-gnn-screening\\宁显泷\\打卡_宁显泷.html": "221d56863e3a3985ca3d5ca3d785b409a354238e8d5a4ef06147a862d364d156",
+    "D:\\zcode-workspace\\hepato-gnn-screening\\王启龙\\打卡_王启龙.html": "573fb792c8394406421d553aa516c42599d786e0c04cd1c25952b8dbb26e4437",
+    "D:\\zcode-workspace\\hepato-gnn-screening\\王散曼\\打卡_王散曼.html": "82d1da12261383aa338cd729be6cf24b56b951f1935316e0294c33f7d9df877b",
+    "D:\\zcode-workspace\\hepato-gnn-screening\\衣思淼\\打卡_衣思淼.html": "d2e01ae6362ca2f65ebf2ebfdec631f2865c4cbfbacf1fa7515e97bac8f0aba0"
+  },
+  "members": 5,
+  "week_cards": 80,
+  "change_rows": 34,
+  "week1": "2026-09-07至2026-09-13",
+  "week16": "2026-12-21至2026-12-27",
+  "python_syntax": "pass",
+  "scope": "非HTML来源整理，页面及浏览器进度未改",
+  "revision1_sample_20260905": {
+    "scope": "王启龙页修订样例(对照表33+6项)；其余四页未动",
+    "changed": "王启龙/打卡_王启龙.html",
+    "changed_sha256": "db1aa10fe344132a7b3ff42c78aacabefaa8d1822c31b0a11592144bbedab611",
+    "unchanged_sha256": {
+      "D:\\zcode-workspace\\hepato-gnn-screening\\代维斯丹\\打卡_代维斯丹.html": "556bcc0ca2277c7be976ac6a1ec981b51fdec4ee9fc30bf8d173fb095c02f39f",
+      "D:\\zcode-workspace\\hepato-gnn-screening\\宁显泷\\打卡_宁显泷.html": "221d56863e3a3985ca3d5ca3d785b409a354238e8d5a4ef06147a862d364d156",
+      "D:\\zcode-workspace\\hepato-gnn-screening\\王散曼\\打卡_王散曼.html": "82d1da12261383aa338cd729be6cf24b56b951f1935316e0294c33f7d9df877b",
+      "D:\\zcode-workspace\\hepato-gnn-screening\\衣思淼\\打卡_衣思淼.html": "d2e01ae6362ca2f65ebf2ebfdec631f2865c4cbfbacf1fa7515e97bac8f0aba0"
+    },
+    "timeline": "2026-09-05组长确认：争取2027年2月达到投稿水准；湿实验为进度按时/质量优秀/创意新颖的可选锦上添花",
+    "milestones_aligned_to": "tools/semester_flow.py MILESTONES(M1/M4/M5/M7/M8/M9)",
+    "verification": "node语法+数据解析+真实浏览器DOM渲染复核通过；localStorage零改动"
+  },
+  "revision1_sync_20260905": {
+    "scope": "五页同步完成：共用块(路线卡/8步卡快照口径/页眉/台账四态/资源页定位/证据链)+各人CSV行+投稿映射(Q/N/Y/D/S各5)+里程碑对齐semester_flow.py",
+    "html_sha256_after": {
+      "打卡_王启龙.html": "db1aa10fe344132a7b3ff42c78aacabefaa8d1822c31b0a11592144bbedab611",
+      "打卡_宁显泷.html": "396875bee93262c33719ceec1479d0fbd9a62fc95a7a948a53b54ea0bc3ee566",
+      "打卡_衣思淼.html": "f7399e70a51b91e6fa637ee02994ca2556bbd2fb82b42b1b5f0a1f3dc3d5c961",
+      "打卡_代维斯丹.html": "4726ccf2069a6be3a48d12b03251a0c8a4d7a0315ffbd76354b317ed129f3983",
+      "打卡_王散曼.html": "23894ba66ac848473f0ab855a80206cc5e4c747a13a332b48fd8bc4704b0d113"
+    },
+    "timeline": "争取2027年2月达到投稿水准；湿实验=按时/优秀/新颖前提下的可选锦上添花",
+    "verification": "node语法+数据解析五页通过；存储代码零diff；结题答辩/旧门槛文字零残留",
+    "sync_script": "docs/打卡修缮/sync_member_pages.py(逐项断言唯一命中)"
+  }
+}

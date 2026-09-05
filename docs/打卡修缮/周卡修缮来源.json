@@ -1,0 +1,1628 @@
+{
+  "version": "2026-09-05-non-html-source",
+  "semester_start": "2026-09-07",
+  "semester_end": "2026-12-27",
+  "presemester_label": "开学前预习",
+  "weeks": 16,
+  "html_modified": false,
+  "scope": "非HTML修缮来源；供人工同步原模板，未绑定页面或修改历史进度",
+  "source_of_truth": "教学历史快照与AIDD投稿验收分开；本表统一周次与关联",
+  "members": [
+    {
+      "name": "代维斯丹",
+      "html_path": "代维斯丹\\打卡_代维斯丹.html",
+      "storage_key": "semester_flow_daiweisd_v1",
+      "weeks": [
+        {
+          "week": 1,
+          "dates": "09/07–09/13",
+          "original_theme": "先证明暑假的图和表没毛病＋开始学对接（比大家早）",
+          "retained_task_ids": [
+            "D1-A1",
+            "D1-A2"
+          ],
+          "retained_check_ids": [
+            "D-C1-01"
+          ],
+          "mooc_ids": [
+            "R-M01"
+          ],
+          "paper_tasks_due": [
+            "D01"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "先证明暑假的图和表没毛病＋开始学对接（比大家早）",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 2,
+          "dates": "09/14–09/20",
+          "original_theme": "服务器装好对接工具＋背熟盒子参数",
+          "retained_task_ids": [
+            "D2-A1",
+            "D2-A2"
+          ],
+          "retained_check_ids": [
+            "D-C2-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "服务器装好对接工具＋背熟盒子参数",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 3,
+          "dates": "09/21–09/27",
+          "original_theme": "处理蛋白＋\"塞回去\"自测",
+          "retained_task_ids": [
+            "D3-A1",
+            "D3-A2"
+          ],
+          "retained_check_ids": [
+            "D-C3-01"
+          ],
+          "mooc_ids": [
+            "R-M03"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "处理蛋白＋\"塞回去\"自测",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 4,
+          "dates": "09/28–10/04",
+          "original_theme": "100 个分子的对接输入文件批量备好",
+          "retained_task_ids": [
+            "D4-A1",
+            "D4-A2"
+          ],
+          "retained_check_ids": [
+            "D-C4-01"
+          ],
+          "mooc_ids": [
+            "R-M08"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "100 个分子的对接输入文件批量备好",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 5,
+          "dates": "10/05–10/11",
+          "original_theme": "全量对接开跑",
+          "retained_task_ids": [
+            "D5-A1",
+            "D5-A2"
+          ],
+          "retained_check_ids": [
+            "D-C5-01"
+          ],
+          "mooc_ids": [
+            "R-M05"
+          ],
+          "paper_tasks_due": [
+            "D02"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "全量对接开跑",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 6,
+          "dates": "10/12–10/18",
+          "original_theme": "真分数进总表，出排名 v2",
+          "retained_task_ids": [
+            "D6-A1",
+            "D6-A2"
+          ],
+          "retained_check_ids": [
+            "D-C6-01",
+            "D-C6-02"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "真分数进总表，出排名 v2",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 7,
+          "dates": "10/19–10/25",
+          "original_theme": "新数据上把两个\"老参照\"重跑一遍",
+          "retained_task_ids": [
+            "D7-A1"
+          ],
+          "retained_check_ids": [
+            "D-C7-01"
+          ],
+          "mooc_ids": [
+            "R-M04"
+          ],
+          "paper_tasks_due": [
+            "D03"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "新数据上把两个\"老参照\"重跑一遍",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 8,
+          "dates": "10/26–11/01",
+          "original_theme": "换种算法重算把握度指标",
+          "retained_task_ids": [
+            "D8-A1"
+          ],
+          "retained_check_ids": [
+            "D-C8-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "换种算法重算把握度指标",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 9,
+          "dates": "11/02–11/08",
+          "original_theme": "搞清楚对接分数\"坑\"在哪",
+          "retained_task_ids": [
+            "D9-A1"
+          ],
+          "retained_check_ids": [
+            "D-C9-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "搞清楚对接分数\"坑\"在哪",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 10,
+          "dates": "11/09–11/15",
+          "original_theme": "盯住对照实验\"三同\"",
+          "retained_task_ids": [
+            "D10-A1"
+          ],
+          "retained_check_ids": [
+            "D-C10-01"
+          ],
+          "mooc_ids": [
+            "R-M06"
+          ],
+          "paper_tasks_due": [
+            "D04"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "盯住对照实验\"三同\"",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 11,
+          "dates": "11/16–11/22",
+          "original_theme": "结合图和药效团说法要互相印证",
+          "retained_task_ids": [
+            "D11-A1"
+          ],
+          "retained_check_ids": [
+            "D-C11-01"
+          ],
+          "mooc_ids": [
+            "R-M02"
+          ],
+          "paper_tasks_due": [
+            "D05"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "结合图和药效团说法要互相印证",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 12,
+          "dates": "11/23–11/29",
+          "original_theme": "文献机制和对接证据互相打分",
+          "retained_task_ids": [
+            "D12-A1"
+          ],
+          "retained_check_ids": [
+            "D-C12-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "文献机制和对接证据互相打分",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 13,
+          "dates": "11/30–12/06",
+          "original_theme": "三版排名并排看",
+          "retained_task_ids": [
+            "D13-A1"
+          ],
+          "retained_check_ids": [
+            "D-C13-01"
+          ],
+          "mooc_ids": [
+            "R-M07"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "三版排名并排看",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 14,
+          "dates": "12/07–12/13",
+          "original_theme": "写结题报告的验证章节",
+          "retained_task_ids": [
+            "D14-A1"
+          ],
+          "retained_check_ids": [
+            "D-C14-01"
+          ],
+          "mooc_ids": [
+            "R-M09"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "写论文的验证章节",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 15,
+          "dates": "12/14–12/20",
+          "original_theme": "对接部分重跑对账",
+          "retained_task_ids": [
+            "D15-A1",
+            "D15-A2"
+          ],
+          "retained_check_ids": [
+            "D-C15-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "对接部分重跑对账",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 16,
+          "dates": "12/21–12/27",
+          "original_theme": "答辩验证问答＋现场演示保障",
+          "retained_task_ids": [
+            "D16-A1",
+            "D16-A2"
+          ],
+          "retained_check_ids": [
+            "D-C16-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "审稿验证问答＋复现演示",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        }
+      ]
+    },
+    {
+      "name": "宁显泷",
+      "html_path": "宁显泷\\打卡_宁显泷.html",
+      "storage_key": "semester_flow_ningxl_v1",
+      "weeks": [
+        {
+          "week": 1,
+          "dates": "09/07–09/13",
+          "original_theme": "先证明暑假的结果能复现＋开始学 PyTorch（比大家早三周起步）",
+          "retained_task_ids": [
+            "W1-A1",
+            "W1-A2"
+          ],
+          "retained_check_ids": [
+            "N-C1-01"
+          ],
+          "mooc_ids": [
+            "R-M01"
+          ],
+          "paper_tasks_due": [
+            "N01"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "先证明暑假的结果能复现＋开始学 PyTorch（比大家早三周起步）",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 2,
+          "dates": "09/14–09/20",
+          "original_theme": "手算一遍\"模型是怎么学的\"",
+          "retained_task_ids": [
+            "W2-A1",
+            "W2-A2"
+          ],
+          "retained_check_ids": [
+            "N-C2-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "手算一遍\"模型是怎么学的\"",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 3,
+          "dates": "09/21–09/27",
+          "original_theme": "把分子图\"翻译\"成新格式",
+          "retained_task_ids": [
+            "W3-A1",
+            "W3-A2"
+          ],
+          "retained_check_ids": [
+            "N-C3-01"
+          ],
+          "mooc_ids": [
+            "R-M03"
+          ],
+          "paper_tasks_due": [
+            "N02"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "把分子图\"翻译\"成新格式",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 4,
+          "dates": "09/28–10/04",
+          "original_theme": "弄懂\"图卷积\"的数学",
+          "retained_task_ids": [
+            "W4-A1",
+            "W4-A2"
+          ],
+          "retained_check_ids": [
+            "N-C4-01"
+          ],
+          "mooc_ids": [
+            "R-M08"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "弄懂\"图卷积\"的数学",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 5,
+          "dates": "10/05–10/11",
+          "original_theme": "两种传递办法比一比",
+          "retained_task_ids": [
+            "W5-A1",
+            "W5-A2"
+          ],
+          "retained_check_ids": [
+            "N-C5-01"
+          ],
+          "mooc_ids": [
+            "R-M05"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "两种传递办法比一比",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 6,
+          "dates": "10/12–10/18",
+          "original_theme": "正式迁移前的演练",
+          "retained_task_ids": [
+            "W6-A1",
+            "W6-A2"
+          ],
+          "retained_check_ids": [
+            "N-C6-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "正式迁移前的演练",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 7,
+          "dates": "10/19–10/25",
+          "original_theme": "正式迁移——新模型不能比旧的差",
+          "retained_task_ids": [
+            "W7-A1",
+            "W7-A2"
+          ],
+          "retained_check_ids": [
+            "N-C7-01"
+          ],
+          "mooc_ids": [
+            "R-M04"
+          ],
+          "paper_tasks_due": [
+            "N03"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "正式迁移——如实比较新旧模型",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 8,
+          "dates": "10/26–11/01",
+          "original_theme": "把\"把握度\"也搬过去",
+          "retained_task_ids": [
+            "W8-A1",
+            "W8-A2"
+          ],
+          "retained_check_ids": [
+            "N-C8-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [
+            "N04"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "把\"把握度\"也搬过去",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 9,
+          "dates": "11/02–11/08",
+          "original_theme": "给模型的\"自信心\"调准",
+          "retained_task_ids": [
+            "W9-A1",
+            "W9-A2"
+          ],
+          "retained_check_ids": [
+            "N-C9-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "给模型的\"自信心\"调准",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 10,
+          "dates": "11/09–11/15",
+          "original_theme": "参数搜索＋模型线收工",
+          "retained_task_ids": [
+            "W10-A1",
+            "W10-A2"
+          ],
+          "retained_check_ids": [
+            "N-C10-01"
+          ],
+          "mooc_ids": [
+            "R-M06"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "参数搜索＋模型线收工",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 11,
+          "dates": "11/16–11/22",
+          "original_theme": "让模型\"说说它看的是哪里\"",
+          "retained_task_ids": [
+            "W11-A1",
+            "W11-A2"
+          ],
+          "retained_check_ids": [
+            "N-C11-01"
+          ],
+          "mooc_ids": [
+            "R-M02"
+          ],
+          "paper_tasks_due": [
+            "N05"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "让模型\"说说它看的是哪里\"",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 12,
+          "dates": "11/23–11/29",
+          "original_theme": "五篇关键论文串读",
+          "retained_task_ids": [
+            "W12-A1",
+            "W12-A2"
+          ],
+          "retained_check_ids": [
+            "N-C12-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "五篇关键论文串读",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 13,
+          "dates": "11/30–12/06",
+          "original_theme": "排名 v3 换上新模型",
+          "retained_task_ids": [
+            "W13-A1",
+            "W13-A2"
+          ],
+          "retained_check_ids": [
+            "N-C13-01"
+          ],
+          "mooc_ids": [
+            "R-M07"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "排名 v3 换上新模型",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 14,
+          "dates": "12/07–12/13",
+          "original_theme": "写结题报告的模型章节",
+          "retained_task_ids": [
+            "W14-A1",
+            "W14-A2"
+          ],
+          "retained_check_ids": [
+            "N-C14-01"
+          ],
+          "mooc_ids": [
+            "R-M09"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "写论文的模型章节",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 15,
+          "dates": "12/14–12/20",
+          "original_theme": "模型部分换种算法重算＋重跑",
+          "retained_task_ids": [
+            "W15-A1",
+            "W15-A2"
+          ],
+          "retained_check_ids": [
+            "N-C15-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "模型部分换种算法重算＋重跑",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 16,
+          "dates": "12/21–12/27",
+          "original_theme": "答辩技术问答准备",
+          "retained_task_ids": [
+            "W16-A1",
+            "W16-A2"
+          ],
+          "retained_check_ids": [
+            "N-C16-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "审稿技术问答准备",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        }
+      ]
+    },
+    {
+      "name": "王启龙",
+      "html_path": "王启龙\\打卡_王启龙.html",
+      "storage_key": "semester_flow_leader_v1",
+      "weeks": [
+        {
+          "week": 1,
+          "dates": "09/07–09/13",
+          "original_theme": "先证明暑假的结果谁都能复现",
+          "retained_task_ids": [
+            "W1-A1",
+            "W1-A2"
+          ],
+          "retained_check_ids": [
+            "C1-01",
+            "C1-02",
+            "C1-03",
+            "C1-04",
+            "C1-05"
+          ],
+          "mooc_ids": [
+            "R-M01"
+          ],
+          "paper_tasks_due": [
+            "Q01"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "先证明暑假的结果谁都能复现",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 2,
+          "dates": "09/14–09/20",
+          "original_theme": "把暑假结果\"定版\"＋核验签名汇总",
+          "retained_task_ids": [
+            "W2-A1",
+            "W2-A2"
+          ],
+          "retained_check_ids": [
+            "C2-01",
+            "C2-02",
+            "C2-03",
+            "C2-04"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [
+            "Q02"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "把暑假结果\"定版\"＋核验签名汇总",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 3,
+          "dates": "09/21–09/27",
+          "original_theme": "学会用 RDKit 算分子性质",
+          "retained_task_ids": [
+            "W3-A2",
+            "W3-A3"
+          ],
+          "retained_check_ids": [
+            "C3-01"
+          ],
+          "mooc_ids": [
+            "R-M03"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "学会用 RDKit 算分子性质",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 4,
+          "dates": "09/28–10/04",
+          "original_theme": "国庆轻量周，学会从网站批量查分子",
+          "retained_task_ids": [
+            "W4-A1",
+            "W4-A2"
+          ],
+          "retained_check_ids": [
+            "C4-01"
+          ],
+          "mooc_ids": [
+            "R-M08"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "国庆轻量周，学会从网站批量查分子",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 5,
+          "dates": "10/05–10/11",
+          "original_theme": "学分子对接，先验证流程靠谱",
+          "retained_task_ids": [
+            "W5-A1",
+            "W5-A2",
+            "W5-A3"
+          ],
+          "retained_check_ids": [
+            "C5-01",
+            "C5-02"
+          ],
+          "mooc_ids": [
+            "R-M05"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "学分子对接，先验证流程靠谱",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 6,
+          "dates": "10/12–10/18",
+          "original_theme": "真实对接分数进总表，出最终排名",
+          "retained_task_ids": [
+            "W6-A1",
+            "W6-A2"
+          ],
+          "retained_check_ids": [
+            "C6-01",
+            "C6-02",
+            "C6-03"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "真实对接分数进总表，出最终排名",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 7,
+          "dates": "10/19–10/25",
+          "original_theme": "数据验收 ＋ 开始学 PyTorch",
+          "retained_task_ids": [
+            "W7-A1",
+            "W7-A2"
+          ],
+          "retained_check_ids": [
+            "C7-01"
+          ],
+          "mooc_ids": [
+            "R-M04"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "数据验收 ＋ 开始学 PyTorch",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 8,
+          "dates": "10/26–11/01",
+          "original_theme": "把分子图\"翻译\"成新框架（打地基的一周）",
+          "retained_task_ids": [
+            "W8-A1",
+            "W8-A2"
+          ],
+          "retained_check_ids": [
+            "C8-01",
+            "C8-02"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "把分子图\"翻译\"成新框架（打地基的一周）",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 9,
+          "dates": "11/02–11/08",
+          "original_theme": "新旧模型同台比试",
+          "retained_task_ids": [
+            "W9-A1",
+            "W9-A2"
+          ],
+          "retained_check_ids": [
+            "C9-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [
+            "Q03"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "新旧模型同台比试",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 10,
+          "dates": "11/09–11/15",
+          "original_theme": "把模型的\"自信心\"调准，模型线收工",
+          "retained_task_ids": [
+            "W10-A1",
+            "W10-A2"
+          ],
+          "retained_check_ids": [
+            "C10-01"
+          ],
+          "mooc_ids": [
+            "R-M06"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "把模型的\"自信心\"调准，模型线收工",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 11,
+          "dates": "11/16–11/22",
+          "original_theme": "检查蛋白\"口袋\"位置 ＋ 出相互作用图",
+          "retained_task_ids": [
+            "W11-A1",
+            "W11-A2"
+          ],
+          "retained_check_ids": [
+            "C11-01"
+          ],
+          "mooc_ids": [
+            "R-M02"
+          ],
+          "paper_tasks_due": [
+            "Q04"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "检查蛋白\"口袋\"位置 ＋ 出相互作用图",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 12,
+          "dates": "11/23–11/29",
+          "original_theme": "让大模型帮忙查文献（人把关）",
+          "retained_task_ids": [
+            "W12-A1",
+            "W12-A2"
+          ],
+          "retained_check_ids": [
+            "C12-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "让大模型帮忙查文献（人把关）",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 13,
+          "dates": "11/30–12/06",
+          "original_theme": "三条线接成一条，出排名 v3",
+          "retained_task_ids": [
+            "W13-A1",
+            "W13-A2",
+            "W13-A3"
+          ],
+          "retained_check_ids": [
+            "C13-01",
+            "C13-02"
+          ],
+          "mooc_ids": [
+            "R-M07"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "三条线接成一条，出排名 v3",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 14,
+          "dates": "12/07–12/13",
+          "original_theme": "让外行人也能 30 分钟复现",
+          "retained_task_ids": [
+            "W14-A1",
+            "W14-A2",
+            "W14-A3"
+          ],
+          "retained_check_ids": [
+            "C14-01"
+          ],
+          "mooc_ids": [
+            "R-M09"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "让外行人也能 30 分钟复现",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 15,
+          "dates": "12/14–12/20",
+          "original_theme": "期末从头校验（本学期最硬的一周）",
+          "retained_task_ids": [
+            "W15-A1",
+            "W15-A2",
+            "W15-A3"
+          ],
+          "retained_check_ids": [
+            "C15-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [
+            "Q05"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "期末从头校验（本学期最硬的一周）",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 16,
+          "dates": "12/21–12/27",
+          "original_theme": "结题材料定版＋预答辩",
+          "retained_task_ids": [
+            "W16-A1",
+            "W16-A2",
+            "W16-A3"
+          ],
+          "retained_check_ids": [
+            "C16-01",
+            "C16-02"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "论文材料复核与投稿准备",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        }
+      ]
+    },
+    {
+      "name": "王散曼",
+      "html_path": "王散曼\\打卡_王散曼.html",
+      "storage_key": "semester_flow_wangsanman_v1",
+      "weeks": [
+        {
+          "week": 1,
+          "dates": "09/07–09/13",
+          "original_theme": "抽查文献证据＋学会检索",
+          "retained_task_ids": [
+            "S1-A1",
+            "S1-A2"
+          ],
+          "retained_check_ids": [
+            "S-C1-01"
+          ],
+          "mooc_ids": [
+            "R-M01"
+          ],
+          "paper_tasks_due": [
+            "S01"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "抽查文献证据＋学会检索",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 2,
+          "dates": "09/14–09/20",
+          "original_theme": "定\"证据分级\"规矩",
+          "retained_task_ids": [
+            "S2-A1",
+            "S2-A2"
+          ],
+          "retained_check_ids": [
+            "S-C2-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "定\"证据分级\"规矩",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 3,
+          "dates": "09/21–09/27",
+          "original_theme": "给 48 个正样本逐个定证据等级",
+          "retained_task_ids": [
+            "S3-A1"
+          ],
+          "retained_check_ids": [
+            "S-C3-01"
+          ],
+          "mooc_ids": [
+            "R-M03"
+          ],
+          "paper_tasks_due": [
+            "S02"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "给 48 个正样本逐个定证据等级",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 4,
+          "dates": "09/28–10/04",
+          "original_theme": "弄清\"哪些分子要排除\"及其理由",
+          "retained_task_ids": [
+            "S4-A1"
+          ],
+          "retained_check_ids": [
+            "S-C4-01"
+          ],
+          "mooc_ids": [
+            "R-M08"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "弄清\"哪些分子要排除\"及其理由",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 5,
+          "dates": "10/05–10/11",
+          "original_theme": "让大模型帮查文献（人把关）",
+          "retained_task_ids": [
+            "S5-A1"
+          ],
+          "retained_check_ids": [
+            "S-C5-01"
+          ],
+          "mooc_ids": [
+            "R-M05"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "让大模型帮查文献（人把关）",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 6,
+          "dates": "10/12–10/18",
+          "original_theme": "12 个候选新分子的文献底细",
+          "retained_task_ids": [
+            "S6-A1"
+          ],
+          "retained_check_ids": [
+            "S-C6-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [
+            "S03"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "12 个候选新分子的文献底细",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 7,
+          "dates": "10/19–10/25",
+          "original_theme": "抽 30 条标签对文献（数据验收第 4 条）",
+          "retained_task_ids": [
+            "S7-A1"
+          ],
+          "retained_check_ids": [
+            "S-C7-01"
+          ],
+          "mooc_ids": [
+            "R-M04"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "抽 30 条标签对文献（数据验收第 4 条）",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 8,
+          "dates": "10/26–11/01",
+          "original_theme": "60 个候选按证据强弱分层",
+          "retained_task_ids": [
+            "S8-A1"
+          ],
+          "retained_check_ids": [
+            "S-C8-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "60 个候选按证据强弱分层",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 9,
+          "dates": "11/02–11/08",
+          "original_theme": "双靶点机制文献精读",
+          "retained_task_ids": [
+            "S9-A1"
+          ],
+          "retained_check_ids": [
+            "S-C9-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "双靶点机制文献精读",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 10,
+          "dates": "11/09–11/15",
+          "original_theme": "A 级条目全部核完",
+          "retained_task_ids": [
+            "S10-A1"
+          ],
+          "retained_check_ids": [
+            "S-C10-01"
+          ],
+          "mooc_ids": [
+            "R-M06"
+          ],
+          "paper_tasks_due": [
+            "S04"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "A 级条目全部核完",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 11,
+          "dates": "11/16–11/22",
+          "original_theme": "B 级核完＋C 级抽一半",
+          "retained_task_ids": [
+            "S11-A1",
+            "S11-A2"
+          ],
+          "retained_check_ids": [
+            "S-C11-01"
+          ],
+          "mooc_ids": [
+            "R-M02"
+          ],
+          "paper_tasks_due": [
+            "S05"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "B 级核完＋C 级抽一半",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 12,
+          "dates": "11/23–11/29",
+          "original_theme": "机制文档全部换成真分数口径",
+          "retained_task_ids": [
+            "S12-A1"
+          ],
+          "retained_check_ids": [
+            "S-C12-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "机制文档全部换成真分数口径",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 13,
+          "dates": "11/30–12/06",
+          "original_theme": "细胞实验方案一页纸",
+          "retained_task_ids": [
+            "S13-A1"
+          ],
+          "retained_check_ids": [
+            "S-C13-01"
+          ],
+          "mooc_ids": [
+            "R-M07"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "细胞实验方案一页纸",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 14,
+          "dates": "12/07–12/13",
+          "original_theme": "写结题报告的文献章节",
+          "retained_task_ids": [
+            "S14-A1"
+          ],
+          "retained_check_ids": [
+            "S-C14-01"
+          ],
+          "mooc_ids": [
+            "R-M09"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "写论文的文献章节",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 15,
+          "dates": "12/14–12/20",
+          "original_theme": "文献部分\"反查\"抽验",
+          "retained_task_ids": [
+            "S15-A1"
+          ],
+          "retained_check_ids": [
+            "S-C15-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "文献部分\"反查\"抽验",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 16,
+          "dates": "12/21–12/27",
+          "original_theme": "答辩机制问答＋实验衔接展示",
+          "retained_task_ids": [
+            "S16-A1",
+            "S16-A2"
+          ],
+          "retained_check_ids": [
+            "S-C16-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "审稿机制问答＋可选实验评估",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        }
+      ]
+    },
+    {
+      "name": "衣思淼",
+      "html_path": "衣思淼\\打卡_衣思淼.html",
+      "storage_key": "semester_flow_yisimiao_v1",
+      "weeks": [
+        {
+          "week": 1,
+          "dates": "09/07–09/13",
+          "original_theme": "先证明暑假的数据没毛病＋开始学 RDKit（比大家早）",
+          "retained_task_ids": [
+            "Y1-A1",
+            "Y1-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C1-01"
+          ],
+          "mooc_ids": [
+            "R-M01"
+          ],
+          "paper_tasks_due": [
+            "Y01"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "先证明暑假的数据没毛病＋开始学 RDKit（比大家早）",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 2,
+          "dates": "09/14–09/20",
+          "original_theme": "用 RDKit 重算分子性质，量出暑假算法差多少",
+          "retained_task_ids": [
+            "Y2-A1",
+            "Y2-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C2-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "用 RDKit 重算分子性质，量出暑假算法差多少",
+          "acceptance_revision": "旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 3,
+          "dates": "09/21–09/27",
+          "original_theme": "从中药库正式导出数据",
+          "retained_task_ids": [
+            "Y3-A1",
+            "Y3-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C3-01"
+          ],
+          "mooc_ids": [
+            "R-M03"
+          ],
+          "paper_tasks_due": [
+            "Y02"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "从中药库正式导出数据",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 4,
+          "dates": "09/28–10/04",
+          "original_theme": "批量查标准写法＋查重",
+          "retained_task_ids": [
+            "Y4-A1",
+            "Y4-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C4-01"
+          ],
+          "mooc_ids": [
+            "R-M08"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "批量查标准写法＋查重",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 5,
+          "dates": "10/05–10/11",
+          "original_theme": "把\"标签怎么定\"写成制度",
+          "retained_task_ids": [
+            "Y5-A1",
+            "Y5-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C5-01"
+          ],
+          "mooc_ids": [
+            "R-M05"
+          ],
+          "paper_tasks_due": [
+            "Y03"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "把\"标签怎么定\"写成制度",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 6,
+          "dates": "10/12–10/18",
+          "original_theme": "换正式算法算性质，修掉\"体重\"偏差",
+          "retained_task_ids": [
+            "Y6-A1",
+            "Y6-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C6-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "换正式算法算性质，修掉\"体重\"偏差",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 7,
+          "dates": "10/19–10/25",
+          "original_theme": "数据破千＋给分数配\"可信范围\"",
+          "retained_task_ids": [
+            "Y7-A1",
+            "Y7-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C7-01"
+          ],
+          "mooc_ids": [
+            "R-M04"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "数据质量验收＋给分数配\"可信范围\"",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 8,
+          "dates": "10/26–11/01",
+          "original_theme": "新数据重新分组＋改进\"陌生分子\"预警",
+          "retained_task_ids": [
+            "Y8-A1",
+            "Y8-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C8-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [
+            "Y04"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "新数据重新分组＋改进\"陌生分子\"预警",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 9,
+          "dates": "11/02–11/08",
+          "original_theme": "修一个旧毛病——考试集别兼当练习集",
+          "retained_task_ids": [
+            "Y9-A1",
+            "Y9-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C9-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "修一个旧毛病——考试集别兼当练习集",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 10,
+          "dates": "11/09–11/15",
+          "original_theme": "全库\"体检\"",
+          "retained_task_ids": [
+            "Y10-A1"
+          ],
+          "retained_check_ids": [
+            "Y-C10-01"
+          ],
+          "mooc_ids": [
+            "R-M06"
+          ],
+          "paper_tasks_due": [
+            "Y05"
+          ],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "全库\"体检\"",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 11,
+          "dates": "11/16–11/22",
+          "original_theme": "用在线工具抽查\"像不像药\"",
+          "retained_task_ids": [
+            "Y11-A1",
+            "Y11-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C11-01"
+          ],
+          "mooc_ids": [
+            "R-M02"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "用在线工具抽查\"像不像药\"",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 12,
+          "dates": "11/23–11/29",
+          "original_theme": "试试换权重，排名稳不稳",
+          "retained_task_ids": [
+            "Y12-A1"
+          ],
+          "retained_check_ids": [
+            "Y-C12-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "试试换权重，排名稳不稳",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 13,
+          "dates": "11/30–12/06",
+          "original_theme": "排名 v3 换上新数据",
+          "retained_task_ids": [
+            "Y13-A1"
+          ],
+          "retained_check_ids": [
+            "Y-C13-01"
+          ],
+          "mooc_ids": [
+            "R-M07"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "排名 v3 换上新数据",
+          "acceptance_revision": "按指定版本核验来源、规则、完整结果及差异原因；不能为达到旧数字改数据、参数或挑结果。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 14,
+          "dates": "12/07–12/13",
+          "original_theme": "写结题报告的数据章节",
+          "retained_task_ids": [
+            "Y14-A1",
+            "Y14-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C14-01"
+          ],
+          "mooc_ids": [
+            "R-M09"
+          ],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "写论文的数据章节",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 15,
+          "dates": "12/14–12/20",
+          "original_theme": "数据部分换种写法重算",
+          "retained_task_ids": [
+            "Y15-A1",
+            "Y15-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C15-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "数据部分换种写法重算",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        },
+        {
+          "week": 16,
+          "dates": "12/21–12/27",
+          "original_theme": "答辩数据问答准备",
+          "retained_task_ids": [
+            "Y16-A1",
+            "Y16-A2"
+          ],
+          "retained_check_ids": [
+            "Y-C16-01"
+          ],
+          "mooc_ids": [],
+          "paper_tasks_due": [],
+          "source_mode": "历史教学卡；投稿验收另附证据，不继承旧完成状态",
+          "revised_theme": "审稿数据问答准备",
+          "acceptance_revision": "保留原写作、逐项复核和问答练习，交付论文方法/结果、图源与复现说明；不以预答辩或湿实验完成为通过条件。",
+          "paper_evidence_rule": "同一工作只交一次证据；原卡任务可引用投稿任务，身份不同的两次分析不得合并算完成。"
+        }
+      ]
+    }
+  ],
+  "post_semester": {
+    "period": "2026-12-28至2027年2月",
+    "purpose": "论文投稿、返修与归档，不重编号原16周",
+    "paper_plan": "aidd-repo-work\\10-任务分配与进度\\中文核心投稿\\投稿任务.json"
+  }
+}
