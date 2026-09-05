@@ -1,0 +1,176 @@
+{
+ "interpretation": "探索性融合排序(diagnostic):权重与罚分为启发式,无外部标签验证,不得称三源共识或可靠排序",
+ "n_candidates": 58,
+ "n_fingerprint_clusters": 32,
+ "fingerprint_cluster_note": "ECFP4 Tanimoto Butina(阈值0.55)指纹相似性簇,不等于Murcko骨架",
+ "n_murcko_scaffolds_all": 34,
+ "n_murcko_scaffolds_top10": 8,
+ "board_counts": {
+  "known_retrospective": 34,
+  "independent_test": 13,
+  "unlabeled_screening": 11
+ },
+ "top10_board_counts": {
+  "known_retrospective": 7,
+  "independent_test": 2,
+  "unlabeled_screening": 1
+ },
+ "boards_desc": {
+  "known_retrospective": "已知回顾榜(参与过训练/选模,禁止当新发现)",
+  "independent_test": "独立测试榜(未参与训练,标签未审核)",
+  "unlabeled_screening": "未标注候选榜(唯一可提候选发现的池)"
+ },
+ "top10_historical_positives": 9,
+ "targets": [
+  "FXR_LBD"
+ ],
+ "single_target_note": "单靶诊断运行：KEAP1未过多种子门控，本榜仅FXR证据，不得当双靶共识结论",
+ "spearman_model_dock": 0.267,
+ "spearman_note": "描述性相关,不证明两证据源独立,也不支持融合有效性",
+ "inclusion_flow": {
+  "registered_candidates": 60,
+  "docking_incomplete": {
+   "n": 1,
+   "compound_ids": [
+    "HP-039"
+   ]
+  },
+  "positive_control_excluded": {
+   "n": 1,
+   "compound_ids": [
+    "NV-011"
+   ]
+  },
+  "ranked": 58,
+  "note": "对接失败按缺测处理,不按无活性处理;全部名单保留"
+ },
+ "rank_stability": {
+  "weight_perturbation": {
+   "n_draws": 200,
+   "dirichlet_kappa": 20.0,
+   "top10_jaccard_median": 1.0,
+   "top10_jaccard_p05_p95": [
+    0.811,
+    1.0
+   ],
+   "top5_overlap_median": 1.0,
+   "top10_overlap_median": 1.0,
+   "full_rank_spearman_median": 0.981
+  },
+  "protocol_variants": {
+   "model_only": {
+    "top10_jaccard_vs_base": 0.25,
+    "top10_overlap_vs_base": 0.4,
+    "full_rank_spearman_vs_base": 0.806
+   },
+   "dock_only": {
+    "top10_jaccard_vs_base": 0.538,
+    "top10_overlap_vs_base": 0.7,
+    "full_rank_spearman_vs_base": 0.765
+   },
+   "equal_weights": {
+    "top10_jaccard_vs_base": 1.0,
+    "top10_overlap_vs_base": 1.0,
+    "full_rank_spearman_vs_base": 0.973
+   },
+   "base_without_ad_penalty": {
+    "top10_jaccard_vs_base": 1.0,
+    "top10_overlap_vs_base": 1.0,
+    "full_rank_spearman_vs_base": 0.99
+   }
+  },
+  "note": "无外部标签可验证融合优劣;以上仅为排序稳定性诊断,不构成融合有效性证据"
+ },
+ "top10": [
+  {
+   "name": "芹菜素",
+   "board": "known_retrospective",
+   "split": "train",
+   "legacy_label": "1",
+   "score": 0.9501,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "柚皮素",
+   "board": "known_retrospective",
+   "split": "train",
+   "legacy_label": "1",
+   "score": 0.9442,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "姜黄素",
+   "board": "known_retrospective",
+   "split": "train",
+   "legacy_label": "1",
+   "score": 0.8972,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "大豆苷元",
+   "board": "independent_test",
+   "split": "test",
+   "legacy_label": "1",
+   "score": 0.878,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "丹参酮IIA",
+   "board": "known_retrospective",
+   "split": "train",
+   "legacy_label": "1",
+   "score": 0.8725,
+   "pains": "imine_one_A(321)",
+   "ad": ""
+  },
+  {
+   "name": "松脂素",
+   "board": "unlabeled_screening",
+   "split": "screening_pool",
+   "legacy_label": "",
+   "score": 0.841,
+   "pains": "",
+   "ad": ""
+  },
+  {
+   "name": "二氢杨梅素",
+   "board": "known_retrospective",
+   "split": "train",
+   "legacy_label": "1",
+   "score": 0.8165,
+   "pains": "catechol_A(92)",
+   "ad": ""
+  },
+  {
+   "name": "绿原酸",
+   "board": "known_retrospective",
+   "split": "train",
+   "legacy_label": "1",
+   "score": 0.7947,
+   "pains": "catechol_A(92)",
+   "ad": ""
+  },
+  {
+   "name": "大黄酸",
+   "board": "independent_test",
+   "split": "test",
+   "legacy_label": "1",
+   "score": 0.7762,
+   "pains": "quinone_A(370)",
+   "ad": ""
+  },
+  {
+   "name": "汉黄芩素",
+   "board": "known_retrospective",
+   "split": "train",
+   "legacy_label": "1",
+   "score": 0.7751,
+   "pains": "",
+   "ad": ""
+  }
+ ]
+}

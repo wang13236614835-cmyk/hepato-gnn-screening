@@ -1,0 +1,105 @@
+{
+ "bins": 10,
+ "before": [
+  {
+   "bin_lo": 0.0,
+   "bin_hi": 0.1,
+   "n": 2,
+   "mean_p": 0.001,
+   "obs_pos_rate": 0.0
+  },
+  {
+   "bin_lo": 0.2,
+   "bin_hi": 0.3,
+   "n": 1,
+   "mean_p": 0.279,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.3,
+   "bin_hi": 0.4,
+   "n": 2,
+   "mean_p": 0.316,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.4,
+   "bin_hi": 0.5,
+   "n": 1,
+   "mean_p": 0.491,
+   "obs_pos_rate": 0.0
+  },
+  {
+   "bin_lo": 0.7,
+   "bin_hi": 0.8,
+   "n": 2,
+   "mean_p": 0.775,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.8,
+   "bin_hi": 0.9,
+   "n": 1,
+   "mean_p": 0.824,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.9,
+   "bin_hi": 1.0,
+   "n": 8,
+   "mean_p": 0.968,
+   "obs_pos_rate": 1.0
+  }
+ ],
+ "after_temperature": [
+  {
+   "bin_lo": 0.0,
+   "bin_hi": 0.1,
+   "n": 2,
+   "mean_p": 0.001,
+   "obs_pos_rate": 0.0
+  },
+  {
+   "bin_lo": 0.2,
+   "bin_hi": 0.3,
+   "n": 1,
+   "mean_p": 0.279,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.3,
+   "bin_hi": 0.4,
+   "n": 2,
+   "mean_p": 0.316,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.4,
+   "bin_hi": 0.5,
+   "n": 1,
+   "mean_p": 0.491,
+   "obs_pos_rate": 0.0
+  },
+  {
+   "bin_lo": 0.7,
+   "bin_hi": 0.8,
+   "n": 2,
+   "mean_p": 0.775,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.8,
+   "bin_hi": 0.9,
+   "n": 1,
+   "mean_p": 0.824,
+   "obs_pos_rate": 1.0
+  },
+  {
+   "bin_lo": 0.9,
+   "bin_hi": 1.0,
+   "n": 8,
+   "mean_p": 0.968,
+   "obs_pos_rate": 1.0
+  }
+ ]
+}

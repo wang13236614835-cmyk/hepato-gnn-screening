@@ -1,0 +1,14 @@
+rank,compound_id,name_cn,category,source_herb,role,legacy_label,model_split,board,pubchem_cid,data_mode,murcko_scaffold,pred_mean,pred_var,confidence,dock_avg_kcal,lipinski_violations,pains_alert,ad_warning,final_score
+5,HP-011,染料木素,异黄酮类,槐角/葛根,candidate,1,test,independent_test,5280961,proposed,O=c1c(-c2ccccc2)coc2ccccc12,0.9636,0.0008,0.889,-8.95,0,,,0.9166
+8,HP-012,大豆苷元,异黄酮类,葛根,candidate,1,test,independent_test,5281708,proposed,O=c1c(-c2ccccc2)coc2ccccc12,0.9501,0.0014,0.85,-8.79,0,,,0.878
+15,HP-032,大黄酸,蒽醌类,大黄,candidate,1,test,independent_test,10168,proposed,O=C1c2ccccc2C(=O)c2ccccc21,0.9931,0.0002,0.947,-7.45,0,quinone_A(370),,0.7762
+21,HP-033,芦荟大黄素,蒽醌类,大黄/芦荟,candidate,1,test,independent_test,10207,proposed,O=C1c2ccccc2C(=O)c2ccccc21,0.9876,0.0002,0.945,-7.12,0,quinone_A(370),,0.7396
+22,HP-034,大黄素甲醚,蒽醌类,决明子/大黄,candidate,1,test,independent_test,10639,proposed,O=C1c2ccccc2C(=O)c2ccccc21,0.9766,0.0005,0.91,-7.2,0,quinone_A(370),,0.7363
+25,HP-031,大黄素,蒽醌类,大黄/何首乌,candidate,1,test,independent_test,3220,proposed,O=C1c2ccccc2C(=O)c2ccccc21,0.9806,0.0009,0.882,-6.97,0,quinone_A(370),,0.7136
+27,HP-028,牛蒡苷元,木脂素类,牛蒡子,candidate,1,test,independent_test,64981,proposed,O=C1OCC(Cc2ccccc2)C1Cc1ccccc1,0.7257,0.0234,0.388,-8.59,0,,,0.6846
+35,HP-029,牛蒡苷,木脂素苷类,牛蒡子,candidate,1,test,independent_test,100528,proposed,O=C1OCC(Cc2ccccc2)C1Cc1ccc(OC2CCCCO2)cc1,0.809,0.0086,0.628,-7.67,2,,,0.5744
+42,HP-019,红景天苷,苯乙醇苷类,红景天,candidate,1,test,independent_test,159278,proposed,c1ccc(CCOC2CCCCO2)cc1,0.3165,0.0348,0.254,-8.32,0,,,0.5042
+46,HP-025,厚朴酚,木脂素类,厚朴,candidate,1,test,independent_test,72300,proposed,c1ccc(-c2ccccc2)cc1,0.2892,0.0197,0.438,-7.88,0,,,0.4901
+47,HP-026,和厚朴酚,木脂素类,厚朴,candidate,1,test,independent_test,72303,proposed,c1ccc(-c2ccccc2)cc1,0.3059,0.0145,0.519,-7.7,0,,,0.4887
+49,HP-003,芦丁,黄酮苷类,槐米,candidate,1,test,independent_test,5280805,proposed,O=c1c(OC2CCCC(COC3CCCCO3)O2)c(-c2ccccc2)oc2ccccc12,0.9483,0.0036,0.76,-7.12,3,catechol_A(92),域外,0.4797
+52,HP-038,甘草次酸,三萜类,甘草(体内代谢物),candidate,1,test,independent_test,10114,proposed,O=C1C=C2C3CCCCC3CCC2C2CCC3CCCCC3C12,0.8258,0.0156,0.501,-5.19,1,,域外,0.4081

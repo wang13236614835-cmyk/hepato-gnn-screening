@@ -200,17 +200,40 @@ def auc(y, s):
     return float((ranks[y == 1].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
 
 
-def metrics(y, p, thr=0.5):
+def average_precision(y, s):
+    """AP: 正例率高的测试集上必须与随机基准 pos_rate 对照解读。"""
+    y = np.asarray(y); s = np.asarray(s)
+    n1 = int(y.sum())
+    if n1 == 0 or n1 == len(y):
+        return float("nan")
+    order = np.argsort(-s, kind="mergesort")
+    hits = y[order]
+    cum = np.cumsum(hits)
+    prec_at_hit = cum[hits == 1] / (np.flatnonzero(hits == 1) + 1)
+    return float((prec_at_hit / n1).sum())
+
+
+def metrics(y, p, thr=0.5, thr_source="fixed_0.5_diagnostic"):
     yh = (p >= thr).astype(int)
     tp = int(((yh == 1) & (y == 1)).sum()); fp = int(((yh == 1) & (y == 0)).sum())
     fn = int(((yh == 0) & (y == 1)).sum()); tn = int(((yh == 0) & (y == 0)).sum())
-    rec = tp / max(1, tp + fn); prec = tp / max(1, tp + fp)
+    rec = tp / max(1, tp + fn); prec = tp / max(1, tp + fp); spec = tn / max(1, tn + fp)
+    denom = np.sqrt(float(tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))
+    mcc = ((tp * tn - fp * fn) / denom) if denom > 0 else 0.0
     return {"AUC": round(auc(y, p), 3),
-            "BACC": round(0.5 * (rec + tn / max(1, tn + fp)), 3),
-            "F1": round(2 * prec * rec / max(1e-9, prec + rec), 3)}
+            "AP": round(average_precision(y, p), 3),
+            "AP_random_baseline": round(float(np.mean(y)), 3),
+            "MCC": round(mcc, 3),
+            "BACC": round(0.5 * (rec + spec), 3),
+            "F1": round(2 * prec * rec / max(1e-9, prec + rec), 3),
+            "threshold": thr,
+            "threshold_source": thr_source,
+            "confusion": {"TP": tp, "FP": fp, "FN": fn, "TN": tn},
+            "n_pos": int(np.sum(y == 1)), "n_neg": int(np.sum(y == 0))}
 
 
 def ece(y, p, bins=10):
+    """等宽分箱ECE。图与汇总必须用同一 bins 值(审查项47)。"""
     e, n = 0.0, len(p)
     for b in range(bins):
         lo, hi = b / bins, (b + 1) / bins
@@ -219,6 +242,19 @@ def ece(y, p, bins=10):
             continue
         e += m.sum() / n * abs(p[m].mean() - y[m].mean())
     return round(e, 3)
+
+
+def ece_bins_detail(y, p, bins=10):
+    """逐箱样本量与偏差，供可靠性图标注(小样本下分箱敏感必须可见)。"""
+    rows = []
+    for b in range(bins):
+        lo, hi = b / bins, (b + 1) / bins
+        m = (p >= lo) & ((p < hi) if b < bins - 1 else (p <= 1.0))
+        if m.sum():
+            rows.append({"bin_lo": round(lo, 3), "bin_hi": round(hi, 3),
+                         "n": int(m.sum()), "mean_p": round(float(p[m].mean()), 3),
+                         "obs_pos_rate": round(float(y[m].mean()), 3)})
+    return rows
 
 
 def spearman(a, b):

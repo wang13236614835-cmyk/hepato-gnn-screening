@@ -1,0 +1,58 @@
+{
+ "mode": "revision1_frozen_docking_rerun",
+ "scientific_validation": "not_granted_by_this_run",
+ "wetlab_ready": false,
+ "base_run": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905",
+ "revision_note": "核心期刊审查20260905大修批1: 项34三榜/35稳定性/37口径/39纳排流/46图轴/47分箱/17指标",
+ "inherited_evidence": {
+  "results/tables/docking_real_scores.csv": {
+   "sha256": "1d6017f0e583655e6fd16a4811f7857d551f4e231e643d51025e5254d3fd411d",
+   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\docking_real_scores.csv"
+  },
+  "results/tables/prefilter_report.csv": {
+   "sha256": "792bcce4ecf0b8bb6af6fd711a2f24ea7e0e06e19ae26957acb4787894cca790",
+   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\prefilter_report.csv"
+  },
+  "docking/redock_gate.json": {
+   "sha256": "eafa8dbf02709e31279cdd223e1ebb09725b11f0ed8be7ac365c96b1f62cead0",
+   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\redock_gate.json"
+  },
+  "docking/boxes.json": {
+   "sha256": "37dfe0defb0917bb570db3f859a206777e0c3fb341999917b3af9626e102447b",
+   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\final-aidd-screening\\docking\\boxes.json"
+  }
+ },
+ "registry_sha256": "4ef23d6c68f365590058908021d5ebefbc4cadad8b646e82ff95a177e2dbbaa3",
+ "argv": [
+  "--source",
+  "../results/validation/fxr_single_target_diagnostic_20260905",
+  "--output",
+  "../results/validation/fxr_revision1_20260905"
+ ],
+ "status": "completed",
+ "rerun_steps": [
+  "s3_model (指标补强)",
+  "s5_fuse_select (三榜+稳定性)",
+  "s6_report (口径修复)"
+ ],
+ "frozen_steps": [
+  "s1_target_profile",
+  "s2_prep_redock",
+  "s4_dock (对接证据继承,见 inherited_evidence)"
+ ],
+ "source_sha256": {
+  "src/batch_docking.py": "392c692c50c5015a2536f3dec6a4c12b97939116109437a334eb63a01f02a1c5",
+  "src/common.py": "5380dfbc1a162a97ad19deb7569047664007cd473df4af69daa1fb2576556a7c",
+  "src/provenance.py": "630bdc93fc331ec2ae2b747bf32e37cd1942f53cf3ebbf344bc9c0b8d6ea55b7",
+  "src/redock.py": "a8c08d98fdce977bf282ab78d86aaccc5d0d5317f99701b99e237671c5f3c1be",
+  "src/s1_target_profile.py": "29c342918e15b0da85d30c1b2ed1f0f04535f3fc73bf12986c44b7df5dee484a",
+  "src/s2_prep_redock.py": "6de37037eafafe90d29ba9a91575d7cd4c8146ea1b99bab102ea326a364aa911",
+  "src/s3_model.py": "855595b245d9611910d665a43e719061e1eeafe446993c8e3d1c5293f9d2c37d",
+  "src/s4_dock.py": "04008714aecb5b1566bcc06e7f72c9a6bc528d08421b5d9c8ec10feaaf3ded7d",
+  "src/s5_fuse_select.py": "adb72460b9ae3e4d8c8a42e19bcc3620fcc002dee8e706c42e09bce6e789bf10",
+  "src/s6_report.py": "4511cd39cea54540caf09fbd46a7c63ef313e60793c9c3c02fe71f5d7eca2265",
+  "run_revision1.py": "c903709b4bdd667aef7c044c4d90b156274a1567405be77772ea331807c91434"
+ },
+ "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+ "generated_at": "2026-09-05T11:08:52.162497+00:00"
+}

@@ -1,0 +1,6 @@
+rank,compound_id,name_cn,category,source_herb,role,legacy_label,model_split,board,pubchem_cid,data_mode,murcko_scaffold,pred_mean,pred_var,confidence,dock_avg_kcal,lipinski_violations,pains_alert,ad_warning,final_score,cluster
+10,NV-009,松脂素,木脂素类,连翘/杜仲,candidate,,screening_pool,unlabeled_screening,73399,proposed,c1ccc(C2OCC3C(c4ccccc4)OCC23)cc1,0.9313,0.0025,0.799,-8.65,0,,,0.841,2
+32,NV-006,去氢松香酸,二萜类,松香/络石藤,candidate,,screening_pool,unlabeled_screening,94391,proposed,c1ccc2c(c1)CCC1CCCCC21,0.3408,0.024,0.38,-8.98,0,,,0.6251,20
+38,NV-008,戈米辛A,木脂素类,五味子,candidate,,screening_pool,unlabeled_screening,15608605,proposed,c1ccc2c(c1)CCCCc1cc3c(cc1-2)OCO3,0.8483,0.0144,0.52,-5.48,0,,,0.533,3
+43,NV-012,灵芝酸A,三萜类,灵芝,candidate,,screening_pool,unlabeled_screening,73554535,proposed,O=C1CCC2C3=C(CCC2C1)C1CCCC1CC3=O,0.8983,0.0059,0.691,-6.52,1,,域外,0.5035,19
+50,NV-002,马斯里酸,三萜类,橄榄叶/山楂,candidate,,screening_pool,unlabeled_screening,73659,proposed,C1=C2C3CCCCC3CCC2C2CCC3CCCCC3C2C1,0.7742,0.0185,0.456,-7.33,1,,域外,0.4794,0
