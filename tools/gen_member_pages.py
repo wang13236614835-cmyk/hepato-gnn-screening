@@ -10,14 +10,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TPL = ROOT / "王启龙" / "打卡_王启龙.html"
-# GNN 只做暑假收尾：两周、两张核验卡。原版页面框架仍保留，后续学期工作转入 AIDD。
-D = ["08/24–08/30（暑假收尾第1周）", "08/31–09/06（暑假收尾第2周）"]
+D = ["09/07–09/13","09/14–09/20","09/21–09/27","09/28–10/04","10/05–10/11","10/12–10/18",
+     "10/19–10/25","10/26–11/01","11/02–11/08","11/09–11/15","11/16–11/22","11/23–11/29",
+     "11/30–12/06","12/07–12/13","12/14–12/20","12/21–12/27"]
 
 def js(x): return json.dumps(x, ensure_ascii=False, separators=(",", ":"))
 def C(task,cmd,exp,src,cri,ver): return dict(task=task,cmd=cmd,expected=exp,source=src,criteria=cri,verifier=ver)
 def W(no,stage,theme,learn,card,tasks,checks,coord):
     theme = re.sub(r"^第\d+周：", "", theme)  # 卡片标题已含"第 N 周"，去掉重复前缀
-    return dict(no=no,dates=D[no-1] if no <= len(D) else f"第{no}周（历史学期草稿）",stage=stage,theme=theme,learn=learn,card=card,tasks=tasks,checks=checks,coord=coord)
+    return dict(no=no,dates=D[no-1],stage=stage,theme=theme,learn=learn,card=card,tasks=tasks,checks=checks,coord=coord)
 
 MEMBERS=[]
 
@@ -776,103 +777,8 @@ for m in MEMBERS:
     if not any(r[1] == 0 for r in m["res"]):
         m["res"] = CATCHUP + m["res"]
 
-# GNN 只做暑假收尾：两周、两张核验卡。零基础成员不再承担完整学期迁移任务；
-# 完整 MASH 研究排期转入 AIDD 主库。
-for m in MEMBERS:
-    m["weeks"] = [w for w in m["weeks"] if w["no"] <= 2]
-    m["manuals"] = [x for x in m["manuals"] if x[1] <= 2]
-    m["ms"] = [x for x in m["ms"] if x[1] <= 2]
-    m["res"] = [x for x in m["res"] if x[1] <= 2 or x[1] == 0]
-    role = m["name"]
-    for w in m["weeks"]:
-        if w["no"] == 1:
-            w.update(stage="暑假收尾 W1 · 先看懂再核对", theme="W1：仓库、研究边界与 MOOC 核心单元",
-                     learn=["MOOC M01–M04：研究边界、靶点/结构、化合物身份、模型与划分", "实际观看后写3条复述＋1道教回题＋对应研究文件"],
-                     card=C("完成本人分工的基础核验，并提交一张证据卡：对象、命令、实际结果、限制、下一步",
-                            f"python tools/verify_research.py；python tools/semester_flow.py --member {role} check 1",
-                            "证据卡完整；软件结果如实记录；旧结论不被写成当前结论",
-                            "docs/REPO_SCOPE.md；learning/共享/复旦AIDD课程_学习任务.md M01–M04",
-                            "没有实际视频记录、命令输出或文件出处就不勾选", role),
-                     tasks=[[f"{m['name'][0]}1-A1", "MOOC M01–M04 学习卡＋教回题"], [f"{m['name'][0]}1-A2", "本人分工证据卡提交"]],
-                     checks=[{"id":f"{m['name'][0]}-C1-01", "desc":"W1 证据卡与课程记录齐", "exp":"标题/分钟/复述/应用/复核齐", "src":"REPO_SCOPE + MOOC 学习卡"}],
-                     coord=["周中组内互查", "周末汇总未解决问题"])
-        else:
-            w.update(stage="暑假收尾 W2 · 交叉核验与交接", theme="W2：数据、结构、图表和结论边界闭环",
-                     learn=["MOOC M05–M08：对接/虚拟筛选、ADMET/校准、生成/逆合成、干湿闭环", "把课程概念写进本周核验：一张图或表必须能追溯到来源和版本"],
-                     card=C("完成交叉核验，修正图文不匹配，并把结果交接到 AIDD；论文落地和补湿实验只写条件，不提前放行",
-                            f"python tools/semester_flow.py --member {role} check 2",
-                            "问题清单、图表对照、交接记录和下一步条件齐全",
-                            "docs/audit/20260905/figure_text_alignment.md；learning/共享/复旦AIDD课程_学习任务.md M05–M08",
-                            "图表对不上、来源不清或门控未过时保留问题，不得改成通过", role),
-                     tasks=[[f"{m['name'][0]}2-A1", "MOOC M05–M08 学习卡＋应用反思"], [f"{m['name'][0]}2-A2", "交叉核验、问题单和 AIDD 交接"]],
-                     checks=[{"id":f"{m['name'][0]}-C2-01", "desc":"W2 交接包齐全", "exp":"图表/来源/限制/下一步齐", "src":"figure_text_alignment + AIDD 主库"}],
-                     coord=["周中交叉检查图片与数据表", "周末向王启龙汇总论文/湿实验评估条件"])
-
 # ================= 生成 =================
 tpl = TPL.read_text(encoding="utf-8")
-
-# 保留原来的页面结构、标签页、localStorage key 与导入/导出逻辑；只在页面顶部
-# 加当前复核口径，并把已被审计推翻的暑假数字改成历史标记。这样旧打卡记录仍能
-# 打开，成员看到的又不会把历史候选/指标误当成当前结论。
-REVIEW_BANNER = """
-<div id="current-review-banner" style="margin:16px auto 0;max-width:1080px;padding:12px 16px;border:1px solid #f2c46d;border-radius:10px;background:#fff8e8;color:#5b4300;font-size:13px;line-height:1.65">
-  <b>当前复核口径（2026-09-05）</b>：本页沿用原版打卡结构，GNN 库压缩为暑假收尾两周核验；AIDD 库才是 MASH 的完整干研究主线。旧 AUC、旧 Top-10、旧对接 RMSD 和旧湿实验安排均只作历史记录，不能当作已验证结论或实验放行条件。
-  <br>当前优先级：零基础成员先完成 W1/W2 的可复核证据和 M01–M08 MOOC 学习卡；当前没有湿实验材料，结尾按论文落地或补湿实验评估收束，不预设结题答辩。所有图片必须同时标注来源表、对象 ID、受体/配体、单位和版本，图文对不上就记问题。详见 <a href="https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/REPO_SCOPE.md" target="_blank">GNN 范围说明</a> 与 <a href="https://github.com/wang13236614835-cmyk/aidd/blob/main/00-%E5%BD%93%E5%89%8D%E7%A0%94%E7%A9%B6/REPO_SCOPE.md" target="_blank">AIDD 范围说明</a>。
-</div>
-"""
-
-def repair_historical_wording(text):
-    replacements = [
-        ("AUC 0.967", "旧 AUC 0.967（历史指标，待复核）"),
-        ("AUC≥0.967", "模型指标待复核"),
-        ("AUC≥0.95", "模型指标待复核"),
-        ("≥1000 条", "数量不预设，先完成来源、终点和结构审核"),
-        ("≥1000条", "数量不预设，先完成来源、终点和结构审核"),
-        ("HepG2+CCl4/APAP", "MASH 体系（待实验负责人确认；当前无材料）"),
-        ("HepG2 CCl4/APAP", "MASH 体系（待实验负责人确认；当前无材料）"),
-        ("RMSD全部<2Å", "旧 RMSD 仅作历史，当前需重新通过门控"),
-        ("FXR 0.74Å / Keap1 1.10Å", "旧门控数字已失效，当前独立复算需重新审核"),
-        ("FXR(1OSH+FEX) 0.74Å、Keap1(4IQK+IQK) 1.10Å", "旧门控数字已失效，当前独立复算需重新审核"),
-        ("通过 45 项；不符 0 项", "旧 45 项基线（历史，当前结果见 results/validation/software_checks.json）"),
-        ("45 项全过", "旧 45 项基线（历史，当前结果见 results/validation/software_checks.json）"),
-        ("45/45 通过", "旧 45/45 基线（历史，当前结果见 results/validation/software_checks.json）"),
-        ("看完就打勾", "记录实际视频标题、时长、闭卷回忆和研究应用后再提交"),
-        ("按 12章×16周 表看 MOOC 视频：先看第11章实战8步SOP与第6章分子对接/虚拟筛选，再推进其余章节；计划表见 learning/共享/复旦AIDD课程_学习任务.md（配套手写笔记仅课后速查用）",
-         "按 learning/共享/复旦AIDD课程_学习任务.md 的 M01–M08 学习卡提前推进：W1–W2 完成核心主题，W3 完成已开放视频与练习，W4 只做轻量补漏；每次记录标题、分钟、复述、教回题、研究应用和同伴复核"),
-        ("复旦 MOOC《人工智能药物设计》第 11 章实战 8 步 SOP＋第 6 章虚拟筛选五级漏斗",
-         "复旦 MOOC《人工智能药物设计》M01–M08 学习卡与研究应用闭环"),
-        ("const START = new Date(2026,8,7);", "const START = new Date(2026,7,24);"),
-        ("开学周一 2026-09-07（0基月份：8=9月）", "暑假收尾第1周 2026-08-24（0基月份：7=8月）"),
-        ("const NWEEK = 16;", "const NWEEK = 2;"),
-        ("结题答辩", "论文落地或补湿实验评估"),
-        ("预答辩", "导师阶段审阅"),
-        ("2027 年 1 月结题答辩", "暑假收尾后论文落地/补湿实验评估"),
-        ("2027年1月结题答辩", "暑假收尾后论文落地/补湿实验评估"),
-        ("结题材料提交", "两周证据包提交"),
-        ("9/20 前＝人人复核暑假结果", "两周内＝人人完成暑假收尾核验"),
-        ("复核完才开工<b>真实版</b>：WP2 真实对接／WP3 数据扩充／WP4 模型升级／WP5 实验衔接——每周学习线就是给各自的活铺路的。",
-         "两周核验结束后，AIDD 再按证据门控决定论文落地或补湿实验评估；本库不直接放行真实版排名。"),
-        ("学期推进按本页", "暑假两周按本页"),
-        ("视频看完打勾", "完成学习卡并记录实际证据"),
-        ("全流程综合项目+答辩", "全流程综合项目+论文落地/补湿实验评估"),
-        ("W16 结题+展望", "W2 交接+论文/补湿实验评估条件"),
-        ("项目收尾与答辩", "项目收尾与成果审阅"),
-        ("学期结束段（结题/考试周）", "两周收尾后的后续评估段"),
-        ("怕答辩被问住", "怕老师追问证据链"),
-        ("结业项目与延伸计划", "两周证据包与后续评估条件"),
-    ]
-    for old, new in replacements:
-        text = text.replace(old, new)
-    # 旧学期卡片仍保留在源码中供追溯，但不能继续作为页面当前路线；
-    # 统一改成“导师阶段审阅/论文落地或补湿实验评估”的中性措辞，避免
-    # 页面出现与当前两周收尾口径冲突的“答辩/结题”提示。
-    text = text.replace("答辩", "导师阶段审阅")
-    text = text.replace("结题", "阶段收尾")
-    text = text.replace("第11章实战8步SOP", "M05–M08 对接与干湿衔接")
-    text = text.replace("第6章分子对接/虚拟筛选", "M05 对接与虚拟筛选")
-    text = text.replace("第 11 周", "W2")
-    text = text.replace("第 10 周", "W2")
-    return text
 
 # ---- 我的工作台（与 docs/VERIFY_TASKS.md 同源：任务§2 / 文件附录A） ----
 GH = "https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main"
@@ -986,52 +892,9 @@ MYWORKS = {
   "2.5", ["literature/01_classic_evidence.md（文献主表）", f"{GH}/literature/01_classic_evidence.md"]),
 }
 
-COMPACT_MYWORK = {
-    "王启龙": ("暑假收尾统筹：带全员完成两周核验、汇总问题、形成给老师的干研究状态包", [["Q1", "W1：仓库/环境/研究边界复核", "5人结果收齐，旧结论全部标成历史"], ["Q2", "W2：审计报告与下一步包", "问题清单、责任人、AIDD交接和论文/湿实验评估条件齐"]]),
-    "宁显泷": ("代码线：用最少命令复核解析器、梯度修复、确定性和运行入口", [["N1", "W1：环境与核心代码核验", "verify_research.py 运行结果如实记录"], ["N2", "W2：独立复算与限制", "记录软件通过项与科学未通过项，不发布新模型结论"]]),
-    "衣思淼": ("数据线：核对身份、来源、标签和图表对应关系", [["Y1", "W1：结构与标签抽查", "CID/SMILES/分子式/立体化学差异清单"], ["Y2", "W2：可用数据子集建议", "明确哪些只能诊断、哪些暂不能进入 MASH 模型"]]),
-    "代维斯丹": ("验证线：核对 CCD 身份、对接门控和图片/表格一致性", [["D1", "W1：结构与旧图表一一对应", "每张图标明来源表、受体、配体和版本"], ["D2", "W2：独立 redock 诊断", "FXR/KEAP1 逐靶点报告，失败靶点不放行"]]),
-    "王散曼": ("文献线：把一般保肝证据与 MASH 证据分开", [["S1", "W1：MASH 终点和证据边界", "DC-030 等反例进入文献台账"], ["S2", "W2：老师可读的证据矩阵", "论文落地与补湿实验各自需要的证据列清楚"]]),
-}
-MYWORKS["王启龙"] = {
-    "fullname":"王启龙", "roleTag":"负责人 · 暑假收尾", "lineTag":"两周总协调与 AIDD 交接", "fileCount":2,
-    "deadline":"暑假收尾两周内", "duty":"带全员完成两周核验、汇总问题、形成给老师的干研究状态包",
-    "tasks":[], "files":[], "ops":[], "ghlinks":[],
-    "team":[["王启龙","负责人·暑假收尾","王启龙/打卡_王启龙.html"],["宁显泷","代码核验","宁显泷/打卡_宁显泷.html"],["衣思淼","数据核验","衣思淼/打卡_衣思淼.html"],["代维斯丹","结构验证","代维斯丹/打卡_代维斯丹.html"],["王散曼","文献边界","王散曼/打卡_王散曼.html"]]
-}
-for name, (duty, tasks) in COMPACT_MYWORK.items():
-    MYWORKS[name]["fileCount"] = 2
-    MYWORKS[name]["deadline"] = "暑假收尾两周内"
-    MYWORKS[name]["duty"] = duty
-    MYWORKS[name]["tasks"] = tasks
-    MYWORKS[name]["files"] = [["两周证据包", [["docs/REPO_SCOPE.md", "边界和缺口"], ["results/validation/software_checks.json", "软件结果"], ["docs/audit/", "审计证据"]]]]
-
 def swap_block(text, start_marker, next_marker, new_body):
     i = text.index(start_marker); j = text.index(next_marker, i)
     return text[:i] + start_marker + "\n" + new_body + "\n" + text[j:]
-
-# 负责人页也是原版模板，先把模板本身压成同一套两周卡片，再生成其他成员页。
-LEADER_WEEKS = [
-    W(1, "暑假收尾 W1", "W1：仓库、研究边界与 MOOC 核心单元",
-      ["MOOC M01–M04：研究边界、靶点/结构、化合物身份、模型与划分", "收齐五人实际观看记录和基础证据卡"],
-      C("组织五人完成环境/范围/证据卡核验，旧结论统一标历史", "python tools/verify_research.py", "9项软件检查如实记录；科学有效性仍不授予", "docs/REPO_SCOPE.md；MOOC M01–M04", "缺输出或缺出处不勾选", "全员互查"),
-      [["Q1-A1", "五人 MOOC M01–M04 记录齐"], ["Q1-A2", "基础证据卡收齐"]],
-      [{"id":"Q-C1-01", "desc":"W1 基础证据卡齐", "exp":"5人记录齐", "src":"REPO_SCOPE + MOOC"}], ["周中分派", "周末汇总"]),
-    W(2, "暑假收尾 W2", "W2：数据、结构、图表和结论边界闭环",
-      ["MOOC M05–M08：对接/虚拟筛选、ADMET/校准、生成/逆合成、干湿闭环", "完成图片、表格、来源、版本的逐项对应"],
-      C("组织交叉核验和 AIDD 交接，论文落地/补湿实验只形成条件清单", "python tools/semester_flow.py check 2", "问题单、图表对照、责任人和下一步条件齐", "docs/audit/20260905/figure_text_alignment.md；AIDD REPO_SCOPE", "失败门控保留失败，不改写为通过", "全员互查"),
-      [["Q2-A1", "五人 MOOC M05–M08 应用反思齐"], ["Q2-A2", "两周审计与 AIDD 交接包"]],
-      [{"id":"Q-C2-01", "desc":"W2 交接包齐", "exp":"问题单/图表/条件齐", "src":"figure_text_alignment + AIDD"}], ["周中图表对照", "周末提交老师审阅"]),
-]
-tpl = swap_block(tpl, "const WEEKS = [", "\n];\n\nconst MANUALS", js(LEADER_WEEKS)[1:-1])
-tpl = swap_block(tpl, "const MANUALS = [", "\n];\n\nconst MILESTONES", "")
-tpl = swap_block(tpl, "const MILESTONES = [", "\n];\n\n/* ---- 学习资源", js([{"id":"M1","week":1,"name":"W1 基础证据包","need":["Q-C1-01"]},{"id":"M2","week":2,"name":"W2 审计交接包","need":["Q-C2-01"]}])[1:-1])
-LEADER_RES = [
-    {"id":"R-M01","wk":1,"name":"复旦 MOOC M01–M04","what":"研究边界、靶点/结构、身份、模型与划分；记录标题/分钟/复述/教回题/应用"},
-    {"id":"R-M02","wk":2,"name":"复旦 MOOC M05–M08","what":"对接、ADMET/校准、生成/逆合成、干湿闭环；完成应用反思"},
-]
-tpl = swap_block(tpl, "const RES=[", "\n];\n\n/* ---- 网站、论文和名词解释", js(LEADER_RES)[1:-1])
-tpl = swap_block(tpl, "const MYWORK = {", "\n};\n\n\nconst WEEKS", js(MYWORKS["王启龙"])[1:-1])
 
 for m in MEMBERS:
     manuals = [dict(id=a, week=wk, text=b, dead=c) for a, wk, b, c in
@@ -1052,21 +915,12 @@ for m in MEMBERS:
     out = out.replace("learning/王启龙/", f'learning/{m["name"]}/')
     out = out.replace("python tools/semester_flow.py ", f'python tools/semester_flow.py --member {m["name"]} ')
     out = out.replace("👥 负责人统筹", "👥 组内安排")
-    out = repair_historical_wording(out)
     out = swap_block(out, "const WEEKS = [", "\n];\n\nconst MANUALS", js(m["weeks"])[1:-1])
     out = swap_block(out, "const MANUALS = [", "\n];\n\nconst MILESTONES", js(manuals)[1:-1])
     out = swap_block(out, "const MILESTONES = [", "\n];\n\n/* ---- 学习资源", js(ms)[1:-1])
     out = swap_block(out, "const RES=[", "\n];\n\n/* ---- 网站、论文和名词解释", js(res_items)[1:-1])
     out = swap_block(out, "const MYWORK = {", "\n};\n\n\nconst WEEKS", js(MYWORKS[m["name"]])[1:-1])
-    out = repair_historical_wording(out)
-    if "id=\"current-review-banner\"" not in out:
-        out = out.replace('<main id="app"></main>', REVIEW_BANNER + '\n<main id="app"></main>', 1)
     dest = ROOT / m["name"] / f"打卡_{m['name']}.html"
     dest.write_text(out, encoding="utf-8")
     print("生成", str(dest).replace(str(ROOT)+"\\", "").replace("\\","/"), f'{len(out)//1024}K字符，{len(m["weeks"])}周，视频{len(res_items)}条')
-# 负责人页本身就是模板，也要做同样的口径修缮；否则模板会继续显示旧结论。
-leader = repair_historical_wording(tpl)
-if "id=\"current-review-banner\"" not in leader:
-    leader = leader.replace('<main id="app"></main>', REVIEW_BANNER + '\n<main id="app"></main>', 1)
-TPL.write_text(leader, encoding="utf-8")
 print("done")

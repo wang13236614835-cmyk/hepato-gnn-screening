@@ -79,17 +79,14 @@ def split():
   assert all(not(groups[i]&groups[j]) for i in range(3) for j in range(i))
  return '88 historical labels, canonical Murcko groups disjoint; not MASH labels.'
 def plan():
- p=json.loads((ROOT/'docs/project_plan.json').read_text(encoding='utf-8'));assert len(p['tasks'])==10 and len({t['id'] for t in p['tasks']})==10
- assert p['semester_start']=='2026-08-24' and len(p['weeks'])==2
- for t in p['tasks']:
-  assert datetime.date.fromisoformat(t['due']).weekday()==4
-  assert t['reviewer']!=t['member'] and (ROOT/t['artifact']).exists()
- assert {t['week'] for t in p['tasks']}=={1,2}
- assert max(c['week'] for c in p['course'])==2 and len(p['course'])==8
- for m in p['members']:
-  page=(ROOT/m['name']/f"打卡_{m['name']}.html").read_text(encoding='utf-8')
+ assert not (ROOT/'docs/project_plan.json').exists(),'two-week plan file must stay removed'
+ vt=(ROOT/'docs/VERIFY_TASKS.md').read_text(encoding='utf-8');assert '9/13' in vt and '9/20' in vt
+ for name in ['王启龙','宁显泷','衣思淼','代维斯丹','王散曼']:
+  page=(ROOT/name/f"打卡_{name}.html").read_text(encoding='utf-8')
+  assert '"no":1,"dates":"09/07–09/13"' in page,f'{name}: W1 must be 09/07–09/13'
+  assert '"no":16,"dates":"12/21–12/27"' in page,f'{name}: W16 must be 12/21–12/27'
   assert '__PLAN_JSON__' not in page and '__NAME_JSON__' not in page
- return '10 two-week evidence tasks, Friday deadlines, 8 course modules by W2, 5 pages.'
+ return '5 pages on 16-week calendar (W1=09/07–09/13, W16=12/21–12/27); VERIFY_TASKS deadlines present.'
 def syntax():
  paths=list((ROOT/'final-aidd-screening/src').glob('*.py'))+[ROOT/'final-aidd-screening/run_revised.py',ROOT/'tools/semester_flow.py',ROOT/'tools/gen_member_pages.py']
  for f in paths:ast.parse(f.read_text(encoding='utf-8-sig'))

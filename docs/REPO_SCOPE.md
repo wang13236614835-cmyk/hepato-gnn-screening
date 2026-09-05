@@ -16,8 +16,8 @@ GNN 库是暑假工作的收尾核验库，给组员使用。它负责：
 ## 现在已经有的
 
 - `tools/verify_research.py`：9 项软件/数据防回归检查；
-- `tools/semester_flow.py`：保留原命令接口、学习验证卡、成员状态和周报命令；当前入口压缩为暑假 W1/W2 两周，历史 W3–W16 只留在源码/归档供追溯；
-- `docs/project_plan.json`：当前为 10 个两周证据任务（每人 W1/W2 各 1 项），8 个 MOOC 模块在 W2 前完成；
+- `tools/semester_flow.py`：保留原命令接口、学习验证卡、成员状态和周报命令；入口为下学期 16 周计划（第 1 周 09/07–09/13 起，2026-09-05 曾被压缩为两周收尾、当日已回滚）；
+- 计划源：[PHASE_PLAN.md](PHASE_PLAN.md)、[VERIFY_TASKS.md](VERIFY_TASKS.md) 与各成员打卡页；MOOC 按复旦课程 12 章×16 周映射学习；
 - `docs/audit/20260905/figure_text_alignment.md`：四张结果图与来源表、对象 ID、单位、版本的对照台账；
 - 五个原版打卡页面：保留原标签页、原 `localStorage` key、确认勾选、日志、导入/导出；页面顶部增加当前复核口径；
 - GCN 重复 dropout 梯度、RDKit 描述符、实际 SMILES/骨架、未审数据阻断、缓存失效和对接门控修复；

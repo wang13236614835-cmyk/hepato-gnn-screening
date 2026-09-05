@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T07:46:18.621214+00:00",
+  "generated_at": "2026-09-05T08:14:20.688162+00:00",
   "software_passed": true,
   "scientific_validation": "not_granted",
   "wetlab_ready": false,
@@ -57,7 +57,7 @@
     {
       "name": "plan_and_pages",
       "passed": true,
-      "detail": "10 two-week evidence tasks, Friday deadlines, 8 course modules by W2, 5 pages."
+      "detail": "5 pages on 16-week calendar (W1=09/07–09/13, W16=12/21–12/27); VERIFY_TASKS deadlines present."
     },
     {
       "name": "python_syntax",
