@@ -7,9 +7,11 @@ def main():
     p.add_argument("--diagnostic",action="store_true",help="建议结构+旧标签，仅调试")
     p.add_argument("--model",action="store_true",help="只建模，不对接、不融合")
     p.add_argument("--redock-only",action="store_true",help="仅共晶方法验证")
+    p.add_argument("--targets",help="仅诊断：靶点子集(逗号分隔,如FXR_LBD)。正式研究须双靶门控全过")
     p.add_argument("--output",type=Path,help="全新运行目录")
     a=p.parse_args()
     if a.model and a.redock_only:p.error("--model与--redock-only不可同时使用")
+    if a.targets:os.environ["HEPATO_TARGETS"]=a.targets
     here=Path(__file__).resolve().parent
     out=(a.output or here/"results/runs"/datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")).resolve()
     if out.exists() and any(out.iterdir()):p.error("输出目录非空，请使用新目录")

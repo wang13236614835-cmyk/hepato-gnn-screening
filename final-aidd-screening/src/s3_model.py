@@ -178,6 +178,23 @@ def fit_temperature(z_val, y_val):
     return best_T if (ece_before - ece_after) >= 0.02 else 1.0
 
 
+def auc_bootstrap_ci(y, p, n_boot=3000, seed=SEED):
+    """分层有放回自助法AUC区间(固定预测重抽样；不含训练/划分/身份修订不确定性)。"""
+    rng = np.random.default_rng(seed)
+    y = np.asarray(y); p = np.asarray(p)
+    pos, neg = np.where(y == 1)[0], np.where(y == 0)[0]
+    vals = []
+    for _ in range(n_boot):
+        idx = np.concatenate([rng.choice(pos, len(pos)), rng.choice(neg, len(neg))])
+        v = auc(y[idx], p[idx])
+        if np.isfinite(v):
+            vals.append(v)
+    if not vals:
+        return None, 0
+    lo, hi = np.percentile(vals, [2.5, 97.5])
+    return (round(float(lo), 3), round(float(hi), 3)), len(vals)
+
+
 def run():
     os.makedirs(os.path.join(RES, "metrics"), exist_ok=True)
     os.makedirs(os.path.join(RES, "predictions"), exist_ok=True)
@@ -226,6 +243,7 @@ def run():
     gnn = GCN(seed=SEED).fit(train, ytr, epochs=300, w_pos=wp)
     pm, pv = gnn.predict_mc(test, T=30)
     m_gnn = metrics(yte, pm); m_gnn["ECE"] = ece(yte, pm)
+    ci95, n_eff = auc_bootstrap_ci(yte, pm)
     rho = spearman(pv, np.abs(yte - pm))
 
     # ---- 温度校准(验证集拟合 T, 测试集只报指标) ----
@@ -269,7 +287,9 @@ def run():
         "w_pos": wp, "temperature": T_best, "seed": SEED, "data_mode": os.environ.get("HEPATO_DATA_MODE", "reviewed"),
         "baselines": {"ECFP+RF": m_rf, "Desc+LR": m_lr},
         "gnn": {**m_gnn, "ECE_before_cal": m_gnn["ECE"], "ECE_after_cal": ece_cal,
-                "spearman_var_err": round(rho, 3)},
+                "spearman_var_err": round(rho, 3),
+                "AUC_95CI_stratified_bootstrap": list(ci95) if ci95 else None,
+                "AUC_95CI_note": "固定预测重抽样3000次；不含训练/划分/身份修订不确定性"},
         "ad_h_star": round(h_star, 3),
         "ad_pool_out": sum(1 for v in ad["pool"].values() if not v),
         "splits": {k: {"n": v[0], "pos": v[1]} for k, v in

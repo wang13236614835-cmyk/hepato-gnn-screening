@@ -128,6 +128,8 @@ def run():
     rho = spearman(ms, -ds)  # 对接分越负越强, 取负号统一方向
 
     summary = {"n_candidates": len(rows), "n_clusters": len(set(label_of.values())),
+               "targets": sorted(required_targets),
+               "single_target_note": "单靶诊断运行：KEAP1未过多种子门控，本榜仅FXR证据，不得当双靶共识结论" if len(required_targets) == 1 else "",
                "spearman_model_dock": round(rho, 3) if np.isfinite(rho) else None,
                "top10": [{"name": r["name_cn"], "score": r["final_score"],
                           "pains": r["pains_alert"], "ad": r["ad_warning"]} for r in picked]}

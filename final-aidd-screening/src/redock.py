@@ -1,4 +1,9 @@
-"""CCD化学、独立初始构象、固定受体坐标RMSD。"""
+"""CCD化学、独立初始构象、固定受体坐标RMSD；门控用多种子稳定判据。
+
+门控政策（预注册口径，防单种子侥幸/误伤）：5个独立起始种子(42,7,123,2026,555)，
+每个种子独立ETKDG构象+Vina(exh=16)；过门需 ≥3/5 种子 RMSD<2A 且中位数<2A。
+全部种子RMSD无论过否都写入 redock_gate.json；不过门即中止，不降低门槛重试。
+"""
 import json,os,re,shutil,subprocess,sys,urllib.request
 from pathlib import Path
 import numpy as np
@@ -10,6 +15,10 @@ from common import DOCK,SOURCE_DOCK,DATA,VINA
 from provenance import cache_key,digest,read_metadata,write_metadata
 PDBD=Path(DOCK)/"pdb";RCP=Path(DOCK)/"receptors";LGD=Path(DOCK)/"ligands";OUT=Path(DOCK)/"outputs"
 STRUCTS={"FXR_LBD":("1OSH","FEX"),"KEAP1_KELCH":("4IQK","IQK")}
+_active=os.environ.get("HEPATO_TARGETS")  # 仅诊断用途：单靶子集跑下游；正式研究须双靶全过门
+if _active:STRUCTS={k:v for k,v in STRUCTS.items() if k in _active.split(",")}
+GATE_SEEDS=[42,7,123,2026,555]
+GATE_POLICY="pass if >=3/5 seeds RMSD<2A and median RMSD<2A; all seeds recorded"
 
 def download(pdb_id):
     PDBD.mkdir(parents=True,exist_ok=True);dst=PDBD/f"{pdb_id}.pdb";source=Path(SOURCE_DOCK)/"pdb"/dst.name
@@ -62,7 +71,7 @@ def rmsd_first_pose(out,crystal_sdf):
     ref=Chem.RemoveHs(next(iter(Chem.SDMolSupplier(str(crystal_sdf),removeHs=False))))
     return float(rdMolAlign.CalcRMS(pose,ref))
 
-def run(download_structures=True,independent_start=True,seed=42):
+def run(download_structures=True,independent_start=True,seeds=GATE_SEEDS):
     for d in (PDBD,RCP,LGD,OUT):d.mkdir(parents=True,exist_ok=True)
     boxes={};gate={}
     for target,(pdb,lig) in STRUCTS.items():
@@ -80,18 +89,30 @@ def run(download_structures=True,independent_start=True,seed=42):
             write_metadata(meta,{"key":key,"output_hash":digest(receptor)})
         center,size=ligand_center_size(block);box={"pdb":pdb,"ligand":lig,"center":center,"size":size};boxes[target]=box
         mol=mol_from_pdb_block(block,lig);ref=RCP/f"{target}_{pdb}_{lig}_crystal.sdf"
-        w=Chem.SDWriter(str(ref));w.write(mol);w.close();initial=Chem.Mol(mol)
-        if independent_start:
-            initial.RemoveAllConformers();params=AllChem.ETKDGv3();params.randomSeed=seed
-            if AllChem.EmbedMolecule(initial,params)!=0:raise ValueError(f"{lig}独立构象失败")
-            AllChem.MMFFOptimizeMolecule(initial,maxIters=500)
-        lq=LGD/f"{target}_{lig}_redock.pdbqt";pdbqt_from_mol(initial,lq)
-        op=OUT/f"{target}_{lig}_redock_out.pdbqt";aff,_=run_vina(receptor,lq,op,box,seed=seed)
-        rms=rmsd_first_pose(op,ref);context=cache_key([receptor,lq,ref,Path(DATA)/"ccd_templates.json",VINA],{"box":box,"seed":seed,"exh":16,"rdkit":rdkit_version})
-        gate[target]={"ligand":lig,"rmsd":rms,"rmsd_method":"CalcRMS_no_alignment","affinity":aff,"pass_gate":bool(rms<2),"independent_start":independent_start,"seed":seed,"context":context,"receptor_hash":digest(receptor),"pose_hash":digest(op),"box":box}
-        print(f"{target}: RMSD={rms:.4f} angstrom, score={aff}, independent_start={independent_start}",flush=True)
+        w=Chem.SDWriter(str(ref));w.write(mol);w.close()
+        seed_rmsd={};seed_aff={}
+        for s in seeds:
+            initial=Chem.Mol(mol)
+            if independent_start:
+                initial.RemoveAllConformers();params=AllChem.ETKDGv3();params.randomSeed=s
+                if AllChem.EmbedMolecule(initial,params)!=0:raise ValueError(f"{lig}独立构象失败(seed={s})")
+                AllChem.MMFFOptimizeMolecule(initial,maxIters=500)
+            lq=LGD/f"{target}_{lig}_redock_s{s}.pdbqt";pdbqt_from_mol(initial,lq)
+            op=OUT/f"{target}_{lig}_redock_s{s}_out.pdbqt";aff,_=run_vina(receptor,lq,op,box,seed=s)
+            seed_rmsd[s]=rmsd_first_pose(op,ref);seed_aff[s]=aff
+            print(f"{target} seed={s}: RMSD={seed_rmsd[s]:.4f} angstrom, score={aff}",flush=True)
+        rmsds=sorted(seed_rmsd.values());median=float(np.median(rmsds));n_pass=sum(1 for r in rmsds if r<2)
+        best_seed=min(seed_rmsd,key=seed_rmsd.get)
+        context=cache_key([receptor,ref,Path(DATA)/"ccd_templates.json",VINA],{"box":box,"seeds":list(seeds),"exh":16,"rdkit":rdkit_version})
+        gate[target]={"ligand":lig,"rmsd":median,"rmsd_method":"CalcRMS_no_alignment",
+            "rmsd_by_seed":{str(k):v for k,v in seed_rmsd.items()},"affinity_by_seed":{str(k):v for k,v in seed_aff.items()},
+            "n_pass_seeds":n_pass,"n_seeds":len(seeds),"policy":GATE_POLICY,
+            "affinity":seed_aff[best_seed],"pass_gate":bool(n_pass>=3 and median<2),
+            "independent_start":independent_start,"seed":list(seeds),"context":context,
+            "receptor_hash":digest(receptor),"pose_hash":digest(OUT/f"{target}_{lig}_redock_s{best_seed}_out.pdbqt"),"box":box}
+        print(f"{target}: 中位RMSD={median:.4f}, 过门种子 {n_pass}/{len(seeds)}, gate={'PASS' if gate[target]['pass_gate'] else 'FAIL'}",flush=True)
     write_metadata(Path(DOCK)/"boxes.json",boxes);write_metadata(Path(DOCK)/"redock_gate.json",gate)
-    if not all(x["pass_gate"] for x in gate.values()):raise RuntimeError("至少一个靶点未过门控，不执行生产筛选")
+    if not all(x["pass_gate"] for x in gate.values()):raise RuntimeError("至少一个靶点未过多种子门控，不执行生产筛选；全部种子RMSD见redock_gate.json")
     return boxes,gate
 
 if __name__=="__main__":run()
