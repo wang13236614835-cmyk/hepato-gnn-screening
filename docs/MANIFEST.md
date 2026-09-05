@@ -179,3 +179,4 @@ md 与 待核文件/ 快照副本**不参与镜像**，它们是个人份而非�
 | docs/project_plan.json 删除 | 王启龙 | AI 当日新造的"两周计划源"，与 16 周计划冲突 | 文件不存在；计划源回到 PHASE_PLAN+打卡页 |
 | AI生成_两周收尾提案/ | 王启龙 | 原 learning/姓名/week0* 与 docs/summer_closeout/ 的 AI 生成文件移入 audit 留档，README 声明"非真实打卡" | 目录含 README；learning/姓名/ 下无 week0* 文件；docs/summer_closeout/ 不存在 |
 | 保留的审计补充 | 王启龙 | docs/audit/20260905/（审计证据）、docs/archive/20260904/（历史快照）、data/curation/、docs/PROJECT_STATUS.md、docs/REPO_SCOPE.md（已改回16周口径）、docs/WETLAB_READINESS.md、tools/verify_research.py、results/validation/software_checks.json、data/STATUS.md、learning/共享/GCN归一化与梯度核验.md | python tools/verify_research.py 软件检查可跑 |
+| 学期推进流五页 v9（去派活句+MOOC提前学版） | 王启龙 | ①负责人页任务 W1-A2 去掉点名派活表述（"宁查解析器、衣查数据、代查指纹、王查文献，我汇总"改为"收集各线结果、问题清单汇总登记"），semester_flow.py 同步；②学习资源 R-W0-01 开放开学前提前学；五页新增 MOOC 提前学 M01–M08 单元卡（R-W0-M01–M08，含教回题与"只勾看过不算"记录规则），配套学习任务文件第〇节 | 打开页：W1-A2 无点名句；资源页见 8 张 MOOC 提前学卡；五页 RES 数组合法、原有勾选 key 不变 |
