@@ -1,6 +1,10 @@
 # GNN 库范围与当前状态
 
-更新时间：2026-09-05。负责人：王启龙。
+> **2026-09-14 统一口径**：本库当前是 GNN 方法学习 + 历史模型复核 + 组员任务工作区；`gnn_enable_gate=closed`、`candidate_release=false`。正式科研状态以 AIDD 主库 `00-当前研究/qualification_v1/` 与 `asset_preservation_and_gnn_replan_v1/` 为准。旧 Top-10/旧 split/旧 docking 只作历史复盘。
+>
+> 入口：[RESEARCH_STATE.md](../RESEARCH_STATE.md) · [STATUS.json](../STATUS.json) · [GNN_RESEARCH_PLAN_v2.md](../GNN_RESEARCH_PLAN_v2.md) · [GNN仓库审计.md](../GNN仓库审计.md)
+
+更新时间：2026-09-14。负责人：王启龙。
 
 ## 这个库应该放什么
 

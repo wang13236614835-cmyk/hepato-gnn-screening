@@ -4,7 +4,7 @@
 负责人: 王启龙（工程支撑）
 阶段: (1)数据清洗 -> (2)骨架划分 -> (3)基准线 -> (4)GNN+MC Dropout
       -> (5)批量"对接" -> (6)适用域预警 -> (7)协同评分融合 -> (8)出图
-运行: python run_all.py
+运行: python run_all.py --legacy-demo（仅历史教学复现；默认入口只显示当前未放行状态）
 """
 import os
 import sys

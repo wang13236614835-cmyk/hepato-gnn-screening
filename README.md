@@ -1,53 +1,52 @@
-# 保肝中药成分虚拟筛选(GNN + 分子对接)
+# hepato-gnn-screening：GNN 方法学习与历史复核工作区
 
-**是什么**:用图神经网络(含不确定性量化)+ 分子对接,从中药成分中筛选保肝候选分子,产出可复现的候选排名总表。
+**当前角色（2026-09-14）**：GNN 方法学习 + 历史模型复核 + 组员任务工作区。AIDD 正式科研结论唯一入口是 `D:/zcode-workspace/aidd-repo-work`，Workbench 只读镜像主库状态。本仓库不产生第二套候选发布链。
 
-**怎么做**:
+> **重要状态**：GNN 当前为 `gated/closed`，不是当前正式主模型。它在 AIDD 主库冻结的 96 分子 FASN canonical assay 上首次同折 benchmark 未优于经典 baseline：Ridge R² 中位 0.732、XGB 0.594、RF 0.217、GCN 0.078、GINE −0.040。不要把旧 Top-10、黄芩苷居首、旧 docking 排名或旧 AUC 当作当前 MASH 候选结论。
+
+## 当前入口
+
+- [RESEARCH_STATE.md](RESEARCH_STATE.md)：本仓库状态；权威科研状态仍在 AIDD 主库 `00-当前研究/qualification_v1/RESEARCH_STATE.md`；
+- [STATUS.json](STATUS.json)：机器可读状态；
+- [GNN_RESEARCH_PLAN_v2.md](GNN_RESEARCH_PLAN_v2.md)：当前计划；
+- [GNN仓库审计.md](GNN仓库审计.md)：本轮定位裁决；
+- [GNN是否需要大改_裁决.md](GNN是否需要大改_裁决.md)：小修即可，不改仓库名；
+- [GNN数据与模型状态表.csv](GNN数据与模型状态表.csv)：旧代码/标签/split/结果的保留与资格状态；
+- AIDD 主库资产登记：`D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv`。
+
+## 现在做什么
+
+1. 维护可运行的 GNN/基线代码和学习材料；
+2. 复核历史数据、结构、split、日志和模型输出；
+3. 等待主库 FASN Gate T1（多 assay 对齐）后再决定是否开展下一轮严格 benchmark；
+4. 记录 GNN 的正负结果、UQ、split 和数据限制，不强行让 GNN 赢过 Ridge。
+
+## 现在不做什么
+
+- 不做 NP54 FASN 排名（天然产物对 canonical 域外）；
+- 不用旧 split 证明泛化；
+- 不把未知标签当阴性后发布模型；
+- 不把 docking score 用于候选或 selectivity 排序；
+- 不产生“正式 Top-10”或“已验证候选”。
+
+## 保留哪些历史内容
+
+`data/`、`src/`、`results/`、`final-aidd-screening/`、`reports/`、旧 split、旧标签、日志、预测和成员工作台全部保留。它们分别用于历史复现、错误分析、方法学习、软件核验和课程任务；具体状态见 `GNN数据与模型状态表.csv` 和 `docs/PROJECT_STATUS.md`。
+
+## 旧一键流程边界
 
 ```bash
-git clone https://github.com/wang13236614835-cmyk/hepato-gnn-screening.git
-cd hepato-gnn-screening
-python run_all.py        # 仅需 numpy,约 6 秒跑通全流程
+python run_all.py                 # 默认：只显示当前未放行状态，不改写历史结果
+python run_all.py --legacy-demo   # 可选：旧教学流程复现，会写入旧 results/，仅作历史复盘
 ```
 
-结果看 `results/`,解读看 `reports/`;成员任务:打开 `自己文件夹/工作台.md`。
+旧流程复现不代表当前科研验证通过，也不代表可生成候选发布榜。运行前应确认工作树和旧 results 已有备份；正式 FASN 资格结果以 AIDD 主库 qualification_v1 为准。
 
-## 目录分类(按用途三组)
+## 目录说明
 
-**① 数据流(全队公用,流水线工作原件)**
-
-| 目录 | 内容 |
-|---|---|
-| `data/` | 原始与清洗数据、训练/验证/测试划分 |
-| `src/` | 全部代码:图解析、GNN 模型、基线、对接、融合评分 |
-| **`final-aidd-screening/`** | **完整研究管线**：按复旦 AIDD 课程 8 步 SOP 组织——redock 门控(FXR 0.74Å/Keap1 1.10Å)、双基线+GNN、Lipinski/PAINS 预过滤、真实 Vina 对接(118/120 次)、三源共识排名、骨架多样性 Top-10；解读见其 `REPORT.md` |
-| `results/` | 产出:`docking/` 演示分(45项核验锚点)+ `docking/real/` 真实对接 144 次 · `rankings/` 排名表 · `figures/` `metrics/` `predictions/` `ad/` `logs/` |
-| `literature/` | 文献证据库(经典证据/新分子调研/机制溯源) |
-
-**② 项目管理**
-
-| 目录/文件 | 内容 |
-|---|---|
-| `docs/` | 总纲:`MANIFEST`(全文件清单)· `VERIFY_TASKS`(任务分派)· `PHASE_PLAN`(两阶段规划)· `VERIFY_MANUAL`(核验手册)· `minutes/` `personal/` |
-| `reports/` | 报告 + `pdf_all/` 全量 PDF 镜像 |
-| `phase2_semester/` | 下学期五个工作包(WP1–WP5) |
-| `tools/` | 学期推进等工程工具 |
-
-**③ 个人(每人一份,互不改动)**
-
-| 目录 | 内容 |
-|---|---|
-| `王启龙/` `宁显泷/` `衣思淼/` `代维斯丹/` `王散曼/` | 各含 `工作台.md`(我的任务)+ `打卡_姓名.html` + `待核文件/` |
-| `learning/` | 学习档案(按人)+ `共享/` 共享资源(复旦 AIDD 课程学习任务+手写笔记 PDF) |
-
-根目录另有 `run_all.py`(一键复现)与 `requirements.txt`(依赖声明)。
-
-## 当前在哪一步
-
-**全线流程与当前进度**(打卡页「🔬 全线流程」标签页同步):
-
-- ✅ 完整研究管线已就绪:双靶 redock 门控(FXR 0.74Å/Keap1 1.10Å) + 118 次真实对接 + 三源共识排名(黄芩苷居首) + 多样性 Top-10,见 [final-aidd-screening/REPORT.md](final-aidd-screening/REPORT.md);
-- 🔄 进行中:9/20 前人人复核暑假结果(45 项锚点)、服务器复现对账、PyMOL 目检;
-- ⏳ 待办:数据扩充 ≥1000 条、模型迁移 PyG+校准、Top-10 文献专查与体外衔接。
-
-**逐文件核验锚点与状态**:[docs/全线研究流程与暑假文件验证对照.md](docs/全线研究流程与暑假文件验证对照.md)。
+- `data/`：历史原始/处理数据、旧 split、结构修订输入；
+- `src/`：图解析、旧 numpy GCN、基线、对接和工程代码；
+- `results/`：历史预测、排名、对接和日志；
+- `final-aidd-screening/`：历史课程 SOP/完整管线复盘；
+- `docs/`：任务、核验、历史状态和人工审核规则；
+- `王启龙/` 等：组员工作台，不代替科研资格签核。

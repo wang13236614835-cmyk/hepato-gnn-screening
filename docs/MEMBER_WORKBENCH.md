@@ -50,7 +50,7 @@
   N3 `verify.py` 45 项全过（旧库口径·F11）；N4 解析器 5 用例；N5 超参（p_drop=0.3/T=30/epoch=300）
   代码与文档互查；N6 融合公式（0.45/0.35/0.20、域外×0.9）核对。
 - **是什么**：证明"代码跑得对、结果可复现"的第一责任人。
-- **怎么操作**：`python run_all.py`；`python reports/pdf_build/verify.py`；
+- **怎么操作**：`python run_all.py --legacy-demo`（仅历史教学复现；默认入口不运行旧流程）；`python reports/pdf_build/verify.py`（旧工作库口径）；
   按 VERIFY_MANUAL §2–§3.1 逐条执行；输出存 `results/logs/`。
 - **名下文件（12 个，附录A·A1）**：run_all.py、smiles_graph.py、gnn.py、
   dataset.py、baseline.py（代维斯丹复核）、fuse.py（衣思淼复核）、

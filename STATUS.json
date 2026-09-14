@@ -1,0 +1,38 @@
+{
+  "project_stage": "pipeline_revalidation",
+  "repository_role": "gnn_method_learning_historical_review_member_workspace",
+  "repository_name_change": "not_proposed_this_round",
+  "candidate_release": false,
+  "gnn_enable_gate": "closed",
+  "gnn_activity": "gated",
+  "fasn": {
+    "canonical_model": "qualified_local",
+    "external_generalization": "failed_or_limited",
+    "gate_t1": "pending",
+    "current_benchmark": "GCN median R2 0.078; GINE median R2 -0.040; Ridge median R2 0.732",
+    "np54_fasn_ranking": "blocked_ood"
+  },
+  "thrb": {
+    "old_2j4a": "historical_mutant",
+    "wt_docking_ranking": "rejected"
+  },
+  "fxr": {
+    "status": "evidence_anchor",
+    "internal_model": "historical_internal_scaffold_reference",
+    "external_validation": "not_claimed"
+  },
+  "moracin_n": {
+    "status": "experimental_start_qualified",
+    "biological_validation": "not_executed"
+  },
+  "assets": {
+    "old_numpy_gcn": "verified_code_historical_method",
+    "old_labels": "rejected_label",
+    "old_splits": "historical_split_invalid_for_generalization",
+    "structure_curation": "needs_human_check",
+    "old_rankings": "historical"
+  },
+  "authority": "D:/zcode-workspace/aidd-repo-work/00-当前研究/qualification_v1/RESEARCH_STATE.md",
+  "preservation_registry": "D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv",
+  "updated": "2026-09-14"
+}

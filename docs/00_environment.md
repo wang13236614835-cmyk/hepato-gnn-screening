@@ -16,7 +16,7 @@
 
 ```bash
 pip install -r requirements.txt
-python run_all.py     # 全流程约 6 秒
+python run_all.py --legacy-demo     # 仅历史教学复现；默认入口不会运行旧流程
 ```
 
 零 RDKit / 零 PyTorch 设计说明：SMILES 解析、描述符、指纹、GNN 全部为
@@ -40,4 +40,4 @@ GPU：CUDA 12.x；CPU 也能跑（数据量 <10k 时差异不大）。
   `encoding="utf-8-sig"`。
 - **matplotlib 图内中文变方框**：图内标签统一用英文；中文标题放报告里。
 - **复现性**：全部随机过程固定种子（训练 seed=7/42、划分 seed=42、
-  对接噪声按分子ID哈希），重跑 `run_all.py` 结果一致。
+  对接噪声按分子ID哈希），重跑 `run_all.py --legacy-demo` 结果一致（仅历史教学复现）。

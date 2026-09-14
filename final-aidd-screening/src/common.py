@@ -52,10 +52,14 @@ def apply_smiles_fix(rows):
     return rows
 
 
-def write_csv(path, rows):
+def write_csv(path, rows, fieldnames=None):
+    """写出 CSV；空结果也保留表头，避免空 board 破坏可复现流水线。"""
     os.makedirs(os.path.dirname(path), exist_ok=True)
+    rows = list(rows)
+    if fieldnames is None:
+        fieldnames = list(rows[0].keys()) if rows else []
     with open(path, "w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         w.writerows(rows)
 

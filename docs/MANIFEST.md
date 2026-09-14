@@ -18,7 +18,7 @@
 | CONTRIBUTORS.md | 暑假 | 王启龙 | 成员-模块映射 | 与 `git shortlog -sn HEAD`、各文件头"负责人"三方对照，无错配 |
 | requirements.txt | 暑假 | 王启龙 | 依赖声明（仅 numpy 必需） | 核对列出的版本与 docs/00_environment.md 一致 |
 | .gitignore | 暑假 | 王启龙 | 忽略缓存/venv/npy | 确认 results/*.csv 未被忽略（结果需入库） |
-| run_all.py | 暑假历史快照 | 王启龙 | 一键复现八阶段教学流水线 | 运行 `python run_all.py`，只核对对应历史版本输出和差异；不把旧数字当论文放行条件 |
+| run_all.py | 暑假历史快照 | 王启龙 | 历史八阶段教学流水线 | 运行 `python run_all.py --legacy-demo`，只核对对应历史版本输出和差异；默认 `python run_all.py` 只显示未放行状态；不把旧数字当论文放行条件 |
 
 ## 2. 数据层 data/
 

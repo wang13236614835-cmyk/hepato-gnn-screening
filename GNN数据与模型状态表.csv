@@ -1,0 +1,13 @@
+asset_id,relative_path,asset_type,qualification_status,current_role,can_enter_formal_training,reason,source_of_truth
+GNN01,src/models/gnn.py,model_code,VERIFIED,真实numpy GCN教学/方法实现,false,代码真实可运行但旧任务为分类且旧标签不合格,AIDD主库asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv
+GNN02,src/models/dataset.py,data_loader_code,REQUALIFY,旧数据加载与特征学习,false,未知元素回退碳槽位；需修正后再评估,AIDD主库同上
+GNN03,data/splits,split_bundle,HISTORICAL,旧实验复现参考,false,train/test实测共享Murcko scaffold；不能支持泛化,AIDD主库同上
+GNN04,data/curation,structure_curation,NEEDS_HUMAN_CHECK,组员逐条身份核验,false,52连接/43分子式/4立体化学差异；不能自动签名,docs/PROJECT_STATUS.md
+GNN05,data/processed,processed_dataset,HISTORICAL,旧分类任务输入,false,旧标签与MASH assay-level endpoint不一致,docs/PROJECT_STATUS.md
+GNN06,results/predictions,old_predictions,HISTORICAL,旧模型预测复现/误差分析,false,不进入当前候选或泛化结论,results/STATUS.md
+GNN07,results/rankings,old_rankings,HISTORICAL,旧Top-10/教学复盘,false,旧标签/旧流程/旧门控；不能作为当前候选榜,docs/PROJECT_STATUS.md
+GNN08,src/models/baseline.py,baseline_code,VERIFIED,经典baseline学习与历史复现,true,仅在新冻结数据和主库manifest下进入正式benchmark,AIDD主库qualification_v1
+GNN09,final-aidd-screening,integrated_pipeline,HISTORICAL,课程SOP/软件流程复盘,false,旧双靶/对接排名与当前主库状态不一致,docs/REPO_SCOPE.md
+GNN10,GNN_RESEARCH_PLAN_v2.md,research_plan,VERIFIED,当前规划入口,false,计划受AIDD主库Gates约束,本仓库+主库registry
+GNN11,RESEARCH_STATE.md,research_state,VERIFIED,本仓库状态入口,false,不替代AIDD主库权威状态,本仓库+主库RESEARCH_STATE
+GNN12,STATUS.json,state_json,VERIFIED,机器可读状态,false,candidate_release保持false,本仓库+主库研究状态.json

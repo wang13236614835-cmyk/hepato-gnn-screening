@@ -28,8 +28,10 @@ git shortlog -sn HEAD    # 预期5位作者：王启龙4 衣思淼3 宁显泷2 �
 ### 2.1 一键复现
 
 ```bash
-python run_all.py
+python run_all.py --legacy-demo
 ```
+
+> 这是历史教学快照复现，会写入旧 `results/`。默认 `python run_all.py` 只显示当前未通过有效性验收状态，不应被当作当前科学管线。
 
 预期控制台输出（关键行，数字必须逐字一致）：
 
