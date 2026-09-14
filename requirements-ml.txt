@@ -1,0 +1,7 @@
+# Optional ML/GNN layer.
+# Supported target: Python 3.10-3.12; Python 3.11 recommended.
+# Install PyTorch for your CPU/CUDA platform from the official PyTorch selector first,
+# then install this file. Do NOT hard-code CUDA wheels in the repository.
+
+-r requirements-science.txt
+torch-geometric>=2.5,<3
