@@ -163,7 +163,8 @@ team:[
  ["衣思淼","数据·数据线A（A3·14文件）","衣思淼/打卡_衣思淼.html"],
  ["代维斯丹","验证·数据线B（A4·18文件）","代维斯丹/打卡_代维斯丹.html"],
  ["王散曼","文献·文献线（A5·4文件）","王散曼/打卡_王散曼.html"]
-]
+],
+currentContext:{"stage":"pipeline revalidation（研究链重新核对）","week":"W2｜2026-09-14–09-20","why":"主库已经冻结研究状态；现在要收齐旧资产的保留/降级和人工核验，不能再用旧榜单推进。","first":"打开 AIDD 主库状态和本库 RESEARCH_STATE，确认 candidate_release=false、GNN gated，再检查资产登记和组员待核记录。","deliver":"提交状态/资产核验汇总：哪些已核、哪些待人工、哪些只是历史；不打新候选榜。","action":"先看主库 qualification_v1 与资产保留轮","action_url":"https://github.com/wang13236614835-cmyk/aidd/tree/main/00-%E5%BD%93%E5%89%8D%E7%A0%94%E7%A9%B6/qualification_v1","source":"AIDD 主库 qualification_v1/RESEARCH_STATE.md + 本库 RESEARCH_STATE.md"}
 };
 
 
@@ -309,6 +310,21 @@ function render(){
   bind();
 }
 
+/* ---- 当前正式研究链（AIDD 主库只读投影；旧暑假管线见下方折叠区） ---- */
+const RESEARCH_CHAIN={
+ updated:"2026-09-14", current:4,
+ steps:[
+  ["① 历史结果核验","旧 Top-10、旧 AUC、旧 docking 和旧双靶结果保留为历史复核，不代表当前科研结论。","docs/PROJECT_STATUS.md","已完成"],
+  ["② 数据/结构/终点审核","FASN canonical assay/provenance 已有资格资产；GNN 库结构注册表仍需人工核验。","00-当前研究/qualification_v1/RESEARCH_STATE.md","已完成·人工待核"],
+  ["③ 模型公平比较","Ridge/XGB/RF/GNN 已在同折 benchmark；当前 GNN 未证明优于经典 baseline。","00-当前研究/qualification_v1/GNN_clean_benchmark_report.md","已完成"],
+  ["④ 化学空间外推与泄漏审计","当前阶段：FASN Gate T1 待完成；外部泛化仍失败或受限。","00-当前研究/advancement_round_20260913/FASN_transferability_report.md","当前·受阻"],
+  ["⑤ UQ/校准/适用域/拒判","既有 AD/UQ 结果保留；外部校准不足，不能替代外推资格。","00-当前研究/qualification_v1/FASN_AD_UQ_report.md","待执行"],
+  ["⑥ CW-BCS 与天然产物应用","NP54 对 canonical 域外；不生成 FASN 天然产物排名。","00-当前研究/qualification_v1/NP54_FASN_domain_gap_report.md","待执行·受限"],
+  ["⑦ 独立复现与图表/数据对账","按 manifest、hash 和人工记录复核，不把软件通过当科学放行。","00-当前研究/qualification_v1/QC_report.md","待执行"],
+  ["⑧ 论文/审稿/投稿","投稿准备服从前置资格门；candidate_release=false。","00-当前研究/qualification_v1/RESEARCH_STATE.md","待执行·受门控"]
+ ]
+};
+
 /* ---- 全线研究流程与当前进度（final-aidd-screening，2026-09-04） ---- */
 const PIPELINE={
 updated:"2026-09-04",
@@ -334,64 +350,21 @@ progress:[
 ]};
 
 function vPipeline(){
-  const steps = PIPELINE.steps.map(s=>`<tr><td><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td><span class="cmd">${esc(s[2])}</span></td><td style="color:var(--brand2);font-weight:600;line-height:1.5">${esc(s[3])}</td></tr>`).join("");
-  const prog = PIPELINE.progress.map(p=>`<div class="item"><span class="tx"><b>${p[0]} ${esc(p[1])}</b>——${esc(p[2])}</span></div>`).join("");
-  return `
-  <div class="card" style="border-left:4px solid var(--brand)"><h2>🧭 当前研究路线（AIDD 主线 · FXR/GNN/CW-BCS）</h2>
-    <div class="kv">本库（GNN）负责暑假核验与学习打卡；AIDD 承载已立项的 FXR/GNN/CW-BCS 论文主线。总体目标：争取 2027 年 2 月达到投稿水准；湿实验为进度按时完成、质量优秀、创意新颖前提下的可选后续（锦上添花）。任务唯一入口：${linkPaths("docs/中文核心投稿任务入口.md")}。</div>
-    <table><tr><th>阶段</th><th>已有成果（可引用）</th><th>剩余验收</th></tr>
-      <tr><td><b>① 数据审核</b></td><td>结构解析/去重全过；审核模板就位</td><td>身份/活性/终点逐条人工审核（Y线、S线）</td></tr>
-      <tr><td><b>② 模型比较</b></td><td>教学管线 RF/LR/GNN 同表对照</td><td>同划分同预算基线比较＋协议冻结（N线）</td></tr>
-      <tr><td><b>③ 外推与校准验证</b></td><td>覆盖率 Wilson CI、误差分层、划分选择性已量化</td><td>封存外部集验证＋校准重建（N线）</td></tr>
-      <tr><td><b>④ CW-BCS 应用</b></td><td>方差降权融合框架可运行（探索性）</td><td>输入核验＋偏倚审查＋独立证据（Y线、Q线）</td></tr>
-      <tr><td><b>⑤ 复现与写作</b></td><td>运行清单/哈希留档流程可用</td><td>净环境独立复现＋逐图核验（D线）＋主稿（Q线）</td></tr>
-      <tr><td><b>⑥ 投稿</b></td><td>25 项任务表与个人卡已定</td><td>首投、返修与材料复核（Q05）</td></tr>
-    </table>
-    <div class="hint">分支说明：THRB/FASN/SCD1 独立扩展、KEAP1 教学对接等探索属分支工作，只在其所属位置标注，不排入本主线必做流程；分支结论不自动进入主稿。</div>
-  </div>
-  <div class="card"><h2>🔬 暑假教学管线：8步流程与当前核验状态</h2>
-    <div class="kv">流程标准＝复旦 MOOC《人工智能药物设计》第 11 章实战 8 步 SOP＋第 6 章虚拟筛选五级漏斗；下表数字均为仓库实测（${PIPELINE.updated}）。本表为暑假教学管线快照，数字仅在该运行ID/输入版本内有效；论文主线证据见上方研究路线卡。全文解读：${linkPaths("final-aidd-screening/REPORT.md")}</div>
-    <table><tr><th>步骤</th><th>内容·实测</th><th>代码/产物</th><th>状态</th></tr>${steps}</table>
-    <div class="hint">一键复现：<span class="cmd">python final-aidd-screening/run_all.py --model</span>（约 1 分钟，复用对接缓存）；全量重跑 <span class="cmd">python final-aidd-screening/run_all.py</span>。</div>
-  </div>
-  <div class="card"><h2>📍 当前进度（${PIPELINE.updated} 更新）</h2>${prog}
-    <div class="hint">逐文件核验锚点与状态明细：${linkPaths("docs/全线研究流程与暑假文件验证对照.md")}</div>
-  </div>`;
+  const stages=RESEARCH_CHAIN.steps.map((x,i)=>{ const status=i+1===RESEARCH_CHAIN.current?'当前阶段':x[3]; const cls=i+1===RESEARCH_CHAIN.current?'tag b':(x[3].includes('受阻')?'tag r':(x[3].includes('完成')?'tag g':'tag y')); return `<tr class="${i+1===RESEARCH_CHAIN.current?'now':''}"><td><b>${esc(x[0])}</b></td><td>${esc(x[1])}</td><td>${linkPaths(x[2])}</td><td><span class="${cls}">${esc(status)}</span></td></tr>`; }).join('');
+  const oldSteps=PIPELINE.steps.map(s=>`<tr><td><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td><span class="cmd">${esc(s[2])}</span></td><td>${esc(s[3])}</td></tr>`).join('');
+  const prog=PIPELINE.progress.map(p=>`<div class="item"><span class="tx"><b>${p[0]} ${esc(p[1])}</b>——${esc(p[2])}</span></div>`).join('');
+  return `<div class="card current-task" style="border-left:4px solid var(--brand)"><h2>🧭 当前正式研究链（${RESEARCH_CHAIN.updated}）</h2><div class="kv">AIDD 主库是唯一正式科研状态源；本库负责方法学习、历史模型复核和组员任务。当前阶段突出显示，工具不能反过来决定科研阶段。</div><table><tr><th>阶段</th><th>现在的含义</th><th>状态/证据入口</th><th>状态</th></tr>${stages}</table><div class="hint">当前阻塞：FASN Gate T1（多 assay 对齐）待完成；GNN enable gate=closed；candidate_release=false。先阅读主库状态并按成员当前任务提交人工复核记录。</div></div><details class="card history-fold"><summary>历史暑假教学管线（保留用于复现，不代表当前科研结论）</summary><div class="kv">旧 Top-10、旧 AUC、旧双靶和 docking 排名只可作历史复核，不能直接转为当前候选。</div><table><tr><th>旧步骤</th><th>历史内容</th><th>代码/产物</th><th>状态</th></tr>${oldSteps}</table><div class="hint">历史复现：<span class="cmd">python run_all.py --legacy-demo</span>；默认入口只显示未放行状态。</div></details><details class="card history-fold"><summary>历史进度与核验记录</summary><div class="kv">历史进度保留作错误分析和复现入口，不作为当前研究链完成度。</div>${prog}</details>`;
 }
 
 /* ---- 我的工作台 ---- */
 function vMyWork(){
-  const M = MYWORK;
-  const tasks = M.tasks.map(t=>`<tr><td><span class="id">${t[0]}</span></td><td>${esc(t[1])}</td><td>${linkPaths(t[2])}</td></tr>`).join("");
-  const files = M.files.map(g=>`<h3>${esc(g[0])}</h3><table>${g[1].map(r=>`<tr><td style="font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-size:12px;white-space:normal">${linkPaths(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>`).join("");
-  const ops = M.ops.map(o=>`<div class="item"><span class="tx"><b>${esc(o[0])}</b>——${linkPaths(o[1])}</span></div>`).join("");
-  const links = M.ghlinks.map(l=>`<div class="logline"><span class="t">${esc(l[0])}</span><a href="${l[1]}" target="_blank" rel="noopener">GitHub 上打开 ↗</a></div>`).join("");
-  const team = M.team.map(t=>`<tr><td><b>${t[0]}</b></td><td>${esc(t[1])}</td><td><a class="cmd" style="text-decoration:underline;cursor:pointer" href="../${esc(t[2])}" title="本地打开（克隆/下载仓库后）点这里直达 TA 的打卡页">${esc(t[2])}</a>｜<a href="${GHREPO}/blob/main/${t[2]}" target="_blank" rel="noopener">GitHub↗</a></td></tr>`).join("");
-  return `
-  <div class="card" style="border-left:4px solid var(--warn)"><h2>📍 项目坐标（先搞清现在在哪一步）</h2>
-    <div class="kv">① 暑假跑通的＝<b>演示版全流程</b>（演示对接分＋教学数据集＋numpy 版 GNN）——结果都在仓库，但还不是"真实版"。</div>
-    <div class="kv">② <b>9/20 前＝人人复核暑假结果</b>：照 ${linkPaths("docs/VERIFY_MANUAL.md")} 跑命令、对数字、在工作台签名——<b>不需要研究基础</b>，会照手册操作就行。</div>
-    <div class="kv">③ 复核完才开工<b>真实版</b>：WP2 真实对接／WP3 数据扩充／WP4 模型升级／WP5 实验衔接——每周学习线就是给各自的活铺路的。</div>
-  </div>
-  <div class="card" style="border-left:4px solid var(--brand2)">
-    <h2>🧭 ${esc(M.fullname)} 的工作台</h2>
-    <div class="kv" style="font-size:14px"><b>${esc(M.fullname)}</b> ｜ ${esc(M.roleTag)} ｜ <span class="tag g">${esc(M.lineTag)}</span> ｜ 名下待核文件 <b>${M.fileCount}</b> 个 ｜ 时限 <b>${esc(M.deadline)}</b></div>
-    <div class="exp">职责一句话：${esc(M.duty)}</div>
-    <div class="kv" style="margin-top:8px">论文主线职责：统筹与投稿（<b>Q01–Q05</b>，各任务复核人见 AIDD 任务总表）；教学核验职责照上方校验任务执行——<b>两类职责分开记账，不混计完成度</b>。</div>
-  </div>
-  <div class="card"><h2>📌 我的校验任务（来源 docs/VERIFY_TASKS.md）</h2>
-    <table><tr><th>编号</th><th>要做什么</th><th>过关口径（出处）</th></tr>${tasks}</table>
-    <div class="hint">做完在 docs/VERIFY_TASKS.md 第 4 节完成记录表签名；学期推进按本页「📋 周卡片·打卡」逐周走。</div>
-  </div>
-  <div class="card"><h2>🗂 我的文件（附录A 映射，共 ${M.fileCount} 个）</h2>${files}
-    <div class="hint">每组的"怎么核"就是该组文件的核验方法；交叉复核文件已标注第二核对人。这些文件的快照副本就在<b>本文件夹 待核文件/</b>（清单与 md5 见 <a class="pl" href="待核文件/快照清单.md">待核文件/快照清单.md</a>，根目录为工作原件）。</div>
-  </div>
-  <div class="card"><h2>🚀 怎么操作（五步上手）</h2>${ops}</div>
-  <div class="card"><h2>🔗 仓库直链（GitHub）</h2>${links}</div>
-  <div class="card"><h2>👥 全队入口（五人五页，进度互不影响）</h2>
-    <table><tr><th>成员</th><th>角色·校验线</th><th>打卡页</th></tr>${team}</table>
-    <div class="hint">每人打开自己名字的 HTML 就是自己的部分：任务、文件、学习、打卡都在这一页。点路径直达 TA 的打卡页（<b>克隆/下载仓库到本地后有效</b>；GitHub 网页端打开 HTML 显示源码属平台限制，可点 GitHub↗ 看文件位置）。本页文件就在仓库根目录各成员文件夹（不在 tools/）。</div>
-  </div>`;
+  const M=MYWORK; const C=M.currentContext||{};
+  const tasks=M.tasks.map(t=>`<tr><td><span class="id">${t[0]}</span></td><td>${esc(t[1])}</td><td>${linkPaths(t[2])}</td></tr>`).join('');
+  const files=M.files.map(g=>`<h3>${esc(g[0])}</h3><table>${g[1].map(r=>`<tr><td>${linkPaths(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('')}</table>`).join('');
+  const ops=M.ops.map(o=>`<div class="item"><span class="tx"><b>${esc(o[0])}</b>——${linkPaths(o[1])}</span></div>`).join('');
+  const links=M.ghlinks.map(l=>`<div class="logline"><span class="t">${esc(l[0])}</span><a href="${l[1]}" target="_blank" rel="noopener">打开 ↗</a></div>`).join('');
+  const team=M.team.map(t=>`<tr><td><b>${t[0]}</b></td><td>${esc(t[1])}</td><td><a class="cmd" href="../${esc(t[2])}">${esc(t[2])}</a></td></tr>`).join('');
+  return `<div class="card current-task current-review-banner" style="border-left:4px solid var(--brand)"><h2>现在先做什么</h2><div class="kv"><b>${esc(C.week||'本周')}</b> ｜ 当前阶段：<b>${esc(C.stage||'pipeline revalidation')}</b></div><div class="grid current-task-grid"><div><h3>为什么现在做</h3><div class="lead">${esc(C.why||'')}</div></div><div><h3>第一步</h3><div class="lead">${esc(C.first||'')}</div></div><div><h3>做完交什么</h3><div class="lead">${esc(C.deliver||'')}</div></div></div>${C.action_url?`<div class="hint"><b>直达：</b><a class="pl" href="${C.action_url}" target="_blank" rel="noopener">${esc(C.action||'打开入口')}</a> ｜ 状态来源：${esc(C.source||'AIDD 主库')}</div>`:''}</div><div class="card history-boundary"><h2>先记住这件事</h2><div class="kv">本仓库是 <b>GNN 方法学习＋历史模型复核＋组员工作区</b>；AIDD 主库才是正式科研状态源。<b>candidate_release=false</b>，GNN 当前 gated。旧结果只作历史复核。</div></div><div class="card" style="border-left:4px solid var(--brand2)"><h2>🧭 ${esc(M.fullname)} 的工作台</h2><div class="kv"><b>${esc(M.fullname)}</b> ｜ ${esc(M.roleTag)} ｜ <span class="tag g">${esc(M.lineTag)}</span> ｜ 待核文件 <b>${M.fileCount}</b> 个 ｜ 时限 <b>${esc(M.deadline)}</b></div><div class="exp">职责：${esc(M.duty)}</div></div><details class="card history-fold"><summary>历史复核任务与技术参数（不代表当前科研结论）</summary><div class="kv">以下内容用于复现旧代码、学习和错误分析；旧指标不再是当前任务的通过门槛。</div><table><tr><th>编号</th><th>要做什么</th><th>过关口径</th></tr>${tasks}</table></details><details class="card history-fold"><summary>文件映射与操作细节</summary><h3>我的文件（共 ${M.fileCount} 个）</h3>${files}<h3>怎么操作</h3>${ops}</details><details class="card history-fold"><summary>仓库直链与全队入口</summary>${links}<table><tr><th>成员</th><th>角色·校验线</th><th>打卡页</th></tr>${team}</table></details>`;
 }
 
 /* ---- 本周看板 ---- */

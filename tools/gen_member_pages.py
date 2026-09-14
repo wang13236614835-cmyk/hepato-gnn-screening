@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""生成四位成员的学期推进流 HTML（大白话版）。
-以改版后的负责人页为模板；成员数据核验人按仓库 PHASE_PLAN 真实分工：
+"""生成五位成员的学期推进流 HTML（大白话版）。
+以负责人页为模板；成员页面第一屏显示当前任务，历史任务保留为折叠复核区。成员数据核验人按仓库 PHASE_PLAN 真实分工：
 WP2主责代维斯丹/检查人宁显泷；WP3主责衣思淼/检查人王散曼；
 WP4主责宁显泷/检查人衣思淼；WP5主责王散曼/检查人代维斯丹。
 改完负责人版后重跑：python tools/gen_member_pages.py
@@ -779,22 +779,81 @@ for m in MEMBERS:
 
 # ================= 生成 =================
 tpl = TPL.read_text(encoding="utf-8")
+# 生成器输出页必须保留当前复核 banner 契约；兼容旧模板但不改历史数据。
+tpl = tpl.replace('class="card current-task"', 'class="card current-task current-review-banner"', 1)
 
-# ---- 我的工作台（与 docs/VERIFY_TASKS.md 同源：任务§2 / 文件附录A） ----
+# ---- 我的工作台（历史复核任务与当前任务分层） ----
 GH = "https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main"
+AIDD_STATE = "https://github.com/wang13236614835-cmyk/aidd/tree/main/00-%E5%BD%93%E5%89%8D%E7%A0%94%E7%A9%B6"
+
+# 这一层是面向组员的“现在先做什么”，不改变 W1–W16 历史学习卡和签名数据。
+# 所有角色都引用 AIDD 主库状态；GNN 库不创建第二套科研结论。
+CURRENT_CONTEXT = {
+ "王启龙": dict(
+   stage="pipeline revalidation（研究链重新核对）",
+   week="W2｜2026-09-14–09-20",
+   why="主库已经冻结研究状态；现在要把旧资产的保留/降级和人工核验收齐，不能再用旧榜单推进。",
+   first="打开 AIDD 主库状态和本库 RESEARCH_STATE，确认 candidate_release=false、GNN gated，再检查资产登记和组员待核记录。",
+   deliver="提交一份状态/资产核验汇总：哪些已核、哪些待人工、哪些只是历史；不打新候选榜。",
+   action="先看主库 qualification_v1 与 asset_preservation_and_gnn_replan_v1",
+   action_path="00-当前研究/RESEARCH_STATE.md",
+   action_url="https://github.com/wang13236614835-cmyk/aidd/tree/main/00-%E5%BD%93%E5%89%8D%E7%A0%94%E7%A9%B6/qualification_v1",
+   source="AIDD 主库 qualification_v1/RESEARCH_STATE.md + 本库 RESEARCH_STATE.md"),
+ "宁显泷": dict(
+   stage="pipeline revalidation（研究链重新核对）",
+   week="W2｜2026-09-14–09-20",
+   why="旧 GNN 是真实教学实现，但旧标签/旧 split 不具备当前科研资格；先证明代码和状态没有越界。",
+   first="先跑默认 python run_all.py（只显示未放行状态），再按 verify_research.py 检查代码/缓存/未审核数据阻断；不要追旧 AUC。",
+   deliver="提交软件检查输出和问题清单；把可复现代码与历史模型结果分开说明。",
+   action="运行安全的默认入口与软件回归检查",
+   action_path="run_all.py",
+   action_url="https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/run_all.py",
+   source="本库 STATUS.json + GNN_RESEARCH_PLAN_v2.md"),
+ "衣思淼": dict(
+   stage="pipeline revalidation（研究链重新核对）",
+   week="W2｜2026-09-14–09-20",
+   why="结构和标签尚未完成逐条人工核验；没有身份/终点证据的记录不能自动进入正式训练。",
+   first="打开 data/curation/compound_registry.csv，逐条看 identity_status、label_status、来源和待核原因；不要把 pending_review 改成 verified。",
+   deliver="提交逐条核验记录或问题清单，保留原始结构和原始标签；不产出新排名。",
+   action="开始核对结构/标签注册表",
+   action_path="data/curation/compound_registry.csv",
+   action_url="https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/data/curation/compound_registry.csv",
+   source="本库 data/curation/compound_registry.csv + AIDD 主库资产登记"),
+ "代维斯丹": dict(
+   stage="pipeline revalidation（研究链重新核对）",
+   week="W2｜2026-09-14–09-20",
+   why="历史 docking 只能作结构假说；WT 门控失败后，不能再用 docking 分数决定候选顺序。",
+   first="阅读 docking protocol、WT/旧 mutant 门控结果和日志，核对受体身份、参数、失败原因；不要重建 Top-10。",
+   deliver="提交对接协议/门控复核记录，明确哪些是原始输入、哪些是失败证据、哪些解释已废弃。",
+   action="复核历史 docking 与失败门控",
+   action_path="docs/03_docking_protocol.md",
+   action_url="https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/docs/03_docking_protocol.md",
+   source="本库 docs/PROJECT_STATUS.md + AIDD 主库 docking 门控证据"),
+ "王散曼": dict(
+   stage="pipeline revalidation（研究链重新核对）",
+   week="W2｜2026-09-14–09-20",
+   why="文献证据要服务 claim→source 链；旧 Top-10 只能作为历史快照，不能反过来定义当前候选。",
+   first="从 literature/ 和 AIDD MASTER_EVIDENCE_MATRIX 开始，核对 PMID/来源/证据等级；搜不到就降级，不用“未发现”代替检索记录。",
+   deliver="提交 claim→source/PMID 对账表和未解决文献项；不把旧 Top-10 重新写成候选发现。",
+   action="开始文献证据链对账",
+   action_path="literature/01_classic_evidence.md",
+   action_url="https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/literature/01_classic_evidence.md",
+   source="AIDD 主库 MASTER_EVIDENCE_MATRIX.csv + 本库 literature/"),
+}
+
 def MW(name, roleTag, lineTag, fileCount, deadline, duty, tasks, files, sec, own_link):
     ops = [
-     ["① 拿到仓库", f"git clone {GH.replace('/blob/main','')}.git（或 GitHub 页面绿色 Code → Download ZIP）"],
-     ["② 先读两份文件", f"{name}/工作台.md（本文件夹·我的一份）＋ docs/VERIFY_TASKS.md 第 {sec} 节（公用一份）"],
-     ["③ 动手核验", "按上方任务表逐条执行；预期值以 docs/VERIFY_MANUAL.md 对应小节为准，不凭记忆填"],
-     ["④ 记录结果", "docs/VERIFY_TASKS.md 第 4 节完成记录表签名；发现问题记第 5 节问题登记表（A 级先停线报告）"],
-     ["⑤ 每周打卡", "本页「📋 周卡片·打卡」按周推进；周五生成周报发导师；换电脑在「💾 数据管理」导出导入"]]
+     ["① 先看当前状态", f"打开 RESEARCH_STATE.md 和 AIDD 主库状态；确认本库是方法学习/历史复核工作区"],
+     ["② 先做当前任务", "按上方“现在先做”卡执行；当前任务不要求改旧结果、不生成新候选榜"],
+     ["③ 再做历史复核", f"历史核验任务按 docs/VERIFY_TASKS.md 第 {sec} 节执行；旧数字只作版本锚点"],
+     ["④ 记录结果", "问题写入 docs/VERIFY_TASKS.md 第 5 节；交付物注明来源、日期和是否人工核验"],
+     ["⑤ 每周打卡", "本页「📋 周卡片·打卡」继续记录学习；不要把学习打卡当作科研资格签核"]]
     ghlinks = [
      [f"{name}/工作台.md（本文件夹，我的任务/文件/记录各一份）", f"{GH}/{name}/工作台.md"],
-     ["docs/VERIFY_TASKS.md（全队任务分派表·公用一份）", f"{GH}/docs/VERIFY_TASKS.md"],
-     ["docs/VERIFY_MANUAL.md（核验手册 §0–§5）", f"{GH}/docs/VERIFY_MANUAL.md"],
-     ["docs/MEMBER_WORKBENCH.md（全员工作台·按人导航）", f"{GH}/docs/MEMBER_WORKBENCH.md"],
-     ["results/rankings/final_ranking.csv（Top-60 排名）", f"{GH}/results/rankings/final_ranking.csv"],
+     ["RESEARCH_STATE.md（本库当前状态）", f"{GH}/RESEARCH_STATE.md"],
+     ["GNN_RESEARCH_PLAN_v2.md（当前计划）", f"{GH}/GNN_RESEARCH_PLAN_v2.md"],
+     ["docs/VERIFY_TASKS.md（历史复核任务分派表）", f"{GH}/docs/VERIFY_TASKS.md"],
+     ["AIDD 主库当前状态（只读上游）", AIDD_STATE],
      own_link]
     team = [["王启龙", "负责人·辅助/工程（A2·90文件）", "王启龙/打卡_王启龙.html"],
             ["宁显泷", "算法·代码验证（A1·12文件）", "宁显泷/打卡_宁显泷.html"],
@@ -803,6 +862,7 @@ def MW(name, roleTag, lineTag, fileCount, deadline, duty, tasks, files, sec, own
             ["王散曼", "文献·文献线（A5·4文件）", "王散曼/打卡_王散曼.html"]]
     return dict(fullname=name, roleTag=roleTag, lineTag=lineTag, fileCount=fileCount,
                 deadline=deadline, duty=duty, tasks=tasks, files=files,
+                currentContext=CURRENT_CONTEXT[name],
                 ops=ops, ghlinks=ghlinks, team=team)
 
 MYWORKS = {
@@ -893,9 +953,50 @@ MYWORKS = {
 }
 
 def swap_block(text, start_marker, next_marker, new_body):
-    i = text.index(start_marker); j = text.index(next_marker, i)
-    return text[:i] + start_marker + "\n" + new_body + "\n" + text[j:]
+    """替换 const 声明的平衡括号内容，兼容历史紧凑/多行模板。"""
+    import re as _re
 
+    name_match = _re.search(r"const\s+([A-Za-z_$][\w$]*)", start_marker)
+    if not name_match:
+        raise ValueError(f"起始标记不是 const 声明：{start_marker!r}")
+    name = name_match.group(1)
+    declaration = _re.search(
+        rf"const\s+{_re.escape(name)}\s*=\s*([\[{{])", text
+    )
+    if not declaration:
+        raise ValueError(f"模板缺少起始声明：{name}")
+    opening = declaration.group(1)
+    closing = "]" if opening == "[" else "}"
+    open_index = declaration.start(1)
+    depth = 0
+    quote = None
+    escaped = False
+    close_index = None
+    for index in range(open_index, len(text)):
+        char = text[index]
+        if quote is not None:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == quote:
+                quote = None
+            continue
+        if char in {"'", '"', "`"}:
+            quote = char
+            continue
+        if char == opening:
+            depth += 1
+        elif char == closing:
+            depth -= 1
+            if depth == 0:
+                close_index = index
+                break
+    if close_index is None:
+        raise ValueError(f"模板声明括号未闭合：{name}")
+    return text[:open_index + 1] + new_body + text[close_index:]
+
+# 负责人页是生成模板；只生成其余四个成员页，避免覆盖负责人原有任务数据。
 for m in MEMBERS:
     manuals = [dict(id=a, week=wk, text=b, dead=c) for a, wk, b, c in
                [(x[0], x[1], x[2], x[3]) for x in m["manuals"]]]
@@ -915,11 +1016,17 @@ for m in MEMBERS:
     out = out.replace("learning/王启龙/", f'learning/{m["name"]}/')
     out = out.replace("python tools/semester_flow.py ", f'python tools/semester_flow.py --member {m["name"]} ')
     out = out.replace("👥 负责人统筹", "👥 组内安排")
+    out = out.replace("const MYWORK = {", "const MYWORK = {")
     out = swap_block(out, "const WEEKS = [", "\n];\n\nconst MANUALS", js(m["weeks"])[1:-1])
     out = swap_block(out, "const MANUALS = [", "\n];\n\nconst MILESTONES", js(manuals)[1:-1])
     out = swap_block(out, "const MILESTONES = [", "\n];\n\n/* ---- 学习资源", js(ms)[1:-1])
     out = swap_block(out, "const RES=[", "\n];\n\n/* ---- 网站、论文和名词解释", js(res_items)[1:-1])
-    out = swap_block(out, "const MYWORK = {", "\n};\n\n\nconst WEEKS", js(MYWORKS[m["name"]])[1:-1])
+    if m["name"] == "王启龙":
+        # 负责人模板的完整任务/文件数据保留；在其对象末尾追加当前上下文。
+        ctx = js(CURRENT_CONTEXT["王启龙"])[1:-1]
+        out = out.replace("\n]\n};\n\n\nconst WEEKS", f',\ncurrentContext:{{{ctx}}}\n}};\n\n\nconst WEEKS', 1)
+    else:
+        out = swap_block(out, "const MYWORK = {", "\n};\n\n\nconst WEEKS", js(MYWORKS[m["name"]])[1:-1])
     dest = ROOT / m["name"] / f"打卡_{m['name']}.html"
     dest.write_text(out, encoding="utf-8")
     print("生成", str(dest).replace(str(ROOT)+"\\", "").replace("\\","/"), f'{len(out)//1024}K字符，{len(m["weeks"])}周，视频{len(res_items)}条')
