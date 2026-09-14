@@ -12,7 +12,26 @@
 - [GNN仓库审计.md](GNN仓库审计.md)：本轮定位裁决；
 - [GNN是否需要大改_裁决.md](GNN是否需要大改_裁决.md)：小修即可，不改仓库名；
 - [GNN数据与模型状态表.csv](GNN数据与模型状态表.csv)：旧代码/标签/split/结果的保留与资格状态；
+- [docs/00_environment.md](docs/00_environment.md)：统一环境策略与跨平台安装说明；
 - AIDD 主库资产登记：`D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv`。
+
+## 环境快速开始
+
+**推荐 Python 3.11，完整栈兼容目标为 Python 3.10–3.12。** 环境按三层拆分，避免 Windows/Linux、CPU/GPU 或 CUDA 差异互相影响：
+
+```bash
+# 所有人：基础层
+python -m pip install -r requirements.txt
+python tools/check_env.py
+
+# 需要 RDKit / pandas / sklearn 等
+python -m pip install -r requirements-science.txt
+
+# 需要 PyG：先按本机 CPU/CUDA 安装 PyTorch，再执行
+python -m pip install -r requirements-ml.txt
+```
+
+`requirements-validated.txt` 是历史精确复现快照，不是默认安装入口；CUDA 不写死在通用 requirements 中。
 
 ## 现在做什么
 
