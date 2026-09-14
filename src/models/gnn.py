@@ -59,7 +59,9 @@ class GCN:
         m2 = None
         if use_drop:
             pooled, m2 = self._dropout(pooled)
-        z = float(pooled @ self.W3 + self.b3)
+        # NumPy 2.4+ no longer permits implicit conversion of a 1-D size-1
+        # array via float(...). Explicitly extract the scalar for 1.x/2.x.
+        z = (pooled @ self.W3 + self.b3).item()
         cache = (Xp, Z1, H1, m1, U, H2, pooled, m2)
         return z, cache
 
