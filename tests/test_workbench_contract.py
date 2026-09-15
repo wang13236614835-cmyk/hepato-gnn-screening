@@ -48,6 +48,10 @@ def test_generator_is_source_of_member_pages():
 
 
 def test_current_state_does_not_claim_candidate_release():
-    state = (ROOT / "STATUS.json").read_text(encoding="utf-8")
-    assert '"candidate_release": false' in state
-    assert '"gnn_enable_gate": "closed"' in state
+    import json
+    state = json.loads((ROOT / "STATUS.json").read_text(encoding="utf-8"))
+    assert state["candidate_release"] is False
+    assert state["gnn_enable_gate"] == "closed"
+    assert state["project_stage"] == "fifth_round_direction_exploration"
+    assert state["fasn"]["gate_t1"] == "FAIL"
+    assert state["fifth_round"]["primary"].startswith("Moracin N")

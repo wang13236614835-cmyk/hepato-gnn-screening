@@ -1,6 +1,6 @@
 # hepato-gnn-screening：GNN 方法学习与历史复核工作区
 
-**当前角色（2026-09-14）**：GNN 方法学习 + 历史模型复核 + 组员任务工作区。AIDD 正式科研结论唯一入口是 `D:/zcode-workspace/aidd-repo-work`，Workbench 只读镜像主库状态。本仓库不产生第二套候选发布链。
+**当前角色（2026-09-15）**：GNN 方法学习 + 历史模型复核 + 组员任务工作区。AIDD 正式科研结论唯一入口是 `D:/zcode-workspace/aidd-repo-work`，Workbench 只读镜像主库状态。本仓库不产生第二套候选发布链。当前进入第五轮方向探索；FASN Gate T1=FAIL，Primary 转为 Moracin N–NRF2/ferroptosis 肝细胞机制验证。
 
 > **重要状态**：GNN 当前为 `gated/closed`，不是当前正式主模型。它在 AIDD 主库冻结的 96 分子 FASN canonical assay 上首次同折 benchmark 未优于经典 baseline：Ridge R² 中位 0.732、XGB 0.594、RF 0.217、GCN 0.078、GINE −0.040。不要把旧 Top-10、黄芩苷居首、旧 docking 排名或旧 AUC 当作当前 MASH 候选结论。
 
@@ -18,7 +18,7 @@
 
 1. 维护可运行的 GNN/基线代码和学习材料；
 2. 复核历史数据、结构、split、日志和模型输出；
-3. 等待主库 FASN Gate T1（多 assay 对齐）后再决定是否开展下一轮严格 benchmark；
+3. T1 已裁决 FAIL；只有获得第二个满足核心元数据约束的共享 assay pair 后才重开 FASN T1；
 4. 记录 GNN 的正负结果、UQ、split 和数据限制，不强行让 GNN 赢过 Ridge。
 
 ## 现在不做什么

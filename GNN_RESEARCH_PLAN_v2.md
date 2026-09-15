@@ -1,6 +1,6 @@
 # GNN_RESEARCH_PLAN_v2
 
-**更新：2026-09-14｜本计划服从 AIDD 主库 qualification_v1 和 asset_preservation_and_gnn_replan_v1。**
+**更新：2026-09-15｜本计划服从 AIDD 主库 qualification_v1 和 fifth_round_direction_exploration_20260915。**
 
 ## 研究定位
 
@@ -17,18 +17,18 @@
 
 ## 当前做什么
 
-### Phase 1：维护并验证传统 baseline（当前）
+### Phase 1：维护并验证传统 baseline（已完成本阶段核心 benchmark）
 
 - 保留 Ridge/RF/XGBoost/均值 baseline 的代码和输出；
 - 复现主库 qualification_v1 的同折 benchmark；
 - 记录 seed、输入 hash、指标、失败和拒判；
 - 对旧 numpy GCN 做教学级梯度、传播和 MC-dropout 复核。
 
-### Phase 2：等待 FASN Gate T1
+### Phase 2：FASN Gate T1 已裁决，等待后续输入
 
-- 由 AIDD 主库组装多 assay 共享分子对；
+- AIDD 主库已完成 T1 shared-assay 审计；有效可比 pair 仅 1 个，低于预冻结至少 2 对，T1=FAIL；
 - 本仓库不自行复制一份科学状态；
-- 只有主库将 T1 数据冻结并发布 manifest 后，才接受新 benchmark 输入。
+- 在获得第二个满足核心元数据约束的 pair 前，不接受新 FASN/GNN benchmark 输入。
 
 ### Phase 3：T1 通过后比较模型
 

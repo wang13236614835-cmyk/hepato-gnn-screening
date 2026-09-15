@@ -1,5 +1,5 @@
 {
-  "project_stage": "pipeline_revalidation",
+  "project_stage": "fifth_round_direction_exploration",
   "repository_role": "gnn_method_learning_historical_review_member_workspace",
   "repository_name_change": "not_proposed_this_round",
   "candidate_release": false,
@@ -8,9 +8,10 @@
   "fasn": {
     "canonical_model": "qualified_local",
     "external_generalization": "failed_or_limited",
-    "gate_t1": "pending",
+    "gate_t1": "FAIL",
     "current_benchmark": "GCN median R2 0.078; GINE median R2 -0.040; Ridge median R2 0.732",
-    "np54_fasn_ranking": "blocked_ood"
+    "np54_fasn_ranking": "blocked_ood",
+    "gate_t1_decision": "FAIL"
   },
   "thrb": {
     "old_2j4a": "historical_mutant",
@@ -34,5 +35,22 @@
   },
   "authority": "D:/zcode-workspace/aidd-repo-work/00-当前研究/qualification_v1/RESEARCH_STATE.md",
   "preservation_registry": "D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv",
-  "updated": "2026-09-14"
+  "updated": "2026-09-15",
+  "current_stage": "第五轮方向探索（FASN Gate T1已裁决）",
+  "current_conclusion": "FASN Gate T1=FAIL；FASN收窄为canonical local方法学线；Primary转为Moracin N–NRF2/ferroptosis肝细胞机制验证",
+  "current_blocker": "Moracin N物料/导师签核；FASN缺少第二个可比assay pair",
+  "next_action": "导师批准/采购Moracin N并执行M0/B0；FASN等待第二可比assay pair",
+  "fifth_round": {
+    "primary": "Moracin N–NRF2/ferroptosis肝细胞机制验证",
+    "secondary": "FXR/Formononetin依赖性桥接+Biochanin A QC",
+    "reserve": "THRβ reporter/Isorhamnetin/FASN直接酶实验/SCD1-DGAT2重资格化",
+    "rejected": [
+      "NP54 FASN定量榜",
+      "docking ranking",
+      "旧GNN/CW-BCS/TOPSIS正向结论",
+      "ACC1/ACC2合并模型",
+      "3′-methoxydaidzein当前创新候选"
+    ],
+    "source": "AIDD主库 fifth_round_direction_exploration_20260915/GATE_DECISION.json"
+  }
 }
