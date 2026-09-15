@@ -1,4 +1,7 @@
-numpy>=1.24
-matplotlib>=3.7   # 可选：仅结果图需要
-# 服务器端(下一阶段)：
-# torch>=2.1, torch-geometric>=2.5, rdkit>=2023.09, vina>=1.2
+# Portable base environment for hepato-gnn-screening.
+# Primary support target: Python 3.10-3.13; Python 3.11 recommended.
+# Keep this file small: the default/legacy NumPy workflow must not depend on
+# RDKit, PyTorch, PyG, CUDA or Vina.
+
+numpy>=1.26,<3
+matplotlib>=3.8,<4
