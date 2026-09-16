@@ -1,0 +1,40 @@
+{
+  "schema_version": "phase2b.return.v1",
+  "allowed_decisions": [
+    "CORRECTED",
+    "REJECTED",
+    "VERIFIED"
+  ],
+  "editable_fields": [
+    "decision",
+    "human_value",
+    "decision_reason",
+    "reviewer",
+    "reviewed_at",
+    "source_ref",
+    "optional_note"
+  ],
+  "immutable_fields": [
+    "review_id",
+    "project_id",
+    "entity_type",
+    "entity_id",
+    "target",
+    "field",
+    "ai_value",
+    "source_refs",
+    "original_context",
+    "upstream_manifest"
+  ],
+  "return_files": [
+    "review_return.template.json",
+    "review_return.template.csv"
+  ],
+  "required_for_decision": [
+    "reviewer",
+    "reviewed_at",
+    "decision_reason",
+    "source_ref"
+  ],
+  "note": "JSON 是 canonical 回填格式；压缩单元可由 compressed_review_id 提交，Workbench 会展开到所有 original_review_ids。"
+}

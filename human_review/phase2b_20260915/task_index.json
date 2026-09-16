@@ -1,0 +1,876 @@
+[
+  {
+    "task_id": "cr_4ce1a9b511da44f2",
+    "priority": "P0",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "endpoint_unknown;unit_unrecognized",
+    "ai_judgment": {
+      "unique_value_count": 2,
+      "sample_values": [
+        {
+          "endpoint": "INHIBITION",
+          "value": "35.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "INHIBITION",
+          "value": "7.0",
+          "relation": "="
+        }
+      ]
+    },
+    "why_review": "ACACA 的 endpoint/type 无法从当前记录可靠判定。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1964668.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964669.json",
+    "what_to_check": "核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 2,
+    "original_task_count": 2,
+    "blocks_g2": true,
+    "propagation_rule": "确认后传播到该 assay 的全部记录；不同 assay 不合并。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_8f9e533c91794558",
+      "hr_3c0881172f686f86"
+    ]
+  },
+  {
+    "task_id": "cr_b2e66c3f80331987",
+    "priority": "P0",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "endpoint_unknown;numeric_value_missing;unit_unrecognized",
+    "ai_judgment": {
+      "endpoint": "EFFECTIVECONCENTRATION",
+      "value": null,
+      "relation": "="
+    },
+    "why_review": "NR1H4 的 endpoint/type 无法从当前记录可靠判定。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/438711.json",
+    "what_to_check": "核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": true,
+    "propagation_rule": "确认后传播到该 assay 的全部记录；不同 assay 不合并。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_25fe38d0dc723ea3"
+    ]
+  },
+  {
+    "task_id": "cr_f505080a747c2290",
+    "priority": "P0",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "endpoint_unknown;unit_unrecognized",
+    "ai_judgment": {
+      "unique_value_count": 7,
+      "sample_values": [
+        {
+          "endpoint": "RE",
+          "value": "1.4",
+          "relation": "="
+        },
+        {
+          "endpoint": "RE",
+          "value": "1.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "RE",
+          "value": "1.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "RE",
+          "value": "1.4",
+          "relation": "="
+        },
+        {
+          "endpoint": "RE",
+          "value": "1.2",
+          "relation": "="
+        }
+      ]
+    },
+    "why_review": "NR1H4 的 endpoint/type 无法从当前记录可靠判定。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/553929.json; https://www.ebi.ac.uk/chembl/api/data/activity/558769.json; https://www.ebi.ac.uk/chembl/api/data/activity/560988.json; https://www.ebi.ac.uk/chembl/api/data/activity/562183.json; https://www.ebi.ac.uk/chembl/api/data/activity/566886.json; https://www.ebi.ac.uk/chembl/api/data/activity/574432.json; https://www.ebi.ac.uk/chembl/api/data/activity/579336.json; https://www.ebi.ac.uk/chembl/api/data/activity/580540.json; https://www.ebi.ac.uk/chembl/api/data/activity/580542.json; https://www.ebi.ac.uk/chembl/api/data/activity/589212.json; https://www.ebi.ac.uk/chembl/api/data/activity/591843.json",
+    "what_to_check": "核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 11,
+    "original_task_count": 11,
+    "blocks_g2": true,
+    "propagation_rule": "确认后传播到该 assay 的全部记录；不同 assay 不合并。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_14cbf37ffc5e60c3",
+      "hr_334fadb2e97d4cdf",
+      "hr_dd045545703e66cf",
+      "hr_b44b6cf8ea8c99a5",
+      "hr_85da0689e7f78242",
+      "hr_5df0091eb263f280",
+      "hr_02c412a77b7e306f",
+      "hr_0ec59c93ccfe266a",
+      "hr_fe225cbdbe97ffc1",
+      "hr_fac78b7787e3320c",
+      "hr_2c094f3ed99063bb"
+    ]
+  },
+  {
+    "task_id": "cr_db629e920219a104",
+    "priority": "P0",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "endpoint_unknown;unit_unrecognized",
+    "ai_judgment": {
+      "unique_value_count": 6,
+      "sample_values": [
+        {
+          "endpoint": "EFFICACY",
+          "value": "117.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "5.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "148.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "100.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "144.0",
+          "relation": "="
+        }
+      ]
+    },
+    "why_review": "NR1H4 的 endpoint/type 无法从当前记录可靠判定。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/437329.json; https://www.ebi.ac.uk/chembl/api/data/activity/446807.json; https://www.ebi.ac.uk/chembl/api/data/activity/450674.json; https://www.ebi.ac.uk/chembl/api/data/activity/454605.json; https://www.ebi.ac.uk/chembl/api/data/activity/458666.json; https://www.ebi.ac.uk/chembl/api/data/activity/466256.json",
+    "what_to_check": "核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 6,
+    "original_task_count": 6,
+    "blocks_g2": true,
+    "propagation_rule": "确认后传播到该 assay 的全部记录；不同 assay 不合并。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_9bf0103be4105351",
+      "hr_c6d1090a157f09fd",
+      "hr_bd2f4cb79c02cfb1",
+      "hr_c38edab90a3f8e6b",
+      "hr_73b5f57d317dc85d",
+      "hr_4baff07b47f6ef20"
+    ]
+  },
+  {
+    "task_id": "cr_11f2d61b67f82362",
+    "priority": "P0",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "endpoint_unknown;unit_unrecognized",
+    "ai_judgment": {
+      "unique_value_count": 25,
+      "sample_values": [
+        {
+          "endpoint": "EFFICACY",
+          "value": "100.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "117.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "148.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "144.0",
+          "relation": "="
+        },
+        {
+          "endpoint": "EFFICACY",
+          "value": "170.0",
+          "relation": "="
+        }
+      ]
+    },
+    "why_review": "NR1H4 的 endpoint/type 无法从当前记录可靠判定。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1467363.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467478.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467480.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467482.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467484.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467486.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467488.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467490.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467492.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467494.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467496.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467502.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467504.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467506.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467610.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467612.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467614.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467616.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467618.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467620.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467622.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467628.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467630.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467632.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467634.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467636.json",
+    "what_to_check": "核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 26,
+    "original_task_count": 26,
+    "blocks_g2": true,
+    "propagation_rule": "确认后传播到该 assay 的全部记录；不同 assay 不合并。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_812140c277e6e2be",
+      "hr_a9fc40fb3a8a3839",
+      "hr_fa4cc81391269319",
+      "hr_e98e83789845dc21",
+      "hr_d2c6dbc97c141abd",
+      "hr_b33b79a9b9934e4d",
+      "hr_8d1f2cf68f066c58",
+      "hr_997821d3a34df9cc",
+      "hr_ab51214890313f4c",
+      "hr_747917dad7547d57",
+      "hr_af10b665c7b543e2",
+      "hr_2988be88a1d9c080",
+      "hr_601afd9ab53d2e9b",
+      "hr_8070925f5e038ba3",
+      "hr_439d7607ce877558",
+      "hr_346fbccf410bc78b",
+      "hr_77858af5fbacd920",
+      "hr_f99c280a4dc62a3c",
+      "hr_2b51153b88009bdc",
+      "hr_4457e595864386f3",
+      "hr_17ef5f008ba16e70",
+      "hr_2841ffe3ddfb0797",
+      "hr_1c69b2321aa9c48e",
+      "hr_59654d72f28e8c4d",
+      "hr_e36b5e91a8826b49",
+      "hr_90bf8d6eb0aa8201"
+    ]
+  },
+  {
+    "task_id": "cr_e9d2dc6f22913ddd",
+    "priority": "P0",
+    "granularity": "ASSAY_LEVEL",
+    "target": "THRB",
+    "field": "target_subtype_selectivity",
+    "ai_judgment": "THR-beta",
+    "why_review": "THR-alpha/THR-beta subtype 或选择性不能由 target 名称自动签字。",
+    "where_to_check": "D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P10828; D:/aidd destoop/data/targets_pilot.csv#row=4:P10828; https://www.ebi.ac.uk/chembl/api/data/activity/152718.json; https://www.ebi.ac.uk/chembl/api/data/activity/152720.json; https://www.ebi.ac.uk/chembl/api/data/activity/152721.json; https://www.ebi.ac.uk/chembl/api/data/activity/156362.json; https://www.ebi.ac.uk/chembl/api/data/activity/156364.json",
+    "what_to_check": "核对 protein construct、assay description 和 alpha 对照。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": true,
+    "propagation_rule": "确认后传播到该 subtype/assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_91ec059a178758cd"
+    ]
+  },
+  {
+    "task_id": "cr_300bb09225b6f90a",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "ACACA 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/3013212.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013213.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013214.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013234.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013239.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013243.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013249.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013256.json; https://www.ebi.ac.uk/chembl/api/data/activity/3013297.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 9,
+    "original_task_count": 9,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_66cb9a94053e96c1",
+      "hr_fc6583a38949f47b",
+      "hr_848d8d2b40ee5433",
+      "hr_0c3bd614b83c3424",
+      "hr_14477d7249c6e860",
+      "hr_2fcae064dd9c7f9a",
+      "hr_fa222c38d968b41d",
+      "hr_6ab3e849cf193870",
+      "hr_6a2ac8fea554cebd"
+    ]
+  },
+  {
+    "task_id": "cr_256cfdc9913f99a0",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "ACACA 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/5104823.json; https://www.ebi.ac.uk/chembl/api/data/activity/5104835.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 2,
+    "original_task_count": 2,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_d572b75a24d9bf85",
+      "hr_ce9a88c1843d4dbe"
+    ]
+  },
+  {
+    "task_id": "cr_62cdfc25ac220ee0",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "ACACA 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1810279.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810280.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810281.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810286.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810289.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810293.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810294.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810295.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810296.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810297.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810306.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810307.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810308.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810309.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810310.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810311.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810312.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810313.json; https://www.ebi.ac.uk/chembl/api/data/activity/1810316.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 19,
+    "original_task_count": 19,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_bde43d692c838c35",
+      "hr_c583959f32daa7c4",
+      "hr_51d1f7d7d678be48",
+      "hr_c5ab93222dc0dadd",
+      "hr_0067fb2334bd9f03",
+      "hr_86d494e08b42272c",
+      "hr_5e01d41199c0815a",
+      "hr_1948b0c732431a4e",
+      "hr_d626fb91ad387e85",
+      "hr_49371d374b9fc0a8",
+      "hr_1a8525fb094c9bab",
+      "hr_bf5d400e1b701f33",
+      "hr_cb2da37b39f6893f",
+      "hr_ad014e50a25bb85a",
+      "hr_8261f91133fbc056",
+      "hr_52a7fb40c343c401",
+      "hr_9897582b86428727",
+      "hr_1c4ec865fa0a3635",
+      "hr_d05bfeacf0dbb95f"
+    ]
+  },
+  {
+    "task_id": "cr_4fac4db2eaf26ef9",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "ACACA 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1733352.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733768.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733796.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733801.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733809.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733819.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733825.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733835.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733859.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733879.json; https://www.ebi.ac.uk/chembl/api/data/activity/1734026.json; https://www.ebi.ac.uk/chembl/api/data/activity/1735157.json; https://www.ebi.ac.uk/chembl/api/data/activity/1735178.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 13,
+    "original_task_count": 13,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_ac79d0094d31d091",
+      "hr_36203efd177091de",
+      "hr_e239bd908a0cc550",
+      "hr_44d2dd5d1472efb4",
+      "hr_4404dc97bb9f5de4",
+      "hr_c9ff5e6e2213f0eb",
+      "hr_86b1b940f7ee1a25",
+      "hr_eecee3ec9ac6e475",
+      "hr_2d5cea90ac390c95",
+      "hr_a70c5ec5a44d00cb",
+      "hr_04e762d07054e089",
+      "hr_a7f07e9510581516",
+      "hr_ea57484aa067f176"
+    ]
+  },
+  {
+    "task_id": "cr_d27d0bfce693a39a",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "ACACA 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1964584.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964614.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964616.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964617.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964618.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964619.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964620.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964621.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964622.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964623.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964624.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964625.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964626.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964628.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964629.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964630.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964631.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964632.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964633.json; https://www.ebi.ac.uk/chembl/api/data/activity/1964634.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 20,
+    "original_task_count": 20,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_76989b94ec87fa81",
+      "hr_38d3fa18caf90ac4",
+      "hr_3d698ea0b0ad4d0b",
+      "hr_46216ef5b20e8e6c",
+      "hr_179b2fe2dfd53b2b",
+      "hr_4f846be00b91e8e4",
+      "hr_8cc85a780836c8f6",
+      "hr_34d998666479a514",
+      "hr_ca97bf310cdeedd0",
+      "hr_d68b0b02a8141fab",
+      "hr_4ff5ee8587e9f2d7",
+      "hr_5d5eb296d9ed4fa8",
+      "hr_2b0b59cfd7f40a49",
+      "hr_15925b030290e601",
+      "hr_ee7bdf46fcfa20ba",
+      "hr_37670a79168ef1a2",
+      "hr_9b97aa97aa20177d",
+      "hr_27cb613e15a3db50",
+      "hr_823c6ac564156452",
+      "hr_157d09a45557e3f9"
+    ]
+  },
+  {
+    "task_id": "cr_14c54e7bf8e0c424",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "ACACA 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/2019270.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019272.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019273.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019274.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019275.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019276.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019277.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019278.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019279.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019280.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019281.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019282.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019283.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019284.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019285.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019286.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019287.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019288.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019289.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019290.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019291.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019292.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019293.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019294.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019295.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019296.json; https://www.ebi.ac.uk/chembl/api/data/activity/2019297.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 27,
+    "original_task_count": 27,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_29c29b8f0166ed33",
+      "hr_8d432c2af443161c",
+      "hr_81ae1ec0c51cbbf6",
+      "hr_e39f83bd334bfa6c",
+      "hr_8f585cbb45563294",
+      "hr_0e739783183d7f55",
+      "hr_e52ad44bdcd6d41e",
+      "hr_b8fe7baa1e2b5746",
+      "hr_c6e7752b3de22d66",
+      "hr_b302a7f5c93f054e",
+      "hr_0e42f54bc5dc157f",
+      "hr_fdc63e6b4d5b2f3a",
+      "hr_eb60a4ef2af4fc86",
+      "hr_f9b77eee40850090",
+      "hr_8a51f6bee2937e69",
+      "hr_37ce1dc02fb15fd7",
+      "hr_02536157d67fbd95",
+      "hr_7a81121bdc0bb16d",
+      "hr_5155ce6e804dcd7f",
+      "hr_a56b2ddf37380ad1",
+      "hr_3c5eb71782ffd8aa",
+      "hr_07c75d596ab87dd7",
+      "hr_967fb4185a5498cb",
+      "hr_ad2434b179ad6f4b",
+      "hr_0652ff94efbb9a1a",
+      "hr_f866d4680bf59b92",
+      "hr_92b12f04c66a915b"
+    ]
+  },
+  {
+    "task_id": "cr_50bee0bf3d106579",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "ACACA 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1820431.json; https://www.ebi.ac.uk/chembl/api/data/activity/1820440.json; https://www.ebi.ac.uk/chembl/api/data/activity/1820441.json; https://www.ebi.ac.uk/chembl/api/data/activity/1820444.json; https://www.ebi.ac.uk/chembl/api/data/activity/1820445.json; https://www.ebi.ac.uk/chembl/api/data/activity/1820446.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 6,
+    "original_task_count": 6,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_3f775cdd9e0a4292",
+      "hr_691e54d33dbbb459",
+      "hr_9d199b41d4634ba8",
+      "hr_64a05d9e5c9efd7b",
+      "hr_63b646f01859905d",
+      "hr_f7a5186ceed0fff6"
+    ]
+  },
+  {
+    "task_id": "cr_c6b42c3f46de46e8",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "ACACA",
+    "field": "numeric_value_missing;unit_unrecognized",
+    "ai_judgment": {
+      "endpoint": "IC50",
+      "value": null,
+      "relation": "="
+    },
+    "why_review": "numeric_value_missing；unit_unrecognized",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/5104831.json",
+    "what_to_check": "核对原始 assay 上下文；决定 VERIFIED、CORRECTED 或 REJECTED。censored/endpoint/subtype 未关闭前不得进入正式训练。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": false,
+    "propagation_rule": "只传播到明确列出的 affected_entity_ids。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_379e31446c34007f"
+    ]
+  },
+  {
+    "task_id": "cr_7a5da64aecd21bed",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "EC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "NR1H4 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/85297.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_9136fc9a72b13483"
+    ]
+  },
+  {
+    "task_id": "cr_41929785dabfd36e",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "EC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "NR1H4 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/446806.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_b875ba348d31c83f"
+    ]
+  },
+  {
+    "task_id": "cr_b20c2cbf82ed9e9f",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "EC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "why_review": "NR1H4 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1467489.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467613.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467615.json; https://www.ebi.ac.uk/chembl/api/data/activity/1467621.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 4,
+    "original_task_count": 4,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_ff7f09bfc34e81b3",
+      "hr_b89d3bb15f131a4b",
+      "hr_d9c4e35c9f259152",
+      "hr_70f423a705c2a0b7"
+    ]
+  },
+  {
+    "task_id": "cr_9e367b5aa7ebecd7",
+    "priority": "P1",
+    "granularity": "ASSAY_LEVEL",
+    "target": "NR1H4",
+    "field": "censored_relation",
+    "ai_judgment": {
+      "endpoint": "EC50",
+      "value": "1000.0",
+      "relation": ">"
+    },
+    "why_review": "NR1H4 的同类 assay 记录含 <、> 或 ~，不能自动当作精确标签。",
+    "where_to_check": "https://www.ebi.ac.uk/chembl/api/data/activity/1480678.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480794.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480795.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480796.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480797.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480799.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480800.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480804.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480805.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480806.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480809.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480810.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480811.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480812.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480813.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480825.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480826.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480827.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480828.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480829.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480830.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480831.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480945.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480949.json; https://www.ebi.ac.uk/chembl/api/data/activity/1480951.json",
+    "what_to_check": "核对原始 assay 数值和 relation；决定保留 censored、修正 relation，或排除记录。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 25,
+    "original_task_count": 25,
+    "blocks_g2": false,
+    "propagation_rule": "核对原始 assay/DOI 后一次决定，传播到同 assay lineage 的记录。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_7a98cfeb4eab2d7e",
+      "hr_53163a6a58574f9c",
+      "hr_c778d91e8f50efe7",
+      "hr_79e18897249bfed9",
+      "hr_8e2953c8da003956",
+      "hr_6e3c81034e610e61",
+      "hr_7f936eeb5205d9fd",
+      "hr_64fb96b7193aac84",
+      "hr_f6c868ec71b5f7b9",
+      "hr_fc3db8606cb42fdf",
+      "hr_a383b2856e9279b3",
+      "hr_c95f5ab0386433af",
+      "hr_3e5f280dd4f73fff",
+      "hr_8546b38bf25b3e1d",
+      "hr_21a62b5b11cb2f98",
+      "hr_0e3cf6470ec609f6",
+      "hr_2966a9386800ce7d",
+      "hr_75ee6cec177202ab",
+      "hr_0c524f685f0cab7a",
+      "hr_50e2adfe7919031c",
+      "hr_bdd7a517c0d87be0",
+      "hr_8f029728931b0367",
+      "hr_3d542ef2b1d9803b",
+      "hr_8364ff25fdbe182c",
+      "hr_842eba2a1e9c298e"
+    ]
+  },
+  {
+    "task_id": "cr_b0108177640570e3",
+    "priority": "P0",
+    "granularity": "RECORD_LEVEL",
+    "target": "FASN",
+    "field": "direct_screening_eligibility",
+    "ai_judgment": "MECHANISM_ONLY",
+    "why_review": "当前 AIDD 方向约束：FASN 机制线保留，但直接配体筛选资格必须重新接受化学活性数据资格审查。",
+    "where_to_check": "D:/aidd destoop/data/pilot/03_targets.csv#row=5:P49327; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P49327; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P49327; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P49327; D:/aidd destoop/data/targets_pilot.csv#row=4:P49327; https://www.ebi.ac.uk/chembl/api/data/activity/636088.json; https://www.ebi.ac.uk/chembl/api/data/activity/636089.json; https://www.ebi.ac.uk/chembl/api/data/activity/639766.json; https://www.ebi.ac.uk/chembl/api/data/activity/641020.json; https://www.ebi.ac.uk/chembl/api/data/activity/645876.json",
+    "what_to_check": "真人决定该靶点是否可从机制线转入直接小分子活性 G2；不得仅凭机制强度放行。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": true,
+    "propagation_rule": "只传播到明确列出的 affected_entity_ids。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_72384e4a6b785322"
+    ]
+  },
+  {
+    "task_id": "cr_f32dff51aa2113e4",
+    "priority": "P0",
+    "granularity": "RECORD_LEVEL",
+    "target": "THRB",
+    "field": "direct_screening_eligibility",
+    "ai_judgment": "CONDITIONAL",
+    "why_review": "THR-alpha/THR-beta 选择性或 endpoint 混杂尚未关闭，不能自动进入直接筛选。",
+    "where_to_check": "D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P10828; D:/aidd destoop/data/targets_pilot.csv#row=4:P10828; https://www.ebi.ac.uk/chembl/api/data/activity/152718.json; https://www.ebi.ac.uk/chembl/api/data/activity/152720.json; https://www.ebi.ac.uk/chembl/api/data/activity/152721.json; https://www.ebi.ac.uk/chembl/api/data/activity/156362.json; https://www.ebi.ac.uk/chembl/api/data/activity/156364.json",
+    "what_to_check": "真人决定该靶点是否可从机制线转入直接小分子活性 G2；不得仅凭机制强度放行。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": true,
+    "propagation_rule": "只传播到明确列出的 affected_entity_ids。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_48636701fdc88276"
+    ]
+  },
+  {
+    "task_id": "cr_25179fb49214bd5c",
+    "priority": "P1",
+    "granularity": "RULE_LEVEL",
+    "target": "ACACA",
+    "field": "omics_replication",
+    "ai_judgment": {
+      "datasets": [
+        {
+          "dataset": "GSE89632",
+          "logFC": 1.9,
+          "adjusted_p": 0.003,
+          "species": "Homo sapiens",
+          "sample_count": "45",
+          "case_definition": "MASH liver biopsy",
+          "control_definition": "healthy liver tissue",
+          "platform": "RNA-seq"
+        }
+      ],
+      "replication_count": 1,
+      "direction": "UP"
+    },
+    "why_review": "ACACA 只有单一或未确认的疾病组学队列。",
+    "where_to_check": "D:/aidd destoop/data/pilot/03_targets.csv#row=5:Q13085; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:Q13085; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:Q13085; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:Q13085; D:/aidd destoop/data/targets_pilot.csv#row=4:Q13085; https://www.ebi.ac.uk/chembl/api/data/activity/1733352.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733768.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733796.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733801.json; https://www.ebi.ac.uk/chembl/api/data/activity/1733809.json",
+    "what_to_check": "补充独立队列并核对样本、case/control 和方向。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": false,
+    "propagation_rule": "该 target-level 规则结论传播到本靶点的 G1 任务，不改变活性数值。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_c2b1d048f4db5b62"
+    ]
+  },
+  {
+    "task_id": "cr_0d41e81fe1dc9dec",
+    "priority": "P1",
+    "granularity": "RULE_LEVEL",
+    "target": "FASN",
+    "field": "omics_replication",
+    "ai_judgment": {
+      "datasets": [
+        {
+          "dataset": "GSE89632",
+          "logFC": 2.1,
+          "adjusted_p": 0.001,
+          "species": "Homo sapiens",
+          "sample_count": "45",
+          "case_definition": "MASH liver biopsy",
+          "control_definition": "healthy liver tissue",
+          "platform": "RNA-seq"
+        }
+      ],
+      "replication_count": 1,
+      "direction": "UP"
+    },
+    "why_review": "FASN 只有单一或未确认的疾病组学队列。",
+    "where_to_check": "D:/aidd destoop/data/pilot/03_targets.csv#row=5:P49327; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P49327; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P49327; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P49327; D:/aidd destoop/data/targets_pilot.csv#row=4:P49327; https://www.ebi.ac.uk/chembl/api/data/activity/636088.json; https://www.ebi.ac.uk/chembl/api/data/activity/636089.json; https://www.ebi.ac.uk/chembl/api/data/activity/639766.json; https://www.ebi.ac.uk/chembl/api/data/activity/641020.json; https://www.ebi.ac.uk/chembl/api/data/activity/645876.json",
+    "what_to_check": "补充独立队列并核对样本、case/control 和方向。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": false,
+    "propagation_rule": "该 target-level 规则结论传播到本靶点的 G1 任务，不改变活性数值。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_2f3057930ba5827d"
+    ]
+  },
+  {
+    "task_id": "cr_b89a67298bdff12e",
+    "priority": "P1",
+    "granularity": "RULE_LEVEL",
+    "target": "NR1H4",
+    "field": "omics_replication",
+    "ai_judgment": {
+      "datasets": [
+        {
+          "dataset": "GSE89632",
+          "logFC": -1.8,
+          "adjusted_p": 0.01,
+          "species": "Homo sapiens",
+          "sample_count": "45",
+          "case_definition": "MASH liver biopsy",
+          "control_definition": "healthy liver tissue",
+          "platform": "RNA-seq"
+        }
+      ],
+      "replication_count": 1,
+      "direction": "DOWN"
+    },
+    "why_review": "NR1H4 只有单一或未确认的疾病组学队列。",
+    "where_to_check": "D:/aidd destoop/data/pilot/03_targets.csv#row=5:Q96RI1; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:Q96RI1; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:Q96RI1; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:Q96RI1; D:/aidd destoop/data/targets_pilot.csv#row=4:Q96RI1; https://www.ebi.ac.uk/chembl/api/data/activity/100279.json; https://www.ebi.ac.uk/chembl/api/data/activity/437328.json; https://www.ebi.ac.uk/chembl/api/data/activity/437329.json; https://www.ebi.ac.uk/chembl/api/data/activity/438711.json; https://www.ebi.ac.uk/chembl/api/data/activity/77679.json",
+    "what_to_check": "补充独立队列并核对样本、case/control 和方向。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": false,
+    "propagation_rule": "该 target-level 规则结论传播到本靶点的 G1 任务，不改变活性数值。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_24b2310d1328b055"
+    ]
+  },
+  {
+    "task_id": "cr_0e2972744373686c",
+    "priority": "P1",
+    "granularity": "RULE_LEVEL",
+    "target": "THRB",
+    "field": "omics_replication",
+    "ai_judgment": {
+      "datasets": [
+        {
+          "dataset": "GSE89632",
+          "logFC": -0.8,
+          "adjusted_p": 0.1,
+          "species": "Homo sapiens",
+          "sample_count": "45",
+          "case_definition": "MASH liver biopsy",
+          "control_definition": "healthy liver tissue",
+          "platform": "RNA-seq"
+        }
+      ],
+      "replication_count": 1,
+      "direction": "DOWN"
+    },
+    "why_review": "THRB 只有单一或未确认的疾病组学队列。",
+    "where_to_check": "D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P10828; D:/aidd destoop/data/targets_pilot.csv#row=4:P10828; https://www.ebi.ac.uk/chembl/api/data/activity/152718.json; https://www.ebi.ac.uk/chembl/api/data/activity/152720.json; https://www.ebi.ac.uk/chembl/api/data/activity/152721.json; https://www.ebi.ac.uk/chembl/api/data/activity/156362.json; https://www.ebi.ac.uk/chembl/api/data/activity/156364.json",
+    "what_to_check": "补充独立队列并核对样本、case/control 和方向。",
+    "allowed_decisions": "VERIFIED|CORRECTED|REJECTED",
+    "reason_requirement": "必须引用原始 assay/文献/数据库上下文",
+    "affected_record_count": 1,
+    "original_task_count": 1,
+    "blocks_g2": false,
+    "propagation_rule": "该 target-level 规则结论传播到本靶点的 G1 任务，不改变活性数值。",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "original_review_ids": [
+      "hr_880484f83a24a4b4"
+    ]
+  }
+]

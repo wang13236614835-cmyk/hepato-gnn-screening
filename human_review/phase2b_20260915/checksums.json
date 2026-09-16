@@ -1,0 +1,19 @@
+{
+  "ACC人工核验任务.md": "029c4a53154971c7d91508ebb244defd1a6abd60336330e879db06d253e8fdb0",
+  "FXR人工核验任务.md": "198e1d3b482a44d9ff60355c6e54ab492b55eb3d297a14bc839616578045cb08",
+  "instructions.md": "dc164400d8961f6eb6e668bb9666e2344332ad541aef28dc892fd75a04ca67f1",
+  "README.md": "4bd7ce6665161a95a5dd2cce3f581430f3baf504b18bf1e4b4be67b619a7ea45",
+  "review_manifest.json": "4b6620f192c83fda3f4c93b3727e6d035551cc0cb99cc8edce8ba9ecdd2ee024",
+  "review_return.template.csv": "d2be548e191797f49cb72818b31e0264b821a4bd0c46df51d11205908e8af850",
+  "review_return.template.json": "6961345cf43e28904e71cc2d66afce85bfeecf36884dd3d4edc1d9bb5e39baf7",
+  "review_tasks.compact.json": "a624d06a1fe9fa5f02daf4829a9f0c2a3f63e0e1ecf8787b88fbd03461adfa95",
+  "review_tasks.csv": "86bcda7e842a9b438e1407a4f0b39ca0c97a39c76f083568e53b73b07da338cd",
+  "review_tasks.full.json": "18cce025e62484697d0fe0b12ad2cd31e33a80e047fd435b8ef1da60dcfe2036",
+  "source_manifest.json": "486fc51a3ab2157e4978eaa31f240ea596db0f1bf2528282730a4195775dcc8a",
+  "task_index.csv": "461ed98d47b2338c92b41a0015d4f9fad6996ff53e641706bb825d3b634d46af",
+  "task_index.json": "a393cb77a302b4969fd02db1b83aef9b64adfee5f9129fab8ea1e2db73f1e31b",
+  "任务总表.csv": "461ed98d47b2338c92b41a0015d4f9fad6996ff53e641706bb825d3b634d46af",
+  "任务总表.json": "a393cb77a302b4969fd02db1b83aef9b64adfee5f9129fab8ea1e2db73f1e31b",
+  "回填格式.json": "850850787e0e22a0eba2495d99106b02720c789caa587261792b9b15e4499e24",
+  "核验填写说明.md": "dc164400d8961f6eb6e668bb9666e2344332ad541aef28dc892fd75a04ca67f1"
+}

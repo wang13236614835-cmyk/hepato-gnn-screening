@@ -1,0 +1,28 @@
+{
+  "schema_version": "phase2b.review.v1",
+  "run_id": "phase2b_20260915",
+  "project_id": "MASH_2026_002",
+  "original_task_count": 181,
+  "compressed_task_count": 24,
+  "compression_ratio": 0.13259668508287292,
+  "rule_level_count": 4,
+  "assay_level_count": 18,
+  "compound_level_count": 0,
+  "record_level_count": 2,
+  "p0_original_count": 49,
+  "p1_original_count": 132,
+  "p2_original_count": 0,
+  "acc_original_count": 100,
+  "fxr_original_count": 76,
+  "baseline_path": "D:\\aidd destoop\\projects\\MASH_2026_002\\exports\\human_review\\phase2a_20260915_real_v6\\review_tasks.json",
+  "baseline_task_sha256": "a0894ac57723a049d01bead31fee6e11d76b6adc1edc53e0fb2e4461abe9fdd8",
+  "source_manifest": {
+    "phase2a_baseline": "D:\\aidd destoop\\projects\\MASH_2026_002\\exports\\human_review\\phase2a_20260915_real_v6\\review_tasks.json",
+    "phase2a_source_manifest_sha256": "29334932459bce0fcfb5ae0d150eaee8e32b428047e9d7b4ddff410ad2a71c6b"
+  },
+  "status": "REVIEW_ONLY",
+  "authority": "AIDD main repository; this package is not authoritative",
+  "candidate_release": false,
+  "g3_model_qualification": false,
+  "created_at": "2026-09-16T04:44:31+00:00"
+}
