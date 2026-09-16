@@ -12,7 +12,8 @@
 - [GNN仓库审计.md](GNN仓库审计.md)：本轮定位裁决；
 - [GNN是否需要大改_裁决.md](GNN是否需要大改_裁决.md)：小修即可，不改仓库名；
 - [GNN数据与模型状态表.csv](GNN数据与模型状态表.csv)：旧代码/标签/split/结果的保留与资格状态；
-- AIDD 主库资产登记：`D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv`。
+- AIDD 主库资产登记：`D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv`；
+- [GLOBAL_RESEARCH_TASK_MAP.json](D:/zcode-workspace/aidd-repo-work/00-当前研究/GLOBAL_RESEARCH_TASK_MAP.json)：按 Gate 连接 Workbench 动作、真人核验、patch、manifest 和验收条件；AIDD 是权威源，本库只提交学习/核验产物，不生成第二套正式科研状态或候选发布链。
 
 ## 现在做什么
 

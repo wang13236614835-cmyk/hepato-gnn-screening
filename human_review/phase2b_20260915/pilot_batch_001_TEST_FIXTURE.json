@@ -1,0 +1,250 @@
+{
+  "review_origin": "PIPELINE_TEST_FIXTURE",
+  "counts_as_human_review": false,
+  "formal_usable": false,
+  "notes": "3 条 patch 是 strict import 工程试跑输入，不是真人核验结论；不计入 P0/P1 真实完成率与 G2 完成度；不得覆盖未来成员对相同 task 的真实 decision。",
+  "strict_import_baseline": {
+    "project_id": "MASH_2026_002",
+    "phase2a_baseline_path": "D:/aidd destoop/projects/MASH_2026_002/exports/human_review/phase2a_20260915_real_v6/review_tasks.json",
+    "baseline_task_sha256": "a0894ac57723a049d01bead31fee6e11d76b6adc1edc53e0fb2e4461abe9fdd8"
+  },
+  "patch_results": {
+    "cr_4ce1a9b511da44f2": {
+      "decision": "REJECTED",
+      "reviewer": "衣思淼",
+      "affected_review_ids": [
+        "hr_8f9e533c91794558"
+      ]
+    },
+    "cr_b89a67298bdff12e": {
+      "decision": "REJECTED",
+      "reviewer": "王散曼",
+      "affected_review_ids": [
+        "hr_24b2310d1328b055"
+      ]
+    },
+    "cr_0e2972744373686c": {
+      "decision": "REJECTED",
+      "reviewer": "王散曼",
+      "affected_review_ids": [
+        "hr_880484f83a24a4b4"
+      ]
+    }
+  },
+  "decisions": [
+    {
+      "review_id": "hr_8f9e533c91794558",
+      "project_id": "MASH_2026_002",
+      "entity_type": "activity_record",
+      "entity_id": "1964668",
+      "field": "endpoint_unknown;unit_unrecognized",
+      "ai_value": {
+        "endpoint": "INHIBITION",
+        "value": "35.0",
+        "relation": "="
+      },
+      "source_refs": [
+        "https://www.ebi.ac.uk/chembl/api/data/activity/1964668.json"
+      ],
+      "reason": "endpoint_unknown；unit_unrecognized",
+      "risk_level": "MEDIUM",
+      "upstream_manifest": "2d7b86f6f9442c4254b0e309614b7d803c24861a535c0ad30742125155b2de9c",
+      "created_at": "2026-09-15T14:10:36+00:00",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "reviewer": "衣思淼",
+      "reviewed_at": "2026-09-16T08:15:07.824669+00:00",
+      "human_value": null,
+      "decision": "REJECTED",
+      "decision_reason": "ACACA activity 1964668/1964669.json endpoint=INHIBITION 为百分比；按数据字典不与 IC50/Ki 混用；该 assay 不计入正式 G2 训练集",
+      "metadata": {},
+      "target": "ACACA",
+      "why_review": "endpoint_unknown；unit_unrecognized",
+      "source": "https://www.ebi.ac.uk/chembl/api/data/activity/1964668.json",
+      "source_ref": "https://www.ebi.ac.uk/chembl/api/data/activity/1964668.json",
+      "suggested_action": "核对原始 assay 上下文；决定 VERIFIED、CORRECTED 或 REJECTED。censored/endpoint/subtype 未关闭前不得进入正式训练。",
+      "original_context": {
+        "action_type": null,
+        "activity_comment": null,
+        "activity_id": 1964668,
+        "activity_properties": [],
+        "assay_chembl_id": "CHEMBL897149",
+        "assay_description": "Inhibition of human recombinant ACC1 at 30 uM",
+        "assay_type": "B",
+        "assay_variant_accession": null,
+        "assay_variant_mutation": null,
+        "bao_endpoint": "BAO_0000201",
+        "bao_format": "BAO_0000357",
+        "bao_label": "single protein format",
+        "canonical_smiles": "CC(=O)NC(C)C#Cc1cnc(Oc2ccc(OC(C)C)cc2)s1",
+        "data_validity_comment": null,
+        "data_validity_description": null,
+        "document_chembl_id": "CHEMBL1148850",
+        "document_journal": "Bioorg Med Chem Lett",
+        "document_year": 2007,
+        "ligand_efficiency": null,
+        "modality": null,
+        "molecule_chembl_id": "CHEMBL377212",
+        "molecule_pref_name": null,
+        "parent_molecule_chembl_id": "CHEMBL377212",
+        "pchembl_value": null,
+        "potential_duplicate": 0,
+        "qudt_units": "http://qudt.org/vocab/unit#Percent",
+        "record_id": 657063,
+        "relation": "=",
+        "src_id": 1,
+        "standard_flag": 1,
+        "standard_relation": "=",
+        "standard_text_value": null,
+        "standard_type": "Inhibition",
+        "standard_units": "%",
+        "standard_upper_value": null,
+        "standard_value": "35.0",
+        "target_chembl_id": "CHEMBL3351",
+        "target_organism": "Homo sapiens",
+        "target_pref_name": "Acetyl-CoA carboxylase 1",
+        "target_tax_id": "9606",
+        "text_value": null,
+        "toid": null,
+        "type": "Inhibition",
+        "units": "%",
+        "uo_units": "UO_0000187",
+        "upper_value": null,
+        "value": "35.0"
+      }
+    },
+    {
+      "review_id": "hr_24b2310d1328b055",
+      "project_id": "MASH_2026_002",
+      "entity_type": "target",
+      "entity_id": "Q96RI1",
+      "field": "omics_replication",
+      "ai_value": {
+        "datasets": [
+          {
+            "dataset": "GSE89632",
+            "logFC": -1.8,
+            "adjusted_p": 0.01,
+            "species": "Homo sapiens",
+            "sample_count": "45",
+            "case_definition": "MASH liver biopsy",
+            "control_definition": "healthy liver tissue",
+            "platform": "RNA-seq"
+          }
+        ],
+        "replication_count": 1,
+        "direction": "DOWN"
+      },
+      "source_refs": [
+        "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:Q96RI1",
+        "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:Q96RI1",
+        "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:Q96RI1",
+        "D:/aidd destoop/data/targets_pilot.csv#row=4:Q96RI1",
+        "D:/aidd destoop/data/pilot/03_targets.csv#row=5:Q96RI1",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/100279.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/437328.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/437329.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/438711.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/77679.json"
+      ],
+      "reason": "当前仅有单一/不可确认的疾病组学队列，AI 不能签署独立重复。",
+      "risk_level": "HIGH",
+      "upstream_manifest": "2d7b86f6f9442c4254b0e309614b7d803c24861a535c0ad30742125155b2de9c",
+      "created_at": "2026-09-15T14:10:17+00:00",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "reviewer": "王散曼",
+      "reviewed_at": "2026-09-16T08:15:07.824669+00:00",
+      "human_value": null,
+      "decision": "REJECTED",
+      "decision_reason": "NR1H4 仅 GSE89632 单组学队列；PubMed/GEO 搜索\"FXR MASH liver biopsy replication\"无第二个独立复现；按 omics_replication 规则 REJECTED",
+      "metadata": {},
+      "target": "NR1H4",
+      "why_review": "当前仅有单一/不可确认的疾病组学队列，AI 不能签署独立重复。",
+      "source": "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:Q96RI1; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:Q96RI1; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:Q96RI1; D:/aidd destoop/data/targets_pilot.csv#row=4:Q96RI1; D:/aidd destoop/data/pilot/03_targets.csv#row=5:Q96RI1; https://www.ebi.ac.uk/chembl/api/data/activity/100279.json; https://www.ebi.ac.uk/chembl/api/data/activity/437328.json; https://www.ebi.ac.uk/chembl/api/data/activity/437329.json; https://www.ebi.ac.uk/chembl/api/data/activity/438711.json; https://www.ebi.ac.uk/chembl/api/data/activity/77679.json",
+      "source_ref": "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:Q96RI1",
+      "suggested_action": "补充独立 GEO/transcriptomics/proteomics 队列并确认 case/control、样本类型和方向一致性。",
+      "original_context": {
+        "datasets": [
+          {
+            "dataset": "GSE89632",
+            "logFC": -1.8,
+            "adjusted_p": 0.01,
+            "species": "Homo sapiens",
+            "sample_count": "45",
+            "case_definition": "MASH liver biopsy",
+            "control_definition": "healthy liver tissue",
+            "platform": "RNA-seq"
+          }
+        ],
+        "replication_count": 1,
+        "direction": "DOWN"
+      }
+    },
+    {
+      "review_id": "hr_880484f83a24a4b4",
+      "project_id": "MASH_2026_002",
+      "entity_type": "target",
+      "entity_id": "P10828",
+      "field": "omics_replication",
+      "ai_value": {
+        "datasets": [
+          {
+            "dataset": "GSE89632",
+            "logFC": -0.8,
+            "adjusted_p": 0.1,
+            "species": "Homo sapiens",
+            "sample_count": "45",
+            "case_definition": "MASH liver biopsy",
+            "control_definition": "healthy liver tissue",
+            "platform": "RNA-seq"
+          }
+        ],
+        "replication_count": 1,
+        "direction": "DOWN"
+      },
+      "source_refs": [
+        "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828",
+        "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P10828",
+        "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P10828",
+        "D:/aidd destoop/data/targets_pilot.csv#row=4:P10828",
+        "D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/152718.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/152720.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/152721.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/156362.json",
+        "https://www.ebi.ac.uk/chembl/api/data/activity/156364.json"
+      ],
+      "reason": "当前仅有单一/不可确认的疾病组学队列，AI 不能签署独立重复。",
+      "risk_level": "HIGH",
+      "upstream_manifest": "2d7b86f6f9442c4254b0e309614b7d803c24861a535c0ad30742125155b2de9c",
+      "created_at": "2026-09-15T14:10:17+00:00",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "reviewer": "王散曼",
+      "reviewed_at": "2026-09-16T08:15:07.824669+00:00",
+      "human_value": null,
+      "decision": "REJECTED",
+      "decision_reason": "THRB 仅 GSE89632 单组学队列；PubMed/GEO 搜索\"THR-beta MASH liver replication\"无第二个独立复现；按 omics_replication 规则 REJECTED",
+      "metadata": {},
+      "target": "THRB",
+      "why_review": "当前仅有单一/不可确认的疾病组学队列，AI 不能签署独立重复。",
+      "source": "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P10828; D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P10828; D:/aidd destoop/data/targets_pilot.csv#row=4:P10828; D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828; https://www.ebi.ac.uk/chembl/api/data/activity/152718.json; https://www.ebi.ac.uk/chembl/api/data/activity/152720.json; https://www.ebi.ac.uk/chembl/api/data/activity/152721.json; https://www.ebi.ac.uk/chembl/api/data/activity/156362.json; https://www.ebi.ac.uk/chembl/api/data/activity/156364.json",
+      "source_ref": "D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828",
+      "suggested_action": "补充独立 GEO/transcriptomics/proteomics 队列并确认 case/control、样本类型和方向一致性。",
+      "original_context": {
+        "datasets": [
+          {
+            "dataset": "GSE89632",
+            "logFC": -0.8,
+            "adjusted_p": 0.1,
+            "species": "Homo sapiens",
+            "sample_count": "45",
+            "case_definition": "MASH liver biopsy",
+            "control_definition": "healthy liver tissue",
+            "platform": "RNA-seq"
+          }
+        ],
+        "replication_count": 1,
+        "direction": "DOWN"
+      }
+    }
+  ]
+}
