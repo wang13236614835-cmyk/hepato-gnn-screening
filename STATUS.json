@@ -31,11 +31,12 @@
     "old_labels": "rejected_label",
     "old_splits": "historical_split_invalid_for_generalization",
     "structure_curation": "needs_human_check",
-    "old_rankings": "historical"
+    "old_rankings": "historical",
+    "dataset_py": "unknown_element_fixed_20260917_requalify_no_auto_upgrade"
   },
   "authority": "D:/zcode-workspace/aidd-repo-work/00-当前研究/qualification_v1/RESEARCH_STATE.md",
   "preservation_registry": "D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv",
-  "updated": "2026-09-15",
+  "updated": "2026-09-17",
   "current_stage": "第五轮方向探索（FASN Gate T1已裁决）",
   "current_conclusion": "FASN Gate T1=FAIL；FASN收窄为canonical local方法学线；Primary转为Moracin N–NRF2/ferroptosis肝细胞机制验证",
   "current_blocker": "Moracin N物料/导师签核；FASN缺少第二个可比assay pair",
@@ -52,5 +53,16 @@
       "3′-methoxydaidzein当前创新候选"
     ],
     "source": "AIDD主库 fifth_round_direction_exploration_20260915/GATE_DECISION.json"
+  },
+  "v06_human_review_loop": {
+    "aidd_role": "formal_scientific_truth_single_source",
+    "workbench_role": "ai_exploration_task_generation_strict_import_recompute_stale",
+    "gnn_role": "human_review_workspace_method_learning_historical_review",
+    "task_export": "workbench workflows/human_review_export.py -> human_review_task.json",
+    "result_import": "workbench Project.import_compound_identity_results (task_id+upstream_hash+reviewer strict validation)",
+    "gate_chain": "G0-G7 projected in workbench core/research_workflow.py from AIDD",
+    "unknown_element_fix": "src/models/dataset.py: default raise UnsupportedElementError; optional unk_slot 14-dim; legacy 13-dim bitwise identical (tests/test_dataset_unknown_element.py)",
+    "real_human_review": 0,
+    "counts_as_scientific_validation": false
   }
 }

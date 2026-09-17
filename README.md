@@ -1,6 +1,6 @@
-# hepato-gnn-screening：GNN 方法学习与历史复核工作区
+# hepato-gnn-screening：真人核验工作区 + GNN 方法学习与历史复核
 
-**当前角色（2026-09-15）**：GNN 方法学习 + 历史模型复核 + 组员任务工作区。AIDD 正式科研结论唯一入口是 `D:/zcode-workspace/aidd-repo-work`，Workbench 只读镜像主库状态。本仓库不产生第二套候选发布链。当前进入第五轮方向探索；FASN Gate T1=FAIL，Primary 转为 Moracin N–NRF2/ferroptosis 肝细胞机制验证。
+**当前角色（2026-09-17，v0.6）**：**真人核验工作区** + GNN 方法学习 + 历史模型复核 + 组员任务工作区。AIDD 正式科研结论唯一入口是 `D:/zcode-workspace/aidd-repo-work`；Workbench（`D:/aidd destoop`）负责 AI 探索、人工核验任务生成、人工结果严格导入、正式重算与 STALE 传播；本仓库是组员做真人核验、学习和历史复核的地方，不产生第二套候选发布链。当前 FASN Gate T1=FAIL；Phase 2B 真人核验（P0 8 个压缩单元 / 49 条原始任务）尚未开始，G0-G7 Gate 状态以 AIDD 主库与 Workbench 只读投影为准。
 
 > **重要状态**：GNN 当前为 `gated/closed`，不是当前正式主模型。它在 AIDD 主库冻结的 96 分子 FASN canonical assay 上首次同折 benchmark 未优于经典 baseline：Ridge R² 中位 0.732、XGB 0.594、RF 0.217、GCN 0.078、GINE −0.040。不要把旧 Top-10、黄芩苷居首、旧 docking 排名或旧 AUC 当作当前 MASH 候选结论。
 
@@ -17,10 +17,13 @@
 
 ## 现在做什么
 
-1. 维护可运行的 GNN/基线代码和学习材料；
-2. 复核历史数据、结构、split、日志和模型输出；
-3. T1 已裁决 FAIL；只有获得第二个满足核心元数据约束的共享 assay pair 后才重开 FASN T1；
-4. 记录 GNN 的正负结果、UQ、split 和数据限制，不强行让 GNN 赢过 Ridge。
+1. **真人核验（v0.6 主线）**：在 `human_review/` 工作区完成 Phase 2B P0/P1 人工核验任务（8 个 P0 压缩单元 / 49 条原始任务；16 个 P1 / 132 条），按 `VERIFIED / CORRECTED / REJECTED` 回填，交 Workbench 严格导入；
+2. 维护可运行的 GNN/基线代码和学习材料；
+3. 复核历史数据、结构、split、日志和模型输出；
+4. T1 已裁决 FAIL；只有获得第二个满足核心元数据约束的共享 assay pair 后才重开 FASN T1；
+5. 记录 GNN 的正负结果、UQ、split 和数据限制，不强行让 GNN 赢过 Ridge。
+
+> 2026-09-17 修复：`src/models/dataset.py` 未知元素不再静默按碳处理（默认显式报错，可选独立 UNK 14 维；历史 13 维数据逐位不变，永久测试见 `tests/test_dataset_unknown_element.py`）。
 
 ## 现在不做什么
 
