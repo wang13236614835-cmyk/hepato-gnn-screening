@@ -10,6 +10,19 @@ import os
 import sys
 import time
 
+
+def _configure_utf8_stdio():
+    """Use UTF-8 console output across Windows/Linux when supported."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            try:
+                stream.reconfigure(encoding="utf-8", errors="replace")
+            except (AttributeError, ValueError):
+                pass
+
+
+_configure_utf8_stdio()
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "src"))
 
