@@ -1,29 +1,62 @@
-# hepato-gnn-screening：真人核验工作区 + GNN 方法学习与历史复核
+> **CURRENT（2026-10-12）**：GNN科研专项四周：W1打分(10/12–18)→W2老药反向筛选(10/19–25)→W3中药反向筛选(10/26–11/01)→W4收尾(11/02–08)。[当前四周计划](docs/CURRENT_SPRINT_20261012.md)。5人HTML页现已按四周展示；旧三周自评/旧16周教学记录不继承，科研Gate未自动变更。
 
-**当前角色（2026-09-17，v0.6）**：**真人核验工作区** + GNN 方法学习 + 历史模型复核 + 组员任务工作区。AIDD 正式科研结论唯一入口是 `D:/zcode-workspace/aidd-repo-work`；Workbench（`D:/aidd destoop`）负责 AI 探索、人工核验任务生成、人工结果严格导入、正式重算与 STALE 传播；本仓库是组员做真人核验、学习和历史复核的地方，不产生第二套候选发布链。当前 FASN Gate T1=FAIL；Phase 2B 真人核验（P0 8 个压缩单元 / 49 条原始任务）尚未开始，G0-G7 Gate 状态以 AIDD 主库与 Workbench 只读投影为准。
+# hepato-gnn-screening：四周打分、双库反向筛选与收尾
 
-> **重要状态**：GNN 当前为 `gated/closed`，不是当前正式主模型。它在 AIDD 主库冻结的 96 分子 FASN canonical assay 上首次同折 benchmark 未优于经典 baseline：Ridge R² 中位 0.732、XGB 0.594、RF 0.217、GCN 0.078、GINE −0.040。不要把旧 Top-10、黄芩苷居首、旧 docking 排名或旧 AUC 当作当前 MASH 候选结论。
+## 历史安排 · 2026-10-07 三周核验建议（已被当前四周任务替代）
 
-## 当前入口
+后半段用连续 **3 周**完成最终核验：第 1 周证据与口径核对，第 2 周独立复核与复算，第 3 周整体验收与导师交付。这里的第 1–3 周是核验阶段编号，不沿用旧 W4 或实验 W0 编号；具体起止日期在团队确认启动时登记，不自动回填历史周次。
 
-- [RESEARCH_STATE.md](RESEARCH_STATE.md)：本仓库状态；权威科研状态仍在 AIDD 主库 `00-当前研究/qualification_v1/RESEARCH_STATE.md`；
-- [STATUS.json](STATUS.json)：机器可读状态；
-- [GNN_RESEARCH_PLAN_v2.md](GNN_RESEARCH_PLAN_v2.md)：当前计划；
-- [GNN仓库审计.md](GNN仓库审计.md)：本轮定位裁决；
-- [GNN是否需要大改_裁决.md](GNN是否需要大改_裁决.md)：小修即可，不改仓库名；
-- [GNN数据与模型状态表.csv](GNN数据与模型状态表.csv)：旧代码/标签/split/结果的保留与资格状态；
-- AIDD 主库资产登记：`D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv`；
-- [GLOBAL_RESEARCH_TASK_MAP.json](D:/zcode-workspace/aidd-repo-work/00-当前研究/GLOBAL_RESEARCH_TASK_MAP.json)：按 Gate 连接 Workbench 动作、真人核验、patch、manifest 和验收条件；AIDD 是权威源，本库只提交学习/核验产物，不生成第二套正式科研状态或候选发布链。
+- [后三周最终核验与优化汇总](docs/后三周最终核验与优化汇总.md)：优化优先级、分工、每周交付和验收条件。
+- [本周导师汇报话术](docs/本周导师汇报话术_20261007.md)：本周审查进展、研究判断和后三周安排。
+- [2026-10-07 审查报告](docs/audit/20261007_final_review/审查与优化建议.md) · [验证记录](docs/audit/20261007_final_review/验证记录.md) · [状态快照](docs/audit/20261007_final_review/核验快照.json)。
+- [研究状态](研究状态.md)：当前核验阶段与历史科研状态的关系。
 
-## 现在做什么
+2026-10-07 核验时，8501 使用 V4；登记证据完整性检查通过 97 条，五项专项真人核验为 0/5，总体验收未签署，候选冻结版本 0，实验未开始、正式发布数 0。这是带日期的核验快照，不是实时状态或“全部科学结论通过”。本次仅更新计划和汇报材料，优化修复尚未执行，完成记录由实际证据产生。
 
-1. **真人核验（v0.6 主线）**：在 `human_review/` 工作区完成 Phase 2B P0/P1 人工核验任务（8 个 P0 压缩单元 / 49 条原始任务；16 个 P1 / 132 条），按 `VERIFIED / CORRECTED / REJECTED` 回填，交 Workbench 严格导入；
-2. 维护可运行的 GNN/基线代码和学习材料；
-3. 复核历史数据、结构、split、日志和模型输出；
-4. T1 已裁决 FAIL；只有获得第二个满足核心元数据约束的共享 assay pair 后才重开 FASN T1；
-5. 记录 GNN 的正负结果、UQ、split 和数据限制，不强行让 GNN 赢过 Ridge。
+本库承接成员核验与可解释交付；正式科研资格仍通过 Workbench/AIDD 受控流程产生。V3 七项任务中，五项干实验核验与两项实验准备应分开统计，不能将 0/7 与 0/5 当作同一完成率。以下旧 W4 内容保留为历史依据；与当前三周安排冲突时，以本节链接的新计划为准。
 
-> 2026-09-17 修复：`src/models/dataset.py` 未知元素不再静默按碳处理（默认显式报错，可选独立 UNK 14 维；历史 13 维数据逐位不变，永久测试见 `tests/test_dataset_unknown_element.py`）。
+## 历史安排 · research_chain_v3 / W4
+
+历史周：W4（2026-09-28—2026-10-04）
+
+第三周已经结束。第三周完成 v3 迁移和软件安全收口；正式真人核验仍为 0。
+
+当前正式状态：
+- G0 = PASS
+- G1 = PASS（方向仍 UNRESOLVED_CONTEXT_DEPENDENT）
+- G2 = HUMAN_REVIEW_REQUIRED
+- G3 = REVIEW
+- G4–G7 = BLOCKED
+- candidate_release=false
+- W0=0
+- wetlab=NOT_EXECUTED
+- human review=0/7
+
+## 历史 V3 入口
+- docs/W4_真人核验执行计划.md：第四周总计划；
+- docs/v3当前工作台.md：当前分工；
+- human_review/adora2a_mcule_20260927/HUMAN_REVIEW_QUEUE.csv：7条正式待核任务；
+- human_review/adora2a_mcule_20260927/W4_GIT_HUMAN_REVIEW.md：Git真人核验规则；
+- human_review/adora2a_mcule_20260927/review_result.template.json：结果模板；
+- 各成员文件夹 工作台.md / 打卡_姓名.html：个人任务入口；
+- AIDD 主库：唯一正式科研事实源。
+
+## 历史第四周任务
+1. HR-001～004 启动第一轮真实人工核验；
+2. HR-005 并行推进；
+3. HR-006 等真实采购/到货，禁止提前完成；
+4. HR-007 只记录湿实验执行方和 assay 可行性；
+5. 每条人工核验必须由本人 Git 提交并有交叉复核；
+6. Git 记录经负责人检查后，再通过 Workbench/AIDD 受控导入；
+7. 不重开旧 Phase2B/FASN/GNN 当前主线。
+
+## Git 不是科研 Gate
+
+Git 用来留下谁提交、何时提交、修改内容和谁交叉复核。
+
+Git commit、PR 或页面打卡都不自动等于 VERIFIED 已被 AIDD 正式接受。
+
+旧 v2/Phase2B/W3–W16 周计划继续保留为历史资料。
 
 ## 现在不做什么
 
@@ -35,7 +68,7 @@
 
 ## 保留哪些历史内容
 
-`data/`、`src/`、`results/`、`final-aidd-screening/`、`reports/`、旧 split、旧标签、日志、预测和成员工作台全部保留。它们分别用于历史复现、错误分析、方法学习、软件核验和课程任务；具体状态见 `GNN数据与模型状态表.csv` 和 `docs/PROJECT_STATUS.md`。
+`data/`、`src/`、`results/`、`final-aidd-screening/`、`reports/`、旧 split、旧标签、日志、预测和成员工作台全部保留。它们分别用于历史复现、错误分析、方法学习、软件核验和课程任务；具体状态见 `GNN数据与模型状态表.csv` 和 `docs/项目状态与边界.md`。
 
 ## 旧一键流程边界
 
@@ -54,3 +87,8 @@ python run_all.py --legacy-demo   # 可选：旧教学流程复现，会写入�
 - `final-aidd-screening/`：历史课程 SOP/完整管线复盘；
 - `docs/`：任务、核验、历史状态和人工审核规则；
 - `王启龙/` 等：组员工作台，不代替科研资格签核。
+
+
+## ADORA2A / Mcule 2026-09-27 人工核验包
+
+入口：human_review/adora2a_mcule_20260927/。该包来自 Workbench 冻结审计，仅供真人复核并回填；正式科研事实仍以 AIDD 主库为准。
