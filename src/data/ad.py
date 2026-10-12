@@ -32,7 +32,7 @@ def _matrix(rows, mu=None, sd=None):
 
 
 def run():
-    train = _load(os.path.join(SPLITS, "train.csv"))
+    train = _load(os.path.join(SPLITS, "训练集.csv"))
     Xtr, mu, sd = _matrix(train)
     p = Xtr.shape[1]
     n = Xtr.shape[0]
@@ -49,27 +49,27 @@ def run():
     os.makedirs(OUT, exist_ok=True)
     report = []
     for name in ("train", "val", "test"):
-        rows = _load(os.path.join(SPLITS, f"{name}.csv"))
+        rows = _load(os.path.join(SPLITS, {"train": "训练集", "val": "验证集", "test": "测试集"}.get(name, f"{name}.csv")))
         h = leverage(rows)
         for r, hi in zip(rows, h):
             report.append({"compound_id": r["compound_id"], "name_cn": r["name_cn"],
                            "split": name, "leverage": round(float(hi), 3),
                            "h_star": round(h_star, 3),
                            "in_domain": int(hi <= h_star)})
-    pool = _load(os.path.join(PROC, "screening_pool.csv"))
+    pool = _load(os.path.join(PROC, "筛选池.csv"))
     h = leverage(pool)
     for r, hi in zip(pool, h):
         report.append({"compound_id": r["compound_id"], "name_cn": r["name_cn"],
-                       "split": "screening_pool", "leverage": round(float(hi), 3),
+                       "split": "筛选池", "leverage": round(float(hi), 3),
                        "h_star": round(h_star, 3),
                        "in_domain": int(hi <= h_star)})
 
-    with open(os.path.join(OUT, "ad_report.csv"), "w", encoding="utf-8", newline="") as f:
+    with open(os.path.join(OUT, "适用域报告.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(report[0].keys()))
         w.writeheader()
         w.writerows(report)
 
-    out_rate = sum(1 for r in report if r["split"] == "screening_pool" and not r["in_domain"])
+    out_rate = sum(1 for r in report if r["split"] == "筛选池" and not r["in_domain"])
     print(f"[ad] h*={h_star:.3f}；筛选池域外分子 {out_rate}/{len(pool)} "
           f"({100*out_rate/max(1,len(pool)):.0f}%) 已标记预警")
     return report

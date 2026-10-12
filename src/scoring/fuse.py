@@ -41,15 +41,15 @@ def lipinski_violations(r):
 
 def run():
     os.makedirs(OUT, exist_ok=True)
-    pool = _read(os.path.join(PROC, "screening_pool.csv"))
-    labeled = [r for r in _read(os.path.join(PROC, "cleaned_compounds.csv"))
+    pool = _read(os.path.join(PROC, "筛选池.csv"))
+    labeled = [r for r in _read(os.path.join(PROC, "清洗后化合物.csv"))
                if r["label"] == "1" and r["compound_id"].startswith("HP")]
     pred_by_id = {}
-    # HP 系(有标签活性池)+NV 新分子池统一来自 fullpool_predictions.csv
-    full_path = os.path.join(PRED, "fullpool_predictions.csv")
+    # HP 系(有标签活性池)+NV 新分子池统一来自 全池预测.csv
+    full_path = os.path.join(PRED, "全池预测.csv")
     pred_by_id = {r["compound_id"]: r for r in _read(full_path)}
-    dock = _read(os.path.join(DOCK, "docking_scores.csv"))
-    ad = {r["compound_id"]: r for r in _read(os.path.join(AD, "ad_report.csv"))}
+    dock = _read(os.path.join(DOCK, "对接分数表.csv"))
+    ad = {r["compound_id"]: r for r in _read(os.path.join(AD, "适用域报告.csv"))}
 
     davg = {}
     for r in dock:
@@ -92,7 +92,7 @@ def run():
     for i, r in enumerate(rows, 1):
         r["rank"] = i
 
-    with open(os.path.join(OUT, "final_ranking.csv"), "w", encoding="utf-8", newline="") as f:
+    with open(os.path.join(OUT, "最终排名.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)

@@ -125,10 +125,10 @@ def rank_stability(comp, base_order):
 
 def run():
     pred = {r["compound_id"]: r for r in read_csv(
-        os.path.join(RES, "predictions", "fullpool_predictions.csv"))}
-    dock = read_csv(os.path.join(RES, "tables", "docking_real_scores.csv"))
+        os.path.join(RES, "predictions", "全池预测.csv"))}
+    dock = read_csv(os.path.join(RES, "tables", "真实对接分数.csv"))
     pre = {r["compound_id"]: r for r in read_csv(
-        os.path.join(RES, "tables", "prefilter_report.csv"))}
+        os.path.join(RES, "tables", "预过滤报告.csv"))}
     cand_rows = load_candidates()
     split_of = {}
     for part in ("train", "val", "test"):
@@ -224,7 +224,7 @@ def run():
     rows.sort(key=lambda x: -x["final_score"])
     for i, r in enumerate(rows, 1):
         r["rank"] = i
-    write_csv(os.path.join(RES, "tables", "final_ranking_v2_real.csv"), rows)
+    write_csv(os.path.join(RES, "tables", "真实分数排名v2.csv"), rows)
 
     # ---- 项34 三榜分离 ----
     boards = {"known_retrospective": "已知回顾榜(参与过训练/选模,禁止当新发现)",
@@ -248,7 +248,7 @@ def run():
             seen_clusters.add(cl)
         if len(picked) >= N_SELECT:
             break
-    write_csv(os.path.join(RES, "tables", "diverse_top10.csv"), picked)
+    write_csv(os.path.join(RES, "tables", "多样性前十.csv"), picked)
 
     # 未标注榜单独的多样性挑选: 候选发现唯一合法来源
     unlabeled = [r for r in rows if r["board"] == "unlabeled_screening"]

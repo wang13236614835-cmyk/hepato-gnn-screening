@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P0 人工核验 · 首页</title>
+<style>
+  :root { --red:#b91c1c; --muted:#64748b; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"Microsoft YaHei","Segoe UI",sans-serif; background:#f1f5f9; color:#0f172a; }
+  header { background:#0f172a; color:#fff; padding:26px 32px; }
+  header h1 { margin:0 0 6px; font-size:22px; }
+  header p { margin:0; color:#cbd5e1; font-size:13px; }
+  header .meta { margin-top:10px; font-size:12px; color:#94a3b8; }
+  main { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
+  .notice { background:#fff7ed; border:1px solid #fdba74; border-radius:10px; padding:12px 16px; font-size:13.5px; margin:16px 0; line-height:1.7; }
+  .notice a { color:#1d4ed8; }
+  .card { background:#fff; border:1px solid #e2e8f0; border-left:5px solid var(--red); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(15,23,42,.06); }
+  .card-head { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:10px; }
+  .badge { font-size:12px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  .badge.p0 { background:var(--red); color:#fff; }
+  .target { font-weight:700; font-size:16px; }
+  .field { font-family:Consolas,monospace; font-size:12px; background:#f1f5f9; border-radius:6px; padding:2px 8px; }
+  .recs { margin-left:auto; font-size:12px; color:var(--muted); }
+  .card p { margin:6px 0; font-size:13.5px; line-height:1.65; }
+  .refs a { color:#1d4ed8; word-break:break-all; display:inline-block; margin:2px 12px 2px 0; font-size:12.5px; }
+  .muted { color:var(--muted); font-size:12px; }
+  footer { text-align:center; color:var(--muted); font-size:12px; padding:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚠️ 现在只做一件事：8 个 P0 人工核验</h1>
+  <p>P0 全部回填 → Workbench strict import → STALE 传播 → G2 recompute。P1（16 项）在 P0 完成后再做。</p>
+  <div class="meta">项目 MASH_2026_002 · run phase2b_20260915 · 8 个 P0 覆盖 49 条原始任务 · 本页只是索引，不改变任何科研状态</div>
+</header>
+<main>
+  <div class="notice">
+    <b>三步开始：</b><br>
+    ① 点每张卡片的 ChEMBL 链接，核对原始 assay 记录；<br>
+    ② 打开 <a href="review_return.template.csv"><b>review_return.template.csv</b></a>，只填
+    <code>decision / human_value / decision_reason / reviewer / reviewed_at / source_ref</code>；<br>
+    ③ AI 原值字段一律不动。细节见 <a href="核验填写说明.md">核验填写说明</a> · <a href="任务总表.csv">任务总表</a> · <a href="instructions.md">instructions</a>。
+  </div>
+  
+    <div class="card" id="cr_4ce1a9b511da44f2">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">ACACA</span>
+        <span class="field">endpoint_unknown;unit_unrecognized</span>
+        <span class="recs">2 条记录</span>
+      </div>
+      <p><b>为什么核：</b>ACACA 的 endpoint/type 无法从当前记录可靠判定。</p>
+      <p><b>核什么：</b>核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查：</b><span class="refs"><a href="https://www.ebi.ac.uk/chembl/api/data/activity/1964668.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/1964668.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/1964669.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/1964669.json</a></span></p>
+      <p class="muted">task_id: cr_4ce1a9b511da44f2 · 覆盖 2 个原始任务 · 传播规则: 确认后传播到该 assay 的全部记录；不同 assay 不合并。</p>
+    </div>
+    <div class="card" id="cr_b2e66c3f80331987">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">NR1H4</span>
+        <span class="field">endpoint_unknown;numeric_value_missing;unit_unrecognized</span>
+        <span class="recs">1 条记录</span>
+      </div>
+      <p><b>为什么核：</b>NR1H4 的 endpoint/type 无法从当前记录可靠判定。</p>
+      <p><b>核什么：</b>核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查：</b><span class="refs"><a href="https://www.ebi.ac.uk/chembl/api/data/activity/438711.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/438711.json</a></span></p>
+      <p class="muted">task_id: cr_b2e66c3f80331987 · 覆盖 1 个原始任务 · 传播规则: 确认后传播到该 assay 的全部记录；不同 assay 不合并。</p>
+    </div>
+    <div class="card" id="cr_f505080a747c2290">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">NR1H4</span>
+        <span class="field">endpoint_unknown;unit_unrecognized</span>
+        <span class="recs">11 条记录</span>
+      </div>
+      <p><b>为什么核：</b>NR1H4 的 endpoint/type 无法从当前记录可靠判定。</p>
+      <p><b>核什么：</b>核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查（+7 条，见 source_refs）：</b><span class="refs"><a href="https://www.ebi.ac.uk/chembl/api/data/activity/553929.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/553929.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/558769.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/558769.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/560988.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/560988.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/562183.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/562183.json</a></span></p>
+      <p class="muted">task_id: cr_f505080a747c2290 · 覆盖 11 个原始任务 · 传播规则: 确认后传播到该 assay 的全部记录；不同 assay 不合并。</p>
+    </div>
+    <div class="card" id="cr_db629e920219a104">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">NR1H4</span>
+        <span class="field">endpoint_unknown;unit_unrecognized</span>
+        <span class="recs">6 条记录</span>
+      </div>
+      <p><b>为什么核：</b>NR1H4 的 endpoint/type 无法从当前记录可靠判定。</p>
+      <p><b>核什么：</b>核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查（+2 条，见 source_refs）：</b><span class="refs"><a href="https://www.ebi.ac.uk/chembl/api/data/activity/437329.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/437329.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/446807.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/446807.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/450674.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/450674.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/454605.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/454605.json</a></span></p>
+      <p class="muted">task_id: cr_db629e920219a104 · 覆盖 6 个原始任务 · 传播规则: 确认后传播到该 assay 的全部记录；不同 assay 不合并。</p>
+    </div>
+    <div class="card" id="cr_11f2d61b67f82362">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">NR1H4</span>
+        <span class="field">endpoint_unknown;unit_unrecognized</span>
+        <span class="recs">26 条记录</span>
+      </div>
+      <p><b>为什么核：</b>NR1H4 的 endpoint/type 无法从当前记录可靠判定。</p>
+      <p><b>核什么：</b>核对原始 assay description/原文，确认 IC50、Ki、EC50、Kd 或排除。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查（+22 条，见 source_refs）：</b><span class="refs"><a href="https://www.ebi.ac.uk/chembl/api/data/activity/1467363.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/1467363.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/1467478.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/1467478.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/1467480.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/1467480.json</a><a href="https://www.ebi.ac.uk/chembl/api/data/activity/1467482.json" target="_blank" rel="noopener">https://www.ebi.ac.uk/chembl/api/data/activity/1467482.json</a></span></p>
+      <p class="muted">task_id: cr_11f2d61b67f82362 · 覆盖 26 个原始任务 · 传播规则: 确认后传播到该 assay 的全部记录；不同 assay 不合并。</p>
+    </div>
+    <div class="card" id="cr_e9d2dc6f22913ddd">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">THRB</span>
+        <span class="field">target_subtype_selectivity</span>
+        <span class="recs">1 条记录</span>
+      </div>
+      <p><b>为什么核：</b>THR-alpha/THR-beta subtype 或选择性不能由 target 名称自动签字。</p>
+      <p><b>核什么：</b>核对 protein construct、assay description 和 alpha 对照。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查（+6 条，见 source_refs）：</b><span class="refs"><a href="D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P108…</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P108…</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P108…</a></span></p>
+      <p class="muted">task_id: cr_e9d2dc6f22913ddd · 覆盖 1 个原始任务 · 传播规则: 确认后传播到该 subtype/assay lineage 的记录。</p>
+    </div>
+    <div class="card" id="cr_b0108177640570e3">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">FASN</span>
+        <span class="field">direct_screening_eligibility</span>
+        <span class="recs">1 条记录</span>
+      </div>
+      <p><b>为什么核：</b>当前 AIDD 方向约束：FASN 机制线保留，但直接配体筛选资格必须重新接受化学活性数据资格审查。</p>
+      <p><b>核什么：</b>真人决定该靶点是否可从机制线转入直接小分子活性 G2；不得仅凭机制强度放行。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查（+6 条，见 source_refs）：</b><span class="refs"><a href="D:/aidd destoop/data/pilot/03_targets.csv#row=5:P49327" target="_blank" rel="noopener">D:/aidd destoop/data/pilot/03_targets.csv#row=5:P49327</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P49327" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P493…</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P49327" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P493…</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P49327" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P493…</a></span></p>
+      <p class="muted">task_id: cr_b0108177640570e3 · 覆盖 1 个原始任务 · 传播规则: 只传播到明确列出的 affected_entity_ids。</p>
+    </div>
+    <div class="card" id="cr_f32dff51aa2113e4">
+      <div class="card-head">
+        <span class="badge p0">P0</span>
+        <span class="target">THRB</span>
+        <span class="field">direct_screening_eligibility</span>
+        <span class="recs">1 条记录</span>
+      </div>
+      <p><b>为什么核：</b>THR-alpha/THR-beta 选择性或 endpoint 混杂尚未关闭，不能自动进入直接筛选。</p>
+      <p><b>核什么：</b>真人决定该靶点是否可从机制线转入直接小分子活性 G2；不得仅凭机制强度放行。</p>
+      <p><b>怎么做：</b>VERIFIED|CORRECTED|REJECTED</p>
+      <p><b>去哪查（+6 条，见 source_refs）：</b><span class="refs"><a href="D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/pilot/03_targets.csv#row=5:P10828</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=1:P108…</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=2:P108…</a><a href="D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P10828" target="_blank" rel="noopener">D:/aidd destoop/data/target_evidence/mash_target_master.csv#row=3:P108…</a></span></p>
+      <p class="muted">task_id: cr_f32dff51aa2113e4 · 覆盖 1 个原始任务 · 传播规则: 只传播到明确列出的 affected_entity_ids。</p>
+    </div>
+  <div class="notice" style="background:#eff6ff;border-color:#93c5fd;">
+    <b>P0 全部回填后：</b>交回 Workbench「18_Human_Review_Import」页（先跑 validate-only），
+    strict import 校验 task_id + upstream_hash + reviewer + decision；CORRECTED/REJECTED 自动触发 STALE，
+    然后重算真实 G2。在此之前：不做 P1、不进 G3、不启动正式筛选。
+  </div>
+</main>
+<footer>review-only · 非权威科研状态 · phase2b_20260915 · 生成于 2026-09-19</footer>
+</body>
+</html>

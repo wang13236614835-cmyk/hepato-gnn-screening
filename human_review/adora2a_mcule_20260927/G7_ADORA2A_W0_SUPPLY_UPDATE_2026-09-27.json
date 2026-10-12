@@ -1,0 +1,78 @@
+{
+  "stage": "G7-MV-W0-SUPPLY-UPDATE",
+  "date": "2026-09-27",
+  "scope": "current public-web supply check for the frozen five; not an exhaustive supplier or authenticated inventory search",
+  "decision": {
+    "w0_material_release_status": "BLOCKED",
+    "ready_count": 0,
+    "reason": "No candidate currently has the complete W0 package: current supplier confirmation, ordered exact structure, lot-specific CoA/purity, and independent identity verification."
+  },
+  "candidates": [
+    {
+      "candidate_id": "MCULE-5126266491",
+      "inchikey": "WMVAAXSVXVZFGZ-UHFFFAOYSA-N",
+      "public_supply_status": "NO_RELIABLE_PUBLIC_VENDOR_CONFIRMATION_IN_CURRENT_SEARCH",
+      "stock_status": "UNVERIFIED",
+      "lot_coa_status": "UNVERIFIED",
+      "interpretation": "Search miss is not evidence that the compound cannot be purchased; authenticated vendor/Mcule or custom-synthesis inquiry is still required."
+    },
+    {
+      "candidate_id": "MCULE-1345325285",
+      "inchikey": "IKHXIEZYNRKZEG-UHFFFAOYSA-N",
+      "public_supply_status": "NO_RELIABLE_PUBLIC_VENDOR_CONFIRMATION_IN_CURRENT_SEARCH",
+      "stock_status": "UNVERIFIED",
+      "lot_coa_status": "UNVERIFIED",
+      "additional_requirement": "Early viability/cytotoxicity counter-screen remains required.",
+      "interpretation": "Search miss is not evidence that the compound cannot be purchased; authenticated vendor/Mcule or custom-synthesis inquiry is still required."
+    },
+    {
+      "candidate_id": "MCULE-2952154734",
+      "inchikey": "ALZDBLPPXBTCDL-UHFFFAOYSA-N",
+      "public_supply_status": "NO_RELIABLE_PUBLIC_VENDOR_CONFIRMATION_IN_CURRENT_SEARCH",
+      "stock_status": "UNVERIFIED",
+      "lot_coa_status": "UNVERIFIED",
+      "additional_requirement": "Supplier stereochemical form must be explicitly resolved before assay interpretation.",
+      "interpretation": "Search miss is not evidence that the compound cannot be purchased; authenticated vendor/Mcule or custom-synthesis inquiry is still required."
+    },
+    {
+      "candidate_id": "MCULE-1403143859",
+      "inchikey": "SSLZNLJDMTXTMG-UHFFFAOYSA-N",
+      "public_supply_status": "NO_RELIABLE_PUBLIC_VENDOR_CONFIRMATION_IN_CURRENT_SEARCH",
+      "stock_status": "UNVERIFIED",
+      "lot_coa_status": "UNVERIFIED",
+      "interpretation": "Search miss is not evidence that the compound cannot be purchased; authenticated vendor/Mcule or custom-synthesis inquiry is still required."
+    },
+    {
+      "candidate_id": "MCULE-5892165876",
+      "inchikey": "RBZMLMOEKVATPN-UHFFFAOYSA-N",
+      "cas": "211687-29-5",
+      "public_supply_status": "PUBLIC_CATALOG_AND_PRICE_LISTING_CONFIRMED_STOCK_UNVERIFIED",
+      "stock_status": "UNVERIFIED",
+      "lot_coa_status": "UNVERIFIED",
+      "public_evidence": [
+        {
+          "source": "ChemicalBook",
+          "url": "https://www.chemicalbook.com/ChemicalProductProperty_EN_CB5187375.htm",
+          "page_last_updated": "2026-05-28",
+          "observed_vendor_listings": [
+            "Matrix Scientific 163282: 1 mg / 5 mg / 10 mg price listings",
+            "AABlocks AA00IPJ6: 1 mg / 5 mg price listings"
+          ],
+          "limitation": "A catalog/price listing does not establish current inventory, lot identity, CoA, or purity for an order placed today."
+        }
+      ]
+    }
+  ],
+  "next_actions": [
+    "Obtain authenticated/current supplier quote or stock confirmation for each intended candidate.",
+    "Freeze exact catalog identifier, ordered structure, salt/solvate state, and stereochemical form.",
+    "Capture lot-specific CoA and purity.",
+    "Perform or document independent identity verification before W1 binding.",
+    "If public stock remains unavailable for candidates 1-4, obtain custom-synthesis feasibility/quote rather than treating public-search misses as no-go."
+  ],
+  "guardrails": [
+    "No public-search miss is interpreted as proof of non-availability.",
+    "A price listing is not treated as live inventory.",
+    "No candidate enters W1/MV1 before W0 material identity passes."
+  ]
+}

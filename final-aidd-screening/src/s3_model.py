@@ -200,9 +200,9 @@ def run():
     os.makedirs(os.path.join(RES, "predictions"), exist_ok=True)
     make_splits()
 
-    train_rows = read_csv(os.path.join(SPLITS, "train.csv"))
-    val_rows = read_csv(os.path.join(SPLITS, "val.csv"))
-    test_rows = read_csv(os.path.join(SPLITS, "test.csv"))
+    train_rows = read_csv(os.path.join(SPLITS, "训练集.csv"))
+    val_rows = read_csv(os.path.join(SPLITS, "验证集.csv"))
+    test_rows = read_csv(os.path.join(SPLITS, "测试集.csv"))
     ytr = np.array([int(r["label"]) for r in train_rows])
     yva = np.array([int(r["label"]) for r in val_rows])
     yte = np.array([int(r["label"]) for r in test_rows])
@@ -269,19 +269,19 @@ def run():
     _, ad_hv = applicability_domain(train_rows, [("hp", hp_rows), ("pool", pool_rows)])
     ad_map = {**ad_hv["hp"], **ad_hv["pool"]}
 
-    write_csv(os.path.join(RES, "predictions", "test_predictions.csv"),
+    write_csv(os.path.join(RES, "predictions", "测试预测.csv"),
               [{"compound_id": r.cid, "name_cn": r.name, "label": r.label,
                 "pred_mean": repr(float(a)), "pred_var": repr(float(b)),
                 "in_domain": ad["test"].get(r.cid, 1)}
                for r, a, b in zip(test, pm, pv)])
-    write_csv(os.path.join(RES, "predictions", "fullpool_predictions.csv"),
+    write_csv(os.path.join(RES, "predictions", "全池预测.csv"),
               [{"compound_id": r.cid, "name_cn": r.name,
                 "pred_mean": repr(float(a)), "pred_var": repr(float(b)),
                 "in_domain": ad_map.get(r.cid, 1)}
                for r, a, b in zip(cands, pm_c, pv_c)])
 
     np.savez(os.path.join(RES, "metrics", "gnn_weights.npz"), **{k: getattr(gnn,k) for k in gnn.params})
-    write_csv(os.path.join(RES, "predictions", "baseline_test_predictions.csv"),
+    write_csv(os.path.join(RES, "predictions", "baseline_测试预测.csv"),
               [{"compound_id": r["compound_id"], "label": int(r["label"]), "rf": float(a), "lr": float(b)} for r,a,b in zip(test_rows,p_rf,p_lr)])
     summary = {
         "w_pos": wp, "temperature": T_best, "seed": SEED, "data_mode": os.environ.get("HEPATO_DATA_MODE", "reviewed"),
@@ -297,7 +297,7 @@ def run():
                     "val": (len(val_rows), int(yva.sum())),
                     "test": (len(test_rows), int(yte.sum()))}.items()},
     }
-    json.dump(summary, open(os.path.join(RES, "metrics", "model_summary.json"), "w",
+    json.dump(summary, open(os.path.join(RES, "metrics", "模型摘要.json"), "w",
                             encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print(f"[s3] 基线 ECFP+RF: {m_rf}")

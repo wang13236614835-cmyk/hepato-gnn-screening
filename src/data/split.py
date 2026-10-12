@@ -17,7 +17,7 @@ SPLITS = os.path.join(ROOT, "data", "splits")
 
 def split(frac_test=0.20, frac_val=0.15, seed=42):
     random.seed(seed)
-    with open(os.path.join(PROC, "cleaned_compounds.csv"), encoding="utf-8-sig") as f:
+    with open(os.path.join(PROC, "清洗后化合物.csv"), encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
     groups = defaultdict(list)
     for r in rows:

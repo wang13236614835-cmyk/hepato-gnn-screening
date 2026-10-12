@@ -1,0 +1,64 @@
+{
+  "stage": "G7-MV",
+  "formal_gate": "G7",
+  "date": "2026-09-27",
+  "target_id": "ADORA2A",
+  "disease_context": "MASH",
+  "intended_route": "branch hypothesis: ADORA2A antagonist -> HSC anti-fibrotic mechanism; agonist/hepatocyte-inflammatory route remains a separate context-dependent branch",
+  "direction_context": "UNRESOLVED_CONTEXT_DEPENDENT; this G7-MV document validates only the antagonist/HSC branch and must not redefine the global MASH direction gate",
+  "candidate_set_policy": "FROZEN_HISTORICAL_FIVE_ONLY; post-audit sensitivity candidates such as MCULE-7744694197 remain supplementary and cannot replace a frozen candidate",
+  "current_conclusion": "Five computational candidates exist, but none has direct experimental ADORA2A activity or functional direction established in the current evidence set.",
+  "candidates": [
+    {
+      "candidate_id": "MCULE-5892165876",
+      "inchikey": "RBZMLMOEKVATPN-UHFFFAOYSA-N",
+      "computational_context": {"historical_mixed_predicted_pact": 7.0086, "historical_vina_affinity": -9.065},
+      "status": "PENDING_DIRECT_TARGET_VALIDATION"
+    },
+    {
+      "candidate_id": "MCULE-5126266491",
+      "inchikey": "WMVAAXSVXVZFGZ-UHFFFAOYSA-N",
+      "computational_context": {"historical_mixed_predicted_pact": 6.8212, "historical_vina_affinity": -11.138},
+      "status": "PENDING_DIRECT_TARGET_VALIDATION"
+    },
+    {
+      "candidate_id": "MCULE-1345325285",
+      "inchikey": "IKHXIEZYNRKZEG-UHFFFAOYSA-N",
+      "computational_context": {"historical_mixed_predicted_pact": 6.6089, "historical_vina_affinity": -9.85},
+      "status": "PENDING_DIRECT_TARGET_VALIDATION"
+    },
+    {
+      "candidate_id": "MCULE-2952154734",
+      "inchikey": "ALZDBLPPXBTCDL-UHFFFAOYSA-N",
+      "computational_context": {"historical_mixed_predicted_pact": 6.3269, "historical_vina_affinity": -9.417},
+      "status": "PENDING_DIRECT_TARGET_VALIDATION"
+    }
+,
+    {
+      "candidate_id": "MCULE-1403143859",
+      "inchikey": "SSLZNLJDMTXTMG-UHFFFAOYSA-N",
+      "computational_context": {"historical_mixed_predicted_pact": 6.2915, "historical_vina_affinity": -9.087},
+      "status": "PENDING_DIRECT_TARGET_VALIDATION"
+    }
+  ],
+  "sequence": [
+    "MV1: qualified ADORA2A binding/target-engagement assay; computational prediction cannot satisfy this step",
+    "MV2: orthogonal cAMP functional assay to classify agonist/antagonist/partial agonist/inactive",
+    "MV3: for antagonist-route candidates, test cAMP/PKA/CREB plus HSC ACTA2/alpha-SMA, COL1A1 and collagen phenotype with viability control",
+    "MV4: target-specificity/rescue or competition evidence to demonstrate the HSC phenotype is ADORA2A-linked",
+    "G7 final: GO/NO_GO only after sourced QC-passed experimental evidence"
+  ],
+  "decision_boundary": {
+    "binding_or_docking_only_is_not_mechanism": true,
+    "agonist_is_not_counted_as_hsc_antifibrotic_success": true,
+    "missing_wet_lab_data_is_pending_not_positive": true,
+    "mechanism_supported_is_not_clinical_efficacy": true
+    ,"post_audit_sensitivity_results_cannot_replace_frozen_candidates": true
+  },
+  "source_audits": [
+    "audit/ASTRA_CANDIDATE_ASSAY_STRATA_SENSITIVITY_2026-09-27.json",
+    "audit/ASTRA_CANDIDATE_PRIOR_ART_2026-09-26.json",
+    "audit/ASTRA_CANDIDATE7_PRIOR_ART_SUPPLEMENT_2026-09-27.json",
+    "audit/ASTRA_ADORA2A_MASH_DIRECTION_2026-09-26.md"
+  ]
+}

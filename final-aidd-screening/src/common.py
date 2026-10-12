@@ -23,7 +23,7 @@ DOCK = os.path.join(RUN_ROOT, "docking")
 RES = os.path.join(RUN_ROOT, "results")
 SOURCE_DOCK = os.path.join(ROOT, "docking")
 VINA = os.environ.get("VINA_BIN") or shutil.which("vina") or os.path.join(SOURCE_DOCK, "vina.exe")
-REGISTRY = os.path.join(ROOT, "..", "data", "curation", "compound_registry.csv")
+REGISTRY = os.path.join(ROOT, "..", "data", "curation", "化合物注册表.csv")
 
 ELEMS = ["C", "N", "O", "S", "P", "F", "Cl", "Br", "I", "B"]
 DESC_FEATS = ["MW", "logP_est", "TPSA_est", "nHBD", "nHBA", "nRot", "nAromSystems"]
@@ -38,11 +38,11 @@ _SMILES_FIX = None
 
 
 def apply_smiles_fix(rows):
-    """数据校准: 5 条记录采用 PubChem 权威结构(留档 data/smiles_fix.json,
+    """数据校准: 5 条记录采用 PubChem 权威结构(留档 data/结构修正.json,
     可溯源;对应课程第 2 章'数据质量'对策)。"""
     global _SMILES_FIX
     if _SMILES_FIX is None:
-        p = os.path.join(DATA, "smiles_fix.json")
+        p = os.path.join(DATA, "结构修正.json")
         _SMILES_FIX = {}
         if os.path.exists(p):
             _SMILES_FIX = json.load(open(p, encoding="utf-8"))
@@ -83,7 +83,7 @@ def load_registry():
         if len(endpoints) != 1:
             problems.append("带标签数据必须使用同一明确终点")
         if problems:
-            raise ValueError("研究数据尚未放行：" + "; ".join(problems[:6]) + "。见 data/curation/compound_registry.csv；诊断模式不构成科学验证。")
+            raise ValueError("研究数据尚未放行：" + "; ".join(problems[:6]) + "。见 data/curation/化合物注册表.csv；诊断模式不构成科学验证。")
     out = []
     for r in included:
         q = dict(r, smiles=r["proposed_smiles"], label=r["legacy_label"] if diagnostic else r["label"])

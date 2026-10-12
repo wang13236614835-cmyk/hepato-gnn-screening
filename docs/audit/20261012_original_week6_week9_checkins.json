@@ -1,0 +1,1211 @@
+{
+  "archived_on": "2026-10-12",
+  "reason": "Original W6–W9 research check-in cards superseded; preserve original IDs and historical criteria (V3 Gate/procurement/W0/binding).",
+  "people": {
+    "王启龙": {
+      "storage_key": "semester_flow_leader_v1",
+      "weeks6to9": [
+        {
+          "no": 6,
+          "dates": "10/12–10/18",
+          "stage": "G2/G3 裁决＋G4 准备",
+          "theme": "W6 Gate 裁决：冻结候选边界与采购/assay 前置条件",
+          "learn": [
+            "Gate 裁决与 GPCR assay 设计：PASS/REVIEW/BLOCKED 由证据触发，不由日历触发"
+          ],
+          "card": {
+            "task": "主持 G2/G3 证据充分性裁决并记录理由",
+            "cmd": "交付：主持 G2/G3 证据充分性裁决并记录理由；锁定执行方、样品要求、费用/周期和采购授权边界",
+            "expected": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+            "source": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录",
+            "criteria": "未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。",
+            "verifier": "王散曼＋宁显泷"
+          },
+          "tasks": [
+            [
+              "V3-W06-QL-1",
+              "主持 G2/G3 证据充分性裁决并记录理由"
+            ],
+            [
+              "V3-W06-QL-2",
+              "锁定执行方、样品要求、费用/周期和采购授权边界"
+            ],
+            [
+              "V3-W06-QL-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C06",
+              "desc": "W6 v3 Gate/证据验收",
+              "exp": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+              "src": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。"
+          ]
+        },
+        {
+          "no": 7,
+          "dates": "10/19–10/25",
+          "stage": "G4 采购与物料链",
+          "theme": "W7 真实采购链：供应商、exact structure、规格与订单留痕",
+          "learn": [
+            "科研级化合物采购：catalog/CAS/结构、purity、规格、订单与供应商批次可追溯"
+          ],
+          "card": {
+            "task": "条件满足后推进真实询价/订单并维护采购台账",
+            "cmd": "交付：条件满足后推进真实询价/订单并维护采购台账；缺货/规格冲突对象做 HOLD 或正式替代方案",
+            "expected": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+            "source": "G4 采购清单 + 供应商/报价/订单 + identity 记录",
+            "criteria": "身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。",
+            "verifier": "王散曼＋宁显泷"
+          },
+          "tasks": [
+            [
+              "V3-W07-QL-1",
+              "条件满足后推进真实询价/订单并维护采购台账"
+            ],
+            [
+              "V3-W07-QL-2",
+              "缺货/规格冲突对象做 HOLD 或正式替代方案"
+            ],
+            [
+              "V3-W07-QL-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C07",
+              "desc": "W7 v3 Gate/证据验收",
+              "exp": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+              "src": "G4 采购清单 + 供应商/报价/订单 + identity 记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。"
+          ]
+        },
+        {
+          "no": 8,
+          "dates": "10/26–11/01",
+          "stage": "G4 / W0 物料放行",
+          "theme": "W8 W0 核验：到货后逐项核 lot/CoA/purity/exact structure",
+          "learn": [
+            "CoA、lot、purity、溶解、储存和样品链记录"
+          ],
+          "card": {
+            "task": "主持 W0 放行，只让真实合格材料进入 ready_count",
+            "cmd": "交付：主持 W0 放行，只让真实合格材料进入 ready_count；冻结 binding/cAMP handoff；未到货对象继续 BLOCKED",
+            "expected": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+            "source": "真实到货 + CoA + lot + purity + exact structure + W0 ledger",
+            "criteria": "任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。",
+            "verifier": "王散曼＋宁显泷"
+          },
+          "tasks": [
+            [
+              "V3-W08-QL-1",
+              "主持 W0 放行，只让真实合格材料进入 ready_count"
+            ],
+            [
+              "V3-W08-QL-2",
+              "冻结 binding/cAMP handoff；未到货对象继续 BLOCKED"
+            ],
+            [
+              "V3-W08-QL-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C08",
+              "desc": "W8 v3 Gate/证据验收",
+              "exp": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+              "src": "真实到货 + CoA + lot + purity + exact structure + W0 ledger"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。"
+          ]
+        },
+        {
+          "no": 9,
+          "dates": "11/02–11/08",
+          "stage": "G5 / W1 ADORA2A binding（条件）",
+          "theme": "W9 直接靶点验证：W0 放行后才执行 ADORA2A binding",
+          "learn": [
+            "受体结合实验：竞争/饱和设计、阳性/阴性对照、QC 与 Ki/IC50 解释边界"
+          ],
+          "card": {
+            "task": "协调 binding 批次并收齐原始数据/QC/样品链",
+            "cmd": "交付：协调 binding 批次并收齐原始数据/QC/样品链；记录偏离协议、无效批次和重做理由",
+            "expected": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+            "source": "W0 release + binding protocol + 原始平台数据 + QC",
+            "criteria": "W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。",
+            "verifier": "王散曼＋宁显泷"
+          },
+          "tasks": [
+            [
+              "V3-W09-QL-1",
+              "协调 binding 批次并收齐原始数据/QC/样品链"
+            ],
+            [
+              "V3-W09-QL-2",
+              "记录偏离协议、无效批次和重做理由"
+            ],
+            [
+              "V3-W09-QL-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C09",
+              "desc": "W9 v3 Gate/证据验收",
+              "exp": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+              "src": "W0 release + binding protocol + 原始平台数据 + QC"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。"
+          ]
+        }
+      ],
+      "manuals6to9": [
+        {
+          "id": "V3-M06",
+          "week": 6,
+          "text": "W6：G2/G3 Gate 裁决；日历不得自动触发 G4",
+          "dead": null
+        },
+        {
+          "id": "V3-M08",
+          "week": 8,
+          "text": "W8：G4/W0 真实物料放行审查；未到货/不合格保持 BLOCKED",
+          "dead": null
+        }
+      ],
+      "milestones": [
+        {
+          "id": "V3-MS1",
+          "week": 5,
+          "name": "G2/G3 真人证据收敛与可信导入",
+          "need": [
+            "V3-C05"
+          ]
+        },
+        {
+          "id": "V3-MS2",
+          "week": 8,
+          "name": "G4/W0 真实物料放行或继续 BLOCKED",
+          "need": [
+            "V3-C08"
+          ]
+        },
+        {
+          "id": "V3-MS3",
+          "week": 11,
+          "name": "G5 直接靶点/功能/反证控制检查点",
+          "need": [
+            "V3-C11"
+          ]
+        },
+        {
+          "id": "V3-MS4",
+          "week": 13,
+          "name": "G6 MASH 场景与机制补强检查点",
+          "need": [
+            "V3-C13"
+          ]
+        },
+        {
+          "id": "V3-MS5",
+          "week": 15,
+          "name": "G7 独立审计与最终候选决策",
+          "need": [
+            "V3-C15"
+          ]
+        },
+        {
+          "id": "V3-MS6",
+          "week": 16,
+          "name": "三库归档、复现与论文/专利边界冻结",
+          "need": [
+            "V3-C16"
+          ]
+        }
+      ]
+    },
+    "宁显泷": {
+      "storage_key": "semester_flow_ningxl_v1",
+      "weeks6to9": [
+        {
+          "no": 6,
+          "dates": "10/12–10/18",
+          "stage": "G2/G3 裁决＋G4 准备",
+          "theme": "W6 Gate 裁决：冻结候选边界与采购/assay 前置条件",
+          "learn": [
+            "Gate 裁决与 GPCR assay 设计：PASS/REVIEW/BLOCKED 由证据触发，不由日历触发"
+          ],
+          "card": {
+            "task": "冻结 G5 分析方案：读出、重复、效应量、区间和失败规则",
+            "cmd": "交付：冻结 G5 分析方案：读出、重复、效应量、区间和失败规则；复核执行方数据导出格式与可分析性",
+            "expected": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+            "source": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录",
+            "criteria": "未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。",
+            "verifier": "王启龙＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W06-NX-1",
+              "冻结 G5 分析方案：读出、重复、效应量、区间和失败规则"
+            ],
+            [
+              "V3-W06-NX-2",
+              "复核执行方数据导出格式与可分析性"
+            ],
+            [
+              "V3-W06-NX-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C06",
+              "desc": "W6 v3 Gate/证据验收",
+              "exp": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+              "src": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。"
+          ]
+        },
+        {
+          "no": 7,
+          "dates": "10/19–10/25",
+          "stage": "G4 采购与物料链",
+          "theme": "W7 真实采购链：供应商、exact structure、规格与订单留痕",
+          "learn": [
+            "科研级化合物采购：catalog/CAS/结构、purity、规格、订单与供应商批次可追溯"
+          ],
+          "card": {
+            "task": "建立样品浓度、板图、重复和原始数据模板",
+            "cmd": "交付：建立样品浓度、板图、重复和原始数据模板；独立复算关键配液/浓度和单位",
+            "expected": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+            "source": "G4 采购清单 + 供应商/报价/订单 + identity 记录",
+            "criteria": "身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。",
+            "verifier": "王启龙＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W07-NX-1",
+              "建立样品浓度、板图、重复和原始数据模板"
+            ],
+            [
+              "V3-W07-NX-2",
+              "独立复算关键配液/浓度和单位"
+            ],
+            [
+              "V3-W07-NX-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C07",
+              "desc": "W7 v3 Gate/证据验收",
+              "exp": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+              "src": "G4 采购清单 + 供应商/报价/订单 + identity 记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。"
+          ]
+        },
+        {
+          "no": 8,
+          "dates": "10/26–11/01",
+          "stage": "G4 / W0 物料放行",
+          "theme": "W8 W0 核验：到货后逐项核 lot/CoA/purity/exact structure",
+          "learn": [
+            "CoA、lot、purity、溶解、储存和样品链记录"
+          ],
+          "card": {
+            "task": "复核 W0 样品元数据与 assay-ready 条件",
+            "cmd": "交付：复核 W0 样品元数据与 assay-ready 条件；材料未放行时只做 dry-run/模板验证",
+            "expected": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+            "source": "真实到货 + CoA + lot + purity + exact structure + W0 ledger",
+            "criteria": "任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。",
+            "verifier": "王启龙＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W08-NX-1",
+              "复核 W0 样品元数据与 assay-ready 条件"
+            ],
+            [
+              "V3-W08-NX-2",
+              "材料未放行时只做 dry-run/模板验证"
+            ],
+            [
+              "V3-W08-NX-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C08",
+              "desc": "W8 v3 Gate/证据验收",
+              "exp": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+              "src": "真实到货 + CoA + lot + purity + exact structure + W0 ledger"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。"
+          ]
+        },
+        {
+          "no": 9,
+          "dates": "11/02–11/08",
+          "stage": "G5 / W1 ADORA2A binding（条件）",
+          "theme": "W9 直接靶点验证：W0 放行后才执行 ADORA2A binding",
+          "learn": [
+            "受体结合实验：竞争/饱和设计、阳性/阴性对照、QC 与 Ki/IC50 解释边界"
+          ],
+          "card": {
+            "task": "完成 binding 数据 QC、重复一致性与适用指标分析",
+            "cmd": "交付：完成 binding 数据 QC、重复一致性与适用指标分析；保留无效批次、异常值处置和全部原始值",
+            "expected": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+            "source": "W0 release + binding protocol + 原始平台数据 + QC",
+            "criteria": "W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。",
+            "verifier": "王启龙＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W09-NX-1",
+              "完成 binding 数据 QC、重复一致性与适用指标分析"
+            ],
+            [
+              "V3-W09-NX-2",
+              "保留无效批次、异常值处置和全部原始值"
+            ],
+            [
+              "V3-W09-NX-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C09",
+              "desc": "W9 v3 Gate/证据验收",
+              "exp": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+              "src": "W0 release + binding protocol + 原始平台数据 + QC"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。"
+          ]
+        }
+      ],
+      "manuals6to9": [
+        {
+          "id": "V3-M06",
+          "week": 6,
+          "text": "W6：G2/G3 Gate 裁决；日历不得自动触发 G4",
+          "dead": null
+        },
+        {
+          "id": "V3-M08",
+          "week": 8,
+          "text": "W8：G4/W0 真实物料放行审查；未到货/不合格保持 BLOCKED",
+          "dead": null
+        }
+      ],
+      "milestones": [
+        {
+          "id": "V3-MS1",
+          "week": 5,
+          "name": "G2/G3 真人证据收敛与可信导入",
+          "need": [
+            "V3-C05"
+          ]
+        },
+        {
+          "id": "V3-MS2",
+          "week": 8,
+          "name": "G4/W0 真实物料放行或继续 BLOCKED",
+          "need": [
+            "V3-C08"
+          ]
+        },
+        {
+          "id": "V3-MS3",
+          "week": 11,
+          "name": "G5 直接靶点/功能/反证控制检查点",
+          "need": [
+            "V3-C11"
+          ]
+        },
+        {
+          "id": "V3-MS4",
+          "week": 13,
+          "name": "G6 MASH 场景与机制补强检查点",
+          "need": [
+            "V3-C13"
+          ]
+        },
+        {
+          "id": "V3-MS5",
+          "week": 15,
+          "name": "G7 独立审计与最终候选决策",
+          "need": [
+            "V3-C15"
+          ]
+        },
+        {
+          "id": "V3-MS6",
+          "week": 16,
+          "name": "三库归档、复现与论文/专利边界冻结",
+          "need": [
+            "V3-C16"
+          ]
+        }
+      ]
+    },
+    "衣思淼": {
+      "storage_key": "semester_flow_yisimiao_v1",
+      "weeks6to9": [
+        {
+          "no": 6,
+          "dates": "10/12–10/18",
+          "stage": "G2/G3 裁决＋G4 准备",
+          "theme": "W6 Gate 裁决：冻结候选边界与采购/assay 前置条件",
+          "learn": [
+            "Gate 裁决与 GPCR assay 设计：PASS/REVIEW/BLOCKED 由证据触发，不由日历触发"
+          ],
+          "card": {
+            "task": "冻结五 MCULE、天然产物和拟采购面板的 canonical identity 表",
+            "cmd": "交付：冻结五 MCULE、天然产物和拟采购面板的 canonical identity 表；逐对象核名称、结构、CID/CAS/供应信息冲突",
+            "expected": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+            "source": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录",
+            "criteria": "未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。",
+            "verifier": "王启龙＋代维斯丹"
+          },
+          "tasks": [
+            [
+              "V3-W06-YS-1",
+              "冻结五 MCULE、天然产物和拟采购面板的 canonical identity 表"
+            ],
+            [
+              "V3-W06-YS-2",
+              "逐对象核名称、结构、CID/CAS/供应信息冲突"
+            ],
+            [
+              "V3-W06-YS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C06",
+              "desc": "W6 v3 Gate/证据验收",
+              "exp": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+              "src": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。"
+          ]
+        },
+        {
+          "no": 7,
+          "dates": "10/19–10/25",
+          "stage": "G4 采购与物料链",
+          "theme": "W7 真实采购链：供应商、exact structure、规格与订单留痕",
+          "learn": [
+            "科研级化合物采购：catalog/CAS/结构、purity、规格、订单与供应商批次可追溯"
+          ],
+          "card": {
+            "task": "建立供应商/货号/CAS/结构/purity/规格/报价/订单表",
+            "cmd": "交付：建立供应商/货号/CAS/结构/purity/规格/报价/订单表；只采购与已核 identity 一致的实际商品",
+            "expected": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+            "source": "G4 采购清单 + 供应商/报价/订单 + identity 记录",
+            "criteria": "身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。",
+            "verifier": "王启龙＋代维斯丹"
+          },
+          "tasks": [
+            [
+              "V3-W07-YS-1",
+              "建立供应商/货号/CAS/结构/purity/规格/报价/订单表"
+            ],
+            [
+              "V3-W07-YS-2",
+              "只采购与已核 identity 一致的实际商品"
+            ],
+            [
+              "V3-W07-YS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C07",
+              "desc": "W7 v3 Gate/证据验收",
+              "exp": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+              "src": "G4 采购清单 + 供应商/报价/订单 + identity 记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。"
+          ]
+        },
+        {
+          "no": 8,
+          "dates": "10/26–11/01",
+          "stage": "G4 / W0 物料放行",
+          "theme": "W8 W0 核验：到货后逐项核 lot/CoA/purity/exact structure",
+          "learn": [
+            "CoA、lot、purity、溶解、储存和样品链记录"
+          ],
+          "card": {
+            "task": "到货后逐项核 lot/CoA/purity/exact structure 和 W0 ledger",
+            "cmd": "交付：到货后逐项核 lot/CoA/purity/exact structure 和 W0 ledger；记录溶剂、储存、有效期和样品标签映射",
+            "expected": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+            "source": "真实到货 + CoA + lot + purity + exact structure + W0 ledger",
+            "criteria": "任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。",
+            "verifier": "王启龙＋代维斯丹"
+          },
+          "tasks": [
+            [
+              "V3-W08-YS-1",
+              "到货后逐项核 lot/CoA/purity/exact structure 和 W0 ledger"
+            ],
+            [
+              "V3-W08-YS-2",
+              "记录溶剂、储存、有效期和样品标签映射"
+            ],
+            [
+              "V3-W08-YS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C08",
+              "desc": "W8 v3 Gate/证据验收",
+              "exp": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+              "src": "真实到货 + CoA + lot + purity + exact structure + W0 ledger"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。"
+          ]
+        },
+        {
+          "no": 9,
+          "dates": "11/02–11/08",
+          "stage": "G5 / W1 ADORA2A binding（条件）",
+          "theme": "W9 直接靶点验证：W0 放行后才执行 ADORA2A binding",
+          "learn": [
+            "受体结合实验：竞争/饱和设计、阳性/阴性对照、QC 与 Ki/IC50 解释边界"
+          ],
+          "card": {
+            "task": "维护 binding 样品链、配液来源与原始文件索引",
+            "cmd": "交付：维护 binding 样品链、配液来源与原始文件索引；确保每个样品能回到真实 lot 和结构",
+            "expected": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+            "source": "W0 release + binding protocol + 原始平台数据 + QC",
+            "criteria": "W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。",
+            "verifier": "王启龙＋代维斯丹"
+          },
+          "tasks": [
+            [
+              "V3-W09-YS-1",
+              "维护 binding 样品链、配液来源与原始文件索引"
+            ],
+            [
+              "V3-W09-YS-2",
+              "确保每个样品能回到真实 lot 和结构"
+            ],
+            [
+              "V3-W09-YS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C09",
+              "desc": "W9 v3 Gate/证据验收",
+              "exp": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+              "src": "W0 release + binding protocol + 原始平台数据 + QC"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。"
+          ]
+        }
+      ],
+      "manuals6to9": [
+        {
+          "id": "V3-M06",
+          "week": 6,
+          "text": "W6：G2/G3 Gate 裁决；日历不得自动触发 G4",
+          "dead": null
+        },
+        {
+          "id": "V3-M08",
+          "week": 8,
+          "text": "W8：G4/W0 真实物料放行审查；未到货/不合格保持 BLOCKED",
+          "dead": null
+        }
+      ],
+      "milestones": [
+        {
+          "id": "V3-MS1",
+          "week": 5,
+          "name": "G2/G3 真人证据收敛与可信导入",
+          "need": [
+            "V3-C05"
+          ]
+        },
+        {
+          "id": "V3-MS2",
+          "week": 8,
+          "name": "G4/W0 真实物料放行或继续 BLOCKED",
+          "need": [
+            "V3-C08"
+          ]
+        },
+        {
+          "id": "V3-MS3",
+          "week": 11,
+          "name": "G5 直接靶点/功能/反证控制检查点",
+          "need": [
+            "V3-C11"
+          ]
+        },
+        {
+          "id": "V3-MS4",
+          "week": 13,
+          "name": "G6 MASH 场景与机制补强检查点",
+          "need": [
+            "V3-C13"
+          ]
+        },
+        {
+          "id": "V3-MS5",
+          "week": 15,
+          "name": "G7 独立审计与最终候选决策",
+          "need": [
+            "V3-C15"
+          ]
+        },
+        {
+          "id": "V3-MS6",
+          "week": 16,
+          "name": "三库归档、复现与论文/专利边界冻结",
+          "need": [
+            "V3-C16"
+          ]
+        }
+      ]
+    },
+    "代维斯丹": {
+      "storage_key": "semester_flow_daiweisd_v1",
+      "weeks6to9": [
+        {
+          "no": 6,
+          "dates": "10/12–10/18",
+          "stage": "G2/G3 裁决＋G4 准备",
+          "theme": "W6 Gate 裁决：冻结候选边界与采购/assay 前置条件",
+          "learn": [
+            "Gate 裁决与 GPCR assay 设计：PASS/REVIEW/BLOCKED 由证据触发，不由日历触发"
+          ],
+          "card": {
+            "task": "冻结拟采购对象的结构、立体化学、质子化/互变异构记录",
+            "cmd": "交付：冻结拟采购对象的结构、立体化学、质子化/互变异构记录；证据不足标 UNRESOLVED，不用 docking 补身份",
+            "expected": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+            "source": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录",
+            "criteria": "未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。",
+            "verifier": "衣思淼＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W06-DW-1",
+              "冻结拟采购对象的结构、立体化学、质子化/互变异构记录"
+            ],
+            [
+              "V3-W06-DW-2",
+              "证据不足标 UNRESOLVED，不用 docking 补身份"
+            ],
+            [
+              "V3-W06-DW-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C06",
+              "desc": "W6 v3 Gate/证据验收",
+              "exp": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+              "src": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。"
+          ]
+        },
+        {
+          "no": 7,
+          "dates": "10/19–10/25",
+          "stage": "G4 采购与物料链",
+          "theme": "W7 真实采购链：供应商、exact structure、规格与订单留痕",
+          "learn": [
+            "科研级化合物采购：catalog/CAS/结构、purity、规格、订单与供应商批次可追溯"
+          ],
+          "card": {
+            "task": "复核供应商商品结构与已冻结候选是否 exact match",
+            "cmd": "交付：复核供应商商品结构与已冻结候选是否 exact match；建立实际采购配体结构输入与版本记录",
+            "expected": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+            "source": "G4 采购清单 + 供应商/报价/订单 + identity 记录",
+            "criteria": "身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。",
+            "verifier": "衣思淼＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W07-DW-1",
+              "复核供应商商品结构与已冻结候选是否 exact match"
+            ],
+            [
+              "V3-W07-DW-2",
+              "建立实际采购配体结构输入与版本记录"
+            ],
+            [
+              "V3-W07-DW-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C07",
+              "desc": "W7 v3 Gate/证据验收",
+              "exp": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+              "src": "G4 采购清单 + 供应商/报价/订单 + identity 记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。"
+          ]
+        },
+        {
+          "no": 8,
+          "dates": "10/26–11/01",
+          "stage": "G4 / W0 物料放行",
+          "theme": "W8 W0 核验：到货后逐项核 lot/CoA/purity/exact structure",
+          "learn": [
+            "CoA、lot、purity、溶解、储存和样品链记录"
+          ],
+          "card": {
+            "task": "对 W0 实物对应结构二次核验，形成 assay-ready ligand record",
+            "cmd": "交付：对 W0 实物对应结构二次核验，形成 assay-ready ligand record；只准备结构支持，不用分数替代 W0",
+            "expected": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+            "source": "真实到货 + CoA + lot + purity + exact structure + W0 ledger",
+            "criteria": "任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。",
+            "verifier": "衣思淼＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W08-DW-1",
+              "对 W0 实物对应结构二次核验，形成 assay-ready ligand record"
+            ],
+            [
+              "V3-W08-DW-2",
+              "只准备结构支持，不用分数替代 W0"
+            ],
+            [
+              "V3-W08-DW-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C08",
+              "desc": "W8 v3 Gate/证据验收",
+              "exp": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+              "src": "真实到货 + CoA + lot + purity + exact structure + W0 ledger"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。"
+          ]
+        },
+        {
+          "no": 9,
+          "dates": "11/02–11/08",
+          "stage": "G5 / W1 ADORA2A binding（条件）",
+          "theme": "W9 直接靶点验证：W0 放行后才执行 ADORA2A binding",
+          "learn": [
+            "受体结合实验：竞争/饱和设计、阳性/阴性对照、QC 与 Ki/IC50 解释边界"
+          ],
+          "card": {
+            "task": "为 binding 结果提供受体/配体结构解释和异常排查",
+            "cmd": "交付：为 binding 结果提供受体/配体结构解释和异常排查；docking 只解释假设，不排序真实药效",
+            "expected": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+            "source": "W0 release + binding protocol + 原始平台数据 + QC",
+            "criteria": "W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。",
+            "verifier": "衣思淼＋王散曼"
+          },
+          "tasks": [
+            [
+              "V3-W09-DW-1",
+              "为 binding 结果提供受体/配体结构解释和异常排查"
+            ],
+            [
+              "V3-W09-DW-2",
+              "docking 只解释假设，不排序真实药效"
+            ],
+            [
+              "V3-W09-DW-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C09",
+              "desc": "W9 v3 Gate/证据验收",
+              "exp": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+              "src": "W0 release + binding protocol + 原始平台数据 + QC"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。"
+          ]
+        }
+      ],
+      "manuals6to9": [
+        {
+          "id": "V3-M06",
+          "week": 6,
+          "text": "W6：G2/G3 Gate 裁决；日历不得自动触发 G4",
+          "dead": null
+        },
+        {
+          "id": "V3-M08",
+          "week": 8,
+          "text": "W8：G4/W0 真实物料放行审查；未到货/不合格保持 BLOCKED",
+          "dead": null
+        }
+      ],
+      "milestones": [
+        {
+          "id": "V3-MS1",
+          "week": 5,
+          "name": "G2/G3 真人证据收敛与可信导入",
+          "need": [
+            "V3-C05"
+          ]
+        },
+        {
+          "id": "V3-MS2",
+          "week": 8,
+          "name": "G4/W0 真实物料放行或继续 BLOCKED",
+          "need": [
+            "V3-C08"
+          ]
+        },
+        {
+          "id": "V3-MS3",
+          "week": 11,
+          "name": "G5 直接靶点/功能/反证控制检查点",
+          "need": [
+            "V3-C11"
+          ]
+        },
+        {
+          "id": "V3-MS4",
+          "week": 13,
+          "name": "G6 MASH 场景与机制补强检查点",
+          "need": [
+            "V3-C13"
+          ]
+        },
+        {
+          "id": "V3-MS5",
+          "week": 15,
+          "name": "G7 独立审计与最终候选决策",
+          "need": [
+            "V3-C15"
+          ]
+        },
+        {
+          "id": "V3-MS6",
+          "week": 16,
+          "name": "三库归档、复现与论文/专利边界冻结",
+          "need": [
+            "V3-C16"
+          ]
+        }
+      ]
+    },
+    "王散曼": {
+      "storage_key": "semester_flow_wangsanman_v1",
+      "weeks6to9": [
+        {
+          "no": 6,
+          "dates": "10/12–10/18",
+          "stage": "G2/G3 裁决＋G4 准备",
+          "theme": "W6 Gate 裁决：冻结候选边界与采购/assay 前置条件",
+          "learn": [
+            "Gate 裁决与 GPCR assay 设计：PASS/REVIEW/BLOCKED 由证据触发，不由日历触发"
+          ],
+          "card": {
+            "task": "冻结 G3 文献边界：直接 A2A、药化系列、MASH 证据分别陈述",
+            "cmd": "交付：冻结 G3 文献边界：直接 A2A、药化系列、MASH 证据分别陈述；反查反例、撤稿/更正、物种和实验类型差异",
+            "expected": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+            "source": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录",
+            "criteria": "未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。",
+            "verifier": "代维斯丹＋王启龙"
+          },
+          "tasks": [
+            [
+              "V3-W06-WS-1",
+              "冻结 G3 文献边界：直接 A2A、药化系列、MASH 证据分别陈述"
+            ],
+            [
+              "V3-W06-WS-2",
+              "反查反例、撤稿/更正、物种和实验类型差异"
+            ],
+            [
+              "V3-W06-WS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C06",
+              "desc": "W6 v3 Gate/证据验收",
+              "exp": "形成 G2/G3 明确裁决；只有满足前置条件才建立采购清单和实验 handoff，不把“准备完成”写成 G4 PASS。",
+              "src": "AIDD v3 Gate + 已受控导入人审 + 执行方沟通记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：未具备裁决条件就停留原 Gate；执行方未落实则只记录阻塞与下一联系动作。"
+          ]
+        },
+        {
+          "no": 7,
+          "dates": "10/19–10/25",
+          "stage": "G4 采购与物料链",
+          "theme": "W7 真实采购链：供应商、exact structure、规格与订单留痕",
+          "learn": [
+            "科研级化合物采购：catalog/CAS/结构、purity、规格、订单与供应商批次可追溯"
+          ],
+          "card": {
+            "task": "补采购面板 primary literature / prior-art / 已知药理",
+            "cmd": "交付：补采购面板 primary literature / prior-art / 已知药理；供应商页面只作物料信息，不当机制证据",
+            "expected": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+            "source": "G4 采购清单 + 供应商/报价/订单 + identity 记录",
+            "criteria": "身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。",
+            "verifier": "代维斯丹＋王启龙"
+          },
+          "tasks": [
+            [
+              "V3-W07-WS-1",
+              "补采购面板 primary literature / prior-art / 已知药理"
+            ],
+            [
+              "V3-W07-WS-2",
+              "供应商页面只作物料信息，不当机制证据"
+            ],
+            [
+              "V3-W07-WS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C07",
+              "desc": "W7 v3 Gate/证据验收",
+              "exp": "只记录真实询价/订单/样品信息；未下单或未到货不得增加 W0 ready_count。",
+              "src": "G4 采购清单 + 供应商/报价/订单 + identity 记录"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：身份或采购规格冲突就 HOLD；缺货允许缩小面板，不得用未经核验近似物替代。"
+          ]
+        },
+        {
+          "no": 8,
+          "dates": "10/26–11/01",
+          "stage": "G4 / W0 物料放行",
+          "theme": "W8 W0 核验：到货后逐项核 lot/CoA/purity/exact structure",
+          "learn": [
+            "CoA、lot、purity、溶解、储存和样品链记录"
+          ],
+          "card": {
+            "task": "整理 binding/cAMP 对照和 assay 解释所需原始文献",
+            "cmd": "交付：整理 binding/cAMP 对照和 assay 解释所需原始文献；明确文献预期不替代本项目实验",
+            "expected": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+            "source": "真实到货 + CoA + lot + purity + exact structure + W0 ledger",
+            "criteria": "任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。",
+            "verifier": "代维斯丹＋王启龙"
+          },
+          "tasks": [
+            [
+              "V3-W08-WS-1",
+              "整理 binding/cAMP 对照和 assay 解释所需原始文献"
+            ],
+            [
+              "V3-W08-WS-2",
+              "明确文献预期不替代本项目实验"
+            ],
+            [
+              "V3-W08-WS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C08",
+              "desc": "W8 v3 Gate/证据验收",
+              "exp": "只有真实到货且 lot/CoA/purity/exact structure 全核清的对象才能 W0 READY；其余继续 BLOCKED。",
+              "src": "真实到货 + CoA + lot + purity + exact structure + W0 ledger"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：任何身份/批次/纯度不清都不放行；允许 W0 ready_count=0，未放行不进入真实 G5。"
+          ]
+        },
+        {
+          "no": 9,
+          "dates": "11/02–11/08",
+          "stage": "G5 / W1 ADORA2A binding（条件）",
+          "theme": "W9 直接靶点验证：W0 放行后才执行 ADORA2A binding",
+          "learn": [
+            "受体结合实验：竞争/饱和设计、阳性/阴性对照、QC 与 Ki/IC50 解释边界"
+          ],
+          "card": {
+            "task": "核 binding 与既有 A2A 文献的一致/冲突和边界",
+            "cmd": "交付：核 binding 与既有 A2A 文献的一致/冲突和边界；记录实验类型、物种、配体模式和原文结论",
+            "expected": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+            "source": "W0 release + binding protocol + 原始平台数据 + QC",
+            "criteria": "W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。",
+            "verifier": "代维斯丹＋王启龙"
+          },
+          "tasks": [
+            [
+              "V3-W09-WS-1",
+              "核 binding 与既有 A2A 文献的一致/冲突和边界"
+            ],
+            [
+              "V3-W09-WS-2",
+              "记录实验类型、物种、配体模式和原文结论"
+            ],
+            [
+              "V3-W09-WS-LOG",
+              "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"
+            ]
+          ],
+          "checks": [
+            {
+              "id": "V3-C09",
+              "desc": "W9 v3 Gate/证据验收",
+              "exp": "仅对 W0 已放行材料执行；保留原始数据、样品批次、QC 和失败结果。binding 不自动说明功能方向或 MASH 疗效。",
+              "src": "W0 release + binding protocol + 原始平台数据 + QC"
+            }
+          ],
+          "coord": [
+            "周日：按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "失败分支：W0 未过只做方案预注册；QC 失败整批标无效并保留失败记录。"
+          ]
+        }
+      ],
+      "manuals6to9": [
+        {
+          "id": "V3-M06",
+          "week": 6,
+          "text": "W6：G2/G3 Gate 裁决；日历不得自动触发 G4",
+          "dead": null
+        },
+        {
+          "id": "V3-M08",
+          "week": 8,
+          "text": "W8：G4/W0 真实物料放行审查；未到货/不合格保持 BLOCKED",
+          "dead": null
+        }
+      ],
+      "milestones": [
+        {
+          "id": "V3-MS1",
+          "week": 5,
+          "name": "G2/G3 真人证据收敛与可信导入",
+          "need": [
+            "V3-C05"
+          ]
+        },
+        {
+          "id": "V3-MS2",
+          "week": 8,
+          "name": "G4/W0 真实物料放行或继续 BLOCKED",
+          "need": [
+            "V3-C08"
+          ]
+        },
+        {
+          "id": "V3-MS3",
+          "week": 11,
+          "name": "G5 直接靶点/功能/反证控制检查点",
+          "need": [
+            "V3-C11"
+          ]
+        },
+        {
+          "id": "V3-MS4",
+          "week": 13,
+          "name": "G6 MASH 场景与机制补强检查点",
+          "need": [
+            "V3-C13"
+          ]
+        },
+        {
+          "id": "V3-MS5",
+          "week": 15,
+          "name": "G7 独立审计与最终候选决策",
+          "need": [
+            "V3-C15"
+          ]
+        },
+        {
+          "id": "V3-MS6",
+          "week": 16,
+          "name": "三库归档、复现与论文/专利边界冻结",
+          "need": [
+            "V3-C16"
+          ]
+        }
+      ]
+    }
+  }
+}

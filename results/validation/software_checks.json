@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T08:04:12.743619+00:00",
+  "generated_at": "2026-09-21T12:12:31.147875+00:00",
   "software_passed": true,
   "scientific_validation": "not_granted",
   "wetlab_ready": false,
@@ -57,7 +57,7 @@
     {
       "name": "plan_and_pages",
       "passed": true,
-      "detail": "5 pages on 16-week calendar (W1=09/07–09/13, W16=12/21–12/27); VERIFY_TASKS deadlines present."
+      "detail": "5 pages on 16-week calendar (W1=09/07–09/13, W16=12/21–12/27); 核验任务分派 deadlines present."
     },
     {
       "name": "python_syntax",

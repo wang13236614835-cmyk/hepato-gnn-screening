@@ -100,7 +100,7 @@ def run(out_dir):
 
     rows = [("高斯朴素贝叶斯(描述符)", metrics(yte, p_nb)),
             ("逻辑回归(2048bit指纹)", metrics(yte, p_lr))]
-    with open(os.path.join(out_dir, "baseline.csv"), "w", encoding="utf-8", newline="") as f:
+    with open(os.path.join(out_dir, "基线指标.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["model", "AUC", "ACC", "BACC", "F1"])
         for name, m in rows:

@@ -1,0 +1,391 @@
+{
+  "approved_drug_pool_crosscheck": {
+    "istradefylline": [
+      {
+        "approval_status": "REGULATORY_LABEL_PENDING",
+        "chembl_id": "CHEMBL431770",
+        "first_approval": "",
+        "inchikey": "IQVRBWUUXZMOPW-PKNBQFBNSA-N",
+        "intake_status": "STRUCTURE_READY_APPROVAL_PENDING",
+        "max_phase": "4.0",
+        "name": "ISTRADEFYLLINE",
+        "withdrawn_flag": "False"
+      }
+    ],
+    "note": "The V24 pool is a ChEMBL max-phase prefilter with regional regulatory-label qualification still pending; FDA label snapshot is used separately for the U.S. approval/ADORA2A-antagonist anchor."
+  },
+  "candidates": [
+    {
+      "candidate_activity_status": "DIRECT_ADORA2A_ACTIVITY_UNVERIFIED",
+      "candidate_function_status": "AGONIST_ANTAGONIST_PARTIAL_OR_INACTIVE_UNRESOLVED",
+      "compound_id": "MCULE-5126266491",
+      "exact_identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "existing_drug_identity_status": "NO_EXACT_APPROVED_DRUG_IDENTITY_IN_CURRENT_POOL",
+      "forbidden_claims": [
+        "This candidate is a known traditional-Chinese-medicine constituent.",
+        "This candidate is an approved/marketed drug.",
+        "This candidate is an experimentally confirmed ADORA2A ligand.",
+        "This candidate is an innovative drug."
+      ],
+      "historical_rank": 1,
+      "inchikey": "WMVAAXSVXVZFGZ-UHFFFAOYSA-N",
+      "innovation_branch": "POTENTIAL_NEW_LEAD_BRANCH_REQUIRES_DIRECT_ACTIVITY_AND_NOVELTY_WORK",
+      "name": "3-(Morpholin-4-yl)-1-phenyl-5,6,7,8-tetrahydroisoquinoline-4-carbonitrile",
+      "natural_product_origin_status": "NO_CANDIDATE_SPECIFIC_NATURAL_ORIGIN_ESTABLISHED",
+      "pubchem_cid": "913278",
+      "reverse_mapping": {
+        "confidence": "LOW",
+        "interpretation": "No sufficiently specific published ADORA2A medicinal-chemistry series was qualified for this tetrahydroisoquinoline-carbonitrile scaffold in the present reverse-mapping audit.",
+        "relationship": "UNRESOLVED",
+        "series_evidence": [],
+        "series_name": null
+      }
+    },
+    {
+      "candidate_activity_status": "DIRECT_ADORA2A_ACTIVITY_UNVERIFIED",
+      "candidate_function_status": "AGONIST_ANTAGONIST_PARTIAL_OR_INACTIVE_UNRESOLVED",
+      "compound_id": "MCULE-1345325285",
+      "exact_identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "existing_drug_identity_status": "NO_EXACT_APPROVED_DRUG_IDENTITY_IN_CURRENT_POOL",
+      "forbidden_claims": [
+        "This candidate is a known traditional-Chinese-medicine constituent.",
+        "This candidate is an approved/marketed drug.",
+        "This candidate is an experimentally confirmed ADORA2A ligand.",
+        "This candidate is an innovative drug."
+      ],
+      "historical_rank": 2,
+      "inchikey": "IKHXIEZYNRKZEG-UHFFFAOYSA-N",
+      "innovation_branch": "POTENTIAL_NEW_LEAD_BRANCH_REQUIRES_DIRECT_ACTIVITY_AND_NOVELTY_WORK",
+      "name": "4-(2-(3,5-dimethyl-1H-pyrazol-1-yl)-6-phenylpyrimidin-4-yl)morpholine",
+      "natural_product_origin_status": "NO_CANDIDATE_SPECIFIC_NATURAL_ORIGIN_ESTABLISHED",
+      "pubchem_cid": "7678558",
+      "reverse_mapping": {
+        "confidence": "HIGH_FOR_RELATED_SERIES_NOT_FOR_CANDIDATE_ACTIVITY",
+        "interpretation": "The candidate shares the 3,5-dimethylpyrazol-1-yl/pyrimidine pharmacophore with a published potent hA2A antagonist series. It is not identical to the reported 6g/16a/16j compounds.",
+        "relationship": "RELATED_SERIES_STRONG_SHARED_PHARMACOPHORE",
+        "series_evidence": [
+          "PMID:18947224"
+        ],
+        "series_name": "3,5-dimethylpyrazolyl-pyrimidine human A2A antagonist SAR"
+      }
+    },
+    {
+      "candidate_activity_status": "DIRECT_ADORA2A_ACTIVITY_UNVERIFIED",
+      "candidate_function_status": "AGONIST_ANTAGONIST_PARTIAL_OR_INACTIVE_UNRESOLVED",
+      "compound_id": "MCULE-2952154734",
+      "exact_identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "existing_drug_identity_status": "NO_EXACT_APPROVED_DRUG_IDENTITY_IN_CURRENT_POOL",
+      "forbidden_claims": [
+        "This candidate is a known traditional-Chinese-medicine constituent.",
+        "This candidate is an approved/marketed drug.",
+        "This candidate is an experimentally confirmed ADORA2A ligand.",
+        "This candidate is an innovative drug."
+      ],
+      "historical_rank": 3,
+      "inchikey": "ALZDBLPPXBTCDL-UHFFFAOYSA-N",
+      "innovation_branch": "POTENTIAL_NEW_LEAD_BRANCH_REQUIRES_DIRECT_ACTIVITY_AND_NOVELTY_WORK",
+      "name": "N-(2-methyl-1-pyridin-3-ylpropyl)-6-(pyrrolidin-1-ylcarbonyl)pyrazin-2-amine",
+      "natural_product_origin_status": "NO_CANDIDATE_SPECIFIC_NATURAL_ORIGIN_ESTABLISHED",
+      "pubchem_cid": "134711585",
+      "reverse_mapping": {
+        "confidence": "LOW_TO_MODERATE",
+        "interpretation": "Pyrazine adenosine-receptor antagonist prior art exists, but the present evidence is too broad to assign this exact candidate to a named A2A pharmacological series.",
+        "relationship": "RELATED_CHEMOTYPE_WEAK",
+        "series_evidence": [
+          "US7790728B2",
+          "US11571420B2"
+        ],
+        "series_name": "pyrazine adenosine-receptor antagonist prior-art space"
+      }
+    },
+    {
+      "candidate_activity_status": "DIRECT_ADORA2A_ACTIVITY_UNVERIFIED",
+      "candidate_function_status": "AGONIST_ANTAGONIST_PARTIAL_OR_INACTIVE_UNRESOLVED",
+      "compound_id": "MCULE-1403143859",
+      "exact_identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "existing_drug_identity_status": "NO_EXACT_APPROVED_DRUG_IDENTITY_IN_CURRENT_POOL",
+      "forbidden_claims": [
+        "This candidate is a known traditional-Chinese-medicine constituent.",
+        "This candidate is an approved/marketed drug.",
+        "This candidate is an experimentally confirmed ADORA2A ligand.",
+        "This candidate is an innovative drug."
+      ],
+      "historical_rank": 4,
+      "inchikey": "SSLZNLJDMTXTMG-UHFFFAOYSA-N",
+      "innovation_branch": "POTENTIAL_NEW_LEAD_BRANCH_REQUIRES_DIRECT_ACTIVITY_AND_NOVELTY_WORK",
+      "name": "4-Methyl-2-phenyl-6-(1-piperidinyl)-5-pyrimidinecarbonitrile",
+      "natural_product_origin_status": "NO_CANDIDATE_SPECIFIC_NATURAL_ORIGIN_ESTABLISHED",
+      "pubchem_cid": "7309035",
+      "reverse_mapping": {
+        "confidence": "MODERATE_FOR_CHEMOTYPE_NOT_FOR_CANDIDATE_ACTIVITY",
+        "interpretation": "The candidate contains the pyrimidine-5-carbonitrile chemotype found in experimentally tested adenosine-receptor ligand series, including A2A antagonists. Substitution patterns differ, so candidate A2A activity cannot be inherited from the series.",
+        "relationship": "RELATED_CHEMOTYPE_STRONG_PRIOR_ART",
+        "series_evidence": [
+          "PMID:27569066",
+          "US6586441B2"
+        ],
+        "series_name": "pyrimidine-5-carbonitrile adenosine receptor ligand space"
+      }
+    },
+    {
+      "candidate_activity_status": "DIRECT_ADORA2A_ACTIVITY_UNVERIFIED",
+      "candidate_function_status": "AGONIST_ANTAGONIST_PARTIAL_OR_INACTIVE_UNRESOLVED",
+      "compound_id": "MCULE-5892165876",
+      "exact_identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "existing_drug_identity_status": "NO_EXACT_APPROVED_DRUG_IDENTITY_IN_CURRENT_POOL",
+      "forbidden_claims": [
+        "This candidate is a known traditional-Chinese-medicine constituent.",
+        "This candidate is an approved/marketed drug.",
+        "This candidate is an experimentally confirmed ADORA2A ligand.",
+        "This candidate is an innovative drug."
+      ],
+      "historical_rank": 5,
+      "inchikey": "RBZMLMOEKVATPN-UHFFFAOYSA-N",
+      "innovation_branch": "POTENTIAL_NEW_LEAD_BRANCH_REQUIRES_DIRECT_ACTIVITY_AND_NOVELTY_WORK",
+      "name": "4-Phenyl-2,6-di(1-pyrrolidinyl)-5-pyrimidinecarbonitrile",
+      "natural_product_origin_status": "NO_CANDIDATE_SPECIFIC_NATURAL_ORIGIN_ESTABLISHED",
+      "pubchem_cid": "1471903",
+      "reverse_mapping": {
+        "confidence": "MODERATE_FOR_CHEMOTYPE_NOT_FOR_CANDIDATE_ACTIVITY",
+        "interpretation": "The candidate contains the pyrimidine-5-carbonitrile chemotype found in experimentally tested adenosine-receptor ligand series, including A2A antagonists. It also has a pre-existing public chemical identity/CAS, but direct ADORA2A activity remains unverified.",
+        "relationship": "RELATED_CHEMOTYPE_STRONG_PRIOR_ART",
+        "series_evidence": [
+          "PMID:27569066",
+          "US6586441B2"
+        ],
+        "series_name": "pyrimidine-5-carbonitrile adenosine receptor ligand space"
+      }
+    }
+  ],
+  "claim_rules": {
+    "allowed": [
+      "Candidate 2 shares a strong related pharmacophore with a published potent hA2A antagonist SAR series.",
+      "Candidates 4 and 5 occupy an established pyrimidine-5-carbonitrile adenosine-receptor chemotype space.",
+      "虎杖-derived resveratrol has direct A2A agonist evidence and separate preclinical NASH evidence.",
+      "Istradefylline is a clinically used A2A antagonist anchor, not a MASH or candidate-identity claim.",
+      "Any of the five could remain a prospective new-lead branch if direct activity is confirmed and novelty is independently qualified."
+    ],
+    "forbidden": [
+      "Any Mcule candidate is derived from 虎杖, 姜黄, tea, coffee, or another herb.",
+      "A related scaffold proves the candidate is an A2A antagonist.",
+      "Natural-product A2A activity proves MASH efficacy.",
+      "A computational hit is an innovative drug.",
+      "The reverse-mapping layer releases W0 or wet-lab gates."
+    ]
+  },
+  "date": "2026-09-27",
+  "decision": {
+    "biologic_mapping": "NO_DIRECT_BIOLOGIC_DRUG_MAPPING_IDENTIFIED_OR_REQUIRED_FOR_THESE_SMALL_MOLECULE_HITS",
+    "candidate_1_reverse_mapping": "UNRESOLVED",
+    "candidate_2_reverse_mapping": "STRONG_RELATED_A2A_MEDCHEM_SERIES",
+    "candidate_3_reverse_mapping": "WEAK_RELATED_PYRAZINE_PRIOR_ART_UNRESOLVED_AS_NAMED_SERIES",
+    "candidate_4_reverse_mapping": "MODERATE_STRONG_RELATED_PYRIMIDINE_5_CARBONITRILE_CHEMOTYPE",
+    "candidate_5_reverse_mapping": "MODERATE_STRONG_RELATED_PYRIMIDINE_5_CARBONITRILE_CHEMOTYPE",
+    "clinical_drug_anchor": "istradefylline -> FDA-approved A2A antagonist for Parkinson disease; no MASH indication",
+    "experimental_gate_change": "NONE",
+    "overall": "The five are better interpreted as synthetic computational hits positioned relative to known ADORA2A medicinal chemistry. Reverse mapping yields concrete pharmacology and TCM/natural-product anchors, but no candidate-specific herb origin or approved-drug identity.",
+    "qualified_concrete_tcm_anchor": "虎杖 -> resveratrol -> direct A2A agonist evidence; NASH evidence is preclinical and mixed",
+    "secondary_natural_anchor": "Curcuma longa/curcumin -> A2A activation evidence plus separate steatohepatitis antifibrotic evidence; causal A2A-liver link unproven",
+    "w0_release_change": "NONE"
+  },
+  "named_drug_anchors": [
+    {
+      "allowed_use": "Demonstrates that selective pharmacological antagonism of A2A is clinically druggable; does not validate any Mcule candidate or MASH indication.",
+      "candidate_relationship": "PHARMACOLOGY_REFERENCE_ONLY",
+      "direction": "ANTAGONIST",
+      "mash_link": "NO_DIRECT_MASH_EFFICACY_IN_THIS_EVIDENCE_SET",
+      "name": "ISTRADEFYLLINE",
+      "regulatory_status": "US_FDA_APPROVED_2019_PARKINSON_OFF_EPISODES",
+      "role": "CLINICAL_PHARMACOLOGY_ANCHOR",
+      "sources": [
+        "FDA:NOURIANZ_2019_LABEL"
+      ],
+      "target": "ADORA2A"
+    },
+    {
+      "allowed_use": "Direction-control ligand for the context-dependent ADORA2A/MASH evidence.",
+      "candidate_relationship": "PHARMACOLOGY_REFERENCE_ONLY",
+      "direction": "AGONIST",
+      "mash_link": "DIRECT_PRECLINICAL_NASH_PROTECTIVE_AND_HSC_PROFIBROTIC_CONTEXT_DEPENDENT",
+      "name": "CGS21680",
+      "regulatory_status": "RESEARCH_COMPOUND",
+      "role": "RESEARCH_LIGAND",
+      "sources": [
+        "PMID:22439844",
+        "PMID:17872970"
+      ],
+      "target": "ADORA2A"
+    },
+    {
+      "allowed_use": "Experimental antagonist control; not a marketed MASH drug.",
+      "candidate_relationship": "PHARMACOLOGY_REFERENCE_ONLY",
+      "direction": "ANTAGONIST",
+      "mash_link": "LIVER_FIBROSIS_AND_2024_MASH_REFERENCE_CONTROL",
+      "name": "ZM241385",
+      "regulatory_status": "RESEARCH_COMPOUND",
+      "role": "RESEARCH_LIGAND",
+      "sources": [
+        "PMID:24782773",
+        "PMID:38481815"
+      ],
+      "target": "ADORA2A"
+    },
+    {
+      "allowed_use": "Preclinical MASH mechanistic anchor for A2A antagonism in fibrotic context.",
+      "candidate_relationship": "PHARMACOLOGY_REFERENCE_ONLY",
+      "direction": "ANTAGONIST",
+      "mash_link": "DIRECT_PRECLINICAL_MASH_ANTIFIBROTIC",
+      "name": "RAD11",
+      "regulatory_status": "PRECLINICAL_RESEARCH_COMPOUND",
+      "role": "RESEARCH_LIGAND",
+      "sources": [
+        "PMID:38481815"
+      ],
+      "target": "ADORA2A"
+    },
+    {
+      "alias": "TC-G 1004 is used by commercial research suppliers for this compound; primary paper names it 16j",
+      "allowed_use": "Named medicinal-chemistry anchor for candidate 2's related pharmacophore space.",
+      "candidate_relationship": "CANDIDATE_2_RELATED_SERIES_EXEMPLAR",
+      "direction": "ANTAGONIST",
+      "mash_link": "TARGET_ONLY_NO_MASH_EFFICACY",
+      "name": "compound 16j",
+      "primary_reported_activity": "hA2A Ki 0.44 nM; hA1 Ki 80 nM",
+      "regulatory_status": "RESEARCH_COMPOUND",
+      "role": "SERIES_EXEMPLAR",
+      "sources": [
+        "PMID:18947224"
+      ],
+      "target": "ADORA2A"
+    }
+  ],
+  "natural_product_tcm_anchors": [
+    {
+      "candidate_relationship": "PHARMACOLOGY_REFERENCE_ONLY_NOT_STRUCTURAL_ORIGIN",
+      "chinese_medicine": "虎杖",
+      "confidence": "HIGH_FOR_ORIGIN_AND_A2A_TARGET; MIXED_FOR_NASH",
+      "forbidden_claim": "Do not claim that any Mcule candidate comes from 虎杖 or that resveratrol's liver effect is proven to be mediated by A2A.",
+      "mash_evidence": "PRECLINICAL_NASH_MIXED",
+      "mash_sources": [
+        "PMID:26911834",
+        "PMID:25814186"
+      ],
+      "natural_product": "resveratrol",
+      "origin_evidence": "PRIMARY_ISOLATION_FROM_TCM",
+      "origin_sources": [
+        "PMID:29403824"
+      ],
+      "species": "Polygonum cuspidatum / Reynoutria japonica",
+      "target_direction": "AGONIST",
+      "target_evidence": "DIRECT_ADENOSINE_RECEPTOR_BINDING_AND_A2A_AGONISM",
+      "target_sources": [
+        "PMID:30898665"
+      ]
+    },
+    {
+      "candidate_relationship": "PHARMACOLOGY_REFERENCE_ONLY_NOT_STRUCTURAL_ORIGIN",
+      "chinese_medicine": "姜黄（药材关联仅作植物来源锚点；本审计未做药典身份资格）",
+      "confidence": "MODERATE",
+      "forbidden_claim": "Do not claim the experimental steatohepatitis benefit is A2A-mediated; the A2A and liver evidence come from separate experimental contexts.",
+      "mash_evidence": "PRECLINICAL_EXPERIMENTAL_STEATOHEPATITIS_ANTIFIBROTIC",
+      "mash_sources": [
+        "PMID:19901911"
+      ],
+      "natural_product": "curcumin",
+      "origin_evidence": "PLANT_DERIVED_NATURAL_PRODUCT",
+      "origin_sources": [
+        "PMID:34823218"
+      ],
+      "species": "Curcuma longa",
+      "target_direction": "AGONIST_LIKE_A2A_ACTIVATION",
+      "target_evidence": "A2A_ACTIVATION_SIGNAL_IN_HUMAN_PLATELETS",
+      "target_sources": [
+        "PMID:34823218"
+      ]
+    },
+    {
+      "candidate_relationship": "PHARMACOLOGY_REFERENCE_ONLY_NOT_STRUCTURAL_ORIGIN",
+      "chinese_medicine": null,
+      "confidence": "HIGH_FOR_LIVER_FIBROSIS_A2A_RELATED_SIGNAL",
+      "forbidden_claim": "Do not label caffeine as a candidate-specific structural analogue or a proven MASH drug.",
+      "mash_evidence": "LIVER_FIBROSIS_ONLY_NOT_DIRECT_MASH",
+      "mash_sources": [
+        "PMID:24682220",
+        "PMID:23808892"
+      ],
+      "natural_product": "caffeine",
+      "origin_evidence": "COMMON_BOTANICAL_CONSTITUENT",
+      "origin_sources": [],
+      "species": "Camellia sinensis / Coffea spp. botanical comparator",
+      "target_direction": "NONSELECTIVE_ADENOSINE_ANTAGONIST",
+      "target_evidence": "A2A_RELATED_ANTAGONIST_PHARMACOLOGY_IN_HSC",
+      "target_sources": [
+        "PMID:24682220"
+      ]
+    }
+  ],
+  "scope": "Reverse mapping of five frozen ADORA2A/Mcule computational priorities to known medicinal-chemistry series, named pharmacology anchors, and evidence-qualified natural-product/Chinese-medicine anchors. This layer is explanatory and hypothesis-generating; it does not replace direct activity experiments.",
+  "snapshots": [
+    {
+      "key": "pubmed_reverse_pharmacology",
+      "path": "audit\\snapshots\\reverse_pharmacology_2026-09-27\\pubmed_reverse_pharmacology.xml",
+      "pmids": [
+        "18947224",
+        "27569066",
+        "29403824",
+        "30898665",
+        "26911834",
+        "25814186",
+        "34823218",
+        "19901911",
+        "24682220",
+        "23808892",
+        "38481815"
+      ],
+      "sha256": "38c82e14b5d59ae8b8485bfec35f9e0780ff0b02b094dd2645e46d069ec362e4",
+      "status": "SNAPSHOTTED",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=18947224,27569066,29403824,30898665,26911834,25814186,34823218,19901911,24682220,23808892,38481815&rettype=abstract&retmode=xml"
+    },
+    {
+      "key": "fda_istradefylline_label_2019",
+      "path": "audit\\snapshots\\reverse_pharmacology_2026-09-27\\fda_istradefylline_label_2019.pdf",
+      "sha256": "49a2d23da8a2eecedcc6893ebeb5a39e3f8f41fa713b426ecf8cc2049ecfe985",
+      "status": "SNAPSHOTTED",
+      "title": "",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2019/022075Orig1s000Lbl.pdf"
+    },
+    {
+      "key": "pyrimidine_carbonitrile_A2A_patent",
+      "path": "audit\\snapshots\\reverse_pharmacology_2026-09-27\\pyrimidine_carbonitrile_A2A_patent.html",
+      "sha256": "2ec104132f4139a17ff58ab6c0dce6b8e2c3d21795d1fc8e1d6bdfd15436d011",
+      "status": "SNAPSHOTTED",
+      "title": "US6586441B2 - Adenosine receptor ligands and their use in the treatment of disease - Google Patents",
+      "url": "https://patents.google.com/patent/US6586441B2/en"
+    }
+  ],
+  "source_artifacts": {
+    "approved_drug_pool": {
+      "path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V24_MAINLINE_RECOVERY_20260927\\exports\\approved_drug_intake.csv",
+      "sha256": "c22c74a31a4e34aacc30aa33b7d762e1baf77447afe39aedf71bc13278157aad"
+    },
+    "identity_supply_mapping": {
+      "path": "audit\\ASTRA_CANDIDATE_IDENTITY_SUPPLY_MAPPING_2026-09-27.json",
+      "sha256": "b02c0776907010edc32c4f824e5ddc935cc22ae684537f9a008365a256970fc9"
+    },
+    "mash_direction": {
+      "path": "audit\\ASTRA_ADORA2A_MASH_DIRECTION_2026-09-26.json",
+      "sha256": "03a6348e8d2b85f4a217b4e13d7d51537dfe4bbe0df2560d72bc7ab7015cb0ab"
+    },
+    "prior_art": {
+      "path": "audit\\ASTRA_CANDIDATE_PRIOR_ART_2026-09-26.json",
+      "sha256": "3a3beadc3d3d65c4c31a82963dba0c224442f360b152b776e164684679649be8"
+    }
+  },
+  "stage": "ASTRA_REVERSE_PHARMACOLOGY_MAPPING",
+  "target_context": {
+    "allowed_claim": "ADORA2A is a biologically plausible MASH/NASH modifier with cell-type and disease-stage dependent effects; therapeutic direction is not yet qualified.",
+    "direction_gate": "BLOCKED",
+    "target": "ADORA2A",
+    "therapeutic_direction": "UNRESOLVED_CONTEXT_DEPENDENT"
+  }
+}

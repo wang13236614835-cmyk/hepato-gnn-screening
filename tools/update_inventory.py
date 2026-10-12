@@ -2,7 +2,7 @@
 from pathlib import Path
 import argparse,csv,json,hashlib,subprocess
 def main():
- p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--output',type=Path);a=p.parse_args();base=a.root.resolve();out=a.output or base/'docs/file_inventory.csv';out=out.resolve()
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--output',type=Path);a=p.parse_args();base=a.root.resolve();out=a.output or base/'docs/文件台账.csv';out=out.resolve()
  tracked=set(subprocess.check_output(['git','ls-files','-z'],cwd=base).decode('utf-8').split('\0'));tracked.discard('');paths=set(tracked);rows=[]
  for f in base.rglob('*'):
   if not f.is_file() or '.git' in f.parts or '__pycache__' in f.parts or f.suffix in ['.pyc','.exe']:continue

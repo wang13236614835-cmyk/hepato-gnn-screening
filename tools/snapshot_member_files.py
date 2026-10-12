@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """把每人名下要核验的具体文件快照复制到 <姓名>/待核文件/（各自一份）。
 
-约定（与 docs/MANIFEST.md §12 一致）：
+约定（与 docs/文件清单.md §12 一致）：
 - 根目录是工作原件，流水线（run_all.py/verify.py）依赖根目录路径，不可删；
   个人文件夹里的快照只用于阅读/逐条勾核，勾完在 <姓名>/工作台.md 签名。
 - 大体积可再生产物（exe、reports/pdf_all/ 全部PDF镜像、pdf_build 中间产物）
   不入快照，在快照清单中标注"以根目录为准"，避免镜像的镜像这种纯冗余数据。
-- 改动 VERIFY_TASKS 附录A 后重跑：python tools/snapshot_member_files.py
+- 改动 核验任务分派 附录A 后重跑：python tools/snapshot_member_files.py
 
 用法: python tools/snapshot_member_files.py
 """
@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# 各人核验文件（= docs/VERIFY_TASKS.md 附录A 的 A1/A3/A4/A5；A2 大件见 NO_COPY）
+# 各人核验文件（= docs/核验任务分派.md 附录A 的 A1/A3/A4/A5；A2 大件见 NO_COPY）
 FILES = {
     "宁显泷": [
         "run_all.py",
@@ -27,27 +27,27 @@ FILES = {
         "src/models/gnn.py", "src/models/dataset.py", "src/models/baseline.py",
         "src/scoring/fuse.py",
         "reports/pdf_build/verify.py",
-        "docs/02_model_notes.md",
-        "results/metrics/baseline.csv", "results/metrics/reliability_curve.csv",
-        "results/predictions/test_predictions.csv", "results/predictions/fullpool_predictions.csv",
+        "docs/02_模型笔记.md",
+        "results/metrics/基线指标.csv", "results/metrics/可靠性曲线.csv",
+        "results/predictions/测试预测.csv", "results/predictions/全池预测.csv",
     ],
     "衣思淼": [
-        "data/raw/tcm_seed_compounds.csv",
-        "data/processed/cleaned_compounds.csv", "data/processed/screening_pool.csv",
-        "data/processed/rejected.csv",
-        "data/splits/train.csv", "data/splits/val.csv", "data/splits/test.csv",
+        "data/raw/中药种子化合物.csv",
+        "data/processed/清洗后化合物.csv", "data/processed/筛选池.csv",
+        "data/processed/已剔除.csv",
+        "data/splits/训练集.csv", "data/splits/验证集.csv", "data/splits/测试集.csv",
         "src/data/clean.py", "src/data/split.py", "src/data/ad.py",
         "src/chem/descriptors.py",
-        "docs/01_data_dictionary.md",
-        "results/ad/ad_report.csv",
-        "results/rankings/final_ranking.csv",
+        "docs/01_数据字典.md",
+        "results/ad/适用域报告.csv",
+        "results/rankings/最终排名.csv",
     ],
     "代维斯丹": [
         "src/chem/fingerprints.py",
         "src/docking/grid_box.py", "src/docking/mock_docking.py", "src/docking/run_vina.sh",
-        "docs/03_docking_protocol.md",
+        "docs/03_对接协议.md",
         "src/viz/plots.py",
-        "results/docking/docking_scores.csv",
+        "results/docking/对接分数表.csv",
         "results/figures/top_candidates.png", "results/figures/reliability_diagram.png",
         "results/figures/uncertainty_vs_error.png", "results/figures/model_dock_scatter.png",
         "src/__init__.py", "src/chem/__init__.py", "src/data/__init__.py",
@@ -55,32 +55,32 @@ FILES = {
         "src/scoring/__init__.py", "src/viz/__init__.py",
     ],
     "王散曼": [
-        "literature/01_classic_evidence.md",
-        "literature/02_novel_terpenes_lignans.md",
-        "literature/03_top_candidate_mechanisms.md",
-        "data/raw/novel_terpenes_lignans.csv",
+        "literature/01_经典证据.md",
+        "literature/02_新三萜木脂素.md",
+        "literature/03_候选机制.md",
+        "data/raw/新三萜木脂素.csv",
     ],
     "王启龙": [
         # 总纲与配置（9）
-        "README.md", "CONTRIBUTORS.md", "requirements.txt", ".gitignore",
-        "docs/MANIFEST.md", "docs/PHASE_PLAN.md", "docs/VERIFY_MANUAL.md",
-        "docs/VERIFY_TASKS.md", "docs/00_environment.md",
+        "README.md", "成员与分工.md", "requirements.txt", ".gitignore",
+        "docs/文件清单.md", "docs/阶段计划.md", "docs/核验手册.md",
+        "docs/核验任务分派.md", "docs/00_环境配置.md",
         # 纪要与计划（9）
-        "docs/minutes/week1-2.md", "docs/minutes/week3-4.md", "docs/minutes/week5-6.md",
-        "phase2_semester/WP1_verify_baseline.md", "phase2_semester/WP2_real_docking.md",
-        "phase2_semester/WP3_data_expansion.md", "phase2_semester/WP4_model_upgrade.md",
-        "phase2_semester/WP5_experiment_bridge.md", "phase2_semester/推进程序_负责人_王启龙.md",
+        "docs/纪要/第1-2周.md", "docs/纪要/第3-4周.md", "docs/纪要/第5-6周.md",
+        "phase2_semester/WP1_基线核验.md", "phase2_semester/WP2_真实对接.md",
+        "phase2_semester/WP3_数据扩充.md", "phase2_semester/WP4_模型升级.md",
+        "phase2_semester/WP5_实验衔接.md", "phase2_semester/推进程序_负责人_王启龙.md",
         # 个人档案（6）
-        "docs/personal/00_工作量与成果总表.md", "docs/personal/P1_王启龙.md",
-        "docs/personal/P2_宁显泷.md", "docs/personal/P3_衣思淼.md",
-        "docs/personal/P4_代维斯丹.md", "docs/personal/P5_王散曼.md",
+        "docs/个人档案/00_工作量与成果总表.md", "docs/个人档案/P1_王启龙.md",
+        "docs/个人档案/P2_宁显泷.md", "docs/个人档案/P3_衣思淼.md",
+        "docs/个人档案/P4_代维斯丹.md", "docs/个人档案/P5_王散曼.md",
         # 工具与学习（轻量部分；exe 与成员打卡页不入快照）
         "tools/semester_flow.py", "tools/gen_member_pages.py",
         "tools/使用说明_学期推进流.md",
         "learning/王启龙/flow_state.json", "learning/王启龙/week01_exercise.py",
         "learning/王启龙/week03_rdkit_recalc.py",
         # 报告（reports/ 根 3 件中的 md；两份大 PDF 以根目录为准）
-        "reports/midterm_report.md",
+        "reports/期中报告.md",
     ],
 }
 

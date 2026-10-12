@@ -24,7 +24,7 @@ from common import RES, ece, ece_bins_detail, read_csv
 plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "sans-serif"]
 plt.rcParams["axes.unicode_minus"] = False
 FIG = os.path.join(RES, "figures")
-ECE_BINS = 10  # 项47: 图与 metrics/model_summary.json 中 ECE 同一分箱
+ECE_BINS = 10  # 项47: 图与 metrics/模型摘要.json 中 ECE 同一分箱
 
 BOARD_COLORS = {"known_retrospective": "#c05621",
                 "independent_test": "#2b6cb0",
@@ -58,10 +58,10 @@ def fig_scatter(rank_rows):
 
 
 def fig_reliability():
-    pred = read_csv(os.path.join(RES, "predictions", "test_predictions.csv"))
+    pred = read_csv(os.path.join(RES, "predictions", "测试预测.csv"))
     y = np.array([int(r["label"]) for r in pred])
     p = np.array([float(r["pred_mean"]) for r in pred])
-    summary = json.load(open(os.path.join(RES, "metrics", "model_summary.json"),
+    summary = json.load(open(os.path.join(RES, "metrics", "模型摘要.json"),
                              encoding="utf-8"))
     T = summary.get("temperature", 1.0)
     p_cal = 1 / (1 + np.exp(-(np.log(p / (1 - p + 1e-9)) / T)))
@@ -118,11 +118,11 @@ def fig_top10(picked):
 
 def run():
     os.makedirs(FIG, exist_ok=True)
-    rank_rows = read_csv(os.path.join(RES, "tables", "final_ranking_v2_real.csv"))
-    picked = read_csv(os.path.join(RES, "tables", "diverse_top10.csv"))
+    rank_rows = read_csv(os.path.join(RES, "tables", "真实分数排名v2.csv"))
+    picked = read_csv(os.path.join(RES, "tables", "多样性前十.csv"))
     gate = json.load(open(os.path.join(DOCK := os.path.join(RES, "..", "docking"),
-                                       "redock_gate.json"), encoding="utf-8"))
-    model = json.load(open(os.path.join(RES, "metrics", "model_summary.json"),
+                                       "重对接门控.json"), encoding="utf-8"))
+    model = json.load(open(os.path.join(RES, "metrics", "模型摘要.json"),
                            encoding="utf-8"))
     fusion = json.load(open(os.path.join(RES, "metrics", "fusion_summary.json"),
                             encoding="utf-8"))

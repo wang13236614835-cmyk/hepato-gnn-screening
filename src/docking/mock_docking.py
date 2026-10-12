@@ -49,7 +49,7 @@ def _zscore(vals):
 def score_all():
     os.makedirs(OUT, exist_ok=True)
     rows = []
-    for fname in ("cleaned_compounds.csv", "screening_pool.csv"):
+    for fname in ("清洗后化合物.csv", "筛选池.csv"):
         with open(os.path.join(PROC, fname), encoding="utf-8-sig") as f:
             rows.extend(list(csv.DictReader(f)))
     z = {c: _zscore([r[c] for r in rows]) for c in FEATS}
@@ -65,7 +65,7 @@ def score_all():
                         "target": target, "score_kcal": round(score, 2),
                         "mode": "mock_local"})
 
-    with open(os.path.join(OUT, "docking_scores.csv"), "w", encoding="utf-8", newline="") as f:
+    with open(os.path.join(OUT, "对接分数表.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0].keys()))
         w.writeheader()
         w.writerows(out)

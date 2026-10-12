@@ -1,18 +1,18 @@
 # results/docking/real/ — 真实 Vina 对接数据(144 次)
 
-> 2026-09-03 完成,管线与 WP2 计划一致。暑假演示分(`../docking_scores.csv`)保持原位供 9/20 前复核;
+> 2026-09-03 完成,管线与 WP2 计划一致。暑假演示分(`../对接分数表.csv`)保持原位供 9/20 前复核;
 真实分数在本目录,60 候选 × 1OSH/2FLU 批量完成后换入总表、重算排名 v2。
 
 ## 文件
 
 | 文件 | 内容 | 规模 |
 |---|---|---|
-| `docking_real_4targets_16ligands.csv` | THRβ(6KKB)/FXR(6HL1)/PPARα(6KAX)/PPARδ(5U3Q) × 16 分子(12 天然成分 + 4 药物参考) | 64 次 |
-| `docking_real_ppar_prior40.csv` | PPARα/PPARδ × MASH 课题 131 成分库 CW-BCS 前 40(含本项目中期候选同族的甘草/丹参/苦参成分) | 80 次 |
+| `真实对接_4靶16配体.csv` | THRβ(6KKB)/FXR(6HL1)/PPARα(6KAX)/PPARδ(5U3Q) × 16 分子(12 天然成分 + 4 药物参考) | 64 次 |
+| `真实对接_PPAR前40.csv` | PPARα/PPARδ × MASH 课题 131 成分库 CW-BCS 前 40(含本项目中期候选同族的甘草/丹参/苦参成分) | 80 次 |
 
 ## 对接参数(可复现)
 
-- 引擎:AutoDock Vina 1.2.7 官方 Windows 版(与本组 docs/00_environment.md 计划的服务器版同源)
+- 引擎:AutoDock Vina 1.2.7 官方 Windows 版(与本组 docs/00_环境配置.md 计划的服务器版同源)
 - 受体:纯 Python PDB→PDBQT(去水/去共晶配体/去去垢剂;无氢刚性;元素映射 C/NA/OA/SA)
 - 配体:RDKit ETKDGv3 + UFF + meeko(与 WP2 步骤 2 一致)
 - 盒子:共晶配体包围盒 + 6 Å 外扩(与 src/docking/grid_box.py 同逻辑)

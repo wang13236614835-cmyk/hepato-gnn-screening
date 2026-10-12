@@ -1,0 +1,65 @@
+[
+  {
+    "review_id": "hr_25fe38d0dc723ea3",
+    "compressed_review_id": "cr_b2e66c3f80331987",
+    "project_id": "MASH_2026_002",
+    "entity_type": "activity_record",
+    "entity_id": "438711",
+    "target": "NR1H4",
+    "field": "endpoint_unknown;numeric_value_missing;unit_unrecognized",
+    "ai_value": {
+      "endpoint": "EFFECTIVECONCENTRATION",
+      "value": null,
+      "relation": "="
+    },
+    "human_value": null,
+    "decision": "REJECTED",
+    "decision_reason": "ChEMBL activity 438711（assay CHEMBL681096，FXR）原始记录：standard_value=None、standard_units=None、standard_relation=None、standard_flag=0、activity_comment='No data'，data_validity_description='No data provided for value, units or activity_comment'；assay 描述自注 'ND = No data'，该 assay 仅此 1 条记录。既无可折算的定量值，也无测定浓度上限信息，无法按删失或阴性处理。排除出定量建模池；UDCA（CHEMBL1551）FXR 活性如需引用另找其他 assay。",
+    "reviewer": "AI演示（非真人，不计入完成数）",
+    "reviewed_at": "2026-09-22T00:00:00Z",
+    "source_ref": "https://www.ebi.ac.uk/chembl/api/data/activity/438711.json",
+    "optional_note": "演示件：展示 P0 endpoint_unknown 的核验路径（拉原始JSON→逐字段对照→判定）。正式核验请按同流程由组员执行并署真名。"
+  },
+  {
+    "review_id": "hr_d572b75a24d9bf85",
+    "compressed_review_id": "cr_256cfdc9913f99a0",
+    "project_id": "MASH_2026_002",
+    "entity_type": "activity_record",
+    "entity_id": "5104823",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_value": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "human_value": null,
+    "decision": "VERIFIED",
+    "decision_reason": "ChEMBL activity 5104823（assay CHEMBL1640870，人重组ACC1-His，昆虫细胞）原始记录：standard_type='IC50'、standard_relation='>'、standard_value=30000.0、standard_units='nM'、standard_flag=1、potential_duplicate=0。'IC50 > 30 μM' 为真实删失（活性弱于检测上限），AI 预填与原始一致故 VERIFIED。使用约束：建模时按删失处理（pIC50 下界 <4.48）或单列排除，不得作为精确数值标签。",
+    "reviewer": "AI演示（非真人，不计入完成数）",
+    "reviewed_at": "2026-09-22T00:00:00Z",
+    "source_ref": "https://www.ebi.ac.uk/chembl/api/data/activity/5104823.json",
+    "optional_note": "演示件：展示 censored_relation 的核验路径。判定是'删失记录属实'，不等于'可当数值用'。"
+  },
+  {
+    "review_id": "hr_ce9a88c1843d4dbe",
+    "compressed_review_id": "cr_256cfdc9913f99a0",
+    "project_id": "MASH_2026_002",
+    "entity_type": "activity_record",
+    "entity_id": "5104835",
+    "target": "ACACA",
+    "field": "censored_relation",
+    "ai_value": {
+      "endpoint": "IC50",
+      "value": "30000.0",
+      "relation": ">"
+    },
+    "human_value": null,
+    "decision": "VERIFIED",
+    "decision_reason": "ChEMBL activity 5104835（assay CHEMBL1640870，人重组ACC1-His，昆虫细胞）原始记录：standard_type='IC50'、standard_relation='>'、standard_value=30000.0、standard_units='nM'、standard_flag=1、potential_duplicate=0。'IC50 > 30 μM' 为真实删失（活性弱于检测上限），AI 预填与原始一致故 VERIFIED。使用约束：建模时按删失处理（pIC50 下界 <4.48）或单列排除，不得作为精确数值标签。",
+    "reviewer": "AI演示（非真人，不计入完成数）",
+    "reviewed_at": "2026-09-22T00:00:00Z",
+    "source_ref": "https://www.ebi.ac.uk/chembl/api/data/activity/5104835.json",
+    "optional_note": "演示件：展示 censored_relation 的核验路径。判定是'删失记录属实'，不等于'可当数值用'。"
+  }
+]

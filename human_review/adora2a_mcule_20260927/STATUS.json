@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-27",
+  "branch": "ADORA2A_Mcule_exploratory",
+  "global_primary_route_overwritten": false,
+  "frozen_mcule_candidates": [
+    "MCULE-5126266491",
+    "MCULE-1345325285",
+    "MCULE-2952154734",
+    "MCULE-1403143859",
+    "MCULE-5892165876"
+  ],
+  "candidate_release": false,
+  "identity_gate": "PASS",
+  "current_supply_gate": "BLOCKED",
+  "w0_ready_count": 0,
+  "wetlab": "NOT_EXECUTED",
+  "direct_candidate_adora2a_activity": "UNVERIFIED",
+  "mash_direction": "UNRESOLVED_CONTEXT_DEPENDENT",
+  "botanical_pool_count": 37,
+  "botanical_retained_count": 37,
+  "excluded_for_saturation_count": 0,
+  "recommended_8_item_panel": [
+    "ZM241385",
+    "CGS 21680",
+    "Nobiletin",
+    "Tangeretin",
+    "Salidroside",
+    "Dihydrotanshinone I",
+    "Physcion",
+    "Istradefylline"
+  ],
+  "workbench_regression": "133/133 passed",
+  "evidence_index_artifact_count": 41,
+  "evidence_index_sha256": "36bd761879fad5860b8bde722f4e83efa51407bfb64649e0e76570127d85f608"
+}

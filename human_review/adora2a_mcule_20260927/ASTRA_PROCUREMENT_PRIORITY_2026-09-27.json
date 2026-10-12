@@ -1,0 +1,534 @@
+{
+  "date": "2026-09-27",
+  "decision": {
+    "best_mature_repurposing_new_mechanism": [
+      "Salidroside",
+      "Baicalin",
+      "Istradefylline"
+    ],
+    "best_required_controls": [
+      "ZM241385",
+      "CGS 21680"
+    ],
+    "best_underexplored_tcm_new_mechanism": [
+      "Dihydrotanshinone I",
+      "Physcion"
+    ],
+    "best_value_natural_product_bridge": [
+      "Nobiletin",
+      "Tangeretin"
+    ],
+    "experimental_gate_change": "NONE",
+    "reason": "Balances direct A2A controls, direct-A2A natural products with NASH/liver evidence, underexplored TCM candidates, and a clinically validated A2A repurposing comparator.",
+    "recommended_panel": "8_item_balanced"
+  },
+  "minimal_panels": {
+    "10_item_full": [
+      "ZM241385",
+      "CGS 21680",
+      "Nobiletin",
+      "Tangeretin",
+      "Salidroside",
+      "Dihydrotanshinone I",
+      "Physcion",
+      "Istradefylline",
+      "Dihydromyricetin",
+      "Baicalin"
+    ],
+    "6_item_core": [
+      "ZM241385",
+      "CGS 21680",
+      "Nobiletin",
+      "Tangeretin",
+      "Salidroside",
+      "Dihydrotanshinone I"
+    ],
+    "8_item_balanced": [
+      "ZM241385",
+      "CGS 21680",
+      "Nobiletin",
+      "Tangeretin",
+      "Salidroside",
+      "Dihydrotanshinone I",
+      "Physcion",
+      "Istradefylline"
+    ]
+  },
+  "policy": {
+    "catalog_is_not_lot_release": true,
+    "clinical_drug_products_are_not_required": "Use research-grade compounds/standards for assays rather than patient medication products.",
+    "research_grade_only": true,
+    "stock_page_is_not_batch_identity": true,
+    "w0_requires": [
+      "exact ordered structure",
+      "lot number",
+      "lot-specific CoA",
+      "purity",
+      "identity evidence",
+      "stereochemical form when relevant"
+    ]
+  },
+  "primary_evidence_notes": [
+    {
+      "claim": "Nobiletin and Tangeretin have directly measured rat A2A receptor binding.",
+      "details": "Nobiletin A2A Ki 21.5±5.3 μM; Tangeretin A2A Ki 23.7±3.8 μM.",
+      "source": "Ji XD, Melman N, Jacobson KA. Interactions of flavonoids and other phytochemicals with adenosine receptors. J Med Chem. 1996."
+    },
+    {
+      "claim": "Nobiletin has direct preclinical NASH and liver-fibrosis evidence.",
+      "source": "PMID 34695558; PMID 34093242; PMID 38044268"
+    },
+    {
+      "claim": "Tangeretin has NAFLD/NASH evidence including combination studies.",
+      "source": "PMID 35171164; PMID 31706011"
+    },
+    {
+      "claim": "Salidroside has A2A-related primary mechanistic evidence in hypoxic pulmonary hypertension.",
+      "source": "PMID 25772255"
+    }
+  ],
+  "priority_groups": {
+    "EXTENDED_OR_REPURPOSING": [
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-10888",
+        "decision": "BUY_IF_BUDGET_ALLOWS",
+        "name": "Istradefylline",
+        "role": "CLINICAL_REPURPOSING_ANTAGONIST",
+        "stated_purity": "99.89% product page",
+        "url": "https://www.medchemexpress.com/us/en/Istradefylline.html",
+        "value_type": [
+          "REPURPOSING_NEW_USE",
+          "CLINICAL_PHARMACOLOGY_ANCHOR"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Clinically used selective A2A antagonist; best named old-drug anchor for repurposing/new-indication comparison."
+      },
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-N0112",
+        "decision": "BUY_IF_8_TO_10_ITEM_PANEL",
+        "name": "Dihydromyricetin",
+        "role": "UNDEREXPLORED_PURCHASABLE_LIVER_CANDIDATE",
+        "stated_purity": "COA/batch verification required",
+        "url": "https://www.medchemexpress.com/Dihydromyricetin.html",
+        "value_type": [
+          "UNDEREXPLORED_DISCOVERY",
+          "LIVER_METABOLIC_EVIDENCE",
+          "NEW_MECHANISM_HYPOTHESIS"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Moderate literature saturation with multiple liver/metabolic hits and easy current procurement; direct A2A evidence is absent, so value is prospective mechanism discovery."
+      },
+      {
+        "availability": "CATALOG_CONFIRMED_STOCK_RECHECK_REQUIRED",
+        "catalog_id": "HY-N0197",
+        "decision": "BUY_IF_8_TO_10_ITEM_PANEL",
+        "name": "Baicalin",
+        "role": "MATURE_REPURPOSING_NEW_MECHANISM",
+        "stated_purity": "99.98% batch documentation shown on vendor page",
+        "url": "https://www.medchemexpress.com/Baicalin.html?locale=ja-JP",
+        "value_type": [
+          "REPURPOSING_NEW_USE",
+          "NEW_MECHANISM_HYPOTHESIS",
+          "PRECLINICAL_NASH"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Strong Huangqin/NASH story with independent A2A-dependent evidence outside liver; mature compound but valuable for testing a new liver-specific A2A mechanism."
+      }
+    ],
+    "HIGH_VALUE_PURCHASABLE_DISCOVERY": [
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-N0155",
+        "decision": "BUY_FIRST_DISCOVERY",
+        "name": "Nobiletin",
+        "role": "HIGH_VALUE_PURCHASABLE_DISCOVERY",
+        "stated_purity": "vendor batch/COA verification required",
+        "url": "https://www.medchemexpress.com/Nobiletin.html?locale=ja-JP",
+        "value_type": [
+          "DIRECT_A2A_BINDING",
+          "PRECLINICAL_NASH",
+          "PRECLINICAL_LIVER_FIBROSIS",
+          "NEW_MECHANISM_HYPOTHESIS"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Direct rat A2A binding reported (Ki ~21.5 μM) plus multiple NASH/liver-fibrosis studies; strong citrus/TCM-source and new-mechanism bridge."
+      },
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-N0133",
+        "decision": "BUY_FIRST_DISCOVERY",
+        "name": "Tangeretin",
+        "role": "HIGH_VALUE_PURCHASABLE_DISCOVERY",
+        "stated_purity": "99.98% batch documentation shown on vendor page",
+        "url": "https://www.medchemexpress.com/Tangeretin.html?locale=ja-JP",
+        "value_type": [
+          "DIRECT_A2A_BINDING",
+          "UNDEREXPLORED_RELATIVE_TO_CLASSICS",
+          "NAFLD_NASH_EVIDENCE",
+          "NEW_MECHANISM_HYPOTHESIS"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Direct rat A2A binding reported (Ki ~23.7 μM), low-to-moderate literature saturation relative to classics, and independent NAFLD/NASH evidence."
+      },
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-N0109",
+        "decision": "BUY_DISCOVERY",
+        "name": "Salidroside",
+        "role": "HIGH_VALUE_PURCHASABLE_NEW_MECHANISM",
+        "stated_purity": "99.88% product page",
+        "url": "https://www.medchemexpress.com/Salidroside.html",
+        "value_type": [
+          "A2A_RELATED_PRIMARY_EVIDENCE",
+          "REPURPOSING_NEW_MECHANISM",
+          "TCM_NATURAL_PRODUCT"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Concrete Rhodiola-derived molecule with A2A-related mechanism in primary pulmonary model and substantial liver literature; useful for testing whether the A2A mechanism transfers to liver/MASH context."
+      },
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-N0108",
+        "decision": "BUY_DISCOVERY",
+        "name": "Physcion",
+        "role": "UNDEREXPLORED_PURCHASABLE_DISCOVERY",
+        "stated_purity": "99.40% product page",
+        "url": "https://www.medchemexpress.com/Physcion.html",
+        "value_type": [
+          "UNDEREXPLORED_DISCOVERY",
+          "TCM_SOURCE",
+          "LIVER_MECHANISM_FOLLOWUP"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Rhubarb-derived underexplored anthraquinone with liver/metabolic/anti-inflammatory rationale; current A2A literature hit is not yet qualified as direct receptor activity, so it is a discovery rather than control candidate."
+      },
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-N0360",
+        "decision": "BUY_DISCOVERY",
+        "name": "Dihydrotanshinone I",
+        "role": "UNDEREXPLORED_PURCHASABLE_DISCOVERY",
+        "stated_purity": "99.57% product page",
+        "url": "https://www.medchemexpress.com/Dihydrotanshinone-I.html",
+        "value_type": [
+          "UNDEREXPLORED_DISCOVERY",
+          "DANSHEN_SOURCE",
+          "NEW_MECHANISM_HYPOTHESIS"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Concrete Danshen constituent with relatively low literature saturation and liver-related evidence; direct A2A activity remains an open question, which makes it suitable for a prospective new-mechanism test."
+      }
+    ],
+    "MANDATORY_CONTROLS": [
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-19532",
+        "decision": "BUY_FIRST",
+        "name": "ZM241385",
+        "role": "MANDATORY_ANTAGONIST_CONTROL",
+        "stated_purity": "99.34% product page; batch documentation may report higher",
+        "url": "https://www.medchemexpress.com/ZM241385.html?locale=ja-JP",
+        "value_type": [
+          "ASSAY_CONTROL",
+          "STRUCTURE_VALIDATION_REFERENCE",
+          "MASH_MECHANISM_REFERENCE"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Direct A2A antagonist control, historical 5IU4 reference ligand, and hepatic-fibrosis/MASH mechanistic comparator."
+      },
+      {
+        "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+        "catalog_id": "HY-13201",
+        "decision": "BUY_FIRST",
+        "name": "CGS 21680",
+        "role": "MANDATORY_AGONIST_CONTROL",
+        "stated_purity": "99.88% product page",
+        "url": "https://www.medchemexpress.com/cgs-21680.html?locale=ja-JP",
+        "value_type": [
+          "ASSAY_CONTROL",
+          "DIRECTION_CONTROL"
+        ],
+        "vendor": "MedChemExpress",
+        "why_buy": "Selective A2A agonist, provides the opposite-direction control required by the context-dependent MASH/HSC evidence."
+      }
+    ]
+  },
+  "products": [
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-19532",
+      "decision": "BUY_FIRST",
+      "name": "ZM241385",
+      "role": "MANDATORY_ANTAGONIST_CONTROL",
+      "stated_purity": "99.34% product page; batch documentation may report higher",
+      "url": "https://www.medchemexpress.com/ZM241385.html?locale=ja-JP",
+      "value_type": [
+        "ASSAY_CONTROL",
+        "STRUCTURE_VALIDATION_REFERENCE",
+        "MASH_MECHANISM_REFERENCE"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Direct A2A antagonist control, historical 5IU4 reference ligand, and hepatic-fibrosis/MASH mechanistic comparator."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-13201",
+      "decision": "BUY_FIRST",
+      "name": "CGS 21680",
+      "role": "MANDATORY_AGONIST_CONTROL",
+      "stated_purity": "99.88% product page",
+      "url": "https://www.medchemexpress.com/cgs-21680.html?locale=ja-JP",
+      "value_type": [
+        "ASSAY_CONTROL",
+        "DIRECTION_CONTROL"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Selective A2A agonist, provides the opposite-direction control required by the context-dependent MASH/HSC evidence."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-10888",
+      "decision": "BUY_IF_BUDGET_ALLOWS",
+      "name": "Istradefylline",
+      "role": "CLINICAL_REPURPOSING_ANTAGONIST",
+      "stated_purity": "99.89% product page",
+      "url": "https://www.medchemexpress.com/us/en/Istradefylline.html",
+      "value_type": [
+        "REPURPOSING_NEW_USE",
+        "CLINICAL_PHARMACOLOGY_ANCHOR"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Clinically used selective A2A antagonist; best named old-drug anchor for repurposing/new-indication comparison."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-N0155",
+      "decision": "BUY_FIRST_DISCOVERY",
+      "name": "Nobiletin",
+      "role": "HIGH_VALUE_PURCHASABLE_DISCOVERY",
+      "stated_purity": "vendor batch/COA verification required",
+      "url": "https://www.medchemexpress.com/Nobiletin.html?locale=ja-JP",
+      "value_type": [
+        "DIRECT_A2A_BINDING",
+        "PRECLINICAL_NASH",
+        "PRECLINICAL_LIVER_FIBROSIS",
+        "NEW_MECHANISM_HYPOTHESIS"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Direct rat A2A binding reported (Ki ~21.5 μM) plus multiple NASH/liver-fibrosis studies; strong citrus/TCM-source and new-mechanism bridge."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-N0133",
+      "decision": "BUY_FIRST_DISCOVERY",
+      "name": "Tangeretin",
+      "role": "HIGH_VALUE_PURCHASABLE_DISCOVERY",
+      "stated_purity": "99.98% batch documentation shown on vendor page",
+      "url": "https://www.medchemexpress.com/Tangeretin.html?locale=ja-JP",
+      "value_type": [
+        "DIRECT_A2A_BINDING",
+        "UNDEREXPLORED_RELATIVE_TO_CLASSICS",
+        "NAFLD_NASH_EVIDENCE",
+        "NEW_MECHANISM_HYPOTHESIS"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Direct rat A2A binding reported (Ki ~23.7 μM), low-to-moderate literature saturation relative to classics, and independent NAFLD/NASH evidence."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-N0109",
+      "decision": "BUY_DISCOVERY",
+      "name": "Salidroside",
+      "role": "HIGH_VALUE_PURCHASABLE_NEW_MECHANISM",
+      "stated_purity": "99.88% product page",
+      "url": "https://www.medchemexpress.com/Salidroside.html",
+      "value_type": [
+        "A2A_RELATED_PRIMARY_EVIDENCE",
+        "REPURPOSING_NEW_MECHANISM",
+        "TCM_NATURAL_PRODUCT"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Concrete Rhodiola-derived molecule with A2A-related mechanism in primary pulmonary model and substantial liver literature; useful for testing whether the A2A mechanism transfers to liver/MASH context."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-N0108",
+      "decision": "BUY_DISCOVERY",
+      "name": "Physcion",
+      "role": "UNDEREXPLORED_PURCHASABLE_DISCOVERY",
+      "stated_purity": "99.40% product page",
+      "url": "https://www.medchemexpress.com/Physcion.html",
+      "value_type": [
+        "UNDEREXPLORED_DISCOVERY",
+        "TCM_SOURCE",
+        "LIVER_MECHANISM_FOLLOWUP"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Rhubarb-derived underexplored anthraquinone with liver/metabolic/anti-inflammatory rationale; current A2A literature hit is not yet qualified as direct receptor activity, so it is a discovery rather than control candidate."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-N0360",
+      "decision": "BUY_DISCOVERY",
+      "name": "Dihydrotanshinone I",
+      "role": "UNDEREXPLORED_PURCHASABLE_DISCOVERY",
+      "stated_purity": "99.57% product page",
+      "url": "https://www.medchemexpress.com/Dihydrotanshinone-I.html",
+      "value_type": [
+        "UNDEREXPLORED_DISCOVERY",
+        "DANSHEN_SOURCE",
+        "NEW_MECHANISM_HYPOTHESIS"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Concrete Danshen constituent with relatively low literature saturation and liver-related evidence; direct A2A activity remains an open question, which makes it suitable for a prospective new-mechanism test."
+    },
+    {
+      "availability": "IN_STOCK_CONFIRMED_JAPAN_PAGE",
+      "catalog_id": "HY-N0112",
+      "decision": "BUY_IF_8_TO_10_ITEM_PANEL",
+      "name": "Dihydromyricetin",
+      "role": "UNDEREXPLORED_PURCHASABLE_LIVER_CANDIDATE",
+      "stated_purity": "COA/batch verification required",
+      "url": "https://www.medchemexpress.com/Dihydromyricetin.html",
+      "value_type": [
+        "UNDEREXPLORED_DISCOVERY",
+        "LIVER_METABOLIC_EVIDENCE",
+        "NEW_MECHANISM_HYPOTHESIS"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Moderate literature saturation with multiple liver/metabolic hits and easy current procurement; direct A2A evidence is absent, so value is prospective mechanism discovery."
+    },
+    {
+      "availability": "CATALOG_CONFIRMED_STOCK_RECHECK_REQUIRED",
+      "catalog_id": "HY-N0197",
+      "decision": "BUY_IF_8_TO_10_ITEM_PANEL",
+      "name": "Baicalin",
+      "role": "MATURE_REPURPOSING_NEW_MECHANISM",
+      "stated_purity": "99.98% batch documentation shown on vendor page",
+      "url": "https://www.medchemexpress.com/Baicalin.html?locale=ja-JP",
+      "value_type": [
+        "REPURPOSING_NEW_USE",
+        "NEW_MECHANISM_HYPOTHESIS",
+        "PRECLINICAL_NASH"
+      ],
+      "vendor": "MedChemExpress",
+      "why_buy": "Strong Huangqin/NASH story with independent A2A-dependent evidence outside liver; mature compound but valuable for testing a new liver-specific A2A mechanism."
+    }
+  ],
+  "scope": "Research-use procurement shortlist for the ADORA2A/MASH mechanism-validation program; not for self-medication or clinical use.",
+  "stage": "ASTRA_PROCUREMENT_PRIORITY",
+  "vendor_snapshots": [
+    {
+      "bytes": 1956772,
+      "catalog_id": "HY-19532",
+      "name": "ZM241385",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-19532.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "a5239b051cb0fc0ffc25f00d59ecefe1859af702e68082914e03c8f57cd89c7a",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/ZM241385.html?locale=ja-JP",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 1951867,
+      "catalog_id": "HY-13201",
+      "name": "CGS 21680",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-13201.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "e68ffb3dc8559125fe975e9a2d5ae7f8fb817a930a110c28ae0eda1f48ee713f",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/cgs-21680.html?locale=ja-JP",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 1919587,
+      "catalog_id": "HY-10888",
+      "name": "Istradefylline",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-10888.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "992da0e71708425cc3ac364b018ac2a285829bee1956fd893dd9fd2f3fcf541e",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/us/en/Istradefylline.html",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 2045937,
+      "catalog_id": "HY-N0155",
+      "name": "Nobiletin",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-N0155.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "c6875c1cc93d1f84b9ad0c4b8819c43f17672303df40ed5607c2d4cf58a788d0",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/Nobiletin.html?locale=ja-JP",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 1983604,
+      "catalog_id": "HY-N0133",
+      "name": "Tangeretin",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-N0133.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "9da90da866ae4b81d55d7f917ec1f4e515f13ce1db5699d00a5804135619115d",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/Tangeretin.html?locale=ja-JP",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 2057262,
+      "catalog_id": "HY-N0109",
+      "name": "Salidroside",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-N0109.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "5cc90b571791fa045da41d4cf4a033417159132ce249f4de7af883289f6873c7",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/Salidroside.html",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 1965780,
+      "catalog_id": "HY-N0108",
+      "name": "Physcion",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-N0108.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "c793b17dcb7c40328d99d1e61342e891445f36962e8ae05e4372283688145715",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/Physcion.html",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 1911506,
+      "catalog_id": "HY-N0360",
+      "name": "Dihydrotanshinone I",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-N0360.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "e3531a2114acd6fc9cc94cdcdab25816ef3d28149130d1b35425c530b2b489aa",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/Dihydrotanshinone-I.html",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 2025031,
+      "catalog_id": "HY-N0112",
+      "name": "Dihydromyricetin",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-N0112.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "736bde75975342b114f5749d1304ac35eb53c8d4d6dd751463e02eddb76c3311",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/Dihydromyricetin.html",
+      "vendor": "MedChemExpress"
+    },
+    {
+      "bytes": 2151666,
+      "catalog_id": "HY-N0197",
+      "name": "Baicalin",
+      "path": "audit\\snapshots\\procurement_priority_2026-09-27\\HY-N0197.html",
+      "retrieved_date": "2026-09-27",
+      "sha256": "1be6374140e012d323673e9abac7d9d80cf7b715b5084d6cc6b71c066cb0dbb1",
+      "status": "SNAPSHOTTED",
+      "url": "https://www.medchemexpress.com/Baicalin.html?locale=ja-JP",
+      "vendor": "MedChemExpress"
+    }
+  ]
+}

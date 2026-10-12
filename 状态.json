@@ -1,0 +1,134 @@
+{
+  "project_stage": "research_chain_v3",
+  "repository_role": "gnn_method_learning_historical_review_member_workspace",
+  "repository_name_change": "not_proposed_this_round",
+  "candidate_release": false,
+  "assets": {
+    "old_numpy_gcn": "verified_code_historical_method",
+    "old_labels": "rejected_label",
+    "old_splits": "historical_split_invalid_for_generalization",
+    "structure_curation": "needs_human_check",
+    "old_rankings": "historical",
+    "dataset_py": "unknown_element_fixed_20260917_requalify_no_auto_upgrade"
+  },
+  "authority": "D:/zcode-workspace/aidd-repo-work/00-当前研究/research_chain_v3_20260927/RESEARCH_STATE_V3.json",
+  "updated": "2026-09-28",
+  "current_stage": "W4真人核验启动：G2为主、G3并行；湿实验执行方沟通并行；G4-G7继续BLOCKED",
+  "current_conclusion": "第三周v3迁移与安全闭环已封存；第四周从real_human_review_completed=0开始产生Git可追溯的真人核验草稿，正式计数仍由AIDD受控导入。",
+  "current_blocker": "G2正式真人结果仍为0；G3=REVIEW；W0=0；wetlab=NOT_EXECUTED；candidate_release=false",
+  "next_action": "W4：优先完成HR-001~004真人Git核验与交叉复核；HR-005并行；HR-006等待采购；HR-007只做执行方/assay沟通。",
+  "research_chain_v2": {
+    "adopted_on": "2026-09-22",
+    "plan_ref": "00-当前研究/research_chain_v2_20260921/完整研究链路_v2.md",
+    "task_source": "00-当前研究/research_chain_v2_20260921/计划数据.json",
+    "teacher_final_approval": "not_recorded",
+    "hours_model": {
+      "member_per_week": "4h (task 2.5h + learning 1.5h)",
+      "leader_per_week": "6-8h (own 4-5h + assist members 1-2h + learning 1h)",
+      "light_week_w4": "member 2-3h / leader 3-4h"
+    },
+    "sync_scope": [
+      "5 check-in pages W3-W16 tasks",
+      "5 workbench md",
+      "研究状态.md",
+      "docs/全员工作台导航.md",
+      "README.md"
+    ],
+    "invariants_unchanged": true,
+    "status": "HISTORICAL_BASELINE"
+  },
+  "adora2a_mcule_20260927": {
+    "role": "human_review_only",
+    "authority": "D:/zcode-workspace/aidd-repo-work/00-当前研究/research_chain_v3_20260927/RESEARCH_STATE_V3.json",
+    "candidate_release": false,
+    "frozen_candidate_count": 5,
+    "direct_candidate_adora2a_activity": "UNVERIFIED",
+    "w0": "BLOCKED",
+    "w0_ready_count": 0,
+    "wetlab": "NOT_EXECUTED",
+    "human_review_queue": "human_review/adora2a_mcule_20260927/HUMAN_REVIEW_QUEUE.csv",
+    "real_human_review_completed": 0,
+    "updated": "2026-09-28",
+    "evidence_archive": "D:/zcode-workspace/aidd-repo-work/00-当前研究/adora2a_mcule_reverse_pharmacology_20260927/"
+  },
+  "legacy_phase2b": "HISTORICAL_BACKLOG_NOT_DEFAULT",
+  "research_chain_v3": {
+    "status": "CURRENT",
+    "authority": "D:/zcode-workspace/aidd-repo-work/00-当前研究/research_chain_v3_20260927/RESEARCH_STATE_V3.json",
+    "current_review": "human_review/adora2a_mcule_20260927/HUMAN_REVIEW_QUEUE.csv",
+    "real_human_review_completed": 0,
+    "w0_ready_count": 0,
+    "wetlab": "NOT_EXECUTED",
+    "current_gate": "G2",
+    "adora2a_mash_direction": "UNRESOLVED_CONTEXT_DEPENDENT"
+  },
+  "legacy_v2_active_snapshot": {
+    "authority": "D:/zcode-workspace/aidd-repo-work/00-当前研究/qualification_v1/RESEARCH_STATE.md",
+    "preservation_registry": "D:/zcode-workspace/aidd-repo-work/00-当前研究/asset_preservation_and_gnn_replan_v1/MASTER_ASSET_REGISTRY.csv",
+    "updated": "2026-09-22",
+    "fasn": {
+      "canonical_model": "qualified_local",
+      "external_generalization": "failed_or_limited",
+      "gate_t1": "FAIL",
+      "current_benchmark": "GCN median R2 0.078; GINE median R2 -0.040; Ridge median R2 0.732",
+      "np54_fasn_ranking": "blocked_ood",
+      "gate_t1_decision": "FAIL"
+    },
+    "thrb": {
+      "old_2j4a": "historical_mutant",
+      "wt_docking_ranking": "rejected"
+    },
+    "fxr": {
+      "status": "evidence_anchor",
+      "internal_model": "historical_internal_scaffold_reference",
+      "external_validation": "not_claimed"
+    },
+    "moracin_n": {
+      "status": "experimental_start_qualified",
+      "biological_validation": "not_executed"
+    },
+    "fifth_round": {
+      "primary": "Moracin N–NRF2/ferroptosis肝细胞机制验证",
+      "secondary": "FXR/Formononetin依赖性桥接+Biochanin A QC",
+      "reserve": "THRβ reporter/Isorhamnetin/FASN直接酶实验/SCD1-DGAT2重资格化",
+      "rejected": [
+        "NP54 FASN定量榜",
+        "docking ranking",
+        "旧GNN/CW-BCS/TOPSIS正向结论",
+        "ACC1/ACC2合并模型",
+        "3′-methoxydaidzein当前创新候选"
+      ],
+      "source": "AIDD主库 fifth_round_direction_exploration_20260915/GATE_DECISION.json"
+    },
+    "v06_human_review_loop": {
+      "aidd_role": "formal_scientific_truth_single_source",
+      "workbench_role": "ai_exploration_task_generation_strict_import_recompute_stale",
+      "gnn_role": "human_review_workspace_method_learning_historical_review",
+      "task_export": "workbench workflows/human_review_export.py -> human_review_task.json",
+      "result_import": "workbench Project.import_compound_identity_results (task_id+upstream_hash+reviewer strict validation)",
+      "gate_chain": "G0-G7 projected in workbench core/research_workflow.py from AIDD",
+      "unknown_element_fix": "src/models/dataset.py: default raise UnsupportedElementError; optional unk_slot 14-dim; legacy 13-dim bitwise identical (tests/test_dataset_unknown_element.py)",
+      "real_human_review": 0,
+      "counts_as_scientific_validation": false
+    },
+    "gnn_enable_gate": "closed",
+    "gnn_activity": "gated"
+  },
+  "legacy_fields_location": "legacy_v2_active_snapshot",
+  "current_week": "W4_2026-09-28_to_10-04",
+  "week4_human_review": {
+    "dates": "2026-09-28/2026-10-04",
+    "status": "ACTIVE",
+    "git_policy": "primary reviewer own commit + cross review; Git is provenance, AIDD controlled import is authority",
+    "formal_completed_at_start": 0,
+    "priority_tasks": [
+      "HR-ADORA2A-001",
+      "HR-ADORA2A-002",
+      "HR-ADORA2A-003",
+      "HR-ADORA2A-004"
+    ],
+    "parallel_task": "HR-ADORA2A-005",
+    "blocked_until_order": "HR-ADORA2A-006",
+    "executor_contact": "HR-ADORA2A-007"
+  }
+}

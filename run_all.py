@@ -30,7 +30,7 @@ def banner(msg):
 
 def main():
     if "--legacy-demo" not in sys.argv:
-        print("当前研究未通过有效性验收。进度见 docs/PROJECT_STATUS.md；查看 python tools/semester_flow.py。旧演示复现需显式 --legacy-demo，结果不能用于湿实验候选选择。")
+        print("当前研究未通过有效性验收。进度见 docs/项目状态与边界.md；查看 python tools/semester_flow.py。旧演示复现需显式 --legacy-demo，结果不能用于湿实验候选选择。")
         return
     print("历史演示运行：将更新旧 results，仅用于复现练习，不是当前研究验收。")
     t0 = time.time()

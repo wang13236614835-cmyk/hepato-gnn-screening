@@ -113,11 +113,11 @@ def load_split(name, unknown_element="raise"):
 
 
 def load_pool(unknown_element="raise"):
-    with open(os.path.join(PROC, "screening_pool.csv"), encoding="utf-8-sig") as f:
+    with open(os.path.join(PROC, "筛选池.csv"), encoding="utf-8-sig") as f:
         return [GraphRecord(r, unknown_element=unknown_element) for r in csv.DictReader(f)]
 
 
 def load_labeled_actives(unknown_element="raise"):
     """清洗后有标签集中的正样本(HP系)，用于最终批量推理。"""
-    with open(os.path.join(PROC, "cleaned_compounds.csv"), encoding="utf-8-sig") as f:
+    with open(os.path.join(PROC, "清洗后化合物.csv"), encoding="utf-8-sig") as f:
         return [GraphRecord(r, unknown_element=unknown_element) for r in csv.DictReader(f) if r["label"] == "1"]

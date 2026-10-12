@@ -47,11 +47,14 @@ def test_generator_is_source_of_member_pages():
     assert "MEMBERS_WITH_LEADER" not in generator
 
 
-def test_current_state_does_not_claim_candidate_release():
+def test_historical_snapshot_does_not_claim_candidate_release():
+    """2026-09-28 GNN侧状态是V3历史镜像；FASN口径位于legacy_v2_active_snapshot。"""
     import json
-    state = json.loads((ROOT / "STATUS.json").read_text(encoding="utf-8"))
+    state = json.loads((ROOT / "状态.json").read_text(encoding="utf-8"))
     assert state["candidate_release"] is False
-    assert state["gnn_enable_gate"] == "closed"
-    assert state["project_stage"] == "fifth_round_direction_exploration"
-    assert state["fasn"]["gate_t1"] == "FAIL"
-    assert state["fifth_round"]["primary"].startswith("Moracin N")
+    assert state["project_stage"] == "research_chain_v3"
+    assert state["adora2a_mcule_20260927"]["candidate_release"] is False
+    legacy = state["legacy_v2_active_snapshot"]
+    assert legacy["gnn_enable_gate"] == "closed"
+    assert legacy["fasn"]["gate_t1"] == "FAIL"
+    assert legacy["fifth_round"]["primary"].startswith("Moracin N")

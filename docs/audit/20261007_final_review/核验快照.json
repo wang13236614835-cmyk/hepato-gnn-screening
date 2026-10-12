@@ -1,0 +1,242 @@
+{
+  "review_date_local": "2026-10-07",
+  "scope": "Read-only current authority and selected source audit; no human sign-off or model retraining",
+  "selection": {
+    "schema_version": "aidd.authority.v4",
+    "current_authority": "V4",
+    "root": "D:\\aidd destoop\\research_v4\\current",
+    "legacy_status": "LEGACY_READ_ONLY",
+    "migration_manifest_sha256": "c79e8f188c8fd59e5aa6fc93edd23bbdc5f01aee1e6c20b5f9a08f74bc6b3cfe",
+    "activated_at": "2026-10-05T05:00:03+00:00",
+    "rollback": "preserve V4 pointer then select explicit historical V3 replay"
+  },
+  "integrity": {
+    "valid": true,
+    "errors": [],
+    "count": 97
+  },
+  "gates": {
+    "D0": {
+      "gate_id": "D0",
+      "title": "研究问题与靶点资格",
+      "raw_status": "NOT_EVALUATED",
+      "contract_status": "PASS",
+      "contract_blockers": [],
+      "dependency_blockers": [],
+      "effective_status": "PASS",
+      "status": "PASS",
+      "blockers": [],
+      "evidence_ids": [
+        "CONTRACT-027d69565c23259b6b5d4f9a"
+      ],
+      "migration_status": "MIGRATED"
+    },
+    "D1": {
+      "gate_id": "D1",
+      "title": "数据资格",
+      "raw_status": "NOT_EVALUATED",
+      "contract_status": "BLOCKED",
+      "contract_blockers": [
+        "D1: 缺少 Evidence Contract（raw_sources, acquisition_date, query, raw_hashes, counts_before_after, duplicate_rule, unit_normalization, activity_transformation, structure_standardization, anomaly_handling, missingness, assay_filtering, leakage_assessment）"
+      ],
+      "dependency_blockers": [],
+      "effective_status": "BLOCKED",
+      "status": "BLOCKED",
+      "blockers": [
+        "D1: 缺少 Evidence Contract（raw_sources, acquisition_date, query, raw_hashes, counts_before_after, duplicate_rule, unit_normalization, activity_transformation, structure_standardization, anomaly_handling, missingness, assay_filtering, leakage_assessment）"
+      ],
+      "evidence_ids": [],
+      "migration_status": "PARTIAL"
+    },
+    "D2": {
+      "gate_id": "D2",
+      "title": "模型资格",
+      "raw_status": "NOT_EVALUATED",
+      "contract_status": "BLOCKED",
+      "contract_blockers": [
+        "D2: 缺少 Evidence Contract（baseline, models, split_strategy, scaffold_split, seed, hyperparameters, training_log, test_metrics, confidence_interval, applicability_domain, uncertainty, leakage_check, model_artifact_hash, acceptance_criteria, criteria_predeclared_at, trained_at）"
+      ],
+      "dependency_blockers": [
+        "D1"
+      ],
+      "effective_status": "BLOCKED",
+      "status": "BLOCKED",
+      "blockers": [
+        "D2: 缺少 Evidence Contract（baseline, models, split_strategy, scaffold_split, seed, hyperparameters, training_log, test_metrics, confidence_interval, applicability_domain, uncertainty, leakage_check, model_artifact_hash, acceptance_criteria, criteria_predeclared_at, trained_at）",
+        "D2: 依赖未满足 D1"
+      ],
+      "evidence_ids": [],
+      "migration_status": "PARTIAL"
+    },
+    "D3": {
+      "gate_id": "D3",
+      "title": "三轨候选发现",
+      "raw_status": "NOT_EVALUATED",
+      "contract_status": "PASS",
+      "contract_blockers": [],
+      "dependency_blockers": [
+        "D1",
+        "D2"
+      ],
+      "effective_status": "BLOCKED",
+      "status": "BLOCKED",
+      "blockers": [
+        "D3: 依赖未满足 D1, D2"
+      ],
+      "evidence_ids": [
+        "CONTRACT-ba964aa46a6704fc0190ba12"
+      ],
+      "migration_status": "MIGRATED"
+    },
+    "D4": {
+      "gate_id": "D4",
+      "title": "候选输出资格",
+      "raw_status": "NOT_EVALUATED",
+      "contract_status": "BLOCKED",
+      "contract_blockers": [
+        "D4: 缺少 Evidence Contract（identity_valid, source_traceable, inside_ad, uncertainty_acceptable, critical_conflict, critical_missing_evidence, identity, ad, uncertainty）",
+        "D4: 尚无有证据依据的 shortlist"
+      ],
+      "dependency_blockers": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "effective_status": "BLOCKED",
+      "status": "BLOCKED",
+      "blockers": [
+        "D4: 缺少 Evidence Contract（identity_valid, source_traceable, inside_ad, uncertainty_acceptable, critical_conflict, critical_missing_evidence, identity, ad, uncertainty）",
+        "D4: 尚无有证据依据的 shortlist",
+        "D4: 依赖未满足 D1, D2, D3"
+      ],
+      "evidence_ids": [],
+      "migration_status": "MIGRATED"
+    },
+    "D5": {
+      "gate_id": "D5",
+      "title": "结构与 ADMET 支持",
+      "raw_status": "NOT_EVALUATED",
+      "contract_status": "BLOCKED",
+      "contract_blockers": [
+        "D5: 缺少 Evidence Contract（evidence_type, structural_support, admet_support, pains, physicochemical, toxicity_prediction, selectivity_prediction, limitations）"
+      ],
+      "dependency_blockers": [
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "effective_status": "BLOCKED",
+      "status": "BLOCKED",
+      "blockers": [
+        "D5: 缺少 Evidence Contract（evidence_type, structural_support, admet_support, pains, physicochemical, toxicity_prediction, selectivity_prediction, limitations）",
+        "D5: 依赖未满足 D1, D2, D3, D4"
+      ],
+      "evidence_ids": [],
+      "migration_status": "MIGRATED"
+    },
+    "D6": {
+      "gate_id": "D6",
+      "title": "统一整合与排名",
+      "raw_status": "NOT_EVALUATED",
+      "contract_status": "BLOCKED",
+      "contract_blockers": [
+        "D6: 缺少 Evidence Contract（candidate_evidence_cards, shortlist, ranking_method, selection_rationale, excluded_candidates, positive_evidence, negative_evidence, unresolved_issues）",
+        "D6: 尚无有证据依据的 shortlist"
+      ],
+      "dependency_blockers": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ],
+      "effective_status": "BLOCKED",
+      "status": "BLOCKED",
+      "blockers": [
+        "D6: 缺少 Evidence Contract（candidate_evidence_cards, shortlist, ranking_method, selection_rationale, excluded_candidates, positive_evidence, negative_evidence, unresolved_issues）",
+        "D6: 尚无有证据依据的 shortlist",
+        "D6: 依赖未满足 D1, D2, D3, D4, D5"
+      ],
+      "evidence_ids": [],
+      "migration_status": "PARTIAL"
+    }
+  },
+  "freeze": {
+    "valid": false,
+    "errors": [
+      "H1 Candidate Freeze 尚未正式冻结"
+    ],
+    "version": 0,
+    "candidates": []
+  },
+  "discovery_release": {
+    "allowed": false,
+    "status": "DISCOVERY_BLOCKED",
+    "blockers": [
+      "D1: evidence contract not satisfied",
+      "D2: evidence contract not satisfied",
+      "D3: evidence contract not satisfied",
+      "D4: evidence contract not satisfied",
+      "D5: evidence contract not satisfied",
+      "D6: evidence contract not satisfied",
+      "H1 Candidate Freeze 尚未正式冻结"
+    ]
+  },
+  "handoff": {
+    "review_completed": 0,
+    "review_total": 5,
+    "legacy_review_complete": false,
+    "review_ready": true,
+    "dry_status": "FINAL_HUMAN_ACCEPTANCE_PENDING",
+    "closeout": null
+  },
+  "reviews": [
+    {
+      "task_id": "HR-ADORA2A-001",
+      "status": "PENDING",
+      "reviewer": "衣思淼",
+      "cross_reviewer": "王启龙"
+    },
+    {
+      "task_id": "HR-ADORA2A-002",
+      "status": "PENDING",
+      "reviewer": "代维斯丹",
+      "cross_reviewer": "衣思淼"
+    },
+    {
+      "task_id": "HR-ADORA2A-003",
+      "status": "PENDING",
+      "reviewer": "代维斯丹",
+      "cross_reviewer": "王散曼"
+    },
+    {
+      "task_id": "HR-ADORA2A-004",
+      "status": "PENDING",
+      "reviewer": "王散曼",
+      "cross_reviewer": "代维斯丹"
+    },
+    {
+      "task_id": "HR-ADORA2A-005",
+      "status": "PENDING",
+      "reviewer": "衣思淼",
+      "cross_reviewer": "王散曼"
+    }
+  ],
+  "validation_status": "VALIDATION_NOT_STARTED",
+  "final_releases": 0,
+  "migration_audit": {
+    "valid": true,
+    "errors": []
+  },
+  "audited_source_sha256": {
+    "D:/aidd destoop/ui/research_network_3d.py": "401f18c44d3e665e7953a6b6e4eae0d42e0ebb574306a099d1a31e8e52b6b14a",
+    "D:/aidd destoop/ui/research_handoff.py": "b3ddc973a1e031180e9a2771bc8979aac6adefb23e996b28643d0fe0ef7870f4",
+    "D:/aidd destoop/core/research_handoff.py": "d4a4ed579c9c87ec1734c25a200523d203b2fe5755ed9a19b8dcfeb5c859c8ad",
+    "D:/aidd destoop/core/review_session.py": "61d98d5bb3ed76ca0c31ccbd152f678d94831e679fb8a5e685bde8d4bc2b8765",
+    "D:/aidd destoop/core/candidate_freeze.py": "efc48805b015f6452686e3589a27cfca5f4924fd9b6d49fb4c11fa8cc86d32b5",
+    "D:/zcode-workspace/hepato-gnn-screening/README.md": "d7341250ea1753e44eb6d2aa3298620d0561e6fbfeb32b9cc4034b412b49086f",
+    "D:/zcode-workspace/hepato-gnn-screening/docs/02_模型笔记.md": "b378bb8de0dfb7bb0428e0733ba8258199a16db940e273a7d413ef2cdd1b008d",
+    "D:/zcode-workspace/aidd-repo-work/00-当前研究/qualification_v1/GNN_clean_benchmark_report.md": "80d7b99304e857c1b60fb4bb28714d2ba0e8d4a0b34dba4bd0e3c3246189c1c8"
+  }
+}

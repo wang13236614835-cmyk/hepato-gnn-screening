@@ -1,0 +1,136 @@
+{
+  "date": "2026-09-27",
+  "branch": "ADORA2A_Mcule_exploratory",
+  "real_human_review_completed": 0,
+  "tasks": [
+    {
+      "task_id": "HR-ADORA2A-001",
+      "priority": "P0",
+      "object": "five frozen MCULE identity records",
+      "required_action": "Independently verify SMILES/InChIKey/name/source record for all five against original frozen records and authoritative public identity sources.",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "allowed_result": [
+        "VERIFIED",
+        "CORRECTED",
+        "REJECTED"
+      ],
+      "notes": "No candidate activity claim is allowed from identity verification.",
+      "gate": "G2",
+      "week": "W4_2026-09-28_to_10-04",
+      "primary_reviewer": "衣思淼",
+      "cross_reviewer": "王启龙",
+      "git_result_path": "results/w4/HR-ADORA2A-001__衣思淼.json"
+    },
+    {
+      "task_id": "HR-ADORA2A-002",
+      "priority": "P0",
+      "object": "MCULE-2952154734 stereochemistry",
+      "required_action": "Resolve actual ordered/supplier stereochemical form before any W0 release or assay.",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "allowed_result": [
+        "VERIFIED",
+        "CORRECTED",
+        "REJECTED"
+      ],
+      "notes": "Historical structure contains an unresolved stereocenter.",
+      "gate": "G2",
+      "week": "W4_2026-09-28_to_10-04",
+      "primary_reviewer": "代维斯丹",
+      "cross_reviewer": "衣思淼",
+      "git_result_path": "results/w4/HR-ADORA2A-002__代维斯丹.json"
+    },
+    {
+      "task_id": "HR-ADORA2A-003",
+      "priority": "P0",
+      "object": "candidate 2/4/5 medicinal-chemistry mapping",
+      "required_action": "Check primary medicinal-chemistry papers/patents and confirm SAME_SERIES vs CHEMOTYPE_ONLY wording; reject any exact-identity overclaim.",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "allowed_result": [
+        "VERIFIED",
+        "CORRECTED",
+        "REJECTED"
+      ],
+      "notes": "Candidate activity remains unverified even if scaffold/series mapping is correct.",
+      "gate": "G3",
+      "week": "W4_2026-09-28_to_10-04",
+      "primary_reviewer": "代维斯丹",
+      "cross_reviewer": "王散曼",
+      "git_result_path": "results/w4/HR-ADORA2A-003__代维斯丹.json"
+    },
+    {
+      "task_id": "HR-ADORA2A-004",
+      "priority": "P0",
+      "object": "Nobiletin and Tangeretin A2A evidence",
+      "required_action": "Verify primary receptor-binding paper, species, assay type and reported Ki values; separately verify NASH/liver papers.",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "allowed_result": [
+        "VERIFIED",
+        "CORRECTED",
+        "REJECTED"
+      ],
+      "notes": "Do not merge target evidence and liver phenotype into causal A2A-MASH proof.",
+      "gate": "G3",
+      "week": "W4_2026-09-28_to_10-04",
+      "primary_reviewer": "王散曼",
+      "cross_reviewer": "代维斯丹",
+      "git_result_path": "results/w4/HR-ADORA2A-004__王散曼.json"
+    },
+    {
+      "task_id": "HR-ADORA2A-005",
+      "priority": "P1",
+      "object": "natural-product source identity",
+      "required_action": "Verify source-herb/species provenance for Nobiletin, Tangeretin, Salidroside, Dihydrotanshinone I and Physcion.",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "allowed_result": [
+        "VERIFIED",
+        "CORRECTED",
+        "REJECTED"
+      ],
+      "notes": "Database-only botanical attribution must not be upgraded without primary/source qualification.",
+      "gate": "G2",
+      "week": "W4_2026-09-28_to_10-04",
+      "primary_reviewer": "衣思淼",
+      "cross_reviewer": "王散曼",
+      "git_result_path": "results/w4/HR-ADORA2A-005__衣思淼.json"
+    },
+    {
+      "task_id": "HR-ADORA2A-006",
+      "priority": "P0_AFTER_ORDER",
+      "object": "procurement W0 package",
+      "required_action": "For every ordered item record exact product, supplier, catalog, structure, lot, lot-specific CoA, purity and independent identity check.",
+      "status": "BLOCKED_UNTIL_ORDER",
+      "allowed_result": [
+        "VERIFIED",
+        "CORRECTED",
+        "REJECTED"
+      ],
+      "notes": "Catalog page or claimed stock is not W0 material release.",
+      "gate": "G4",
+      "week": "W4_2026-09-28_to_10-04",
+      "primary_reviewer": "衣思淼",
+      "cross_reviewer": "王启龙",
+      "git_result_path": "results/w4/HR-ADORA2A-006__衣思淼.json"
+    },
+    {
+      "task_id": "HR-ADORA2A-007",
+      "priority": "P0",
+      "object": "wet-lab executor and assay handoff",
+      "required_action": "Identify wet-lab collaborator/executing group and review feasibility of W1 binding, W2 cAMP, W3 selectivity/artifact controls, W4 liver-cell contexts.",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "allowed_result": [
+        "VERIFIED",
+        "CORRECTED",
+        "REJECTED"
+      ],
+      "notes": "Actual wet-lab data are currently zero.",
+      "gate": "G4",
+      "week": "W4_2026-09-28_to_10-04",
+      "primary_reviewer": "王启龙",
+      "cross_reviewer": "宁显泷",
+      "git_result_path": "results/w4/HR-ADORA2A-007__王启龙.json"
+    }
+  ],
+  "execution_week": "W4_2026-09-28_to_10-04",
+  "week4_status": "ACTIVE",
+  "git_review_policy": "one_task_one_result_file + primary reviewer commit + cross review; official completion only after controlled AIDD import"
+}

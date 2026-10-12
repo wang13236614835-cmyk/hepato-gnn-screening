@@ -1,0 +1,32 @@
+{
+  "schema_version": "human_review_git_draft.v1",
+  "week": "W4_2026-09-28_to_10-04",
+  "task_id": "",
+  "gate": "",
+  "reviewer_name": "",
+  "reviewer_git_account": "",
+  "decision": "",
+  "reviewed_at": "",
+  "reason": "",
+  "human_value": null,
+  "source_refs": [
+    {
+      "source_id": "",
+      "source_type": "",
+      "url_or_record": "",
+      "what_was_checked": "",
+      "quote_or_location": ""
+    }
+  ],
+  "limitations": "",
+  "cross_review": {
+    "reviewer_name": "",
+    "reviewer_git_account": "",
+    "status": "PENDING",
+    "comment": ""
+  },
+  "official_import": {
+    "status": "NOT_APPLIED",
+    "note": "Git留痕不等于AIDD正式人审完成；仅受控导入后计数。"
+  }
+}

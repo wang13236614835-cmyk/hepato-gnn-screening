@@ -3,9 +3,9 @@
 
 负责人: 衣思淼（数据组）
 输入: data/raw/*.csv
-输出: data/processed/cleaned_compounds.csv (带标签训练集)
-      data/processed/screening_pool.csv  (无标签筛选池)
-      data/processed/rejected.csv        (被剔除记录+原因)
+输出: data/processed/清洗后化合物.csv (带标签训练集)
+      data/processed/筛选池.csv  (无标签筛选池)
+      data/processed/已剔除.csv        (被剔除记录+原因)
 """
 import csv
 import os
@@ -16,8 +16,8 @@ from chem.smiles_graph import parse_smiles          # noqa: E402
 from chem.descriptors import compute_descriptors    # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-RAW_LABELED = os.path.join(ROOT, "data", "raw", "tcm_seed_compounds.csv")
-RAW_NOVEL = os.path.join(ROOT, "data", "raw", "novel_terpenes_lignans.csv")
+RAW_LABELED = os.path.join(ROOT, "data", "raw", "中药种子化合物.csv")
+RAW_NOVEL = os.path.join(ROOT, "data", "raw", "新三萜木脂素.csv")
 PROC = os.path.join(ROOT, "data", "processed")
 
 
@@ -67,11 +67,11 @@ def clean():
             w.writeheader()
             w.writerows(rows)
 
-    dump(os.path.join(PROC, "cleaned_compounds.csv"), kept_labeled)
-    dump(os.path.join(PROC, "screening_pool.csv"), kept_pool)
+    dump(os.path.join(PROC, "清洗后化合物.csv"), kept_labeled)
+    dump(os.path.join(PROC, "筛选池.csv"), kept_pool)
     rr = [{k: r.get(k, "") for k in ("compound_id", "name_cn", "reject_reason")}
           for r in rejected]
-    dump(os.path.join(PROC, "rejected.csv"), rr)
+    dump(os.path.join(PROC, "已剔除.csv"), rr)
 
     pos = sum(1 for r in kept_labeled if r["label"] == 1)
     print(f"[clean] 带标签集: {len(kept_labeled)} 条 (正样本 {pos} / 负样本 "

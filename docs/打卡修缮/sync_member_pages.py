@@ -55,7 +55,7 @@ COMMON = [
     ('kv快照句', '下表数字均为仓库实测（${PIPELINE.updated}）。全文解读：', '下表数字均为仓库实测（${PIPELINE.updated}）。本表为暑假教学管线快照，数字仅在该运行ID/输入版本内有效；论文主线证据见上方研究路线卡。全文解读：'),
     ('门控行', '"✅ FXR 0.74Å / Keap1 1.10Å"', '"历史门控；修正版：FXR五种子5/5通过，KEAP1 2/5仍阻断"'),
     ('建模行③', '"88条标签（48正/40负）+12条NV池；骨架划分 58/13/17；基线 ECFP+RF 0.983、Desc+LR 0.983；GNN+MC Dropout AUC 0.95（方差-误差ρ=0.676）；适用域 h*=0.362（NV池 7/12 域外）"', '"【历史快照·教学诊断模式】88条标签（48正/40负）+12条NV池；骨架划分 58/13/17；基线 ECFP+RF 0.983、Desc+LR 0.983；GNN+MC Dropout AUC 0.95（方差-误差ρ=0.676）；适用域 h*=0.362（NV池 7/12 域外）——数字仅在源表运行ID/输入版本内有效"'),
-    ('建模状态③', '"s3_model.py → results/metrics/model_summary.json","✅ 完成"', '"s3_model.py → results/metrics/model_summary.json","✅ 快照核验"'),
+    ('建模状态③', '"s3_model.py → results/metrics/模型摘要.json","✅ 完成"', '"s3_model.py → results/metrics/模型摘要.json","✅ 快照核验"'),
     ('共识行', '"✅ 59候选，黄芩苷 0.9601 居首"', '"旧榜留档；当前为FXR单靶探索排序（三榜：已知回顾/独立测试/未标注）"'),
     ('骨架行', '"⑥ 骨架多样性Top-10","ECFP4 Tanimoto Butina 聚类 37 簇，每簇总分最高为代表"', '"⑥ 指纹相似性多样性Top-10","ECFP4 Tanimoto Butina 指纹相似性聚类（≠Murcko骨架），每簇总分最高为代表"'),
     ('可得性行', '天然产物以药材来源（source_herb）标注可得性', '天然产物以药材来源（source_herb）标注——药材来源不等于可购标准品'),
@@ -73,7 +73,7 @@ COMMON = [
 
 SPECIFIC = {
     "宁显泷": [
-        ("W1过关", '"expected":"5 条测试全过；参数和 docs/02_model_notes.md 记的一个不差。【对照数据 ✅】final-aidd-screening 三组模型数：ECFP+RF 0.983／Desc+LR 0.983／GNN+MC Dropout 0.95（ρ_方差-误差 0.676）——基线不弱于深度模型，正是课程\\"基线先行\\"的实证；复跑 final-aidd-screening/run_all.py --model 核对这三组数"', '"expected":"' + SNAP + '"'),
+        ("W1过关", '"expected":"5 条测试全过；参数和 docs/02_模型笔记.md 记的一个不差。【对照数据 ✅】final-aidd-screening 三组模型数：ECFP+RF 0.983／Desc+LR 0.983／GNN+MC Dropout 0.95（ρ_方差-误差 0.676）——基线不弱于深度模型，正是课程\\"基线先行\\"的实证；复跑 final-aidd-screening/run_all.py --model 核对这三组数"', '"expected":"' + SNAP + '"'),
         ("W2没过", '"criteria":"差得多就是手算错了，逐个位置找，不许放宽标准糊弄"', '"criteria":"核对手算、自动微分实现、输入、精度和比较方式，定位差异后复核；不预断手算一定错误，也不随意放宽容差。"'),
         ("W7主题", '"theme":"正式迁移——新模型不能比旧的差"', '"theme":"正式迁移——如实比较新旧模型"'),
         ("W7过关", '"expected":"新模型考试分不低于 0.967；别的代码一行不用改就能切换（这条也要验）"', '"expected":"' + VERIFY + '"'),

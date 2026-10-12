@@ -65,7 +65,7 @@ def prefilter():
         out.append({"compound_id": r["compound_id"], "name_cn": r["name_cn"],
                     "lipinski_violations": lipinski_violations(d),
                     "pains_alert": pains_alert(m)})
-    write_csv(os.path.join(RES, "tables", "prefilter_report.csv"), out)
+    write_csv(os.path.join(RES, "tables", "预过滤报告.csv"), out)
     n_pains = sum(1 for x in out if x["pains_alert"])
     n_lic = sum(1 for x in out if x["lipinski_violations"] > 0)
     print(f"[s4] 预过滤: {len(rows)} 候选中 Lipinski 违规 {n_lic} 个, PAINS 预警 {n_pains} 个(标记保留)")

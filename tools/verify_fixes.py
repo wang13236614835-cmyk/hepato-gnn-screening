@@ -46,10 +46,10 @@ def scaffold(s):
     return MurckoScaffold.MurckoScaffoldSmiles(mol=m, includeChirality=False) if m else None
 
 
-reg = read_csv(repo / "data" / "curation" / "compound_registry.csv")
+reg = read_csv(repo / "data" / "curation" / "化合物注册表.csv")
 reg_by_id = {r["compound_id"]: r for r in reg}
-gate = jload(run_dir / "docking" / "redock_gate.json")
-model = jload(run_dir / "results" / "metrics" / "model_summary.json")
+gate = jload(run_dir / "docking" / "重对接门控.json")
+model = jload(run_dir / "results" / "metrics" / "模型摘要.json")
 tables = run_dir / "results" / "tables"
 
 # F01 身份主表
@@ -130,7 +130,7 @@ try:
     from common import rdkit_descriptors
     from common import mol_of
     lip_recomputed = {}
-    pre = {r["compound_id"]: r for r in read_csv(tables / "prefilter_report.csv")} if (tables / "prefilter_report.csv").exists() else {}
+    pre = {r["compound_id"]: r for r in read_csv(tables / "预过滤报告.csv")} if (tables / "预过滤报告.csv").exists() else {}
     sample = [r for r in reg if r["compound_id"] in pre][:5]
     ok6 = all(int(pre[r["compound_id"]]["lipinski_violations"]) ==
               sum([rdkit_descriptors(mol_of(r["proposed_smiles"]))[k] > v for k, v in (("MW", 500), ("logP_est", 5))] +
@@ -152,7 +152,7 @@ R["F08_散点数值轴"] = {"status": "pass" if fig.exists() and fig.stat().st_s
                     "note": "fig_scatter对两轴显式float()转换；图存在" if fig.exists() else "门控未放行，未生成"}
 
 # F09 缓存键与失败管理
-dock_rows = read_csv(tables / "docking_real_scores.csv") if (tables / "docking_real_scores.csv").exists() else []
+dock_rows = read_csv(tables / "真实对接分数.csv") if (tables / "真实对接分数.csv").exists() else []
 n_cached = sum(1 for r in dock_rows if r.get("note") == "cached_verified")
 n_fail = sum(1 for r in dock_rows if r["affinity_kcal_mol"] == "")
 cache_meta = list((run_dir / "docking" / "outputs").glob("*.cache.json"))
@@ -176,7 +176,7 @@ R["F11_旧verify替代"] = {"status": "pass" if manifest.get("source_sha256") el
 
 # F12 PAINS类型
 pains_types = {}
-for r in read_csv(tables / "prefilter_report.csv") if (tables / "prefilter_report.csv").exists() else []:
+for r in read_csv(tables / "预过滤报告.csv") if (tables / "预过滤报告.csv").exists() else []:
     if r["pains_alert"]:
         pains_types[r["pains_alert"]] = pains_types.get(r["pains_alert"], 0) + 1
 R["F12_PAINS类型"] = {"status": "pass", "types": pains_types, "note": "按FilterCatalog实际类别分型统计，保留标记制"}
@@ -190,8 +190,8 @@ else:
     R["F13_相关性口径"] = {"status": "blocked"}
 
 # F14 分榜与对照
-if (tables / "final_ranking_v2_real.csv").exists():
-    rank = read_csv(tables / "final_ranking_v2_real.csv")
+if (tables / "真实分数排名v2.csv").exists():
+    rank = read_csv(tables / "真实分数排名v2.csv")
     cols = set(rank[0].keys())
     ctrl_in = [r["compound_id"] for r in rank if r.get("role") == "positive_control"]
     R["F14_分榜与对照"] = {"status": "pass" if {"role", "model_split", "pubchem_cid"} <= cols and not ctrl_in else "fail",
@@ -210,8 +210,8 @@ tgt = (run_dir / "results" / "targets.json").read_text(encoding="utf-8")
 R["F16_奥贝胆酸撤市"] = {"status": "pass" if "2025-11-24" in tgt and "撤回" in tgt else "fail"}
 
 # F17 指纹簇口径
-if (tables / "diverse_top10.csv").exists():
-    top = read_csv(tables / "diverse_top10.csv")
+if (tables / "多样性前十.csv").exists():
+    top = read_csv(tables / "多样性前十.csv")
     R["F17_簇口径"] = {"status": "pass" if top and "scaffold" in top[0] else "fail",
                      "n_unique_scaffolds_in_top": len({r["scaffold"] for r in top}), "n": len(top)}
 else:

@@ -1,0 +1,14 @@
+{
+ "FXR_LBD": {
+  "ligand": "FEX",
+  "affinity": -11.36,
+  "rmsd": 0.735,
+  "pass_gate": true
+ },
+ "KEAP1_KELCH": {
+  "ligand": "IQK",
+  "affinity": -10.17,
+  "rmsd": 1.095,
+  "pass_gate": true
+ }
+}

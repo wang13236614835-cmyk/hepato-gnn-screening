@@ -36,9 +36,9 @@ def main():
 
     # 源目录为冻结运行的 RES 层(结果文件平铺); 靶点定义取仓库 docking/boxes.json
     inherited = [
-        ("docking_real_scores.csv", "results/tables/docking_real_scores.csv"),   # 真实 Vina 计算评分(冻结证据)
-        ("prefilter_report.csv", "results/tables/prefilter_report.csv"),         # Lipinski/PAINS 预筛(冻结证据)
-        ("redock_gate.json", "docking/redock_gate.json"),                        # 共晶姿势验证门控结论
+        ("真实对接分数.csv", "results/tables/真实对接分数.csv"),   # 真实 Vina 计算评分(冻结证据)
+        ("预过滤报告.csv", "results/tables/预过滤报告.csv"),         # Lipinski/PAINS 预筛(冻结证据)
+        ("重对接门控.json", "docking/重对接门控.json"),                        # 共晶姿势验证门控结论
     ]
     boxes = here / "docking" / "boxes.json"
     if not boxes.exists():
@@ -49,7 +49,7 @@ def main():
 
     # 冻结证据中实际完成的靶点 = 本次继承的靶点域(与源运行 --targets 一致)
     import csv as _csv
-    with open(src / "docking_real_scores.csv", encoding="utf-8-sig") as f:
+    with open(src / "真实对接分数.csv", encoding="utf-8-sig") as f:
         _frozen_targets = sorted({r["target"] for r in _csv.DictReader(f)})
     _boxes_all = __import__("json").load(open(boxes, encoding="utf-8"))
     _boxes = {t: _boxes_all[t] for t in _frozen_targets if t in _boxes_all}

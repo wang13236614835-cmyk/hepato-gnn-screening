@@ -42,7 +42,7 @@ def rmsd():
  return {'translation_angstrom':5,'fixed_RMSD':fixed,'aligned_RMSD':aligned}
 def ccd():
  import redock
- data=json.loads((ROOT/'final-aidd-screening/data/ccd_templates.json').read_text(encoding='utf-8'));out={}
+ data=json.loads((ROOT/'final-aidd-screening/data/CCD模板.json').read_text(encoding='utf-8'));out={}
  for target,(pdb,lig) in redock.STRUCTS.items():
   _,block=redock.split_pdb(ROOT/'final-aidd-screening/docking/pdb'/f'{pdb}.pdb',lig)
   m=redock.mol_from_pdb_block(block,lig);f=rdMolDescriptors.CalcMolFormula(m)
@@ -80,13 +80,13 @@ def split():
  return '88 historical labels, canonical Murcko groups disjoint; not MASH labels.'
 def plan():
  assert not (ROOT/'docs/project_plan.json').exists(),'two-week plan file must stay removed'
- vt=(ROOT/'docs/VERIFY_TASKS.md').read_text(encoding='utf-8');assert '9/13' in vt and '9/20' in vt
+ vt=(ROOT/'docs/核验任务分派.md').read_text(encoding='utf-8');assert '9/13' in vt and '9/20' in vt
  for name in ['王启龙','宁显泷','衣思淼','代维斯丹','王散曼']:
   page=(ROOT/name/f"打卡_{name}.html").read_text(encoding='utf-8')
   assert '"no":1,"dates":"09/07–09/13"' in page,f'{name}: W1 must be 09/07–09/13'
   assert '"no":16,"dates":"12/21–12/27"' in page,f'{name}: W16 must be 12/21–12/27'
   assert '__PLAN_JSON__' not in page and '__NAME_JSON__' not in page
- return '5 pages on 16-week calendar (W1=09/07–09/13, W16=12/21–12/27); VERIFY_TASKS deadlines present.'
+ return '5 pages on 16-week calendar (W1=09/07–09/13, W16=12/21–12/27); 核验任务分派 deadlines present.'
 def syntax():
  paths=list((ROOT/'final-aidd-screening/src').glob('*.py'))+[ROOT/'final-aidd-screening/run_revised.py',ROOT/'tools/semester_flow.py',ROOT/'tools/gen_member_pages.py']
  for f in paths:ast.parse(f.read_text(encoding='utf-8-sig'))
@@ -97,9 +97,9 @@ def fusion_contract():
   base=Path(td);res=base/'results';dock=base/'docking';(res/'metrics').mkdir(parents=True);dock.mkdir()
   (dock/'boxes.json').write_text(json.dumps({'T1':{},'T2':{}}))
   candidates=[{'compound_id':cid,'name_cn':cid,'category':'fixture','smiles':smiles,'role':'positive_control' if cid=='CTRL' else 'candidate'} for cid,smiles in [('A','CCO'),('B','CCN'),('MISSING','c1ccccc1'),('CTRL','CCCC')]]
-  common.write_csv(str(res/'predictions/fullpool_predictions.csv'),[{'compound_id':r['compound_id'],'pred_mean':.8,'pred_var':.01,'in_domain':1} for r in candidates])
-  common.write_csv(str(res/'tables/prefilter_report.csv'),[{'compound_id':r['compound_id'],'lipinski_violations':0,'pains_alert':''} for r in candidates])
-  common.write_csv(str(res/'tables/docking_real_scores.csv'),[{'compound_id':r['compound_id'],'target':t,'affinity_kcal_mol':-8} for r in candidates for t in (['T1'] if r['compound_id']=='MISSING' else ['T1','T2'])])
+  common.write_csv(str(res/'predictions/全池预测.csv'),[{'compound_id':r['compound_id'],'pred_mean':.8,'pred_var':.01,'in_domain':1} for r in candidates])
+  common.write_csv(str(res/'tables/预过滤报告.csv'),[{'compound_id':r['compound_id'],'lipinski_violations':0,'pains_alert':''} for r in candidates])
+  common.write_csv(str(res/'tables/真实对接分数.csv'),[{'compound_id':r['compound_id'],'target':t,'affinity_kcal_mol':-8} for r in candidates for t in (['T1'] if r['compound_id']=='MISSING' else ['T1','T2'])])
   previous=(s.RES,s.DOCK,s.load_candidates);s.RES=str(res);s.DOCK=str(dock);s.load_candidates=lambda:candidates
   try:rows,picked=s.run()
   finally:s.RES,s.DOCK,s.load_candidates=previous

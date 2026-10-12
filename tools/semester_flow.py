@@ -70,8 +70,8 @@ TOOL_VERSION = "1.1"
 # 成员版=各自练习契约（EXERCISES_BY_MEMBER）＋独立状态文件＋scaffold/check/report/ledger。
 MEMBERS = ["王启龙", "宁显泷", "衣思淼", "代维斯丹", "王散曼"]
 MEMBER_PREFIX = {"王启龙": "", "宁显泷": "N", "衣思淼": "Y", "代维斯丹": "D", "王散曼": "S"}  # 打卡页检查项前缀
-MEMBER_ROLE = {"王启龙": "负责人·工程支撑", "宁显泷": "算法·模型线", "衣思淼": "数据·数据线A",
-               "代维斯丹": "验证·数据线B（对接）", "王散曼": "文献·文献线"}
+MEMBER_ROLE = {"王启龙": "负责人·人审统筹/湿实验对接", "宁显泷": "assay·统计验证", "衣思淼": "数据·身份/物料",
+               "代维斯丹": "结构·药化关系/复现", "王散曼": "文献·机制证据"}
 CURRENT_MEMBER = "王启龙"   # main() 里由 --member 覆盖；下方所有路径经由它取当前成员
 
 
@@ -97,7 +97,7 @@ if not (hasattr(sys.stdout, "isatty") and sys.stdout.isatty()):
 # 以下预期值全部实测/存档核对（核对日 2026-08-31），来源在每条 check 的
 # source 字段注明。它们只用于复现旧版本和定位差异，不是当前论文放行条件。
 
-RUN_FLOW_REQUIRED = [  # run_all.py 控制台必含行（实测 2026-08-31，与 VERIFY_MANUAL §2.1 一致）
+RUN_FLOW_REQUIRED = [  # run_all.py 控制台必含行（实测 2026-08-31，与 核验手册 §2.1 一致）
     "[clean] 带标签集: 88 条 (正样本 48 / 负样本 40)；筛选池: 12 条；剔除 0 条",
     "[split] train: 58 条 (正 28)",
     "[split] val: 13 条 (正 8)",
@@ -112,15 +112,15 @@ RUN_FLOW_REQUIRED = [  # run_all.py 控制台必含行（实测 2026-08-31，与
     "全流程完成，用时",
 ]
 
-CSV_BASELINES = {  # 数据行数（不含表头）· 来源 docs/MANIFEST.md §2（2026-08-31 实测一致）
-    "data/raw/tcm_seed_compounds.csv": 88,
-    "data/raw/novel_terpenes_lignans.csv": 12,
-    "data/processed/cleaned_compounds.csv": 88,
-    "data/processed/screening_pool.csv": 12,
-    "data/splits/train.csv": 58,
-    "data/splits/val.csv": 13,
-    "data/splits/test.csv": 17,
-    "results/rankings/final_ranking.csv": 60,
+CSV_BASELINES = {  # 数据行数（不含表头）· 来源 docs/文件清单.md §2（2026-08-31 实测一致）
+    "data/raw/中药种子化合物.csv": 88,
+    "data/raw/新三萜木脂素.csv": 12,
+    "data/processed/清洗后化合物.csv": 88,
+    "data/processed/筛选池.csv": 12,
+    "data/splits/训练集.csv": 58,
+    "data/splits/验证集.csv": 13,
+    "data/splits/测试集.csv": 17,
+    "results/rankings/最终排名.csv": 60,
 }
 
 VERIFY45_LINE = "通过 45 项；不符 0 项"          # reports/pdf_build/verify.py 实测末行
@@ -130,14 +130,14 @@ GRID_BOX_ANCHORS = ["[15.2, 3.8, 24.5]", "[-11.5, 20.4, -6.2]"]  # src/docking/g
 
 WEEKS = [
     dict(no=1, dates="09/07–09/13", stage="AIDD①基础筑基", theme="复现核验启动 · 工程环境就位",
-        learn=["Git 进阶：tag/branch/shortlog、署名提交规范", "Linux 服务器与 conda：按 docs/00_environment.md §2 建 hepato 环境(py3.11+rdkit+torch+PyG+vina)",
+        learn=["Git 进阶：tag/branch/shortlog、署名提交规范", "Linux 服务器与 conda：按 docs/00_环境配置.md §2 建 hepato 环境(py3.11+rdkit+torch+PyG+vina)",
                "资源：Git Pro Book 第2/3章；conda 官方文档"],
         card=dict(task="week01_exercise.py 环境自检：打印 python/numpy/rdkit/torch/pyg/vina 版本，本地与服务器各跑一遍 run_all.py",
                   cmd="python learning/王启龙/week01_exercise.py",
                   expected="版本表完整、零 ImportError；run_all.py 约6秒完成",
-                  source="docs/00_environment.md §1/§2；VERIFY_MANUAL §2.1",
+                  source="docs/00_环境配置.md §1/§2；核验手册 §2.1",
                   criteria="env=ok 即通过；服务器端缺包逐个补装并记录", verifier="宁显泷"),
-        tasks=[("W1-A1", "组织全员按 VERIFY_MANUAL §0–§2 复现并收集5人结果"),
+        tasks=[("W1-A1", "组织全员按 核验手册 §0–§2 复现并收集5人结果"),
                ("W1-A2", "收集 §3 深度核验各线结果，问题清单汇总登记入表"),
                ],
         coord=["周一组会宣讲学期排期（本程序）", "周五向导师报全员复现结果"]),
@@ -167,13 +167,13 @@ WEEKS = [
         card=dict(task="week04_pubchem_fetch.py：筛选池12条按名称取标准SMILES+InChIKey，输出 week04_pubchem_result.csv",
                   cmd="python learning/王启龙/week04_pubchem_fetch.py",
                   expected="rows=12 nv011=hit inchikey_dup=0（命中率如实记录，不预设；NV-011奥贝胆酸必须命中，失败即脚本bug）",
-                  source="data/raw/novel_terpenes_lignans.csv（12条，NV-011=奥贝胆酸）；WP3 步骤1/3",
+                  source="data/raw/新三萜木脂素.csv（12条，NV-011=奥贝胆酸）；WP3 步骤1/3",
                   criteria="机器判 rows=12/nv011=hit/inchikey_dup=0；脚本可重跑；结果移交衣思淼", verifier="王散曼"),
         tasks=[("W4-A1", "W3描述符Δ结论 + W4脚本框架移交衣思淼并入WP3工程件"),
                ("W4-A2", "检查WP2受体文件就绪（1OSH/2FLU，RCSB）")],
         coord=["假期产出=学习卡完成即可"]),
     dict(no=5, dates="10/05–10/11", stage="AIDD⑧分子对接", theme="Vina 对接工程",
-        learn=["打分函数原理、网格盒子、exhaustiveness与种子", "受体准备(去水/加氢/pdbqt)与配体准备(构象→加氢→pdbqt)", "资源：AutoDock Vina 官方文档 autodock.github.io；docs/03_docking_protocol.md；grid_box.py 为盒子唯一准绳"],
+        learn=["打分函数原理、网格盒子、exhaustiveness与种子", "受体准备(去水/加氢/pdbqt)与配体准备(构象→加氢→pdbqt)", "资源：AutoDock Vina 官方文档 autodock.github.io；docs/03_对接协议.md；grid_box.py 为盒子唯一准绳"],
         card=dict(task="week05_redock_selftest.py：1OSH共晶配体抽出→重对接回原盒子→算RMSD，验证链路自洽",
                   cmd="python learning/王启龙/week05_redock_selftest.py",
                   expected="rmsd<2.0（协议标准，WP2验收第1条同款；数值如实记录）",
@@ -185,10 +185,10 @@ WEEKS = [
         coord=["组会确认WP2/WP3中期进度", "向导师报演示分→真实分替换计划与风险"]),
     dict(no=6, dates="10/12–10/18", stage="AIDD⑧分子对接", theme="WP2 收尾 · 排名 v2",
         learn=["对接log解析、RMSD双口径(inplace/align)、回打分验证协议", "打分函数局限：v1课题verify_repro模块F已证 Vina对甾体/大环偏低——引以为鉴"],
-        card=dict(task="collect_vina_logs.py：解析全部vina log→覆盖docking_scores.csv(mode: mock_local→vina，保留演示分列)",
-                  cmd="python src/docking/collect_vina_logs.py",
-                  expected="200数据行(100分子×2靶点)、mode全vina、零解析失败；阳性对照满足RMSD<2Å或打分进前20%",
-                  source="results/docking/docking_scores.csv 实测现状200行/mode=mock_local（2026-08-31）；WP2 验收1/2/3条",
+        card=dict(task="collect_vina_logs.py：解析全部vina log→覆盖对接分数表.csv(mode: mock_local→vina，保留演示分列)。【目标态脚本；真实对接结果已有存档：final-aidd-screening/results/tables/真实对接分数.csv 与 reports/真实对接与统一筛选报告.md，先对照核读再决定是否补脚本】",
+                  cmd="对照核读：python final-aidd-screening/run_all.py --redock-only --output <新目录>（需服务器 Vina）；脚本补齐后：python src/docking/collect_vina_logs.py",
+                  expected="200数据行(100分子×2靶点)、mode全vina、零解析失败；阳性对照满足RMSD<2Å或打分进前20%【目标态：当前实测 mode=mock_local，见 source】",
+                  source="results/docking/对接分数表.csv 实测现状200行/mode=mock_local（2026-08-31）；WP2 验收1/2/3条",
                   criteria="机器判 mode全vina；演示vs真实Spearman如实计算；重跑run_all出排名v2且Top-10变化逐条有解释", verifier="宁显泷"),
         tasks=[("W6-A1", "排名v2出表+WP2文件末尾对比分析+核验签字，WP2关闭"),
                ("W6-A2", "阳性对照(水飞蓟宾-FXR/已知Keap1配体)回打分记录在案")],
@@ -198,7 +198,7 @@ WEEKS = [
         card=dict(task="week07_torch_lr.py：PyTorch手写逻辑回归(2048bit指纹，splits同划分seed=42)，输出测试AUC",
                   cmd="python learning/王启龙/week07_torch_lr.py",
                   expected="与历史 LR 快照做差异记录；不以 0.967 或固定差值作为论文门槛，未达标如实解释",
-                  source="results/metrics/baseline.csv（历史 LR AUC=0.967）",
+                  source="results/metrics/基线指标.csv（历史 LR AUC=0.967）",
                   criteria="机器记录差异与原因；由核验人判断是否可解释", verifier="宁显泷"),
         tasks=[("W7-A1", "WP3验收四条逐项打勾：source_db标记/inchikey零重复/bootstrap置信区间收窄/抽检30条标签"),
                ("W7-A2", "新旧数据规模与指标对照表入库；三萜MW偏差在数据字典回填实测值")],
@@ -207,7 +207,7 @@ WEEKS = [
         learn=["图数据结构：邻接矩阵vs edge_index；PyG Data/DataLoader", "分子图表征：原子节点/键边", "资源：PyG 官方教程 Introduction by Example"],
         card=dict(task="week08_pyg_convert.py：numpy版分子图(smiles_graph.py输出)→PyG Data→还原稠密邻接矩阵",
                   cmd="python learning/王启龙/week08_pyg_convert.py",
-                  expected="5个测试SMILES(含VERIFY_MANUAL §3.1最小用例)：match=5/5（邻接与13维节点特征逐位一致）",
+                  expected="5个测试SMILES(含核验手册 §3.1最小用例)：match=5/5（邻接与13维节点特征逐位一致）",
                   source="src/chem/smiles_graph.py；src/models/dataset.py（节点特征13维口径）",
                   criteria="机器判 match=5/5——WP4迁移的接口地基必须零差异", verifier="宁显泷"),
         tasks=[("W8-A1", "src/models/gnn_torch.py 骨架：load_split/fullpool接口与CSV列名与numpy版一致(fuse.py零改动可切换)"),
@@ -266,10 +266,10 @@ WEEKS = [
         coord=["里程碑M6汇报；论文方法、数据和验证章节认领到人"]),
     dict(no=14, dates="12/07–12/13", stage="AIDD⑩实战与产出", theme="论文方法与证据章节 · 可复现交付",
         learn=["可复现交付：环境锁定/README重写/发布打包", "科技图表规范：坐标轴/单位/色盲友好"],
-        card=dict(task="交付包演练：找一名未参与者(或低年级同学)在空白环境仅凭VERIFY_MANUAL复现排名v3，计时并记卡点",
+        card=dict(task="交付包演练：找一名未参与者(或低年级同学)在空白环境仅凭核验手册复现排名v3，计时并记卡点",
                   cmd="由演练者执行 §0→§2 全部命令",
                   expected="协议标准：30分钟内完成§0–§2关键行一致；卡点当日修复",
-                  source="docs/VERIFY_MANUAL.md 全流程",
+                  source="docs/核验手册.md 全流程",
                   criteria="演练报告(耗时/卡点清单/修复状态)入库；存在未修复卡点即不通过", verifier="演练者签字+导师抽查"),
         tasks=[("W14-A1", "论文方法/数据/验证/文献章节初稿：每个数字锚定结果文件，未完成项标注状态"),
                ("W14-A2", "MANIFEST全量登记对账：登记数=实际新增文件数"),
@@ -340,11 +340,11 @@ EXERCISES = {
 
 # 练习骨架的 TODO 说明（scaffold 用）
 SCAFFOLD_TODO = {
-    3: [("load_data", "读 processed/cleaned_compounds.csv(88)+screening_pool.csv(12)，取SMILES与存档描述符列"),
+    3: [("load_data", "读 processed/清洗后化合物.csv(88)+筛选池.csv(12)，取SMILES与存档描述符列"),
         ("rdkit_recalc", "RDKit重算 MW/LogP/TPSA/HBD/HBA；解析失败计数（预期0）"),
         ("deviation", "计算各描述符Δ均值/最大值，方向性结论写3行摘要"),
         ("handoff", "Δ结论移交衣思淼(WP3)——在笔记中记录")],
-    4: [("load_pool", "读 data/raw/novel_terpenes_lignans.csv 12条（NV-011=奥贝胆酸）"),
+    4: [("load_pool", "读 data/raw/新三萜木脂素.csv 12条（NV-011=奥贝胆酸）"),
         ("fetch_pubchem", "PUG-REST 按名称取 CanonicalSMILES+InChIKey，status列记录成功/失败原因"),
         ("dedup_check", "inchikey 列内部去重检查（预期0重复）"),
         ("write_csv", "输出 week04_pubchem_result.csv：compound_id,name,std_smiles,inchikey,source_db,status")],
@@ -355,7 +355,7 @@ SCAFFOLD_TODO = {
     7: [("load_split", "读 splits/train,val,test.csv + 2048bit指纹特征(src/chem/fingerprints.py同口径)，seed=42"),
         ("torch_lr", "nn.Linear+SGD/早停训练逻辑回归（手写训练循环）"),
         ("compare", "测试指标与历史 sklearn 基线记录对照，delta 和调参过程全部记录；不设固定差值门槛")],
-    8: [("pick_cases", "取5个测试SMILES（含VERIFY_MANUAL §3.1最小用例）"),
+    8: [("pick_cases", "取5个测试SMILES（含核验手册 §3.1最小用例）"),
         ("convert", "smiles_graph.py输出 → PyG Data(edge_index+13维节点特征)"),
         ("verify_adj", "edge_index还原稠密邻接矩阵，与numpy版逐位比对"),
         ("verify_feat", "节点特征13维逐位比对")],
@@ -461,7 +461,7 @@ SCAFFOLD_TODO_BY_MEMBER = {
             ("hand_grad", "按链式法则在纸上/注释里手算各参数梯度，代码里填入手算值数组"),
             ("auto_grad", "PyTorch autograd 反向传播自动梯度同输入计算"),
             ("compare", "max_delta=两者最大绝对差；lt_1e_6=max_delta<1e-6")],
-        3: [("pick_cases", "取5个测试SMILES（含VERIFY_MANUAL §3.1最小用例）"),
+        3: [("pick_cases", "取5个测试SMILES（含核验手册 §3.1最小用例）"),
             ("to_pyg", "用src/chem/smiles_graph.py产出 → 组装PyG Data(edge_index+13维节点特征)"),
             ("back_numpy", "PyG Data还原numpy邻接与特征"),
             ("verify", "往返逐位比对：match/adj_ok/feat_ok各5/5")],
@@ -495,7 +495,7 @@ SCAFFOLD_TODO_BY_MEMBER = {
              ("note", "direction_note=与旧课题模块G季铵氮结论方向对照说明")],
     },
     "衣思淼": {
-        2: [("load_data", "读processed/cleaned_compounds.csv(88)+screening_pool.csv(12)"),
+        2: [("load_data", "读processed/清洗后化合物.csv(88)+筛选池.csv(12)"),
             ("rdkit_recalc", "RDKit重算 MW/LogP/TPSA/HBD/HBA；解析失败计数(预期0)"),
             ("deviation", "各描述符Δ统计表＋3句规律(三萜体重方向等)"),
             ("handoff", "差距结论写进数据字典'已知偏差'节")],
@@ -526,7 +526,7 @@ SCAFFOLD_TODO_BY_MEMBER = {
             ("rerun", "sklearn重跑GNB(描述符)+LR(2048bit指纹)两参照"),
             ("table", "新旧分数同表入库(nb_auc/lr_auc)，README指标表同步"),
             ("check", "table_updated=True")],
-        8: [("load_pred", "读results/predictions/test_predictions.csv与mean/var"),
+        8: [("load_pred", "读results/predictions/测试预测.csv与mean/var"),
             ("ece", "自写分箱ECE(写清左闭右开边界)与存档0.210对账"),
             ("coverage", "覆盖率曲线重算对账"),
             ("check", "ece_match/cov_match；binning_note=True")],
@@ -560,18 +560,18 @@ CHECKS = [
     # W1
     dict(id="C1-01", week=1, kind="file_exists", target=False,
          desc="仓库骨架文件齐全", source="README 目录结构",
-         params={"paths": ["run_all.py", "docs/VERIFY_MANUAL.md", "docs/PHASE_PLAN.md", "src/docking/run_vina.sh", "reports/pdf_build/verify.py"]}),
+         params={"paths": ["run_all.py", "docs/核验手册.md", "docs/阶段计划.md", "src/docking/run_vina.sh", "reports/pdf_build/verify.py"]}),
     dict(id="C1-02", week=1, kind="git_commits", target=False,
-         desc="提交数≥12（VERIFY_MANUAL §1 口径）", source="VERIFY_MANUAL §1",
+         desc="提交数≥12（核验手册 §1 口径）", source="核验手册 §1",
          params={"min": 12}),
     dict(id="C1-03", week=1, kind="csv_rows", target=False,
-         desc="数据/排名 CSV 行数与 MANIFEST 基线一致", source="docs/MANIFEST.md §2（2026-08-31实测一致）",
+         desc="数据/排名 CSV 行数与 MANIFEST 基线一致", source="docs/文件清单.md §2（2026-08-31实测一致）",
          params={"baselines": CSV_BASELINES}),
     dict(id="C1-04", week=1, kind="learning_flow", target=False,
-         desc="W1 学习验证卡：环境自检 env=ok", source="00_environment.md §1/§2",
+         desc="W1 学习验证卡：环境自检 env=ok", source="00_环境配置.md §1/§2",
          params={"week": 1}),
     dict(id="C1-05", week=1, kind="run_flow", target=False, deep=True,
-         desc="run_all.py 一键复现：12条关键输出行逐字一致", source="VERIFY_MANUAL §2.1（2026-08-31实测）",
+         desc="run_all.py 一键复现：12条关键输出行逐字一致", source="核验手册 §2.1（2026-08-31实测）",
          params={"required": RUN_FLOW_REQUIRED}),
     # W2
     dict(id="C2-01", week=2, kind="git_tag", target=True,
@@ -592,7 +592,7 @@ CHECKS = [
          params={"week": 3}),
     # W4
     dict(id="C4-01", week=4, kind="learning_flow", target=True,
-         desc="W4 学习验证卡：PubChem 12条 NV-011命中 inchikey零重复", source="W4 验证卡；raw/novel_terpenes_lignans.csv",
+         desc="W4 学习验证卡：PubChem 12条 NV-011命中 inchikey零重复", source="W4 验证卡；raw/新三萜木脂素.csv",
          params={"week": 4}),
     # W5
     dict(id="C5-01", week=5, kind="learning_flow", target=True,
@@ -603,17 +603,17 @@ CHECKS = [
          params={"path": "src/docking/grid_box.py", "all_of": GRID_BOX_ANCHORS}),
     # W6
     dict(id="C6-01", week=6, kind="csv_mode", target=True,
-         desc="docking_scores.csv 200行且 mode 全部=vina（目标态）", source="WP2 步骤4；现状实测200行/mode=mock_local",
-         params={"path": "results/docking/docking_scores.csv", "rows": 200, "mode": "vina"}),
+         desc="对接分数表.csv 200行且 mode 全部=vina（目标态）", source="WP2 步骤4；现状实测200行/mode=mock_local",
+         params={"path": "results/docking/对接分数表.csv", "rows": 200, "mode": "vina"}),
     dict(id="C6-02", week=6, kind="file_exists", target=True,
-         desc="src/docking/collect_vina_logs.py 已交付（目标态）", source="WP2 步骤4",
-         params={"paths": ["src/docking/collect_vina_logs.py"]}),
+         desc="collect_vina_logs 收集脚本已交付（目标态；真实对接分数已有存档 final-aidd-screening/results/tables/真实对接分数.csv，先对照核读）", source="WP2 步骤4；final-aidd-screening/results/tables/真实对接分数.csv",
+         params={"paths": ["src/docking/collect_vina_logs.py", "final-aidd-screening/results/tables/真实对接分数.csv"]}),
     dict(id="C6-03", week=6, kind="csv_rows", target=False,
          desc="排名总表60候选仍在（防误删，基线61行含表头→60数据行）", source="MANIFEST §7；实测2026-08-31",
-         params={"baselines": {"results/rankings/final_ranking.csv": 60}}),
+         params={"baselines": {"results/rankings/最终排名.csv": 60}}),
     # W7
     dict(id="C7-01", week=7, kind="learning_flow", target=True,
-         desc="W7 学习验证卡：PyTorch LR 与历史基线差异记录", source="results/metrics/baseline.csv（历史快照）",
+         desc="W7 学习验证卡：PyTorch LR 与历史基线差异记录", source="results/metrics/基线指标.csv（历史快照）",
          params={"week": 7}),
     # W8
     dict(id="C8-01", week=8, kind="learning_flow", target=True,
@@ -643,7 +643,7 @@ CHECKS = [
          desc="week13_notes.md 生成模型笔记已成（≥400字）", source="W13 验证卡",
          params={"path": "learning/王启龙/week13_notes.md", "all_of": ["VAE"], "min_chars": 400}),
     dict(id="C13-02", week=13, kind="determinism", target=True, deep=True,
-         desc="排名v3确定性：连跑两次 md5 全一致", source="VERIFY_MANUAL §2.2 范式（hashlib可移植实现）",
+         desc="排名v3确定性：连跑两次 md5 全一致", source="核验手册 §2.2 范式（hashlib可移植实现）",
          params={}),
     # W14
     dict(id="C14-01", week=14, kind="file_exists", target=True,
@@ -661,6 +661,204 @@ CHECKS = [
          desc="reports/ 下已有投稿材料（目标态）", source="W16-A1",
          params={"pattern": "reports/*", "min": 1}),
 ]
+
+# ---------------------------------------------------------------- v3 CURRENT 覆盖层（W4-W16）
+# 旧 W4-W16 数据、练习和自动检查保留在上方作为 historical teaching assets；
+# 从这里开始，运行时 week/plan/check/next/milestones 只使用 research_chain_v3。
+# 科学 Gate 本身不能由脚本自动 PASS：自动检查只核“计划/权威链是否对齐”，
+# 真实人审、W0、G5/G6/G7 必须用 MAN-V3-Wxx record 留下真人/实验事实。
+
+V3_PLAN_SOURCE = "AIDD research_chain_v3_20260927/完整研究链路_v3.md"
+
+def _v3_week(no, dates, stage, theme, learn, task1, task2, expected, source, criteria, verifier):
+    nn = f"{no:02d}"
+    return dict(
+        no=no, dates=dates, stage=stage, theme=theme, learn=[learn],
+        card=dict(
+            task=task1,
+            cmd="人工/受控流程：" + task1 + "；" + task2,
+            expected=expected,
+            source=source,
+            criteria=criteria,
+            verifier=verifier,
+        ),
+        tasks=[
+            (f"V3-W{nn}-A1", task1),
+            (f"V3-W{nn}-A2", task2),
+            (f"V3-W{nn}-LOG", "周报：真实完成项＋原始证据路径＋阻塞＋下周动作；计划不得写成结果"),
+        ],
+        coord=[
+            "周日按 CURRENT Gate 汇总真实状态，不按日历自动升级",
+            "前置条件不满足就停留原 Gate；BLOCKED/HOLD/REJECT/INCONCLUSIVE 都是合法科研状态",
+        ],
+    )
+
+V3_FUTURE_WEEKS = [
+    _v3_week(4, "09/28–10/04", "G2/G3 真人核验启动",
+             "W4 真人核验：原始来源＋本人 Git 提交＋交叉复核",
+             "原始数据库/论文/专利核验；Git 只做 provenance，不自动放行 Gate",
+             "启动真实 G2/G3 人审并完成 HR-007 执行方/assay 沟通记录",
+             "交叉复核 HR-001；检查组员提交/复核链完整性但不代签",
+             "HR-001～004 形成真实主核结果和交叉复核；正式完成数只认 AIDD 受控导入。",
+             "human_review/adora2a_mcule_20260927 + AIDD v3 CURRENT",
+             "证据不足允许 UNRESOLVED；G4-G7 继续 BLOCKED，candidate_release=false。",
+             "对应主核人/交叉复核人"),
+    _v3_week(5, "10/05–10/11", "G2/G3 真人核验收敛",
+             "W5 核验收敛：受控导入＋证据边界冻结",
+             "科研证据 provenance：原始来源、本人判定、交叉复核、受控导入四层分开",
+             "汇总 HR-001～005 主核/交叉复核，组织受控导入并建立冲突清单",
+             "检查 Git provenance 与 AIDD 导入状态，不代替组员科学判定",
+             "HR-001～005 均有原始来源/理由/复核；证据不足可 UNRESOLVED，只有受控导入计正式完成。",
+             V3_PLAN_SOURCE,
+             "G2/G3 不足就继续 HUMAN_REVIEW_REQUIRED/REVIEW，不因进入 W5 自动 PASS。",
+             "王散曼＋宁显泷"),
+    _v3_week(6, "10/12–10/18", "G2/G3 裁决＋G4 准备",
+             "W6 Gate 裁决：冻结候选边界与采购/assay 前置条件",
+             "Gate 裁决与 GPCR assay 设计；PASS/REVIEW/BLOCKED 由证据触发",
+             "主持 G2/G3 证据充分性裁决并记录理由",
+             "锁定执行方、样品要求、费用/周期和采购授权边界",
+             "形成 G2/G3 明确裁决；满足前置条件才准备真实采购，不把准备完成写成 G4 PASS。",
+             V3_PLAN_SOURCE,
+             "未具备裁决条件就停留原 Gate；执行方未落实只记录阻塞与下一联系动作。",
+             "王散曼＋宁显泷"),
+    _v3_week(7, "10/19–10/25", "G4 采购与物料链",
+             "W7 真实采购链：供应商、exact structure、规格与订单留痕",
+             "科研级样品采购：catalog/CAS/结构、purity、规格、订单与批次可追溯",
+             "Gate 条件满足后推进真实询价/订单并维护采购台账",
+             "缺货/规格冲突对象做 HOLD 或正式替代方案，不偷换分子",
+             "只记录真实询价/订单/样品；未下单或未到货不得增加 W0 ready_count。",
+             V3_PLAN_SOURCE,
+             "身份/规格冲突就 HOLD；缺货可缩小面板，不用未经核验近似物替代。",
+             "衣思淼＋代维斯丹"),
+    _v3_week(8, "10/26–11/01", "G4 / W0 物料放行",
+             "W8 W0 核验：到货后逐项核 lot/CoA/purity/exact structure",
+             "CoA、lot、purity、储存、配液和样品链",
+             "主持 W0 放行，只让真实合格材料进入 ready_count",
+             "冻结 binding/cAMP handoff；未到货/不合格对象继续 BLOCKED",
+             "只有真实到货且 lot/CoA/purity/exact structure 全核清才 W0 READY；ready_count 可为 0。",
+             V3_PLAN_SOURCE,
+             "任何身份/批次/纯度不清都不放行；W0 未过不进入真实 G5。",
+             "衣思淼＋宁显泷"),
+    _v3_week(9, "11/02–11/08", "G5 / W1 ADORA2A binding（条件）",
+             "W9 直接靶点验证：W0 放行后才执行 ADORA2A binding",
+             "竞争/饱和 binding、阳性/阴性对照、QC 与 Ki/IC50 解释边界",
+             "协调 W0 READY 对象的 binding 批次并收齐原始数据/QC/样品链",
+             "记录偏离协议、无效批次和重做理由；binding 不自动等于功能或疗效",
+             "只对 W0 READY 材料执行；保留原始数据、批次、QC 和失败结果。",
+             V3_PLAN_SOURCE,
+             "W0 未过只做预注册；QC 失败标 INVALID/INCONCLUSIVE，不补写趋势。",
+             "宁显泷＋衣思淼"),
+    _v3_week(10, "11/09–11/15", "G5 / W2 cAMP 功能（条件）",
+             "W10 功能验证：用 cAMP 区分功能方向，不从 binding 直接推断",
+             "GPCR cAMP 浓度-反应、Emax/EC50/IC50、激动/拮抗模式与曲线 QC",
+             "协调 cAMP 实验和对照并确保原始曲线完整回传",
+             "组织 binding 与功能结果分开解释，允许 neutral/inconclusive",
+             "材料和 assay 条件具备时完成 cAMP；输出原始曲线、重复、QC 和功能分类。",
+             V3_PLAN_SOURCE,
+             "不因 binding 阳性默认功能阳性；曲线/QC 不合格保持 INCONCLUSIVE。",
+             "宁显泷＋王散曼"),
+    _v3_week(11, "11/16–11/22", "G5 / W3 selectivity & artifact",
+             "W11 反证与控制：selectivity、artifact、重复性决定是否继续",
+             "反筛、非特异效应、检测干扰、必要细胞毒性与独立重复",
+             "组织 selectivity/artifact/control 反证检查",
+             "依据控制结果继续、HOLD 或停止，不为保候选修改标准",
+             "关键 hit 做必要控制；失败控制可直接让对象 HOLD/REJECT。",
+             V3_PLAN_SOURCE,
+             "优先排除假阳性；关键控制失败就降级/REJECT，矛盾则 HOLD。",
+             "宁显泷＋代维斯丹"),
+    _v3_week(12, "11/23–11/29", "G6 / MASH 肝细胞场景（条件）",
+             "W12 疾病场景验证：HSC/hepatocyte/macrophage 分场景",
+             "MASH 场景中不同细胞类型的用途和终点不能互相替代",
+             "G5 合格后主持 G6 场景选择与实验启动",
+             "明确细胞类型、疾病刺激、终点、重复和本周唯一机制问题",
+             "只有 G5 具备继续价值的对象进入 G6；场景、终点、失败判据均预注册。",
+             V3_PLAN_SOURCE,
+             "G5 未过就不执行 G6；一般细胞保护不得冒充 ADORA2A-mediated MASH。",
+             "王散曼＋宁显泷"),
+    _v3_week(13, "11/30–12/06", "G6 / repeat、rescue 与正交验证",
+             "W13 机制补强：只围绕真实未决主张做最小必要补证",
+             "rescue/阻断、orthogonal assay 与独立重复如何改变因果证据",
+             "只批准针对关键缺口的最小 repeat/rescue/orthogonal 补证",
+             "控制追加实验范围、预算和停止条件；复现失败必须保留",
+             "只对 W12 暴露出的明确机制缺口补证；重复失败必须影响最终结论。",
+             V3_PLAN_SOURCE,
+             "禁止为追阳性无限追加；repeat/rescue 不支持就降级、HOLD 或 REJECT。",
+             "宁显泷＋王散曼"),
+    _v3_week(14, "12/07–12/13", "全链证据整合 / G7 预审",
+             "W14 计算、人审、物料和实验分层进入 claim-evidence ledger",
+             "claim-evidence ledger、图表 provenance、负结果和限制写作",
+             "汇总三库 claim-evidence ledger 和最终图表/原始来源清单",
+             "冻结论文/专利可写与不可写边界并列未闭缺口",
+             "逐主张分层列计算、人审、W0、G5、G6；明确支持、反对、不确定和缺失。",
+             V3_PLAN_SOURCE,
+             "计算不能冒充实验；关键链断裂提前标 HOLD/INCONCLUSIVE。",
+             "全员交叉复核"),
+    _v3_week(15, "12/14–12/20", "G7 独立审计与最终决策",
+             "W15 G7：RELEASE / HOLD / REJECT / INCONCLUSIVE，零发布合法",
+             "GO/NO-GO 与负结果决策；标准必须预先固定",
+             "主持 G7 独立审计，逐对象记录四类决策",
+             "确认任何 RELEASE 满足全链前置条件并有独立复核",
+             "逐候选完成独立审计；RELEASE 必须满足 CURRENT、人工核验和真实实验条件。",
+             V3_PLAN_SOURCE,
+             "任何身份/W0/QC/直接药理/疾病场景缺口存在时不得 RELEASE。",
+             "全员＋负责人"),
+    _v3_week(16, "12/21–12/27", "归档、论文/专利与下一轮",
+             "W16 三库归档：冻结事实、失败分支、复现包和下一轮问题",
+             "可复现归档、论文图表、专利新颖性边界和版本冻结",
+             "完成 AIDD/Workbench/GNN 三库冻结、manifest 和导师审阅包",
+             "把未闭问题转入下一轮补证，不修改本轮历史事实",
+             "三库事实一致；原始数据、分析、审计、负结果和决策可复现。",
+             V3_PLAN_SOURCE,
+             "未闭问题进入下一轮；投稿/专利可顺延，不倒填结果。",
+             "导师＋全员"),
+]
+
+WEEKS = WEEKS[:3] + V3_FUTURE_WEEKS
+
+MANUALS = [
+    dict(id="MAN-V3-W04", week=4, text="记录 W4 HR-001～004/005/007 的真实人审/沟通状态；不得代签", dead=None),
+    dict(id="MAN-V3-W05", week=5, text="记录 G2/G3 真人证据收敛与 AIDD 受控导入结论", dead=None),
+    dict(id="MAN-V3-W06", week=6, text="记录 G2/G3 正式裁决和是否允许进入 G4", dead=None),
+    dict(id="MAN-V3-W07", week=7, text="记录真实询价/订单/缺货/替代方案；无订单不得冒充采购完成", dead=None),
+    dict(id="MAN-V3-W08", week=8, text="记录 W0 lot/CoA/purity/exact structure 放行或 BLOCKED", dead=None),
+    dict(id="MAN-V3-W09", week=9, text="记录 binding 是否真实执行、QC、原始数据位置或 NOT_EXECUTED", dead=None),
+    dict(id="MAN-V3-W10", week=10, text="记录 cAMP 功能分类/QC 或 INCONCLUSIVE/NOT_EXECUTED", dead=None),
+    dict(id="MAN-V3-W11", week=11, text="记录 selectivity/artifact/control 结果及 HOLD/REJECT 影响", dead=None),
+    dict(id="MAN-V3-W12", week=12, text="记录 G6 细胞场景、原始数据或因 G5 未过而未执行", dead=None),
+    dict(id="MAN-V3-W13", week=13, text="记录 repeat/rescue/orthogonal 补证与失败分支", dead=None),
+    dict(id="MAN-V3-W14", week=14, text="记录 claim-evidence ledger 预审与关键缺口", dead=None),
+    dict(id="MAN-V3-W15", week=15, text="逐对象记录 G7 RELEASE/HOLD/REJECT/INCONCLUSIVE 决策", dead=None),
+    dict(id="MAN-V3-W16", week=16, text="记录三库冻结、复现包、导师意见与下一轮补证", dead=None),
+]
+
+MILESTONES = [
+    dict(id="M1", week=2, name="暑假历史快照固化 v1.0-summer（45项仅作复现）", checks=["C2-01", "C2-02"]),
+    dict(id="V3-MS1", week=5, name="G2/G3 真人证据收敛与可信导入", checks=["MAN-V3-W05"]),
+    dict(id="V3-MS2", week=8, name="G4/W0 真实物料放行或继续 BLOCKED", checks=["MAN-V3-W08"]),
+    dict(id="V3-MS3", week=11, name="G5 直接靶点/功能/反证控制检查点", checks=["MAN-V3-W11"]),
+    dict(id="V3-MS4", week=13, name="G6 MASH 场景与机制补强检查点", checks=["MAN-V3-W13"]),
+    dict(id="V3-MS5", week=15, name="G7 独立审计与最终候选决策", checks=["MAN-V3-W15"]),
+    dict(id="V3-MS6", week=16, name="三库归档、复现与论文/专利边界冻结", checks=["MAN-V3-W16"]),
+]
+
+# W4 起旧 scaffold/学习脚本降级为历史方法资产，不再出现在 CURRENT 周卡/台账。
+for _member_ex in EXERCISES_BY_MEMBER.values():
+    for _wk in list(_member_ex):
+        if _wk >= 4:
+            _member_ex.pop(_wk, None)
+
+_V3_THEME_BY_WEEK = {w["no"]: w["theme"] for w in V3_FUTURE_WEEKS}
+CHECKS = [c for c in CHECKS if c["week"] <= 3]
+for _wk in range(4, 17):
+    CHECKS.append(dict(
+        id=f"V3-C{_wk:02d}",
+        week=_wk,
+        kind="text_in_file",
+        target=False,
+        desc=f"W{_wk} CURRENT v3 计划一致性（仅核计划，不代表科学 Gate 已通过）",
+        source=V3_PLAN_SOURCE,
+        params={"path": "王启龙/打卡_王启龙.html", "all_of": [_V3_THEME_BY_WEEK[_wk], "research_chain_v3"]},
+    ))
 
 # ---------------------------------------------------------------- 通用工具
 
@@ -979,7 +1177,7 @@ VERDICT_TAG = {"PASS": "[通过]", "FAIL": "[不符]", "SKIP": "[跳过]"}
 
 def member_check_defs(member):
     """成员模式的检查集：只含各自练习的 [FLOW] 判定（编号与打卡页检查项同前缀）。
-    项目任务/文件核验在成员打卡页与 docs/VERIFY_TASKS.md，不在本工具重复。"""
+    项目任务/文件核验在成员打卡页与 docs/核验任务分派.md，不在本工具重复。"""
     pfx = MEMBER_PREFIX[member]
     return [dict(id=f"{pfx}-C{w}-01", week=w, kind="learning_flow", target=True,
                  desc=f"W{w} 学习练习 {exercises(member)[w]['file']}",
@@ -1038,7 +1236,7 @@ def gen_scaffold(week, repo):
     if CURRENT_MEMBER == "王启龙" and week == 1:  # W1 骨架即完整可用实现
         code = '''# -*- coding: utf-8 -*-
 # W1 学习验证卡 · 环境自检（本骨架开箱即用，本地与服务器各跑一遍）
-# 预期: [FLOW] env=ok ... 零 ImportError（来源: docs/00_environment.md §1/§2）
+# 预期: [FLOW] env=ok ... 零 ImportError（来源: docs/00_环境配置.md §1/§2）
 import sys
 def v(mod):
     try:
@@ -1448,7 +1646,7 @@ def main():
         member_dashboard(repo, state) if is_member else cmd_milestones(repo, state)
     elif cmd == "check":
         if is_member:
-            print("成员模式：只核验你的学习练习 [FLOW] 契约（项目任务/文件核验按打卡_姓名.html 与 VERIFY_TASKS 执行）")
+            print("成员模式：只核验你的学习练习 [FLOW] 契约（项目任务/文件核验按打卡_姓名.html 与 核验任务分派 执行）")
         if args.n is None:
             weeks = {max(1, min(N_WEEKS, week_of_today()))}
         elif args.n == "all":

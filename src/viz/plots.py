@@ -29,7 +29,7 @@ def _read(path):
 
 
 def reliability_diagram():
-    rows = _read(os.path.join(PRED, "test_predictions.csv"))
+    rows = _read(os.path.join(PRED, "测试预测.csv"))
     p = np.array([float(r["pred_mean"]) for r in rows])
     y = np.array([int(r["label"]) for r in rows])
     xs, ys = [], []
@@ -39,7 +39,7 @@ def reliability_diagram():
         if m.sum() == 0:
             continue
         xs.append(p[m].mean()); ys.append(y[m].mean())
-    with open(os.path.join(MET, "reliability_curve.csv"), "w", encoding="utf-8", newline="") as f:
+    with open(os.path.join(MET, "可靠性曲线.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f); w.writerow(["bin_center", "empirical_accuracy"])
         w.writerows(zip(xs, ys))
     fig, ax = plt.subplots(figsize=(4.2, 4.2))
@@ -53,7 +53,7 @@ def reliability_diagram():
 
 
 def uncertainty_error():
-    rows = _read(os.path.join(PRED, "test_predictions.csv"))
+    rows = _read(os.path.join(PRED, "测试预测.csv"))
     v = np.array([float(r["pred_var"]) for r in rows])
     p = np.array([float(r["pred_mean"]) for r in rows])
     y = np.array([int(r["label"]) for r in rows])
@@ -67,7 +67,7 @@ def uncertainty_error():
 
 
 def top_candidates_bar(n=15):
-    rows = _read(os.path.join(RANK, "final_ranking.csv"))[:n]
+    rows = _read(os.path.join(RANK, "最终排名.csv"))[:n]
     names = [r["name_cn"] for r in rows][::-1]
     vals = [float(r["final_score"]) for r in rows][::-1]
     fig, ax = plt.subplots(figsize=(6.4, 5.6))
@@ -80,7 +80,7 @@ def top_candidates_bar(n=15):
 
 
 def model_dock_scatter():
-    rows = _read(os.path.join(RANK, "final_ranking.csv"))
+    rows = _read(os.path.join(RANK, "最终排名.csv"))
     m = np.array([float(r["pred_mean"]) for r in rows])
     d = np.array([float(r["dock_avg_kcal"]) for r in rows])
     ad = [r["ad_warning"] == "" for r in rows]

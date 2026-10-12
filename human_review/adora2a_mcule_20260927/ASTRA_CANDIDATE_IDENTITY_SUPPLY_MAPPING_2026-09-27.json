@@ -1,0 +1,1241 @@
+{
+  "candidates": [
+    {
+      "adenosine_reference_context": {
+        "classification": "PHARMACOLOGY_REFERENCE_ONLY_NOT_IDENTITY_OR_ORIGIN",
+        "nearest_reference_drugs": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL431770",
+            "inchikey": "IQVRBWUUXZMOPW-PKNBQFBNSA-N",
+            "name": "ISTRADEFYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.0875
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1355736",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.081967
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL113",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.065574
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200569",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE CITRATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.065574
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL317052",
+            "inchikey": "LZPZPHGJDAGEJZ-AKAIJSEGSA-N",
+            "name": "REGADENOSON ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.064516
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL190",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.064516
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200578",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE SODIUM GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.064516
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1208646",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.064516
+          }
+        ]
+      },
+      "approved_drug_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.28125,
+        "nearest_neighbors": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL278819",
+            "inchikey": "LDMWSLGGVTVJPG-UHFFFAOYSA-N",
+            "name": "MINAPRINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.28125
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1364551",
+            "inchikey": "LDMWSLGGVTVJPG-UHFFFAOYSA-N",
+            "name": "MINAPRINE HYDROCHLORIDE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.28125
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL95",
+            "inchikey": "YLJREFDVOIBQDA-UHFFFAOYSA-N",
+            "name": "TACRINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.259259
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1677",
+            "inchikey": "YLJREFDVOIBQDA-UHFFFAOYSA-N",
+            "name": "TACRINE HYDROCHLORIDE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.259259
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1078178",
+            "inchikey": "ZVHNDZWQTBEVRY-UHFFFAOYSA-N",
+            "name": "MOMELOTINIB",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.25
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_APPROVED_DRUG_PREFILTER"
+      },
+      "botanical_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.142857,
+        "nearest_neighbors": [
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "FXNFHKRTJBSTCS-UHFFFAOYSA-N",
+            "name": "BAICALEIN",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "CHEMBL8260",
+            "tanimoto": 0.142857
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "XLTFNNCXVBYBSX-UHFFFAOYSA-N",
+            "name": "wogonin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5281703",
+            "tanimoto": 0.132353
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "IKIIZLYTISPENI-ZFORQUDYSA-N",
+            "name": "baicalin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID64982",
+            "tanimoto": 0.111111
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "HARGZZNYNSYSGJ-UHFFFAOYSA-N",
+            "name": "dihydrotanshinone",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5316743",
+            "tanimoto": 0.098592
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "YBHILYKTIRIUTE-UHFFFAOYSA-N",
+            "name": "berberine",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID2353",
+            "tanimoto": 0.088608
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_BOTANICAL_SEED"
+      },
+      "canonical_smiles": "N#Cc1c(N2CCOCC2)nc(-c2ccccc2)c2c1CCCC2",
+      "cas": null,
+      "compound_id": "MCULE-5126266491",
+      "computed_inchikey": "WMVAAXSVXVZFGZ-UHFFFAOYSA-N",
+      "expected_inchikey": "WMVAAXSVXVZFGZ-UHFFFAOYSA-N",
+      "frozen_pubchem_snapshot": {
+        "candidate_id": "MCULE-5126266491",
+        "cid": "913278",
+        "path": "audit\\snapshots\\prior_art_2026-09-26\\pubchem_CID_913278.html",
+        "sha256": "21cfaba50e588d952cc95e2839c79d37a42cbc70426911b3a0d706c012754cd3",
+        "title": "3-(Morpholin-4-yl)-1-phenyl-5,6,7,8-tetrahydroisoquinoline-4-carbonitrile | C20H21N3O | CID 913278 - PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/913278"
+      },
+      "historical_pubchem_cid": "913278",
+      "historical_rank": 1,
+      "identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "name": "3-(Morpholin-4-yl)-1-phenyl-5,6,7,8-tetrahydroisoquinoline-4-carbonitrile",
+      "pubchem_live_recheck": {
+        "error": "HTTPError: HTTP Error 503: PUGREST.ServerBusy",
+        "status": "LIVE_RECHECK_UNAVAILABLE",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/WMVAAXSVXVZFGZ-UHFFFAOYSA-N/cids/JSON"
+      },
+      "pubchem_mapping_status": "SUPPORTED_BY_FROZEN_PUBCHEM_TITLE_SNAPSHOT_LIVE_RECHECK_UNAVAILABLE",
+      "stereochemistry_status": "NOT_FLAGGED",
+      "supply": {
+        "current_stock_status": "UNVERIFIED",
+        "historical_mcule_snapshot_release": "2026-08-01",
+        "historical_mcule_snapshot_source": "Mcule In stock HTS Library",
+        "historical_snapshot_identity_record": {
+          "current_database_identity_confirmed": true,
+          "error": "",
+          "lookup_path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V22_MCULE_INSTOCK_HTS_ADORA2A\\raw\\procurement\\mcule_public_lookup\\MCULE-5126266491.json",
+          "lookup_sha256": "1b452fc20b34876f0841a5368f19126784a6065c724091ce7d6c4e996724f15d",
+          "mcule_id": "MCULE-5126266491",
+          "public_lookup_status": 200
+        },
+        "lot_coa_status": "UNVERIFIED",
+        "public_catalog_evidence": [],
+        "public_catalog_status": "CURRENT_PUBLIC_CATALOG_NOT_CONFIRMED_IN_THIS_AUDIT",
+        "realtime_mcule_reason": "Mcule compound availability endpoint is protected and requires an API token; no token was available in this autonomous run.",
+        "realtime_mcule_status": "UNVERIFIED_AUTH_REQUIRED",
+        "w0_material_release_status": "BLOCKED"
+      }
+    },
+    {
+      "adenosine_reference_context": {
+        "classification": "PHARMACOLOGY_REFERENCE_ONLY_NOT_IDENTITY_OR_ORIGIN",
+        "nearest_reference_drugs": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL431770",
+            "inchikey": "IQVRBWUUXZMOPW-PKNBQFBNSA-N",
+            "name": "ISTRADEFYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.111111
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL113",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.096774
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200569",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE CITRATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.096774
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1355736",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.095238
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL317052",
+            "inchikey": "LZPZPHGJDAGEJZ-AKAIJSEGSA-N",
+            "name": "REGADENOSON ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.085106
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL3989695",
+            "inchikey": "LZPZPHGJDAGEJZ-AKAIJSEGSA-N",
+            "name": "REGADENOSON",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.085106
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL190",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.078125
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200578",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE SODIUM GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.078125
+          }
+        ]
+      },
+      "approved_drug_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.349206,
+        "nearest_neighbors": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL278819",
+            "inchikey": "LDMWSLGGVTVJPG-UHFFFAOYSA-N",
+            "name": "MINAPRINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.349206
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1364551",
+            "inchikey": "LDMWSLGGVTVJPG-UHFFFAOYSA-N",
+            "name": "MINAPRINE HYDROCHLORIDE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.349206
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL4558324",
+            "inchikey": "RRMJMHOQSALEJJ-UHFFFAOYSA-N",
+            "name": "LAZERTINIB",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.257732
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL6068478",
+            "inchikey": "RRMJMHOQSALEJJ-UHFFFAOYSA-N",
+            "name": "LAZERTINIB MESYLATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.257732
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1078178",
+            "inchikey": "ZVHNDZWQTBEVRY-UHFFFAOYSA-N",
+            "name": "MOMELOTINIB",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.25641
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_APPROVED_DRUG_PREFILTER"
+      },
+      "botanical_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.15942,
+        "nearest_neighbors": [
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "XLTFNNCXVBYBSX-UHFFFAOYSA-N",
+            "name": "wogonin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5281703",
+            "tanimoto": 0.15942
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "FXNFHKRTJBSTCS-UHFFFAOYSA-N",
+            "name": "BAICALEIN",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "CHEMBL8260",
+            "tanimoto": 0.153846
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "HARGZZNYNSYSGJ-UHFFFAOYSA-N",
+            "name": "dihydrotanshinone",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5316743",
+            "tanimoto": 0.125
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "IKIIZLYTISPENI-ZFORQUDYSA-N",
+            "name": "baicalin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID64982",
+            "tanimoto": 0.120482
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "LQGUBLBATBMXHT-UHFFFAOYSA-N",
+            "name": "chrysophanol",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID10208",
+            "tanimoto": 0.107692
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_BOTANICAL_SEED"
+      },
+      "canonical_smiles": "Cc1cc(C)n(-c2nc(-c3ccccc3)cc(N3CCOCC3)n2)n1",
+      "cas": null,
+      "compound_id": "MCULE-1345325285",
+      "computed_inchikey": "IKHXIEZYNRKZEG-UHFFFAOYSA-N",
+      "expected_inchikey": "IKHXIEZYNRKZEG-UHFFFAOYSA-N",
+      "frozen_pubchem_snapshot": {
+        "candidate_id": "MCULE-1345325285",
+        "cid": "7678558",
+        "path": "audit\\snapshots\\prior_art_2026-09-26\\pubchem_CID_7678558.html",
+        "sha256": "0421dc04ef1c284ceb5e50293a4684db00ee9f56f8100bae9f5a00432d31bc26",
+        "title": "4-(2-(3,5-dimethyl-1H-pyrazol-1-yl)-6-phenylpyrimidin-4-yl)morpholine | C19H21N5O | CID 7678558 - PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7678558"
+      },
+      "historical_pubchem_cid": "7678558",
+      "historical_rank": 2,
+      "identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "name": "4-(2-(3,5-dimethyl-1H-pyrazol-1-yl)-6-phenylpyrimidin-4-yl)morpholine",
+      "pubchem_live_recheck": {
+        "error": "HTTPError: HTTP Error 503: PUGREST.ServerBusy",
+        "status": "LIVE_RECHECK_UNAVAILABLE",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/IKHXIEZYNRKZEG-UHFFFAOYSA-N/cids/JSON"
+      },
+      "pubchem_mapping_status": "SUPPORTED_BY_FROZEN_PUBCHEM_TITLE_SNAPSHOT_LIVE_RECHECK_UNAVAILABLE",
+      "stereochemistry_status": "NOT_FLAGGED",
+      "supply": {
+        "current_stock_status": "UNVERIFIED",
+        "historical_mcule_snapshot_release": "2026-08-01",
+        "historical_mcule_snapshot_source": "Mcule In stock HTS Library",
+        "historical_snapshot_identity_record": {
+          "current_database_identity_confirmed": true,
+          "error": "",
+          "lookup_path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V22_MCULE_INSTOCK_HTS_ADORA2A\\raw\\procurement\\mcule_public_lookup\\MCULE-1345325285.json",
+          "lookup_sha256": "5c43bf9479f2a94b54b5b3e86ba66380071c672d6629d61e37a8b9f0f1586df8",
+          "mcule_id": "MCULE-1345325285",
+          "public_lookup_status": 200
+        },
+        "lot_coa_status": "UNVERIFIED",
+        "public_catalog_evidence": [],
+        "public_catalog_status": "CURRENT_PUBLIC_CATALOG_NOT_CONFIRMED_IN_THIS_AUDIT",
+        "realtime_mcule_reason": "Mcule compound availability endpoint is protected and requires an API token; no token was available in this autonomous run.",
+        "realtime_mcule_status": "UNVERIFIED_AUTH_REQUIRED",
+        "w0_material_release_status": "BLOCKED"
+      }
+    },
+    {
+      "adenosine_reference_context": {
+        "classification": "PHARMACOLOGY_REFERENCE_ONLY_NOT_IDENTITY_OR_ORIGIN",
+        "nearest_reference_drugs": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL317052",
+            "inchikey": "LZPZPHGJDAGEJZ-AKAIJSEGSA-N",
+            "name": "REGADENOSON ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.12766
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL3989695",
+            "inchikey": "LZPZPHGJDAGEJZ-AKAIJSEGSA-N",
+            "name": "REGADENOSON",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.12766
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL431770",
+            "inchikey": "IQVRBWUUXZMOPW-PKNBQFBNSA-N",
+            "name": "ISTRADEFYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.093023
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL113",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.090909
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200569",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE CITRATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.090909
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL190",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.089552
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200578",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE SODIUM GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.089552
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1208646",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.089552
+          }
+        ]
+      },
+      "approved_drug_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.27381,
+        "nearest_neighbors": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL593",
+            "inchikey": "WHBIGIKBNXZKFE-UHFFFAOYSA-N",
+            "name": "DELAVIRDINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.27381
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL929",
+            "inchikey": "WHBIGIKBNXZKFE-UHFFFAOYSA-N",
+            "name": "DELAVIRDINE MESYLATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.27381
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL3",
+            "inchikey": "SNICXCGAKADSCV-JTQLQIEISA-N",
+            "name": "NICOTINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.262295
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL573",
+            "inchikey": "PVNIIMVLHYAWGP-UHFFFAOYSA-N",
+            "name": "NIACIN",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.259259
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1140",
+            "inchikey": "DFPAKSUCGFBDDF-UHFFFAOYSA-N",
+            "name": "NIACINAMIDE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.254545
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_APPROVED_DRUG_PREFILTER"
+      },
+      "botanical_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.134328,
+        "nearest_neighbors": [
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "LQGUBLBATBMXHT-UHFFFAOYSA-N",
+            "name": "chrysophanol",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID10208",
+            "tanimoto": 0.134328
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "VFLDPWHFBUODDF-FCXRPNKRSA-N",
+            "name": "curcumin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID969516",
+            "tanimoto": 0.114286
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "FCDLCPWAQCPTKC-UHFFFAOYSA-N",
+            "name": "rhein",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID10168",
+            "tanimoto": 0.114286
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "RHMXXJGYXNZAPX-UHFFFAOYSA-N",
+            "name": "emodin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID3220",
+            "tanimoto": 0.106061
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "HARGZZNYNSYSGJ-UHFFFAOYSA-N",
+            "name": "dihydrotanshinone",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5316743",
+            "tanimoto": 0.103896
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_BOTANICAL_SEED"
+      },
+      "canonical_smiles": "CC(C)C(Nc1cncc(C(=O)N2CCCC2)n1)c1cccnc1",
+      "cas": null,
+      "compound_id": "MCULE-2952154734",
+      "computed_inchikey": "ALZDBLPPXBTCDL-UHFFFAOYSA-N",
+      "expected_inchikey": "ALZDBLPPXBTCDL-UHFFFAOYSA-N",
+      "frozen_pubchem_snapshot": {
+        "candidate_id": "MCULE-2952154734",
+        "cid": "134711585",
+        "path": "audit\\snapshots\\prior_art_2026-09-26\\pubchem_CID_134711585.html",
+        "sha256": "bbc425b5fea5a0645947bc3acd47456791263205037b28383d9b141402b81d17",
+        "title": "N-(2-methyl-1-pyridin-3-ylpropyl)-6-(pyrrolidin-1-ylcarbonyl)pyrazin-2-amine | C18H23N5O | CID 134711585 - PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/134711585"
+      },
+      "historical_pubchem_cid": "134711585",
+      "historical_rank": 3,
+      "identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "name": "N-(2-methyl-1-pyridin-3-ylpropyl)-6-(pyrrolidin-1-ylcarbonyl)pyrazin-2-amine",
+      "pubchem_live_recheck": {
+        "error": "HTTPError: HTTP Error 503: PUGREST.ServerBusy",
+        "status": "LIVE_RECHECK_UNAVAILABLE",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/ALZDBLPPXBTCDL-UHFFFAOYSA-N/cids/JSON"
+      },
+      "pubchem_mapping_status": "SUPPORTED_BY_FROZEN_PUBCHEM_TITLE_SNAPSHOT_LIVE_RECHECK_UNAVAILABLE",
+      "stereochemistry_status": "UNRESOLVED_STEREOCHEMISTRY",
+      "supply": {
+        "current_stock_status": "UNVERIFIED",
+        "historical_mcule_snapshot_release": "2026-08-01",
+        "historical_mcule_snapshot_source": "Mcule In stock HTS Library",
+        "historical_snapshot_identity_record": {
+          "current_database_identity_confirmed": true,
+          "error": "",
+          "lookup_path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V22_MCULE_INSTOCK_HTS_ADORA2A\\raw\\procurement\\mcule_public_lookup\\MCULE-2952154734.json",
+          "lookup_sha256": "26a5bdd0365dd2c8a64ffaa72c5a91d3c04b57a3da1c664bd6566e35302ee617",
+          "mcule_id": "MCULE-2952154734",
+          "public_lookup_status": 200
+        },
+        "lot_coa_status": "UNVERIFIED",
+        "public_catalog_evidence": [],
+        "public_catalog_status": "CURRENT_PUBLIC_CATALOG_NOT_CONFIRMED_IN_THIS_AUDIT",
+        "realtime_mcule_reason": "Mcule compound availability endpoint is protected and requires an API token; no token was available in this autonomous run.",
+        "realtime_mcule_status": "UNVERIFIED_AUTH_REQUIRED",
+        "w0_material_release_status": "BLOCKED"
+      }
+    },
+    {
+      "adenosine_reference_context": {
+        "classification": "PHARMACOLOGY_REFERENCE_ONLY_NOT_IDENTITY_OR_ORIGIN",
+        "nearest_reference_drugs": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL431770",
+            "inchikey": "IQVRBWUUXZMOPW-PKNBQFBNSA-N",
+            "name": "ISTRADEFYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.090909
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL113",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.087719
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200569",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE CITRATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.087719
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL190",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.086207
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200578",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE SODIUM GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.086207
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1208646",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.086207
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1355736",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.086207
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL317052",
+            "inchikey": "LZPZPHGJDAGEJZ-AKAIJSEGSA-N",
+            "name": "REGADENOSON ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.078652
+          }
+        ]
+      },
+      "approved_drug_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.240741,
+        "nearest_neighbors": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL932",
+            "inchikey": "IZEKFCXSFNUWAM-UHFFFAOYSA-N",
+            "name": "DIPYRIDAMOLE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.240741
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1224",
+            "inchikey": "PWACSDKDOHSSQD-IUTFFREVSA-N",
+            "name": "ACRIVASTINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.231884
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL855",
+            "inchikey": "CBEQULMOCCWAQT-WOJGMQOQSA-N",
+            "name": "TRIPROLIDINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.225806
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL3188034",
+            "inchikey": "CBEQULMOCCWAQT-WOJGMQOQSA-N",
+            "name": "TRIPROLIDINE HYDROCHLORIDE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.225806
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL227529",
+            "inchikey": "ZSBOMTDTBDDKMP-OAHLLOKOSA-N",
+            "name": "ALOGLIPTIN BENZOATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.225352
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_APPROVED_DRUG_PREFILTER"
+      },
+      "botanical_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.138462,
+        "nearest_neighbors": [
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "XLTFNNCXVBYBSX-UHFFFAOYSA-N",
+            "name": "wogonin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5281703",
+            "tanimoto": 0.138462
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "FXNFHKRTJBSTCS-UHFFFAOYSA-N",
+            "name": "BAICALEIN",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "CHEMBL8260",
+            "tanimoto": 0.131148
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "HARGZZNYNSYSGJ-UHFFFAOYSA-N",
+            "name": "dihydrotanshinone",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5316743",
+            "tanimoto": 0.119403
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "IKIIZLYTISPENI-ZFORQUDYSA-N",
+            "name": "baicalin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID64982",
+            "tanimoto": 0.101266
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "LQGUBLBATBMXHT-UHFFFAOYSA-N",
+            "name": "chrysophanol",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID10208",
+            "tanimoto": 0.1
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_BOTANICAL_SEED"
+      },
+      "canonical_smiles": "Cc1nc(-c2ccccc2)nc(N2CCCCC2)c1C#N",
+      "cas": null,
+      "compound_id": "MCULE-1403143859",
+      "computed_inchikey": "SSLZNLJDMTXTMG-UHFFFAOYSA-N",
+      "expected_inchikey": "SSLZNLJDMTXTMG-UHFFFAOYSA-N",
+      "frozen_pubchem_snapshot": {
+        "candidate_id": "MCULE-1403143859",
+        "cid": "7309035",
+        "path": "audit\\snapshots\\prior_art_2026-09-26\\pubchem_CID_7309035.html",
+        "sha256": "5747fb85905050fb40522a2d07308e26e6914aec225dd0799516637113a1c946",
+        "title": "4-Methyl-2-phenyl-6-(1-piperidinyl)-5-pyrimidinecarbonitrile | C17H18N4 | CID 7309035 - PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7309035"
+      },
+      "historical_pubchem_cid": "7309035",
+      "historical_rank": 4,
+      "identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "name": "4-Methyl-2-phenyl-6-(1-piperidinyl)-5-pyrimidinecarbonitrile",
+      "pubchem_live_recheck": {
+        "error": "HTTPError: HTTP Error 503: PUGREST.ServerBusy",
+        "status": "LIVE_RECHECK_UNAVAILABLE",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/SSLZNLJDMTXTMG-UHFFFAOYSA-N/cids/JSON"
+      },
+      "pubchem_mapping_status": "SUPPORTED_BY_FROZEN_PUBCHEM_TITLE_SNAPSHOT_LIVE_RECHECK_UNAVAILABLE",
+      "stereochemistry_status": "NOT_FLAGGED",
+      "supply": {
+        "current_stock_status": "UNVERIFIED",
+        "historical_mcule_snapshot_release": "2026-08-01",
+        "historical_mcule_snapshot_source": "Mcule In stock HTS Library",
+        "historical_snapshot_identity_record": {
+          "current_database_identity_confirmed": true,
+          "error": "",
+          "lookup_path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V22_MCULE_INSTOCK_HTS_ADORA2A\\raw\\procurement\\mcule_public_lookup\\MCULE-1403143859.json",
+          "lookup_sha256": "28007ad4ac0d944ec3b29864e0d53f5dd05edf0033280f3bccef31150c478b36",
+          "mcule_id": "MCULE-1403143859",
+          "public_lookup_status": 200
+        },
+        "lot_coa_status": "UNVERIFIED",
+        "public_catalog_evidence": [],
+        "public_catalog_status": "CURRENT_PUBLIC_CATALOG_NOT_CONFIRMED_IN_THIS_AUDIT",
+        "realtime_mcule_reason": "Mcule compound availability endpoint is protected and requires an API token; no token was available in this autonomous run.",
+        "realtime_mcule_status": "UNVERIFIED_AUTH_REQUIRED",
+        "w0_material_release_status": "BLOCKED"
+      }
+    },
+    {
+      "adenosine_reference_context": {
+        "classification": "PHARMACOLOGY_REFERENCE_ONLY_NOT_IDENTITY_OR_ORIGIN",
+        "nearest_reference_drugs": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL431770",
+            "inchikey": "IQVRBWUUXZMOPW-PKNBQFBNSA-N",
+            "name": "ISTRADEFYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.078947
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL113",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.071429
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200569",
+            "inchikey": "RYYVLZVUVIJVGH-UHFFFAOYSA-N",
+            "name": "CAFFEINE CITRATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.071429
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL190",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.070175
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1200578",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE SODIUM GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.070175
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1208646",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE GLYCINATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.070175
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1355736",
+            "inchikey": "ZFXYFBGIUFBOJW-UHFFFAOYSA-N",
+            "name": "THEOPHYLLINE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.070175
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL317052",
+            "inchikey": "LZPZPHGJDAGEJZ-AKAIJSEGSA-N",
+            "name": "REGADENOSON ANHYDROUS",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.068182
+          }
+        ]
+      },
+      "approved_drug_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.25,
+        "nearest_neighbors": [
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL932",
+            "inchikey": "IZEKFCXSFNUWAM-UHFFFAOYSA-N",
+            "name": "DIPYRIDAMOLE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.25
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL585",
+            "inchikey": "FNYLWPVRPXGIIP-UHFFFAOYSA-N",
+            "name": "TRIAMTERENE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.235294
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL28333",
+            "inchikey": "YLCXGBZIZBEVPZ-UHFFFAOYSA-N",
+            "name": "MEDAZEPAM",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.224138
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL1071",
+            "inchikey": "OFPXSFXSNFPTHF-UHFFFAOYSA-N",
+            "name": "OXAPROZIN",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.218182
+          },
+          {
+            "approval_status": "REGULATORY_LABEL_PENDING",
+            "chembl_id": "CHEMBL227529",
+            "inchikey": "ZSBOMTDTBDDKMP-OAHLLOKOSA-N",
+            "name": "ALOGLIPTIN BENZOATE",
+            "origin_status": "",
+            "source_ids": "",
+            "tanimoto": 0.214286
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_APPROVED_DRUG_PREFILTER"
+      },
+      "botanical_mapping": {
+        "exact_match_count": 0,
+        "exact_matches": [],
+        "max_tanimoto": 0.135593,
+        "nearest_neighbors": [
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "FXNFHKRTJBSTCS-UHFFFAOYSA-N",
+            "name": "BAICALEIN",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "CHEMBL8260",
+            "tanimoto": 0.135593
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "XLTFNNCXVBYBSX-UHFFFAOYSA-N",
+            "name": "wogonin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5281703",
+            "tanimoto": 0.125
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "HARGZZNYNSYSGJ-UHFFFAOYSA-N",
+            "name": "dihydrotanshinone",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID5316743",
+            "tanimoto": 0.106061
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "IKIIZLYTISPENI-ZFORQUDYSA-N",
+            "name": "baicalin",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID64982",
+            "tanimoto": 0.103896
+          },
+          {
+            "approval_status": "",
+            "chembl_id": "",
+            "inchikey": "FCDLCPWAQCPTKC-UHFFFAOYSA-N",
+            "name": "rhein",
+            "origin_status": "PRIMARY_BOTANICAL_SOURCE_PENDING",
+            "source_ids": "pubchem:CID10168",
+            "tanimoto": 0.081967
+          }
+        ],
+        "neighbor_status": "NO_CLOSE_STRUCTURAL_NEIGHBOR_AT_TANIMOTO_0_45",
+        "status": "NO_EXACT_MATCH_IN_CURRENT_BOTANICAL_SEED"
+      },
+      "canonical_smiles": "N#Cc1c(-c2ccccc2)nc(N2CCCC2)nc1N1CCCC1",
+      "cas": "211687-29-5",
+      "compound_id": "MCULE-5892165876",
+      "computed_inchikey": "RBZMLMOEKVATPN-UHFFFAOYSA-N",
+      "expected_inchikey": "RBZMLMOEKVATPN-UHFFFAOYSA-N",
+      "frozen_pubchem_snapshot": {
+        "candidate_id": "MCULE-5892165876",
+        "cid": "1471903",
+        "path": "audit\\snapshots\\prior_art_2026-09-26\\pubchem_CID_1471903.html",
+        "sha256": "1ddd88173ef284b4d26ec581ddc6099bb24035dd1919740d10eb218aab9ac54d",
+        "title": "4-Phenyl-2,6-di(1-pyrrolidinyl)-5-pyrimidinecarbonitrile | C19H21N5 | CID 1471903 - PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1471903"
+      },
+      "historical_pubchem_cid": "1471903",
+      "historical_rank": 5,
+      "identity_status": "CONFIRMED_FROZEN_STRUCTURE_KEY_CONSISTENT",
+      "name": "4-Phenyl-2,6-di(1-pyrrolidinyl)-5-pyrimidinecarbonitrile",
+      "pubchem_live_recheck": {
+        "error": "HTTPError: HTTP Error 503: PUGREST.ServerBusy",
+        "status": "LIVE_RECHECK_UNAVAILABLE",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/RBZMLMOEKVATPN-UHFFFAOYSA-N/cids/JSON"
+      },
+      "pubchem_mapping_status": "SUPPORTED_BY_FROZEN_PUBCHEM_TITLE_SNAPSHOT_LIVE_RECHECK_UNAVAILABLE",
+      "stereochemistry_status": "NOT_FLAGGED",
+      "supply": {
+        "current_stock_status": "UNVERIFIED",
+        "historical_mcule_snapshot_release": "2026-08-01",
+        "historical_mcule_snapshot_source": "Mcule In stock HTS Library",
+        "historical_snapshot_identity_record": {
+          "current_database_identity_confirmed": true,
+          "error": "",
+          "lookup_path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V22_MCULE_INSTOCK_HTS_ADORA2A\\raw\\procurement\\mcule_public_lookup\\MCULE-5892165876.json",
+          "lookup_sha256": "08f558ab1768d59ad43bb106cbaa555a4422917496d1b39efbed6c7181d4442a",
+          "mcule_id": "MCULE-5892165876",
+          "public_lookup_status": 200
+        },
+        "lot_coa_status": "UNVERIFIED",
+        "public_catalog_evidence": [
+          {
+            "cas": "211687-29-5",
+            "catalog_id": "C1731682",
+            "classification": "PUBLIC_CATALOG_CONFIRMED_STOCK_UNVERIFIED",
+            "evidence": "Public product page identifies 4-Phenyl-2,6-di(pyrrolidin-1-yl)pyrimidine-5-carbonitrile and exposes quotation/CoA lookup; page does not expose candidate-specific stock quantity.",
+            "retrieved_date": "2026-09-27",
+            "source": "CATO",
+            "url": "https://www.cato-chem.com/goodsDetail/CATO/C1731682"
+          },
+          {
+            "cas": "211687-29-5",
+            "classification": "PUBLIC_CATALOG_CONFIRMED_STOCK_UNVERIFIED",
+            "evidence": "Public catalog index lists the exact CAS and compound name.",
+            "retrieved_date": "2026-09-27",
+            "source": "ChemicalBook",
+            "url": "https://www.chemicalbook.com/ShowAllProductByIndexID_CAS_25_31400.htm"
+          },
+          {
+            "cas": "211687-29-5",
+            "classification": "PUBLIC_CATALOG_CONFIRMED_STOCK_UNVERIFIED",
+            "evidence": "Public catalog page lists the exact CAS and compound name.",
+            "retrieved_date": "2026-09-27",
+            "source": "001Chemical",
+            "url": "https://www.001chemical.com/chem/pyrroleslist69"
+          }
+        ],
+        "public_catalog_status": "PUBLIC_CATALOG_CONFIRMED_STOCK_UNVERIFIED",
+        "realtime_mcule_reason": "Mcule compound availability endpoint is protected and requires an API token; no token was available in this autonomous run.",
+        "realtime_mcule_status": "UNVERIFIED_AUTH_REQUIRED",
+        "w0_material_release_status": "BLOCKED"
+      }
+    }
+  ],
+  "date": "2026-09-27",
+  "decision": {
+    "approved_close_neighbor_count_at_0_45": 0,
+    "approved_drug_exact_mapping": "NO_EXACT_MATCHES_IN_CURRENT_POOL",
+    "botanical_close_neighbor_count_at_0_45": 0,
+    "botanical_exact_mapping": "NO_EXACT_MATCHES_IN_CURRENT_POOL",
+    "current_supply_gate": "BLOCKED",
+    "identity_gate": "PASS",
+    "interpretation": "The frozen five remain synthetic-library computational priorities. In the current V24 approved-drug prefilter and botanical seed, none is an exact existing drug/botanical identity and none has a Morgan/Tanimoto >=0.45 structural neighbor. Candidate 5 has current public catalog identity evidence, but current stock and lot CoA remain unverified for all five.",
+    "w0_ready_count": 0
+  },
+  "guardrails": [
+    "An exact structure match is required before calling a Mcule candidate an existing approved drug or botanical constituent.",
+    "Morgan/Tanimoto similarity is structural-neighbor evidence only; it does not prove common origin, target, efficacy or interchangeability.",
+    "A public product/catalog page does not prove current stock, lot purity or material identity.",
+    "Search misses remain uncertainty and are never converted to proof of novelty or absence.",
+    "Historical Mcule in-stock snapshot inclusion is not current inventory."
+  ],
+  "method": {
+    "exact_match_key": "InChIKey against structure/parent identity fields",
+    "fingerprint": "RDKit Morgan fingerprint radius=2, fpSize=2048",
+    "neighbor_reporting_threshold": 0.45
+  },
+  "scope": "Post-screening identity, local drug/botanical pool mapping and procurement-evidence audit for the frozen historical five-candidate ADORA2A/Mcule branch.",
+  "source_artifacts": {
+    "approved_drug_pool": {
+      "approval_status_note": "This intake is a ChEMBL max-phase prefilter. Current regional approval/indication qualification is still pending in the V24 mainline recovery dataset.",
+      "path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V24_MAINLINE_RECOVERY_20260927\\exports\\approved_drug_intake.csv",
+      "row_count": 4225,
+      "sha256": "c22c74a31a4e34aacc30aa33b7d762e1baf77447afe39aedf71bc13278157aad",
+      "unique_parent_inchikey_count": 2472,
+      "valid_structure_count": 3417
+    },
+    "botanical_origin_evidence": {
+      "path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V24_MAINLINE_RECOVERY_20260927\\exports\\botanical_origin_evidence.csv",
+      "row_count": 7,
+      "sha256": "da7fffa34702361175e7a44c65b20fd3d7e2fae51e5d152e7232930b0fb53747"
+    },
+    "botanical_pool": {
+      "path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V24_MAINLINE_RECOVERY_20260927\\exports\\botanical_identity_intake.csv",
+      "row_count": 37,
+      "sha256": "5f1a2983ef0fae9ccf6a526868838d6c5ca10e6d959d4593793f138ffbd43bc3"
+    },
+    "historical_v22_final": {
+      "path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V22_MCULE_INSTOCK_HTS_ADORA2A\\results\\v21_htvs_final.json",
+      "sha256": "0297ca957de2936f5696d5cf74d870f414a721aaf4a19f12e7a688ae07b98a4e"
+    },
+    "historical_v22_procurement": {
+      "path": "C:\\Users\\user\\AppData\\Local\\MASH-AIDD-Workbench\\projects\\MASH_V22_MCULE_INSTOCK_HTS_ADORA2A\\processed\\v22_procurement\\procurement_gate.json",
+      "sha256": "74e112c7413b4e150cd91d6f21c5444f6ebd841d592fc47bf0675cb4a850ee1c"
+    },
+    "prior_art": {
+      "path": "audit\\ASTRA_CANDIDATE_PRIOR_ART_2026-09-26.json",
+      "sha256": "3a3beadc3d3d65c4c31a82963dba0c224442f360b152b776e164684679649be8"
+    },
+    "stereo": {
+      "path": "audit\\ASTRA_CANDIDATE3_STEREO_DOCKING_2026-09-26.json",
+      "sha256": "223aa57f6d57048d7f2873981083067f9fb184cb78113a208b98eccad5c09920"
+    }
+  },
+  "stage": "ASTRA_CANDIDATE_IDENTITY_SUPPLY_MAPPING"
+}

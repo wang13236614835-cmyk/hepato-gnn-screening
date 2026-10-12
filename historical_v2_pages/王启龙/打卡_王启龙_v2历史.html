@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学期学习推进流 · 负责人 王启龙</title>
+<style>
+:root{
+  --bg:#f4f6fa; --card:#ffffff; --ink:#1c2333; --sub:#5a6478; --line:#e3e8f0;
+  --brand:#2b5fa8; --brand2:#1e9e6a; --warn:#d97706; --bad:#dc2626; --okbg:#eaf6f0;
+  --chip:#eef2f9; --radius:12px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65}
+header{background:linear-gradient(135deg,#24457c,#2b5fa8 55%,#2f7d63);color:#fff;padding:20px 26px 16px}
+header h1{margin:0;font-size:21px;letter-spacing:.5px}
+header .meta{margin-top:6px;font-size:13px;opacity:.92;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.chip{background:rgba(255,255,255,.16);border-radius:999px;padding:2px 12px;font-size:12.5px}
+.chip.dead{background:rgba(220,80,80,.35)}
+nav{display:flex;gap:6px;background:var(--card);border-bottom:1px solid var(--line);padding:0 18px;position:sticky;top:0;z-index:5}
+nav button{border:0;background:none;padding:13px 16px;font-size:15px;color:var(--sub);cursor:pointer;border-bottom:2.5px solid transparent;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}
+nav button.on{color:var(--brand);border-bottom-color:var(--brand);font-weight:600}
+main{max-width:1080px;margin:20px auto 60px;padding:0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(28,35,51,.05)}
+h2{font-size:17px;margin:0 0 10px;color:var(--brand)}
+h3{font-size:15px;margin:14px 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.kv{font-size:13px;color:var(--sub)}
+.kv b{color:var(--ink)}
+.bar{height:8px;background:#e8edf5;border-radius:6px;overflow:hidden;flex:1}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2))}
+.prow{display:flex;align-items:center;gap:10px;margin:6px 0}
+.item{display:flex;gap:10px;align-items:flex-start;padding:7px 8px;border-radius:8px;transition:background .15s}
+.item:hover{background:#f4f7fc}
+.item input[type=checkbox]{width:17px;height:17px;margin-top:3px;accent-color:var(--brand2);cursor:pointer;flex:none}
+.item .tx{flex:1}
+.item.done .tx{color:#8a93a5;text-decoration:line-through}
+.item .id{font-size:11.5px;color:var(--sub);background:var(--chip);border-radius:4px;padding:0 6px;margin-right:6px;font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}
+.item .ts{font-size:11.5px;color:var(--brand2);margin-left:8px;white-space:nowrap}
+.item .dl{font-size:11.5px;color:var(--warn);margin-left:6px}
+.item.overdue .dl{color:var(--bad);font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:var(--sub);font-weight:600;text-align:left;border-bottom:2px solid var(--line);padding:8px 8px;white-space:nowrap}
+td{border-bottom:1px solid var(--line);padding:8px 8px;vertical-align:top}
+tr.wrow{cursor:pointer}
+tr.wrow:hover{background:#f4f7fc}
+tr.now{background:#eef5ff}
+.tag{display:inline-block;background:var(--chip);border-radius:5px;padding:1px 8px;font-size:12px;color:var(--sub);margin:2px 4px 2px 0}
+.tag.b{color:var(--brand);background:#e8f0fb}
+.tag.g{color:var(--brand2);background:var(--okbg)}
+.tag.y{color:var(--warn);background:#fdf3e3}
+.tag.r{color:var(--bad);background:#fdeaea}
+.mst{border-left:3px solid var(--line);padding:6px 12px}
+.mst.ok{border-left-color:var(--brand2)}
+.mst .mid{font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-weight:700;margin-right:8px}
+.cmd{font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";background:#182234;color:#d7e4ff;border-radius:6px;padding:2px 8px;font-size:12.5px;display:inline-block;margin:2px 4px 2px 0}
+a.pl{color:var(--brand);text-decoration:underline;word-break:break-all}
+textarea{width:100%;min-height:70px;border:1px solid var(--line);border-radius:8px;padding:8px;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-size:13.5px;resize:vertical}
+button.act{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}
+button.act.g{background:var(--brand2)}
+button.act.o{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+button.act.d{background:#fff;color:var(--bad);border:1px solid var(--bad)}
+.wknav{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.wknav select{padding:7px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";background:#fff}
+.lead{font-size:13px;color:var(--sub)}
+.count{font-size:12px;color:var(--sub);white-space:nowrap}
+.logline{font-size:13px;padding:5px 8px;border-bottom:1px dashed var(--line);display:flex;gap:10px;flex-wrap:wrap}
+.logline .t{color:var(--sub);font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";font-size:12px}
+.ok-emoji{color:var(--brand2);font-weight:700}
+.hint{font-size:12.5px;color:var(--sub);background:var(--chip);border-radius:8px;padding:8px 12px;margin-top:10px}
+.res a,.card a{color:var(--brand);text-decoration:none;border-bottom:1px dashed var(--brand);white-space:nowrap}
+.res a:hover,.card a:hover{opacity:.7}
+table.d28 td{font-size:12.5px}
+.exp{background:#f7f9fc;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin-top:8px;font-size:13px;color:var(--sub)}
+footer{max-width:1080px;margin:0 auto 40px;padding:0 18px;font-size:12.5px;color:var(--sub)}
+@media print{nav,header .meta,.wknav,button{display:none}body{background:#fff}}
+/* v10.2 窄屏适配: 导航可换行, 表格超宽卡内横滚, 命令芯片可折行 */
+#nav{flex-wrap:wrap}
+.card table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmd{max-width:100%;overflow-wrap:anywhere;white-space:normal}
+@media (max-width:640px){table{font-size:12px}td{padding:6px 5px}}
+</style>
+</head>
+<body><section id="V3_CURRENT_BANNER" style="margin:16px;padding:18px;border:2px solid #2b78e4;border-radius:16px;background:#eef6ff;color:#10243e"><b>research_chain_v3 · 当前任务</b><p>旧v2/W3–W16周卡仅为历史学习记录；CURRENT只看v3任务与AIDD权威链。</p><ul><li>统筹v3：确认湿实验合作方/执行方（V3-05）</li><li>统筹6–8项科研级化合物询价/下单/W0（V3-06）</li><li>审核7条human review回填并提交AIDD主库，不代替组员签名</li></ul><p><b>当前硬状态：</b>真人核验0完成 · W0 ready=0 · wetlab=NOT_EXECUTED</p></section>
+<header>
+  <h1>学期学习推进流 · 基于图神经网络与分子对接的保肝中药成分虚拟筛选（负责人 王启龙）</h1>
+  <div class="meta" id="hmeta"></div>
+</header>
+<nav id="nav">
+  <button data-v="mywork" class="on">🧭 我的工作台</button>
+  <button data-v="pipeline">🔬 全线流程</button>
+  <button data-v="dash">📍 本周看板</button>
+  <button data-v="overview">🗓 学期总览</button>
+  <button data-v="week">📋 周卡片·打卡</button>
+  <button data-v="res">📚 学习资源</button>
+  <button data-v="ledger">✅ 打卡台账</button>
+  <button data-v="data">💾 数据管理</button>
+</nav>
+<main id="app"></main>
+<noscript><div style="max-width:960px;margin:16px auto;padding:14px 18px;border:2px solid #d33;border-radius:10px;font-size:15px;line-height:1.8">
+⚠️️ 本页需要启用 JavaScript。GitHub 网页端打开 .html 只显示源码（平台限制）：请 git clone 或 Download ZIP 后，双击各成员文件夹里的 打卡_姓名.html。</div></noscript>
+<footer>过关标准的数字都注明出处文件；打勾前先跑 <span class="cmd">python tools/semester_flow.py check 周号 --deep</span>（成员加 --member 姓名），看到[通过]再勾。进度存本机浏览器，换电脑用「数据管理」导出导入。<br>铁律：模型给的是"<b>值得验证的假设</b>"，不是"被证明的药物结论"；数据与证据只认<b>公开权威数据库</b>。</footer>
+<script>
+/* ================= 数据（与 tools/semester_flow.py 同源，预期值锚定存档文件） ================= */
+const START = new Date(2026,8,7);   // 开学周一 2026-09-07（0基月份：8=9月）
+const NWEEK = 16;
+const GHREPO = "https://github.com/wang13236614835-cmyk/hepato-gnn-screening"; // 仓库地址（互跳/GitHub 直链用）
+
+/* ---- 我的工作台（与 docs/核验任务分派.md 同源；生成成员页时整体替换本块） ---- */
+const MYWORK = {"fullname":"王启龙","roleTag":"负责人 · 统筹/工程","lineTag":"v2 线：统筹/工程 ＋ 辅助组员（W3 起）","fileCount":0,"deadline":"W3–W16 每周日进度汇总；里程碑见下方","duty":"统筹三库状态同步与研究链路 v2 执行；辅助组员完成任务（每周 1–2h，记台账）；工程修复、版本账本、每周备份；关键节点裁决记录（G2 冻结、G3 裁决、12/15 检查）","tasks":[["V2-W03","W3：确认主线与学校期限；登记Gate语义、断链、软件状态冲突；安排可信签核设计","主线与终点明确；每条P0有负责人和原始证据入口"],["V2-W04","W4：复核新旧周卡映射、状态分层与工时；推进受控签核方案评审","记录原文、结构与决定依据；轻量任务可离线推进"],["V2-W05","W5：组织签核边界修复验收与9/20问题复测；协调真实对象试点","关键P0关闭或明确排除；导入测试不伪装真人结果"],["V2-W06","W6：主持G2裁决，选定一条可行计算主线","数据、划分、终点、指标和阈值先冻结；禁止凑数"],["V2-W07","W7：检查算力、日志、输入版本与任务状态；组织中期复盘","报告所有折/seed和Dummy比较；无选择性报数"],["V2-W08","W8：审超参设置和对照公平性，阻止新增无验证分支","同折同条件，全部失败保留；不要求GNN赢"],["V2-W09","W9：监督最终测试开封与结果冻结，记录偏离协议","分assay/AD报告；区间覆盖与宽度并报"],["V2-W10","W10：主持G3审查，记录放行、限定或不放行及后续安排","按预注册用途裁决，不因日历自动通过"],["V2-W11","W11：审筛选入口权限和库版本，组织真实分轨产物验收","正式榜只含通过资格者；已知与未知分开"],["V2-W12","W12：评审MD是否必要，跟进Moracin N负责人审阅/采购/实验条件","姿态恢复、对照、稳健性分开；不生成对接药效榜"],["V2-W13","W13：主持候选/负结果裁决，明确Primary方向非候选PRIMARY","每个主张有证据和边界，不把计划写成实验结果"],["V2-W14","W14：安排非实现者复现，核学校/期刊要求与早投条件","非实现者净环境复现；12/15仅条件检查点"],["V2-W15","W15：组织反证审查和重大缺口分级，记录负责人反馈","反查每个关键数字；统计/生物/工程三类错误分开"],["V2-W16","W16：汇总三库交付与审阅意见，确定1月补证/投稿安排","审阅意见真实记录；归档完整；无材料不冒充湿验证"]],"files":[],"currentContext":{"stage":"research_chain_v2（数据—验证—可复现主线）","week":"W3｜2026-09-21–09-27（本周）","why":"G2 待人审（真人完成 0 条）是全局卡点；本周任务：问题冻结与P0启动。主做：cr_b0108177640570e3、全部 11 项。","first":"打开 human_review/phase2b_20260915/：任务总表.csv 按编号定位 → 读 ChEMBL/文献原始来源 → 按回填表格式.json 填判定。注意：回填只动允许字段（判定/人工值/理由/来源编号/时间/姓名）；AI 原值等只读字段一律不改；判定必须引用原始测定描述或文…","deliver":"回填文件（每条判定/理由/来源编号）；研究协议v2、问题台账与签核设计需求","action":"打开核验首页（任务卡＋原始数据直达）","action_path":"../human_review/phase2b_20260915/index.html","action_url":"https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/human_review/phase2b_20260915/index.html","source":"AIDD 主库 qualification_v1/RESEARCH_STATE.md ＋ research_chain_v2_20260921/完整研究链路_v2.md"},"ops":[["① 先看当前状态","打开本库 研究状态.md 与主库 qualification_v1/RESEARCH_STATE.md；确认候选未放行、图网络门关闭、FASN T1 失败、G2 待人审"],["② 本周任务（W3）","主做：cr_b0108177640570e3、全部 11 项；文件在 human_review/phase2b_20260915/（任务总表.csv 定位 → 读原始来源 → 填回填表）"],["③ 遇到阻塞","登记到工作台「阻塞与求助登记」表，群里找负责人；查不到原始来源就如实写查不到，不编值"],["④ 记录结果","交付物注明来源、日期、证据路径与是否人工核验；自报打卡不是可信人审，不改变门控"],["⑤ 每周节奏","每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账；周日进度汇总（做了什么/证据/阻塞/下周）；负责人做每周备份"]],"ghlinks":[["① 核验首页（先开这个：11 项任务卡＋每个任务的原始数据直达链接）","../human_review/phase2b_20260915/index.html"],["② 任务总表 CSV（按任务编号定位我的条目）","../human_review/phase2b_20260915/任务总表.csv"],["③ 回填表模板（复制一份照格式填）","../human_review/phase2b_20260915/review_return.template.json"],["④ 核验填写说明（每个字段怎么填）","../human_review/phase2b_20260915/核验填写说明.md"],["⑤ 第一批任务书（11 项谁主做谁复核）","../human_review/phase2b_20260915/FIRST_BATCH_PILOT_TASKS.md"],["研究状态.md（本库当前状态）","https://github.com/wang13236614835-cmyk/hepato-gnn-screening/blob/main/研究状态.md"],["v2 完整方案（任务总源）","https://github.com/wang13236614835-cmyk/aidd/blob/main/00-%E5%BD%93%E5%89%8D%E7%A0%94%E7%A9%B6/research_chain_v2_20260921/%E5%AE%8C%E6%95%B4%E7%A0%94%E7%A9%B6%E9%93%BE%E8%B7%AF_v2.md"]],"team":[["王启龙","负责人·统筹/工程＋辅助组员（6–8h/周）","王启龙/打卡_王启龙.html"],["宁显泷","模型·统计验证（4h/周）","宁显泷/打卡_宁显泷.html"],["衣思淼","数据·身份/活性数据（4h/周）","衣思淼/打卡_衣思淼.html"],["代维斯丹","结构·独立复现（4h/周）","代维斯丹/打卡_代维斯丹.html"],["王散曼","文献·机制证据（4h/周）","王散曼/打卡_王散曼.html"]]};
+
+
+const WEEKS =[{"no":1,"dates":"09/07–09/13","stage":"基础入门","theme":"先证明暑假的结果谁都能复现","paper":["Q01","主稿与申报、三轮意见逐条映射","宁显泷","2026-09-13"],"learn":["照 docs/00_环境配置.md 第2节，在服务器装一个项目专用环境（conda）"],"card":{"task":"在自己电脑上把暑假的全流程跑一遍（run_all.py），屏幕上的数字要和手册里一模一样；再写一个环境自检小脚本","cmd":"python run_all.py（先 cd 到仓库）；python learning/王启龙/week01_exercise.py","expected":"旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。","source":"docs/核验手册.md §2.1（这些数字 2026-08-31 实测过）","criteria":"哪个包缺就装哪个，装完重跑；数字对不上先检查是不是改过代码","verifier":"全员各自复现，组会上对屏幕"},"tasks":[["W1-A1","组织全员按手册 §0–§2 各自复现一遍，收齐 5 个人的结果"],["W1-A2","收集 §3 深度核验各线结果，问题清单汇总登记入表"]],"checks":[{"id":"C1-01","desc":"仓库主要文件都在","exp":"5 个都在","src":"README 目录结构"},{"id":"C1-02","desc":"代码提交数够 12 次","exp":"实际 26 次，够了","src":"核验手册 §1"},{"id":"C1-03","desc":"数据表行数和登记册一致","exp":"8 张表全对上（88/12/58/13/17/60 行）","src":"docs/文件清单.md §2"},{"id":"C1-04","desc":"第1周练习：环境自检","exp":"[FLOW] env=ok","src":"环境说明文档"},{"id":"C1-05","desc":"run_all.py 一键复现，12 句关键输出一字不差（要加 --deep）","exp":"88条48正40负；AUC 0.967；60 个候选入库","src":"核验手册 §2.1"}],"coord":["周一周日进度汇总，把这学期的安排讲一遍","周五把全员复现结果报给负责人"],"ex":{"file":"week01_exercise.py","gen":"scaffold 1（生成就能直接用）"}},{"no":2,"dates":"09/14–09/20","stage":"基础入门","theme":"把暑假结果\"定版\"＋核验签名汇总","paper":["Q02","负责人与学校、期刊约束核对","王散曼","2026-09-20"],"learn":["看 verify.py 这个脚本：它怎么用一句句\"断言\"自动对数字（我们以后都照这个思路写检查）","学 git 打标签（tag）：给代码拍快照，随时能回到这一刻"],"card":{"task":"跑仓库自带的数字检查脚本（45 项），给代码打上 v1.0-summer 标签；把 45 项检查各对的是哪个文件写成注释表","cmd":"python reports/pdf_build/verify.py；git tag -a v1.0-summer -m \"暑假基线\"","expected":"旧结果仅在原数据/代码/参数快照中核对；历史核验有价值，差异留痕不默认失败，不把旧45项通过用于新管线放行。","source":"reports/pdf_build/verify.py（2026-08-31 实测就是 45 项全过）","criteria":"哪项不过就顺着它指的文件去改，改完重跑，全过才算完","verifier":"全员互查，负责人抽查"},"tasks":[["W2-A1","收齐 5 人的核验签名；把 45 项全过的截图存到 results/logs/"],["W2-A2","打标签 v1.0-summer（暑假结果定版，以后改动都有对照）"]],"checks":[{"id":"C2-01","desc":"标签 v1.0-summer 已打","exp":"git tag 里能看到","src":"WP1 步骤3"},{"id":"C2-02","desc":"45 项数字检查全过（要加 --deep）","exp":"\"通过 45 项；不符 0 项\"","src":"verify.py 实测"},{"id":"C2-03","desc":"results/logs/ 文件夹已建（存截图用）","exp":"文件夹存在","src":"WP1 步骤2"},{"id":"C2-04","desc":"45 项注释表写好","exp":"week02_notes.md 里有 45 行","src":"第2周学习检查"}],"coord":["周五前收齐 5 人核验签名，截图存 results/logs/","45 项注释表抽查 5 项对锚定 CSV"]},{"no":3,"dates":"09/21–09/27","stage":"问题冻结与P0启动","theme":"W3 问题冻结与P0启动（G0/G1/G2）","learn":["复习研究链路 v2 方案第 1–2 节：三库分工、四种状态（任务/证据/产物/门控）分离","看 ChEMBL 数据结构入门 1 集：活性记录长什么样、单位与关系符号在哪"],"card":{"task":"本周主做（研究链路 v2·第三周）：\n主做【FASN｜direct_screening_eligibility】目标：判定该记录能否直接进筛选池；注意：FASN 当前为仅机制线（T1 裁决失败），不要因本条核验放行任何筛选\n跟做＋汇总【五个靶点｜汇总跟做】目标：收齐五人回填、汇总成批文件并试跑严格导入；注意：回填零条时不预填、不代签；工程测试件不算真人完成","cmd":"① 打开 human_review/phase2b_20260915/，按任务编号在任务总表.csv 定位 → ② 读原始来源（ChEMBL 接口或文献库）→ ③ 复制 review_return.template.json 填：判定（通过/更正/驳回）、人工值（仅更正时填）、全名、时间、理由（引原文）、来源编号 → ④ 存为回填文件交负责人汇总","expected":"主线与终点明确；每条P0有负责人和原始证据入口；每条判定都引用原始来源，零条完成也如实记录","source":"文件：human_review/phase2b_20260915/任务总表.csv、回填表格式.json、核验填写说明.md、FIRST_BATCH_PILOT_TASKS.md；输入：当前权威状态、24个人审单元、9/20失败报告","criteria":"回填只动允许字段（判定/人工值/理由/来源编号/时间/姓名）；AI 原值等只读字段一律不改；判定必须引用原始测定描述或文献；查不到就写查不到，不编","verifier":"王散曼（复核）"},"tasks":[["V2-03-1","主做：cr_b0108177640570e3；全部 11 项"],["V2-03-2","回填：每条填判定/理由/来源编号，交负责人汇总（周日）"],["V2-03-3","辅助一位组员完成其本周任务（记谁/什么/多久，入台账）"],["V2-03-4","汇总五人回填 → 试跑严格导入 → 周日发进度汇总"]],"checks":[{"id":"V2-C03","desc":"W3 交付验收","exp":"主线与终点明确；每条P0有负责人和原始证据入口","src":"研究协议v2、问题台账与签核设计需求"}],"coord":["周日：问题冻结与P0启动 进度汇总（做了什么/证据/阻塞/下周）","失败分支：未获签核的内容保持待核，正式自动放行锁定"]},{"no":4,"dates":"09/28–10/04","stage":"轻量周：身份与终点","theme":"W4 轻量周：身份与终点（G1/G2）","learn":["看 PubMed／欧洲文献库检索入门 1 集：怎么保存检索式和检索日期"],"card":{"task":"复核新旧周卡映射、状态分层与工时；推进受控签核方案评审","cmd":"交付：排期冲突处理表与签核威胁模型","expected":"记录原文、结构与决定依据；轻量任务可离线推进","source":"输入：W3问题清单；无需服务器批处理｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-04-1","复核新旧周卡映射、状态分层与工时；推进受控签核方案评审"],["V2-04-2","周报：工时（轻量周约 3–4 小时（本线任务 2h＋辅助组员 1h）；延期写明理由，不倒填）＋阻塞与下一步；证据路径"],["V2-04-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C04","desc":"W4 交付验收","exp":"记录原文、结构与决定依据；轻量任务可离线推进","src":"排期冲突处理表与签核威胁模型"}],"coord":["周日：轻量周：身份与终点 进度汇总（做了什么/证据/阻塞/下周）","失败分支：API不可用用已有快照，记录缺口而非造值"]},{"no":5,"dates":"10/05–10/11","stage":"人审收敛与可信导入","theme":"W5 人审收敛与可信导入（G2/工程）","learn":["看 RDKit 复习 1 集：标准化、互变异构、盐剥离为什么不能无脑做"],"card":{"task":"组织签核边界修复验收与9/20问题复测；协调真实对象试点","cmd":"交付：签核验收报告及未闭问题","expected":"关键P0关闭或明确排除；导入测试不伪装真人结果","source":"输入：真实P0证据；签核原型和隔离测试环境｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-05-1","组织签核边界修复验收与9/20问题复测；协调真实对象试点"],["V2-05-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-05-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C05","desc":"W5 交付验收","exp":"关键P0关闭或明确排除；导入测试不伪装真人结果","src":"签核验收报告及未闭问题"}],"coord":["周日：人审收敛与可信导入 进度汇总（做了什么/证据/阻塞/下周）","失败分支：可信边界未过时仅保存人审证据，保持自动门关闭"]},{"no":6,"dates":"10/12–10/18","stage":"数据与协议冻结","theme":"W6 数据与协议冻结（G2→G3）","learn":["看 scikit-learn Pipeline 1 集：插补/标准化为什么只能拟合训练折"],"card":{"task":"主持G2裁决，选定一条可行计算主线","cmd":"交付：G2决定与版本化研究协议","expected":"数据、划分、终点、指标和阈值先冻结；禁止凑数","source":"输入：关键人审通过；可信导入、原始快照｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-06-1","主持G2裁决，选定一条可行计算主线"],["V2-06-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-06-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C06","desc":"W6 交付验收","exp":"数据、划分、终点、指标和阈值先冻结；禁止凑数","src":"G2决定与版本化研究协议"}],"coord":["周日：数据与协议冻结 进度汇总（做了什么/证据/阻塞/下周）","失败分支：数据不够则发布缺口/局部方法方案，推迟正式模型"]},{"no":7,"dates":"10/19–10/25","stage":"经典基线与误差诊断","theme":"W7 经典基线与误差诊断（G3）","learn":["看交叉验证与数据泄漏 1 集：骨架划分与随机划分差在哪"],"card":{"task":"检查算力、日志、输入版本与任务状态；组织中期复盘","cmd":"交付：运行清单与中期问题表","expected":"报告所有折/seed和Dummy比较；无选择性报数","source":"输入：G2冻结；同折同条件协议｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-07-1","检查算力、日志、输入版本与任务状态；组织中期复盘"],["V2-07-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-07-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C07","desc":"W7 交付验收","exp":"报告所有折/seed和Dummy比较；无选择性报数","src":"运行清单与中期问题表"}],"coord":["周日：经典基线与误差诊断 进度汇总（做了什么/证据/阻塞/下周）","失败分支：门未过则做隔离教学或数据补核，不称正式训练"]},{"no":8,"dates":"10/26–11/01","stage":"有条件的GNN公平比较","theme":"W8 有条件的GNN公平比较（G3）","learn":["看共形预测入门 1 集：覆盖率含义与交换性前提"],"card":{"task":"审超参设置和对照公平性，阻止新增无验证分支","cmd":"交付：模型比较审计表","expected":"同折同条件，全部失败保留；不要求GNN赢","source":"输入：相同冻结数据；基线已可复现｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-08-1","审超参设置和对照公平性，阻止新增无验证分支"],["V2-08-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-08-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C08","desc":"W8 交付验收","exp":"同折同条件，全部失败保留；不要求GNN赢","src":"模型比较审计表"}],"coord":["周日：有条件的GNN公平比较 进度汇总（做了什么/证据/阻塞/下周）","失败分支：无增益保留简单模型，数据不足不扩大架构搜索"]},{"no":9,"dates":"11/02–11/08","stage":"外部验证与AD/UQ","theme":"W9 外部验证与AD/UQ（G3）","learn":["看模型校准 1 集：可靠性图怎么读；温度校准适用分类、不适用 pIC50 回归"],"card":{"task":"监督最终测试开封与结果冻结，记录偏离协议","cmd":"交付：开封审计与偏差说明","expected":"分assay/AD报告；区间覆盖与宽度并报","source":"输入：模型选择已锁定；测试集按协议开封｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-09-1","监督最终测试开封与结果冻结，记录偏离协议"],["V2-09-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-09-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C09","desc":"W9 交付验收","exp":"分assay/AD报告；区间覆盖与宽度并报","src":"开封审计与偏差说明"}],"coord":["周日：外部验证与AD/UQ 进度汇总（做了什么/证据/阻塞/下周）","失败分支：外推不成立则限缩用途，已看测试集标开发用途"]},{"no":10,"dates":"11/09–11/15","stage":"G3裁决与分支选择","theme":"W10 G3裁决与分支选择（G3）","learn":["看适用域 1 集：最近邻 Tanimoto／杠杆值各自的局限"],"card":{"task":"主持G3审查，记录放行、限定或不放行及后续安排","cmd":"交付：model qualification decision","expected":"按预注册用途裁决，不因日历自动通过","source":"输入：全结果、外部、置换、AD/UQ、复核记录｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-10-1","主持G3审查，记录放行、限定或不放行及后续安排"],["V2-10-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-10-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C10","desc":"W10 交付验收","exp":"按预注册用途裁决，不因日历自动通过","src":"model qualification decision"}],"coord":["周日：G3裁决与分支选择 进度汇总（做了什么/证据/阻塞/下周）","失败分支：FAIL则进入方法/负结果写作；补证计划另登记"]},{"no":11,"dates":"11/16–11/22","stage":"分轨筛选或方法补证","theme":"W11 分轨筛选或方法补证（G4/条件）","learn":["看置换检验 1 集：为什么整条流程都要重跑"],"card":{"task":"审筛选入口权限和库版本，组织真实分轨产物验收","cmd":"交付：G4审阅任务包","expected":"正式榜只含通过资格者；已知与未知分开","source":"输入：仅G3通过才正式筛选；否则用负结果分支｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-11-1","审筛选入口权限和库版本，组织真实分轨产物验收"],["V2-11-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-11-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C11","desc":"W11 交付验收","exp":"正式榜只含通过资格者；已知与未知分开","src":"G4审阅任务包"}],"coord":["周日：分轨筛选或方法补证 进度汇总（做了什么/证据/阻塞/下周）","失败分支：零合格hit允许；域外进入探索池，不改AD阈值"]},{"no":12,"dates":"11/23–11/29","stage":"结构支持与实验条件","theme":"W12 结构支持与实验条件（G5/条件）","learn":["看置换检验 1 集：为什么整条流程都要重跑"],"card":{"task":"评审MD是否必要，跟进Moracin N负责人审阅/采购/实验条件","cmd":"交付：结构必要性决定与实验就绪清单","expected":"姿态恢复、对照、稳健性分开；不生成对接药效榜","source":"输入：明确结构问题、合格输入；实验另需负责人审阅/材料｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-12-1","评审MD是否必要，跟进Moracin N负责人审阅/采购/实验条件"],["V2-12-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-12-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C12","desc":"W12 交付验收","exp":"姿态恢复、对照、稳健性分开；不生成对接药效榜","src":"结构必要性决定与实验就绪清单"}],"coord":["周日：结构支持与实验条件 进度汇总（做了什么/证据/阻塞/下周）","失败分支：无合格结构/算力则记录支持缺失；MD可不做"]},{"no":13,"dates":"11/30–12/06","stage":"候选或HOLD证据包","theme":"W13 候选或HOLD证据包（G6/条件）","learn":["看富集因子 EF／BEDROC 1 集：筛选指标怎么预注册"],"card":{"task":"主持候选/负结果裁决，明确Primary方向非候选PRIMARY","cmd":"交付：release或HOLD决定","expected":"每个主张有证据和边界，不把计划写成实验结果","source":"输入：上游CURRENT、真实审阅；零候选也可归档｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-13-1","主持候选/负结果裁决，明确Primary方向非候选PRIMARY"],["V2-13-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-13-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C13","desc":"W13 交付验收","exp":"每个主张有证据和边界，不把计划写成实验结果","src":"release或HOLD决定"}],"coord":["周日：候选或HOLD证据包 进度汇总（做了什么/证据/阻塞/下周）","失败分支：缺关键证据则HOLD；Moracin实验独立记录"]},{"no":14,"dates":"12/07–12/13","stage":"独立复现与早投检查","theme":"W14 独立复现与早投检查（复现/写作）","learn":["看 AutoDock Vina 可复现性文档：多种子、搜索强度与失败报告"],"card":{"task":"安排非实现者复现，核学校/期刊要求与早投条件","cmd":"交付：复现总报告和12/15检查决定","expected":"非实现者净环境复现；12/15仅条件检查点","source":"输入：冻结输入、代码差异、环境、分析脚本｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-14-1","安排非实现者复现，核学校/期刊要求与早投条件"],["V2-14-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-14-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C14","desc":"W14 交付验收","exp":"非实现者净环境复现；12/15仅条件检查点","src":"复现总报告和12/15检查决定"}],"coord":["周日：独立复现与早投检查 进度汇总（做了什么/证据/阻塞/下周）","失败分支：核心结果未复现则延期早投，保留差异和修复版本"]},{"no":15,"dates":"12/14–12/20","stage":"全链反证审查","theme":"W15 全链反证审查（复现/写作）","learn":["看 OECD QSAR 验证原则 1 集：适用域、可复现、局限性表述"],"card":{"task":"组织反证审查和重大缺口分级，记录负责人反馈","cmd":"交付：审阅问题关闭/未闭台账","expected":"反查每个关键数字；统计/生物/工程三类错误分开","source":"输入：全文、图表、主张、原始文件齐套｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-15-1","组织反证审查和重大缺口分级，记录负责人反馈"],["V2-15-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-15-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C15","desc":"W15 交付验收","exp":"反查每个关键数字；统计/生物/工程三类错误分开","src":"审阅问题关闭/未闭台账"}],"coord":["周日：全链反证审查 进度汇总（做了什么/证据/阻塞/下周）","失败分支：不为清零修改目标；重要缺口导致结论降级或延期"]},{"no":16,"dates":"12/21–12/27","stage":"交付与后续决策","theme":"W16 交付与后续决策（归档/负责人审阅）","learn":["看论文图表规范 1 集：每个数字要能回到原始记录"],"card":{"task":"汇总三库交付与审阅意见，确定1月补证/投稿安排","cmd":"交付：总交付manifest与后续计划","expected":"审阅意见真实记录；归档完整；无材料不冒充湿验证","source":"输入：复核后的证据包；未闭问题单独列出｜工具：Git、manifest、Workbench状态、问题台账、受控签核渠道；本页仅自报","criteria":"交叉复核者回看原始证据；正式通过须可信渠道签核。本页状态不代表签核。","verifier":"王散曼（复核）"},"tasks":[["V2-16-1","汇总三库交付与审阅意见，确定1月补证/投稿安排"],["V2-16-2","周报：工时（每周约 6–8 小时（本线任务 4–5h＋辅助组员 1–2h＋学习约 1h）；辅助记入台账）＋阻塞与下一步；证据路径"],["V2-16-3","辅助一位组员完成其本周任务（记录谁/什么/多久）"]],"checks":[{"id":"V2-C16","desc":"W16 交付验收","exp":"审阅意见真实记录；归档完整；无材料不冒充湿验证","src":"总交付manifest与后续计划"}],"coord":["周日：交付与后续决策 进度汇总（做了什么/证据/阻塞/下周）","失败分支：投稿/补证/暂停三选一，1月修订而非重复填卡"]}];;
+
+const MANUALS = [{"id":"V2-M05","week":5,"text":"W5 周日：G2 是否具备冻结条件的审查结论（可判不具备）","dead":null},{"id":"V2-M06","week":6,"text":"W6 周日：数据冻结＋主线选定裁决（数据不足走方法/负结果路径）","dead":null},{"id":"V2-M10","week":10,"text":"W10 周日：G3 模型资格正式裁决（未过转负结果/方法链，不强行给榜）","dead":null},{"id":"V2-M11","week":11,"text":"W11 周日：是否进入分轨筛选（合格命中可为零）","dead":null},{"id":"V2-M14","week":14,"text":"12/15 早投检查：关键复核全过＋负责人批准，否则走 1 月修订路线","dead":null},{"id":"V2-M16","week":16,"text":"W16：审阅包交付；2026-12-28—2027-01-31 修订窗口；2027-02-01 内部目标","dead":null}];
+
+const MILESTONES = [{"id":"V2-MS1","week":5,"name":"Phase 2B P0 高风险单元收敛＋G2 冻结条件审查","need":["V2-C05"]},{"id":"V2-MS2","week":6,"name":"数据冻结＋主线选定（或方法/负结果路径裁决）","need":["V2-C06"]},{"id":"V2-MS3","week":10,"name":"G3 模型资格正式裁决","need":["V2-C10"]},{"id":"V2-MS4","week":13,"name":"证据卡＋G6 人工审计 → 候选发布或保留/负结果包","need":["V2-C13"]},{"id":"V2-MS5","week":16,"name":"审阅包＋归档交付","need":["V2-C16"]}];
+
+/* ---- 学习资源：视频来源（来自《AIDD 28天保姆级突进系统》映射到16周）+ 补充 ---- */
+const RES=[{"id":"R-G01","wk":0,"name":"黑马程序员 Pandas 教程","what":"看讲\"读表格、选列\"的那几集（参考 P30–P35）","kw":"黑马程序员 Pandas 教程"},{"id":"R-G02","wk":0,"name":"生信技能树 GEO 数据挖掘","what":"看怎么把基因表达量表抠出来（参考 P5–P8）；旧课题基因数据的补课","kw":"生信技能树 GEO数据挖掘"},{"id":"R-G03","wk":0,"name":"生信技能树 limma 差异分析","what":"看怎么找出病人和健康人不一样的基因","kw":"生信技能树 limma"},{"id":"R-G04","wk":0,"name":"生信技能树 ggplot2 画图","what":"看火山图怎么画（参考 P40–P52）","kw":"生信技能树 ggplot2"},{"id":"R-G05","wk":0,"name":"生信技能树 clusterProfiler","what":"看通路\"气泡图\"怎么出（参考 P60–P64）","kw":"生信技能树 clusterProfiler"},{"id":"R-M01","wk":1,"name":"🎓 MOOC M01·研究边界与全链条（第1章）","what":"复现前先想清楚：跑通≠复现≠有效≠有用。完成规则：视频标题＋分钟＋3要点＋闭卷答教回＋本项目应用＋同伴复核，只勾「看过」不算。教回题：为什么一般保肝分类器不能直接称为抗MASH模型？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W1-01","wk":1,"name":"GeekHour Git 入门","what":"前 5 集：代码怎么保存、怎么看历史","kw":"GeekHour Git 教程"},{"id":"R-W1-02","wk":1,"name":"黑马程序员 Conda 教程","what":"怎么给项目建\"独立房间\"（虚拟环境）","kw":"黑马程序员 conda 教程"},{"id":"R-W2-01","wk":2,"name":"GeekHour Git 进阶","what":"看\"打标签 tag\"那一集","kw":"GeekHour Git 进阶"},{"id":"R-M03","wk":3,"name":"🎓 MOOC M03·方法谱系与基线先行（第2章）","what":"指导本周：WP2/WP3 开工——先基线后深度，写进方案。完成规则见M01。教回题：为什么没有基线的深度学习论文不可信？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W3-01","wk":3,"name":"B站搜：RDKit 入门","what":"前几集：一行字母（SMILES）怎么变成分子","kw":"RDKit 入门教程"},{"id":"R-W3-02","wk":3,"name":"B站搜：RDKit 实战","what":"看批量算分子性质的部分","kw":"RDKit 化学信息学"},{"id":"R-M08","wk":4,"name":"🎓 MOOC M08·实战8步SOP＋企业案例（第10、11章·SOP须W5前通读）","what":"指导本周：用8步SOP逐条对照WP2流程总纲；第10章案例W16回看。完成规则见M01。教回题：如何用实验结果更新下一轮筛选，而不修改过去结论？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W4-01","wk":4,"name":"B站搜：ChEMBL 教学","what":"看怎么从 ChEMBL 下载数据、洗干净","kw":"ChEMBL 数据库 Python"},{"id":"R-W4-02","wk":4,"name":"PubChem 官方说明（网页，不是视频）","what":"教你怎么用网址批量查分子","url":"https://pubchem.ncbi.nlm.nih.gov/docs/Programmatic-Access"},{"id":"R-M05","wk":5,"name":"🎓 MOOC M05·对接·虚拟筛选漏斗·QSAR（第6章·重点精读）","what":"指导本周：WP2 真实对接的五级漏斗与 redock 门控。完成规则见M01。教回题：Vina分数能分辨激动剂和拮抗剂吗？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W5-01","wk":5,"name":"B站搜：AutoDock Vina 教程","what":"看怎么画盒子把\"口袋\"框住","kw":"AutoDock Vina 教程"},{"id":"R-W6-01","wk":6,"name":"B站搜：PyMOL 教程","what":"看怎么去掉水分子、显示氢键","kw":"PyMOL 教程"},{"id":"R-M04","wk":7,"name":"🎓 MOOC M04·AI基础与scaffold划分（第3章）","what":"指导本周：WP4 模型升级的划分口径。完成规则见M01。教回题：对称归一化邻接的行和必须等于1吗？为什么？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W7-01","wk":7,"name":"刘二大人 PyTorch（前 3 集）","what":"什么是张量、怎么放进显卡","kw":"刘二大人 PyTorch"},{"id":"R-W7-02","wk":7,"name":"刘二大人 PyTorch（P4–P5）","what":"反向传播：模型是怎么\"学\"的","kw":"刘二大人 PyTorch 反向传播"},{"id":"R-W7-03","wk":7,"name":"刘二大人 PyTorch（P7）","what":"怎么把自己的数据装进 PyTorch","kw":"刘二大人 PyTorch Dataset"},{"id":"R-W7-04","wk":7,"name":"菜菜的 sklearn","what":"看随机森林和数据切分（对照组的做法）","kw":"菜菜的 sklearn"},{"id":"R-W8-01","wk":8,"name":"同济子豪兄 图神经网络","what":"看\"邻接矩阵\"部分：分子图的数学表示","kw":"同济子豪兄 图神经网络"},{"id":"R-W8-02","wk":8,"name":"同济子豪兄 PyTorch Geometric","what":"看 Data 对象怎么装一张分子图","kw":"同济子豪兄 PyG"},{"id":"R-W9-01","wk":9,"name":"同济子豪兄 PyG 进阶","what":"怎么把一批分子做成数据集","kw":"同济子豪兄 PyG 数据集"},{"id":"R-W9-02","wk":9,"name":"同济子豪兄 PyG（接着看）","what":"全局池化：每个原子的信息怎么合成一个分子的分","kw":"PyG global_mean_pool"},{"id":"R-M06","wk":10,"name":"🎓 MOOC M06·ADMET与评价指标（第9章）","what":"指导本周：WP4 收尾的校准与不确定性报告。完成规则见M01。教回题：低Spearman相关为什么不等于证据独立？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W10-01","wk":10,"name":"B站搜：深度学习 不确定性","what":"看讲 MC Dropout 的部分：模型\"心里有没有底\"","kw":"深度学习 不确定性 MC Dropout"},{"id":"R-M02","wk":11,"name":"🎓 MOOC M02·靶点证据与蛋白结构（第4、5章）","what":"指导本周：WP5 靶点档案证据四栏法与 pLDDT 判读。完成规则见M01。教回题：高pLDDT或低redock RMSD能证明药效吗？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W11-01","wk":11,"name":"AlphaFold 数据库官网（网页）","what":"学会查蛋白的预测结构和把握度（pLDDT）","url":"https://alphafold.ebi.ac.uk"},{"id":"R-W12-01","wk":12,"name":"B站搜：PubMed 检索教程","what":"布尔逻辑（AND/OR/NOT）怎么搜文献","kw":"PubMed 检索技巧"},{"id":"R-M07","wk":13,"name":"🎓 MOOC M07·分子生成·逆合成·递送（第7、8章·选学）","what":"指导本周：WP5 展望——列出本项目缺的验证条件。完成规则见M01。教回题：生成有效SMILES是否等于得到可合成、有效的药？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W13-01","wk":13,"name":"B站搜：Matplotlib 雷达图","what":"极坐标雷达图（展示排名用）","kw":"Matplotlib 雷达图"},{"id":"R-M09","wk":14,"name":"🎓 MOOC M09·课程收尾与文献清单（第12章＋附录）","what":"指导本周：答辩引用文献逐条带出处编号。完成规则见M01。教回题：课程推荐的哪篇文献能支撑你答辩的哪条主张？","url":"https://www.icourse163.org/course/FUDAN-1485348164"},{"id":"R-W14-01","wk":14,"name":"B站搜：GitHub README 写法","what":"开源项目说明文档怎么写","kw":"GitHub README 写法"}];;
+
+/* ---- 网站、论文和名词解释 ---- */
+
+/* AIDD 100 天地图（来自微信文章《AIDD学习-第001天》的 10 阶段大纲；最后列=与本学期16周的对应） */
+const DAYS100=[
+ ["①基础","001-010","Python、文件、统计、科研记录规范","分子数据小工具","W1-2 复现+环境"],
+ ["②药物研发","011-020","研发流程、生物学、活性读出、数据偏差","靶点-数据卡","W3 数据库 API"],
+ ["③分子表示","021-030","SMILES、分子图、描述符、指纹、RDKit","分子表示流水线","W3-4 RDKit/指纹"],
+ ["④建模评估","031-040","数据切分、QSAR、指标、不确定性、解释","可解释 QSAR","W7-10 模型升级"],
+ ["⑤虚拟筛选","041-050","相似性、药效团、虚拟筛选、富集率","筛选漏斗","WP2 真实对接（相邻）"],
+ ["⑥结构对接","051-060","PDB、口袋、配体准备、重对接","结构驱动筛选报告","W5-6 对接"],
+ ["⑦生成设计","061-070","生成式设计、结构编辑、约束多样性","受约束生成器","W13 选学展望"],
+ ["⑧ADMET","071-079","成药性、安全性、多目标优化、Pareto","可开发性排序表","W11 SwissADME 对照"],
+ ["⑨工程化","080-089","测试、版本、复现、伦理","可复现 AIDD 模板","W13-15 一键复现+校验"],
+ ["⑩综合项目","090-100","全流程综合项目+答辩","结业项目与延伸计划","W16 结题+展望"]
+];
+
+const FRONTIER=[{"g":"① 公开权威数据库白名单（老师要求：数据/结构/文献只认这些，入库记库名+编号+日期）","items":[{"n":"RCSB PDB（蛋白结构库）","d":"下载蛋白结构文件：FXR 用 1OSH、Keap1 用 4IQK（两者都带小分子共晶配体，满足 redock 门控要求）","u":"https://www.rcsb.org"},{"n":"AlphaFold DB","d":"查蛋白的\"预测结构\"和把握度，第 11 周用","u":"https://alphafold.ebi.ac.uk"},{"n":"ChEMBL","d":"放\"什么药对什么靶点活性多少\"的大库，数据扩充主来源","u":"https://www.ebi.ac.uk/chembl"},{"n":"PubChem","d":"查分子的标准写法（SMILES）和唯一编号（InChIKey）","u":"https://pubchem.ncbi.nlm.nih.gov"},{"n":"TCMSP（中药库）","d":"按功效查中药里的成分，保肝类检索用","u":"https://old.tcmsp-e.com"},{"n":"SwissADME","d":"在线查分子\"像不像药\"（五规则等）","u":"https://www.swissadme.ch"},{"n":"RDKit 官网","d":"算分子性质用的 Python 库的官方说明","u":"https://www.rdkit.org"},{"n":"PyG 官网","d":"图神经网络框架的官方教程","u":"https://pyg.org"},{"n":"AutoDock 官网","d":"对接软件 Vina 的官方说明","u":"https://autodock.github.io"},{"n":"TeachOpenCADD","d":"免费系统的 AIDD 实战课程（化学信息学+ML+对接全套教程）——两篇学习指南都点名推荐","u":"https://projects.volkamerlab.org/teachopencadd/"}]},{"g":"② 要引用的论文（答辩时会问\"方法出处\"）","items":[{"n":"GCN（图卷积，2016）","d":"消息传递的数学底子","u":"https://arxiv.org/abs/1609.02907"},{"n":"MPNN（分子图消息传递，2017）","d":"把这套传递框架讲清楚的论文","u":"https://arxiv.org/abs/1704.01212"},{"n":"GIN（2018）","d":"另一种传递办法，表达力更强","u":"https://arxiv.org/abs/1810.00826"},{"n":"MC Dropout（2016）","d":"\"让模型多答几遍题看稳不稳\"的理论出处——本项目不确定性用的就是它","u":"https://arxiv.org/abs/1506.02142"},{"n":"温度校准（2017）","d":"调模型\"自信心\"的方法出处，第 10 周用","u":"https://arxiv.org/abs/1706.04599"},{"n":"AlphaFold2（Nature 2021）","d":"蛋白结构预测的里程碑","u":"https://doi.org/10.1038/s41586-021-03819-2"},{"n":"MOSES（2018）","d":"分子生成模型的\"考试卷\"，写论文展望用","u":"https://arxiv.org/abs/1811.12823"}]},{"g":"③ 跟进研究进展（写结题报告\"研究现状\"用）","items":[{"n":"重点期刊","d":"Nature Reviews Drug Discovery、Journal of Medicinal Chemistry、Briefings in Bioinformatics（综述多，适合入门跟踪）"},{"n":"检索词①：不确定性","d":"uncertainty quantification molecular property prediction"},{"n":"检索词②：分子生成","d":"diffusion model molecule generation"},{"n":"检索词③：大模型×制药","d":"LLM drug discovery review"},{"n":"检索词④：中药虚拟筛选","d":"virtual screening natural products hepatoprotective"},{"n":"学习路线蓝本","d":"微信文章《AIDD大模型时代的学习规划指南》——本学期每周学什么就是按它排的"},{"n":"100 天计划蓝本","d":"微信文章《AIDD学习-第001天》：证据链五对象+100天地图——本页「AIDD证据链」「100天地图」「学习日志」三块都来自它"},
+{"n":"复旦《人工智能药物设计》课","d":"付伟教授团队，药学生的系统课；学堂在线/B站搜课程名可找到（两篇指南都推荐）","u":"https://search.bilibili.com/all?keyword=人工智能药物设计+付伟"},
+{"n":"《AI-Assisted Drug Design》书","d":"Sheng Ding & Israel S. Alzate 主编，AIDD 入门书；图书馆/ Springer 检索书名","u":"https://link.springer.com/search?query=AI-Assisted+Drug+Design"},
+{"n":"B站：面向药学生的人工智能指北","d":"为零基础药学生写的 AI 入门系列，讲清 AIDD 和 CADD 的区别","u":"https://search.bilibili.com/all?keyword=面向药学生的人工智能指北"}]},{"g":"④ 名词小词典（看不懂的词来这里查）","items":[{"n":"SMILES","d":"用一行字母数字表示一个分子的结构，像分子的\"身份证写法\""},{"n":"InChIKey","d":"分子的国际唯一编号，用来查重"},{"n":"分子对接","d":"像试钥匙：把小分子塞进蛋白\"口袋\"，算结合得牢不牢，给一个分数"},{"n":"对接分数（kcal/mol）","d":"越负表示结合越牢；但它只是估算，不是实验值"},{"n":"RMSD（埃）","d":"两个摆放位置差多少；重对接小于 2 埃≈\"钥匙放回原位\"，说明流程靠谱"},{"n":"GNN（图神经网络）","d":"把分子看成\"原子是点、化学键是线\"的网，让 AI 直接在网上学规律"},{"n":"MC Dropout","d":"让模型连答 30 遍题，答案晃得厉害＝它心里没底；这个\"晃\"就是不确定性"},{"n":"不确定性／置信度","d":"模型对自己答案的把握程度；我们项目的特色就是\"给分数的同时给把握度\""},{"n":"ECE（校准误差）","d":"衡量\"模型说的把握\"和\"实际对错\"匹不匹配，越小越诚实；目标小于 0.10"},{"n":"ρ（Spearman 相关）","d":"两个量的排序一致程度；本项目用它验证\"模型越没把握、错得越多\""},{"n":"AUC","d":"模型分辨好坏分子的能力：0.5＝瞎猜，1.0＝全对；我们暑假考了 0.967"},{"n":"骨架划分","d":"把结构相似的分子整组分到同一边再切训练/考试集，防止\"平时抄原题\"式虚高"},{"n":"适用域／域外预警","d":"模型没见过的陌生结构类型，要标出来、用的时候降权，防止它不懂装懂"},{"n":"阳性对照","d":"用已知有效的药（如水飞蓟宾）跑一遍流程；流程靠谱，它就该排在前面"},{"n":"bootstrap 可信范围","d":"反复抽样算出指标的可信区间，比如\"AUC 在 0.95–0.98 之间\""},{"n":"温度校准（T）","d":"给模型的自信度\"退烧或提神\"的一个小参数，第 10 周调它"},{"n":"git tag（标签）","d":"给代码版本拍快照贴标签，以后随时回到这一刻"},{"n":"45 项检查","d":"仓库自带的\"自动对数字\"脚本：跑一遍全绿，说明报告里的数字没抄错（注：检的是旧工作库·审计F11；最终包验收以 tools/verify_fixes.py 20 项为准）"},{"n":"PDB／pdbqt","d":"蛋白结构文件的格式；对接前要转成 pdbqt"},{"n":"转录组／差异基因（补课）","d":"测病人和健康人哪些基因变多变少，是旧课题的证据链材料"},
+{"n":"AIDD／CADD","d":"AIDD=用 AI/机器学习做药物设计；CADD=传统计算辅助设计。区别在：AIDD 是让模型从数据里自己学规律"},
+{"n":"证据链","d":"生物学问题→靶点→分子→数据→模型→决策→实验验证的完整链条；缺一环的结论不可信"},
+{"n":"基础模型（基础模型）","d":"在海量数据上预训练好的通用大模型，可以再微调去干具体活；大模型时代的起点"},
+{"n":"富集率（EF）","d":"虚拟筛选的「考试分」：筛出来的分子里活性比例比随机高多少倍"},
+{"n":"Pareto 前沿","d":"多个目标（活性好+毒性低）不可能同时最好时，「谁也不吃亏」的那组最优解"},
+{"n":"微调／提示工程","d":"让大模型适配具体任务的两条路：微调=再训练改参数；提示工程=不改参数、靠问法引导"}]}];
+
+const DAYS28=[
+[1,"生信与基建","搭好电脑的“单间”与防坑设置","命令行前面有 (MASH_AIDD) 的标志，D盘的四个文件夹建好了。"],
+[2,"生信与基建","不用 Excel，用 Pandas 洗数据","几十兆的 gz 压缩包成功出现在电脑 data 文件夹里。"],
+[3,"生信与基建","用 R 语言把基因数据抠出来","成功生成 exp_matrix.RData 文件，里面装满了纯数字。"],
+[4,"生信与基建","找茬游戏：揪出致病基因 (limma)","找出了那几个特定基因的 P 值和差异倍数，确立大创理论根基。"],
+[5,"生信与基建","画出高大上的科研图表","生成了一张没有马赛克、红蓝分明的高清火山图。"],
+[6,"生信与基建","这些基因到底管啥病？(KEGG)","得到了 KEGG 通路气泡图，并找到了与肝病相关的通路证据。"],
+[7,"生信与基建","全组同步与代码封存","查作业脚本全绿，代码仓库打上了 v1.0.0-bioinf 的标签。"],
+[8,"特征与机器学习","用 Python 画出中药分子 (RDKit)","电脑里出现了一张清清楚楚的多边形化学分子图。"],
+[9,"特征与机器学习","这药能吃吗？算算它的物理性质","屏幕上打印出了表格，每个分子都有了精确的浮点数指标。"],
+[10,"特征与机器学习","给分子拍条形码 (Morgan指纹)","打出的数组里绝对只有 0 和 1，且长度严格等于 1024。"],
+[11,"特征与机器学习","排雷战：杀掉“假阳性”骗子药","运行测试时能成功报警，清洗后的总表行数变少。"],
+[12,"特征与机器学习","去大库偷金币 (ChEMBL API)","搞到了一份包含真实已知药学分子的巨型干净数据表。"],
+[13,"特征与机器学习","平滑指标：IC50 变成 pIC50","新生成的 pIC50 列全是 4.0 到 9.5 之间平稳的小数。"],
+[14,"特征与机器学习","大决战：跑通随机森林 AI","跑出没有报错的 R2 分数，完成经典机器学习闭环。"],
+[15,"图网络深度炼丹","把数据塞进显卡 (Tensor)","成功导入 torch 包，且能将数据 to(device) 送入显存。"],
+[16,"图网络深度炼丹","炼丹四句真言 (反向传播)","看到屏幕上的 Loss 值稳稳地变小收敛。"],
+[17,"图网络深度炼丹","造一个自动运货管道 (DataLoader)","装载机不卡顿，平滑吐出大小规整的批次张量数据。"],
+[18,"图网络深度炼丹","图卷积是怎么把分子榨干的？(GCN)","顿悟：图卷积不是玄学，就是带连线权重的矩阵乘法。"],
+[19,"图网络深度炼丹","大厂的图框架咋用？(PyG)","能顺利在命令行里 import torch_geometric。"],
+[20,"图网络深度炼丹","把一万个药变成图纸 (自动构图)","硬盘里成功生成了百兆级别的 .pt 图谱数据文件。"],
+[21,"图网络深度炼丹","散装原子揉成大药丸 (全局池化)","模型跑通无崩溃，测试集 R2 战胜经典 ML。"],
+[22,"项目收尾与答辩","逼 AI 说真话 (MC Dropout)","真药方差小，假药方差飙到十几，成功暴露 AI 盲区。"],
+[23,"项目收尾与答辩","方差做大刀砍假药 (CW-BCS)","大榜洗牌，排前面的全是不仅分高而且 AI 极度自信的好药。"],
+[24,"项目收尾与答辩","物理防线：药塞进真靶点 (Vina)","得到一批包含真实物理碰撞结合自由能分数的日志。"],
+[25,"项目收尾与答辩","画顶刊级别锁孔图 (PyMOL)","拿到白底、红黄虚线与蛋白缠绕清晰可见的三维图。"],
+[26,"项目收尾与答辩","画出六边形战士雷达图","生成带标签、线条平滑、色彩高级的多边形雷达图。"],
+[27,"项目收尾与答辩","找古老文献给模型找场子","找到了具有活体实验支撑的文献“干爹”。"],
+[28,"项目收尾与答辩","大满贯结束：一键启动跑完","项目变成了一键可执行的黑盒工厂，任何零基础的接盘侠下载都不会报错。"]
+];
+
+/* ================= 状态（localStorage 持久化） ================= */
+const SKEY = "semester_flow_leader_v1";
+let S = {done:{}, checks:{}, notes:{}, log:[], res:{}};
+function load(){ try{ const raw = localStorage.getItem(SKEY); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){ warnLS(); } }
+function warnLS(){ setTimeout(()=>{ const el=document.getElementById('hmeta'); if(el) el.insertAdjacentHTML('beforeend','<span class="chip dead">⚠️ 本浏览器禁止本地存储，进度仅本次有效，请及时导出</span>'); },0); }
+function save(){ try{ localStorage.setItem(SKEY, JSON.stringify(S)); }catch(e){} }
+function logAct(action, id, text){ S.log.unshift({t:fmtDT(new Date()),action,id,text}); if(S.log.length>800) S.log.length=800; save(); }
+function fmtDT(d){ const p=n=>String(n).padStart(2,"0"); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; }
+
+/* ================= 工具函数 ================= */
+function weekNoNow(){ const d=new Date(); const diff=Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate())-START)/(7*864e5))+1; return Math.max(0,Math.min(NWEEK+1,diff)); }
+function wkDoneCount(w){ let n=S.checks?0:0; n=0; w.tasks.forEach(([id])=>{ if(S.done[id]) n++; }); MANUALS.filter(m=>m.week===w.no).forEach(m=>{ if(S.done[m.id]) n++; }); w.checks.forEach(c=>{ if(S.checks[c.id]) n++; }); return n; }
+function wkTotal(w){ return w.tasks.length + MANUALS.filter(m=>m.week===w.no).length + w.checks.length; }
+function overall(){ let d=0,t=0; WEEKS.forEach(w=>{ d+=wkDoneCount(w); t+=wkTotal(w); }); return [d,t]; }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+/* 路径直达链接：只链接"带目录的仓库内路径"或少数根目录文件，裸文件名不链接（防误链） */
+const ROOTFILES = new Set(["run_all.py","README.md","requirements.txt","成员与分工.md"]);
+function linkPaths(s){
+  let lastDir = "";
+  return esc(s).split(/(、|，|,)/).map(part=>{
+    const m = part.match(/^([A-Za-z0-9_\/\.\-一-鿿]+)\.(py|md|csv|sh|json|txt|html|png|pdf)$/);
+    if(!m){
+      const d = part.match(/^([A-Za-z0-9_\-一-鿿]+(?:\/[A-Za-z0-9_\-一-鿿]+)+\/)$/);
+      if(d) lastDir = d[1];
+      return part;
+    }
+    const tok = m[0];
+    if(tok.includes("/")){ lastDir = tok.slice(0, tok.lastIndexOf("/")+1);
+      return `<a class="pl" href="../${tok}" title="本地打开直达">${tok}</a>`; }
+    if(ROOTFILES.has(tok)) return `<a class="pl" href="../${tok}">${tok}</a>`;
+    if(lastDir) return `<a class="pl" href="../${lastDir}${tok}" title="本地打开直达">${tok}</a>`;
+    return tok;
+  }).join("");
+}
+function msDone(m){ return m.need.length>0 && m.need.every(id => S.checks[id] || S.done[id]); }
+function findTask(id){ for(const w of WEEKS){ for(const [tid,tx] of w.tasks){ if(tid===id) return {tx,week:w.no}; } } for(const m of MANUALS){ if(m.id===id) return {tx:m.text,week:m.week,manual:true}; } for(const w of WEEKS){ for(const c of w.checks){ if(c.id===id) return {tx:c.desc,week:w.no,check:true}; } } for(const r of RES){ if(r.id===id) return {tx:r.name,week:r.wk,res:true}; } return {tx:id,week:"?"}; }
+
+/* ================= 视图 ================= */
+let VIEW = "mywork", CURW = Math.max(1,Math.min(NWEEK,weekNoNow()||1));
+
+function header(){
+  const wn = weekNoNow(); const [d,t] = overall(); const pct = t? Math.round(d*100/t):0;
+  const resDone = RES.filter(r=>S.res[r.id]).length;
+  let wnTxt = wn===0?`距9月7日开学 ${Math.ceil((START-new Date())/864e5)} 天（开学前预习）`:(wn>NWEEK?"学期结束后（论文投稿/返修窗口）":`学期第 ${wn} 周`);
+  document.getElementById("hmeta").innerHTML =
+    `<span class="chip">📅 ${wnTxt} · 2026-09-07 开学 · 16周</span>`+
+    `<span class="chip">📈 总打卡 ${d}/${t}（${pct}%）</span>`+
+    `<span class="chip">📺 视频学习 ${resDone}/${RES.length}</span>`+
+    `<span class="chip">🎯 阶段目标 ${MILESTONES.filter(msDone).length}/${MILESTONES.length}</span>`;
+}
+
+function render(){
+  header();
+  const app = document.getElementById("app");
+  if(VIEW==="mywork") app.innerHTML = vMyWork();
+  else if(VIEW==="pipeline") app.innerHTML = vPipeline();
+  else if(VIEW==="dash") app.innerHTML = vDash();
+  else if(VIEW==="overview") app.innerHTML = vOverview();
+  else if(VIEW==="week") app.innerHTML = vWeek(CURW);
+  else if(VIEW==="res") app.innerHTML = vRes();
+  else if(VIEW==="ledger") app.innerHTML = vLedger();
+  else if(VIEW==="data") app.innerHTML = vData();
+  bind();
+}
+
+/* ---- 当前正式研究链（AIDD 主库只读投影；旧暑假管线见下方折叠区） ---- */
+const RESEARCH_CHAIN={updated:"2026-09-22", current:3,
+ steps:[
+  ["① 研究问题冻结（G0）","治疗方向、靶点亚型、终点、用途、主指标先冻结成协议；模糊就只算探索。","00-当前研究/research_chain_v2_20260921/完整研究链路_v2.md §3","本周已定"],
+  ["② 靶点资格（G1）","临床/机制/组学/可建模性分开审查；疾病相关不等于可筛。","00-当前研究/research_chain_v2_20260921/Gate验收矩阵.csv","待执行"],
+  ["③ 活性数据资格（G2）——现在做的","Phase 2B P0 共 49 条真人核验＋结构/单位/关系符号/重复冲突审计；关键 P0 未解决则保持阻塞。当前真人完成 0 条。","human_review/phase2b_20260915/FIRST_BATCH_PILOT_TASKS.md","进行中·待真人核验"],
+  ["④ 模型资格（G3）","同数据同划分同条件；简单基线优先；图网络只做同折比较不堆架构；无外推证据则限探索用途。","00-当前研究/research_chain_v2_20260921/决策与验收补充.md §一","W7–W10"],
+  ["⑤ 输出资格（G4）","分轨合格命中表：域外/高不确定进探索池不混正式榜；允许零命中。","00-当前研究/research_chain_v2_20260921/Gate验收矩阵.csv","W11·条件启动"],
+  ["⑥ 结构支持（G5 支路）","姿态恢复/协议稳健性/用途验证三层；野生型 THRβ 排序用途维持关闭；分子动力学只做有判别价值的问题。","00-当前研究/research_chain_v2_20260921/完整研究链路_v2.md §8-9","W12·可选"],
+  ["⑦ 候选发布（G6）","人工逐条审计＋可信签核＋上游全部现行才放行；合格数可为零。","00-当前研究/qualification_v1/RESEARCH_STATE.md","W13·受门控"],
+  ["⑧ 实验/最终决策（G7）","莫拉克辛 N 沿既有预注册包推进（线C）；实验结果不填不编。","00-当前研究/qualification_v1/OPEN_ISSUES.md","线C·待物料"
+ ]
+ ]};
+const WEEKS_ARE_HISTORICAL_V2=true;
+
+function vPipeline(){
+  const stages=RESEARCH_CHAIN.steps.map((x,i)=>{ const status=i+1===RESEARCH_CHAIN.current?'当前阶段':x[3]; const cls=i+1===RESEARCH_CHAIN.current?'tag b':(x[3].includes('受阻')||x[3].includes('FAIL')?'tag r':(x[3].includes('完成')?'tag g':'tag y')); return `<tr class="${i+1===RESEARCH_CHAIN.current?'now':''}"><td><b>${esc(x[0])}</b></td><td>${esc(x[1])}</td><td>${linkPaths(x[2])}</td><td><span class="${cls}">${esc(status)}</span></td></tr>`; }).join('');
+  const oldSteps=PIPELINE.steps.map(s=>`<tr><td><b>${esc(s[0])}</b></td><td>${esc(s[1])}</td><td><span class="cmd">${esc(s[2])}</span></td><td>${esc(s[3])}</td></tr>`).join('');
+  const prog=PIPELINE.progress.map(p=>`<div class="item"><span class="tx"><b>${p[0]} ${esc(p[1])}</b>——${esc(p[2])}</span></div>`).join('');
+  return `<div class="card current-task" style="border-left:4px solid var(--brand)"><h2>🧭 当前正式研究链（${RESEARCH_CHAIN.updated}）</h2><div class="kv">AIDD 主库是唯一正式科研状态源；本库负责方法学习、历史模型复核和组员任务。当前阶段突出显示，工具不能反过来决定科研阶段。</div><table><tr><th>阶段</th><th>现在的含义</th><th>状态/证据入口</th><th>状态</th></tr>${stages}</table><div class="hint">当前阻塞：G2 真人正式核验尚未完成；G3 仍 REVIEW；W0 ready_count=0；wetlab=NOT_EXECUTED；candidate_release=false。湿实验执行方沟通可并行，但不能推进 Gate。先阅读主库状态并按成员当前任务提交人工复核记录。</div></div><details class="card history-fold"><summary>历史暑假教学管线（保留用于复现，不代表当前科研结论）</summary><div class="kv">旧 Top-10、旧 AUC、旧双靶和 docking 排名只可作历史复核，不能直接转为当前候选。</div><table><tr><th>旧步骤</th><th>历史内容</th><th>代码/产物</th><th>状态</th></tr>${oldSteps}</table><div class="hint">历史复现：<span class="cmd">python run_all.py --legacy-demo</span>；默认入口只显示未放行状态。</div></details><details class="card history-fold"><summary>历史进度与核验记录</summary><div class="kv">历史进度保留作错误分析和复现入口，不作为当前研究链完成度。</div>${prog}</details>`;
+}
+
+/* ---- 我的工作台 ---- */
+function vMyWork(){
+  const M=MYWORK; const C=M.currentContext||{};
+  const tasks=M.tasks.map(t=>`<tr><td><span class="id">${t[0]}</span></td><td>${esc(t[1])}</td><td>${linkPaths(t[2])}</td></tr>`).join('');
+  const files=M.files.map(g=>`<h3>${esc(g[0])}</h3><table>${g[1].map(r=>`<tr><td>${linkPaths(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('')}</table>`).join('');
+  const ops=M.ops.map(o=>`<div class="item"><span class="tx"><b>${esc(o[0])}</b>——${linkPaths(o[1])}</span></div>`).join('');
+  const links=M.ghlinks.map(l=>`<div class="logline"><span class="t">${esc(l[0])}</span><a href="${l[1]}" target="_blank" rel="noopener">打开 ↗</a></div>`).join('');
+  const team=M.team.map(t=>`<tr><td><b>${t[0]}</b></td><td>${esc(t[1])}</td><td><a class="cmd" href="../${esc(t[2])}">${esc(t[2])}</a></td></tr>`).join('');
+  return `<div class="card current-task current-review-banner" style="border-left:4px solid var(--brand)"><h2>现在先做什么</h2><div class="kv"><b>${esc(C.week||'本周')}</b> ｜ 当前阶段：<b>${esc(C.stage||'pipeline revalidation')}</b></div><div class="grid current-task-grid"><div><h3>为什么现在做</h3><div class="lead">${esc(C.why||'')}</div></div><div><h3>第一步</h3><div class="lead">${esc(C.first||'')}</div></div><div><h3>做完交什么</h3><div class="lead">${esc(C.deliver||'')}</div></div></div>${C.action_url?`<div class="hint"><b>直达：</b><a class="pl" href="${C.action_url}" target="_blank" rel="noopener">${esc(C.action||'打开入口')}</a> ｜ 状态来源：${esc(C.source||'AIDD 主库')}</div>`:''}</div><div class="card history-boundary"><h2>先记住这件事</h2><div class="kv">本仓库是 <b>GNN 方法学习＋历史模型复核＋组员工作区</b>；AIDD 主库才是正式科研状态源。<b>candidate_release=false</b>，GNN 当前 gated。旧结果只作历史复核。</div></div><div class="card" style="border-left:4px solid var(--brand2)"><h2>🧭 ${esc(M.fullname)} 的工作台</h2><div class="kv"><b>${esc(M.fullname)}</b> ｜ ${esc(M.roleTag)} ｜ <span class="tag g">${esc(M.lineTag)}</span> ｜ 待核文件 <b>${M.fileCount}</b> 个 ｜ 时限 <b>${esc(M.deadline)}</b></div><div class="exp">职责：${esc(M.duty)}</div></div><details class="card history-fold"><summary>历史复核任务与技术参数（不代表当前科研结论）</summary><div class="kv">以下内容用于复现旧代码、学习和错误分析；旧指标不再是当前任务的通过门槛。</div><table><tr><th>编号</th><th>要做什么</th><th>过关口径</th></tr>${tasks}</table></details><details class="card history-fold"><summary>文件映射与操作细节</summary><h3>我的文件（共 ${M.fileCount} 个）</h3>${files}<h3>怎么操作</h3>${ops}</details><details class="card history-fold"><summary>仓库直链与全队入口</summary>${links}<table><tr><th>成员</th><th>角色·校验线</th><th>打卡页</th></tr>${team}</table></details>`;
+}
+
+/* ---- 本周看板 ---- */
+function vDash(){
+  const wn = Math.max(1,Math.min(NWEEK,weekNoNow()||1)); const w = WEEKS[wn-1];
+  const nexts = [];
+  for(const [id,tx] of w.tasks){ if(!S.done[id]){ nexts.push({id,tx}); break; } }
+  if(!nexts.length){ for(const m of MANUALS.filter(m=>m.week===w.no)){ if(!S.done[m.id]){ nexts.push({id:m.id,tx:m.text}); break; } } }
+  const ms = MILESTONES.find(m=>m.week===wn||m.week===wn+1);
+  return `
+  <div class="card"><h2>📍 第 ${w.no} 周 · ${w.theme}</h2>
+    <div class="kv"><b>${w.dates}</b> ｜ 学习线：<b>${w.stage}</b> ｜ 完成度 <b>${wkDoneCount(w)}/${wkTotal(w)}</b></div>
+    <div class="prow"><div class="bar"><i style="width:${w.tasks.length?Math.round(wkDoneCount(w)*100/wkTotal(w)):0}%"></i></div></div>
+    <h3>今天先做</h3>
+    ${nexts.length? `<div class="item"><span class="id">${nexts[0].id}</span><span class="tx">${esc(nexts[0].tx)}</span></div>`:`<div class="kv">本周任务全部打卡 ✓ → 点上方"周卡片·打卡"核验学习卡，再看下周</div>`}
+    ${ms?`<h3>最近的阶段目标</h3><div class="mst ${msDone(ms)?"ok":""}"><span class="mid">${ms.id}</span>W${ms.week} ${esc(ms.name)} ${msDone(ms)?'<span class="ok-emoji">✓ 达成</span>':'<span class="count">进行中</span>'}</div>`:``}
+    <div class="hint">完整内容在「周卡片·打卡」页；本页数字和仓库里的工具是同一套。</div>
+  </div>
+  <div class="card"><h2>🙋 第一次用？三步</h2><div class="item"><span class="tx">① <b>周一</b>看板领任务 → ② <b>周中</b>照周卡片"怎么动手"做、视频看完打勾 → ③ <b>周五</b>跑检查命令，全[通过]再勾，生成周报发负责人</span></div><div class="hint">看不懂的词到「学习资源」页底部查名词小词典。</div></div>
+  <div class="card"><h2>⚡ 快捷动作</h2>
+    <button class="act" onclick="goWeek(${w.no})">打开本周卡片打卡</button>
+    <button class="act o" onclick="report(${w.no})">生成周报（自动复制，发给负责人）</button>
+    <button class="act o" onclick="VIEW='overview';render()">学期总览</button>
+  </div>`;
+}
+
+/* ---- 学期总览 ---- */
+function vOverview(){
+  const wn = weekNoNow();
+  let rows = WEEKS.map(w=>{ const d=wkDoneCount(w),t=wkTotal(w),p=t?Math.round(d*100/t):0;
+    return `<tr class="wrow ${w.no===wn?'now':''}" onclick="goWeek(${w.no})">
+      <td><b>W${w.no}</b></td><td>${w.dates}</td><td>${w.stage}</td><td>${esc(w.theme)}</td>
+      <td><div class="prow" style="margin:0"><div class="bar"><i style="width:${p}%"></i></div><span class="count">${d}/${t}</span></div></td></tr>`; }).join("");
+  const ms = MILESTONES.map(m=>`<div class="mst ${msDone(m)?'ok':''}"><span class="mid">${m.id}</span>W${m.week} ${esc(m.name)} ${msDone(m)?'<span class="ok-emoji">✓</span>':`<span class="count">待 ${m.need.join(" ")||'现场'}</span>`}</div>`).join("");
+  return `<div class="card"><h2>🗓 16 周总览：每周 学什么 · 做什么 · 查什么</h2>
+    <table><tr><th>周</th><th>日期</th><th>学习线</th><th>主题</th><th>打卡进度</th></tr>${rows}</table>
+    <div class="hint">点任意一行进入那一周的卡片。还没到时间的检查项空着是正常的，到了时间自然要补上。</div></div>
+  <div class="card"><h2>🎯 阶段目标（共 ${MILESTONES.length} 个：${MILESTONES[0].id}–${MILESTONES[MILESTONES.length-1].id}）</h2>${ms}</div>`;
+}
+
+/* ---- 周卡片·打卡 ---- */
+function vWeek(n){
+  const w = WEEKS[n-1];
+  const tasks = w.tasks.map(([id,tx])=>{
+    const done = S.done[id];
+    return `<label class="item ${done?'done':''}"><input type="checkbox" data-k="done" data-id="${id}" ${done?'checked':''}>
+      <span class="tx"><span class="id">${id}</span>${esc(tx)}${done?`<span class="ts">✓ ${esc(S.done[id].slice(5,16))}</span>`:''}</span></label>`; }).join("");
+  const mans = MANUALS.filter(m=>m.week===w.no).map(m=>{
+    const done=S.done[m.id]; const over = m.dead && !done && new Date(m.dead.replace(/-/g,'/'))<new Date();
+    return `<label class="item ${done?'done':''} ${over?'overdue':''}"><input type="checkbox" data-k="done" data-id="${m.id}" ${done?'checked':''}>
+      <span class="tx"><span class="id">${m.id}</span>${esc(m.text)}${m.dead?`<span class="dl">截止 ${m.dead}</span>`:''}${done?`<span class="ts">✓ ${esc(S.done[m.id].slice(5,16))}</span>`:''}</span></label>`; }).join("");
+  const checks = w.checks.map(c=>{
+    const done=S.checks[c.id];
+    return `<label class="item ${done?'done':''}"><input type="checkbox" data-k="check" data-id="${c.id}" ${done?'checked':''}>
+      <span class="tx"><span class="id">${c.id}</span><b>${esc(c.desc)}</b><br><span class="kv">过关标准：<b>${esc(c.exp)}</b> ｜ 出处：${linkPaths(c.src)}</span>${done?`<span class="ts">已实测✓ ${esc(S.checks[c.id].slice(5,16))}</span>`:''}</span></label>`; }).join("");
+  const learn = w.learn.map(t=>`<div>· ${esc(t)}</div>`).join("");
+  const vids = RES.filter(r=>r.wk===w.no).map(r=>{
+    const done=S.res[r.id];
+    const link = r.kw?`<a href="https://search.bilibili.com/all?keyword=${encodeURIComponent(r.kw)}" target="_blank">B站搜“${esc(r.kw)}”</a>`:(r.url?`<a href="${r.url}" target="_blank">直达↗</a>`:``);
+    return `<label class="item ${done?'done':''}"><input type="checkbox" data-k="res" data-id="${r.id}" ${done?'checked':''}>
+      <span class="tx"><span class="id">${r.id}</span><b>${esc(r.name)}</b>：${esc(r.what)}${link?`｜${link}`:''}${done?`<span class="ts">已看✓</span>`:''}</span></label>`; }).join("");
+  const coord = w.coord.map(t=>`<div>· ${esc(t)}</div>`).join("");
+  const c = w.card;
+  const d=wkDoneCount(w),t=wkTotal(w),p=t?Math.round(d*100/t):0;
+  return `
+  <div class="wknav">
+    <button class="act o" onclick="goWeek(${Math.max(1,n-1)})">‹ 上一周</button>
+    <select id="wksel" onchange="goWeek(+this.value)">${WEEKS.map(x=>`<option value="${x.no}" ${x.no===n?'selected':''}>第${x.no}周 ${x.dates} ${x.theme.slice(0,12)}</option>`).join("")}</select>
+    <button class="act o" onclick="goWeek(${Math.min(NWEEK,n+1)})">下一周 ›</button>
+    <span class="chip b">完成 ${d}/${t}（${p}%）</span>
+    <button class="act g" onclick="report(${n})">生成周报</button>
+    <button class="act o" onclick="window.print()">打印本卡</button>
+  </div>
+  <div class="card"><h2>第 ${w.no} 周 · ${esc(w.theme)} <span class="tag b">${w.stage}</span><span class="tag">${w.dates}</span></h2>
+    <div class="prow"><div class="bar"><i style="width:${p}%"></i></div></div>
+    <h3>📚 AIDD 学习（${w.stage}）</h3>${learn}
+    ${vids?`<h3>📺 本周要看的教学视频（看完打勾）</h3>${vids}`:``}
+    <h3>🧪 本周学习检查（达到过关标准再打勾）</h3>
+    <table>
+      <tr><td class="kv" style="width:84px">学什么做什么</td><td>${esc(c.task)}</td></tr>
+      <tr><td class="kv">怎么动手</td><td><span class="cmd">${linkPaths(c.cmd)}</span></td></tr>
+      <tr><td class="kv">过关标准</td><td><b>${esc(c.expected)}</b></td></tr>
+      <tr><td class="kv">出处</td><td>${linkPaths(c.source)}</td></tr>
+      <tr><td class="kv">没过怎么办</td><td>${esc(c.criteria)}</td></tr>
+      <tr><td class="kv">谁来检查</td><td>${esc(c.verifier)}</td></tr>
+    </table>
+    ${w.ex?`<div class="exp">练习文件：${linkPaths("learning/王启龙/"+w.ex.file)} ｜ 生成练习模板：<span class="cmd">python tools/semester_flow.py ${w.ex.gen}</span> ｜ 写完自动判分：<span class="cmd">python tools/semester_flow.py check ${w.no}</span></div>`:''}
+    <h3>✅ 项目任务（做完就点一下打勾）</h3>${tasks}
+    ${w.paper?`<div class="hint" style="margin-top:8px">📌 本周投稿任务 <b>${w.paper[0]}</b>：${esc(w.paper[1])}（复核：${esc(w.paper[2])}；截止 ${esc(w.paper[3])}）——同一工作只交一次证据，学习打卡不代替投稿验收；任务唯一来源：AIDD 任务总表（入口 ${linkPaths("docs/中文核心投稿任务入口.md")}）。</div>`:''}
+    ${mans?`<h3>🧾 外部/手工事项（平台或线下，打卡留痕）</h3>${mans}`:''}
+    <h3>🔍 本周自动检查（先跑命令，看到[通过]再勾）</h3>${checks}
+    <h3>👥 负责人统筹</h3>${coord}
+    <h3>📝 本周备注（记实测数字、遇到的问题、要交给谁）</h3>
+    <textarea id="wnote" placeholder="例如：W3 RDKit重算 MW 偏差均值+18.2（三萜系统偏大），已移交衣思淼并入WP3。">${esc(S.notes[n]||"")}</textarea>
+    <div class="hint">检查命令：<span class="cmd">python tools/semester_flow.py check ${w.no} --deep</span>（仓库根目录运行）。打勾记录见「打卡台账」。</div>
+  </div>`;
+}
+
+/* ---- 学习资源 ---- */
+function vRes(){
+  const item=r=>{
+    const done=S.res[r.id];
+    const link = r.kw?`<a href="https://search.bilibili.com/all?keyword=${encodeURIComponent(r.kw)}" target="_blank">B站搜“${esc(r.kw)}”</a>`:(r.url?`<a href="${r.url}" target="_blank">打开↗</a>`:``);
+    return `<label class="item ${done?'done':''}"><input type="checkbox" data-k="res" data-id="${r.id}" ${done?'checked':''}>
+      <span class="tx"><span class="id">${r.id}</span><b>${esc(r.name)}</b>：${esc(r.what)}${link?`｜${link}`:''}${done?`<span class="ts">已看✓ ${esc(S.res[r.id].slice(5,16))}</span>`:''}</span></label>`; };
+  const resDone = RES.filter(r=>S.res[r.id]).length;
+  let html = `<div class="card" style="border-left:4px solid var(--warn)"><h2>🧬 AIDD 证据链——整个项目就在这条链上（来自《AIDD 100天计划》）</h2>
+    <div class="kv" style="font-size:13.5px">生物学问题 → <b>靶点</b>与实验读出 → <b>分子</b>结构表示 → <b>数据</b>清洗与特征 → <b>模型</b>预测 → <b>决策</b>（候选排序）→ 实验验证反馈</div>
+    <table class="d28" style="margin-top:8px"><tr><th>五对象</th><th>我们项目里的实例</th><th>你的落点</th></tr>
+    <tr><td><b>靶点</b></td><td>保肝（MASH）问题 → FXR 主线（Keap1 分支：门控阻断中）</td><td>docs/03 对接协议</td></tr>
+    <tr><td><b>分子</b></td><td>中药成分 SMILES → 分子图（13 维原子特征）</td><td>src/chem 解析器</td></tr>
+    <tr><td><b>数据</b></td><td>88 条带标签 + 12 候选池，骨架划分防泄漏</td><td>data/ 与附录A</td></tr>
+    <tr><td><b>模型</b></td><td>GNN+MC Dropout：给分数同时给把握度</td><td>src/models</td></tr>
+    <tr><td><b>决策</b></td><td>Top-60 协同评分排名（Top-10 待真人核验）</td><td>核验任务分派</td></tr></table>
+    <div class="hint">⚠️️ 铁律：模型给出的永远是"<b>值得验证的假设</b>"，不是"被证明的药物结论"——所以排名出来后还有真人核验和（下学期）细胞实验这两关。</div></div>`;
+  html += `<div class="card res"><h2>📺 教学视频（看完 ${resDone}/${RES.length}）</h2>`;
+  const g0 = RES.filter(r=>r.wk===0);
+  if(g0.length) html += `<h3>🧭 随时能看的补课（生信那几集是旧课题的基因数据材料）</h3>` + g0.map(item).join("");
+  WEEKS.forEach(w=>{ const its=RES.filter(r=>r.wk===w.no); if(its.length)
+    html += `<h3>W${w.no}（${w.dates}）· ${w.stage}｜${esc(w.theme)}</h3>` + its.map(item).join(""); });
+  html += `<div class="hint">视频来自《AIDD 28天突进系统》那份材料，按主题排进了 16 周。点"B站搜…"直接打开B站搜索页；"P几"是建议优先看的集数，仅供参考；看完就打勾。</div></div>`;
+  html += `<h2 style="font-size:17px;margin:22px 0 10px;color:var(--brand)">🔬 网站、论文和名词解释</h2>`;
+  html += FRONTIER.map(g=>`<div class="card" style="margin-bottom:12px"><h2 style="font-size:15px">${esc(g.g)}</h2>${
+    g.items.map(it=>`<div class="item"><span class="tx"><b>${esc(it.n)}</b>：${esc(it.d)}${it.u?`｜<a href="${it.u}" target="_blank">${esc(it.u.replace(/^https?:\/\//,'').split('/')[0])}↗</a>`:''}</span></div>`).join("")}</div>`).join("");
+  html += `<div class="card" style="border-left:4px solid var(--bad)"><h2>🏛 权威来源纪律（老师着重强调，全队硬规则）</h2>
+    <table class="d28"><tr><th>要什么</th><th>只认哪里</th><th>入库必须记什么</th></tr>
+    <tr><td>分子结构/SMILES</td><td>PubChem、ChEMBL</td><td class="kv">CID 或 ChEMBL ID + 访问日期</td></tr>
+    <tr><td>活性/靶点数据</td><td>ChEMBL、BindingDB</td><td class="kv">库内编号 + 检测类型/单位</td></tr>
+    <tr><td>蛋白结构</td><td>RCSB PDB、AlphaFold DB</td><td class="kv">PDB ID（如 1OSH）+ 分辨率</td></tr>
+    <tr><td>中药成分</td><td>TCMSP、PubChem</td><td class="kv">来源库 + 成分编号</td></tr>
+    <tr><td>成药性</td><td>SwissADME（官方网）</td><td class="kv">计算条件 + 日期</td></tr>
+    <tr><td>文献证据</td><td>PubMed、CNKI</td><td class="kv">PMID / 篇名+期刊+年份</td></tr></table>
+    <div class="exp">四条硬规则：① <b>只认官方权威库</b>——百度/百科/公众号/博客只能当"找线索"，不能当数据源；② 入库一律记 <b>库名+唯一编号+访问日期</b>，缺一不可（WP3 验收第 1 条）；③ <b>AI 给的任何数字/结构/文献，必须到权威库核实后才能引用</b>——AI 只许出检索词，不许下结论；④ 发现某条数据来自非权威源，标记并回权威库重查，查不到就删（留处置记录）。</div></div>`;
+  html += `<div class="card"><h2>🗓 28 天速查表（寒假突击 / 新同学入组用）</h2>
+    <table class="d28"><tr><th>天</th><th>阶段</th><th>主题</th><th>当日验收</th></tr>${
+    DAYS28.map(r=>`<tr><td><b>D${r[0]}</b></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td class="kv">${esc(r[3])}</td></tr>`).join("")}</table>
+    <div class="hint">这张 28 天表是给旧课题（抗MASH）写的速成计划：D2–D7 是基因数据部分（当作补课材料看），D8–D28 和现在项目的流程一一对应。寒假突击、或者新同学进组，都可以直接照着来。<b>定位：辅助学习路线，非另一份项目截止安排；唯一正式周次从 9 月 7 日起算。</b></div></div>`;
+  html += `<div class="card"><h2>🗺 AIDD 100 天地图（来自《AIDD 100天计划·第001天》，看全行业怎么学）</h2>
+    <table class="d28"><tr><th>阶段</th><th>天数</th><th>内容</th><th>阶段产出</th><th>本学期对应</th></tr>${
+    DAYS100.map(r=>`<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td class="kv">${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join("")}</table>
+    <div class="hint">这是行业通用的 100 天路线；我们 16 周学期=它的压缩实践版（对应列）。想继续深造（考研/进组），按这张表把没覆盖的阶段（5/7/8）在假期补上即可。每阶段结尾都有小项目——"产出"列就是检验学没学会的标准。<b>定位：辅助学习路线，非另一份项目截止安排；唯一正式周次从 9 月 7 日起算。</b></div></div>`;
+  return html;
+}
+
+/* ---- 打卡台账 ---- */
+function jGet(){ try{ return JSON.parse(localStorage.getItem(SKEY+"_journal")||"{}"); }catch(e){ return {}; } }
+function jSet(k,v){ const j=jGet(); j[k]=v; localStorage.setItem(SKEY+"_journal",JSON.stringify(j)); }
+function vLedger(){
+  const [d,t] = overall();
+  const J = jGet();
+  const sel=(k,label)=>`<div class="prow" style="margin:4px 0"><span style="width:150px" class="kv">${label}</span><select onchange="jSet('${k}',this.value)" style="padding:5px 8px;border:1px solid var(--line);border-radius:6px;font-family:inherit">${["不会","听过","会用","能教别人"].map(o=>`<option ${J[k]===o?"selected":"","Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color"}>${o}</option>`).join("")}</select>${J[k]?`<span class="tag g">已评：${esc(J[k])}</span>`:`<span class="tag y">开学第1周评一次，期末再看进步</span>`}</div>`;
+  const lines = S.log.map(l=>{
+    const icon = l.action==="打卡"?"✅":(l.action==="取消"?"↩️":(l.action==="核验"?"🧪":"📝"));
+    return `<div class="logline"><span class="t">${l.t}</span><span>${icon} ${esc(l.action)}</span><span class="id">${esc(l.id)}</span><span>${esc(l.text)}</span></div>`; }).join("");
+  const notes = WEEKS.filter(w=>(S.notes[w.no]||"").trim()).map(w=>`<div class="logline"><span class="t">W${w.no} 备注</span><span>${esc(S.notes[w.no]).replace(/\n/g,"<br>")}</span></div>`).join("");
+  return `<div class="card"><h2>✅ 打卡台账</h2>
+    <div class="kv">累计打卡 <b>${d}/${t}</b> ｜ 里程碑 <b>${MILESTONES.filter(msDone).length}/${MILESTONES.length}</b> ｜ 记录 <b>${S.log.length}</b> 条</div>
+    <div class="hint" style="margin-top:8px">验收四态：<b>机器运行完成 → 本人核验完成 → 交叉复核通过 → 负责人审阅</b>。本页勾选只代表本人核验，不自动等于后两态；机器跑通（含 AI 辅助产出）单独记账，不折算为研究完成度。</div>
+    <div style="margin-top:10px">${lines||'<div class="kv">（暂无打卡记录）</div>'}</div></div>
+  <div class="card" style="border-left:4px solid var(--brand2)"><h2>📖 我的 AIDD 学习日志（来自《100天计划·第001天》的起步作业）</h2>
+    <h3>起点自评（如实选，期末再评一次看进步）</h3>${sel("py","Python 编程")}${sel("chem","化学/药学基础")}${sel("ml","机器学习")}${sel("lit","文献阅读")}
+    <h3>我 100 天内最想做到的一件事</h3>
+    <textarea placeholder="例：独立把 run_all.py 每一行讲清楚；或：自己训出一个 AUC≥0.95 的模型" oninput="jSet('goal',this.value)">${esc(J.goal||"")}</textarea>
+    <h3>我最担心的三个问题（组会上提出来，别自己憋着）</h3>
+    <textarea placeholder="例：①数学公式看不懂怎么办 ②代码报错不会排 ③怕答辩被问住……" oninput="jSet('worry',this.value)">${esc(J.worry||"")}</textarea>
+    <div class="hint">保存于本机浏览器（随进度一起可在「数据管理」导出导入）。周五生成周报时看一眼这里，检查自己离目标近了没。</div></div>
+  <div class="card"><h2>📝 各周备注汇总</h2>${notes||'<div class="kv">（暂无）</div>'}</div>`;
+}
+
+/* ---- 数据管理 ---- */
+function vData(){
+  return `<div class="card"><h2>💾 数据管理（换电脑/备份）</h2>
+    <p class="lead">进度存于本机浏览器 localStorage。换电脑或换浏览器时：旧机「导出」→ 新机「导入」。</p>
+    <button class="act" onclick="exp()">⬇ 导出进度JSON</button>
+    <label class="act o" style="display:inline-block;cursor:pointer">⬆ 导入进度JSON<input type="file" accept=".json" style="display:none" onchange="imp(this)"></label>
+    <button class="act d" onclick="if(confirm('确定清空全部打卡与备注？（仓库文件不受影响）')){S={done:{},checks:{},notes:{},log:[]};save();render();}">🗑 清空重置</button>
+    <div class="hint">导入会覆盖当前进度。周报在周卡片页生成（复制 Markdown 粘贴到邮件/文档发负责人）。</div></div>
+  <div class="card"><h2>📖 三线说明</h2>
+    <div class="kv">每周就三步：① <b>周一</b>周日进度汇总领任务；② <b>周中</b>照卡片"怎么动手"做（练习模板用工具生成）；③ <b>周五</b>跑检查命令，全[通过]再打勾，然后生成周报发负责人。周日记得把代码推上去备份。</div></div>`;
+}
+
+/* ================= 交互 ================= */
+function goWeek(n){ CURW=Math.max(1,Math.min(NWEEK,n)); VIEW="week"; setTab("week"); render(); }
+function setTab(v){ document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v)); }
+
+function bind(){
+  document.querySelectorAll("#app input[type=checkbox]").forEach(cb=>{
+    cb.addEventListener("change",()=>{
+      const id=cb.dataset.id, kind=cb.dataset.k;
+      const info=findTask(id);
+      if(kind==="check"){
+        if(cb.checked && !confirm(`检查纪律：『${info.tx}』真的做完了吗？要有证据（命令结果、生成的文件、截图、PMID）才能打勾，不凭印象。`)){ cb.checked=false; return; }
+        if(cb.checked){ S.checks[id]=fmtDT(new Date()); logAct("核验",id,info.tx); }
+        else { delete S.checks[id]; logAct("取消",id,info.tx); }
+      } else if(kind==="res"){
+        if(cb.checked){ S.res[id]=fmtDT(new Date()); logAct("资源",id,info.tx); }
+        else { delete S.res[id]; logAct("取消",id,info.tx); }
+      } else {
+        if(cb.checked){ S.done[id]=fmtDT(new Date()); logAct("打卡",id,info.tx); }
+        else { delete S.done[id]; logAct("取消",id,info.tx); }
+      }
+      save(); render();
+    });
+  });
+  const ta=document.getElementById("wnote");
+  if(ta){ ta.addEventListener("change",()=>{ const n=CURW; const old=S.notes[n]||""; S.notes[n]=ta.value; if(old!==ta.value) logAct("备注","W"+n,(ta.value||"（清空）").slice(0,40)+"…"); save(); }); }
+}
+
+function report(n){
+  const w=WEEKS[n-1], c=w.card;
+  const lines=[];
+  lines.push(`# 周报 · 第 ${n} 周（${w.dates}）· ${w.theme}`,"",
+    `生成：学期推进流HTML打卡页 · ${fmtDT(new Date())}`,"","## 任务完成情况","");
+  w.tasks.forEach(([id,tx])=>lines.push(`- [${S.done[id]?'x':' '}] ${id} ${tx}`));
+  MANUALS.filter(m=>m.week===n).forEach(m=>lines.push(`- [${S.done[m.id]?'x':' '}] ${m.id} ${m.text}`));
+  lines.push("","## 本周学习检查","",
+    `- 学什么做什么：${c.task}`,`- 怎么动手：${c.cmd}`,`- 过关标准：${c.expected}`,`- 出处：${c.source}`,`- 没过怎么办：${c.criteria}`,`- 谁来检查：${c.verifier}`);
+  const vids = RES.filter(r=>r.wk===n);
+  if(vids.length){ lines.push("","## 本周视频学习","");
+    vids.forEach(r=>lines.push(`- [${S.res[r.id]?'x':' '}] ${r.name}：${r.what}${r.kw?`（B站搜：${r.kw}）`:''}`)); }
+  lines.push("","## 自动检查情况","");
+  w.checks.forEach(ck=>lines.push(`- ${S.checks[ck.id]?'[已实测✓ '+S.checks[ck.id]+']':'[待验]'} ${ck.id} ${ck.desc}｜预期：${ck.exp}｜依据：${ck.src}`));
+  if((S.notes[n]||"").trim()) lines.push("","## 本周备注","",S.notes[n]);
+  const nxt=WEEKS[n]; if(nxt) lines.push("","## 下周预告","",`- 第 ${nxt.no} 周（${nxt.dates}）：${nxt.theme}（${nxt.stage}）`);
+  const md=lines.join("\n");
+  const ta=document.createElement("textarea"); ta.value=md; document.body.appendChild(ta); ta.select();
+  let ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+  document.body.removeChild(ta);
+  if(navigator.clipboard) navigator.clipboard.writeText(md).catch(()=>{});
+  const w2=window.open("","_blank");
+  if(w2){ w2.document.write(`<pre style="font-family:Consolas,monospace,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","EmojiOne Color";white-space:pre-wrap;padding:20px">${md.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</pre>`); }
+  alert(ok?"周报已复制到剪贴板（可直接粘贴发负责人），同时在新窗口打开预览":"周报已在新窗口打开，可全选复制");
+}
+
+function exp(){
+  const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download=`学期推进流打卡_${fmtDT(new Date()).replace(/[-: ]/g,"").slice(0,12)}.json`; a.click();
+}
+function imp(inp){
+  const f=inp.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=()=>{ try{ const d=JSON.parse(r.result); if(!d||typeof d!=="object"||!("done" in d)) throw 0;
+      if(confirm("导入将覆盖当前进度，继续？")){ S=Object.assign({done:{},checks:{},notes:{},log:[]},d); save(); render(); alert("导入成功"); } }
+    catch(e){ alert("文件格式不对（需本页导出的JSON）"); } };
+  r.readAsText(f,"utf-8");
+}
+
+document.getElementById("nav").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  VIEW=b.dataset.v; setTab(VIEW); render();
+});
+
+load(); render();
+</script>
+</body>
+</html>

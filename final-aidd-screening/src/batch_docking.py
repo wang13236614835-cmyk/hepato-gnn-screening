@@ -14,13 +14,13 @@ def reusable(meta,key,output):
 
 def run():
     from s4_dock import prefilter,embed_and_prep
-    boxes=read_metadata(Path(DOCK)/"boxes.json");gate=read_metadata(Path(DOCK)/"redock_gate.json")
+    boxes=read_metadata(Path(DOCK)/"boxes.json");gate=read_metadata(Path(DOCK)/"重对接门控.json")
     if not boxes:raise ValueError("缺少当前运行的对接盒子")
     for target,box in boxes.items():
         receptor=Path(DOCK)/"receptors"/f"{target}_{box['pdb']}.pdbqt";g=gate.get(target,{})
         if not(g.get("pass_gate") and g.get("rmsd_method")=="CalcRMS_no_alignment" and g.get("independent_start") and g.get("box")==box and g.get("receptor_hash")==digest(receptor)):
             raise ValueError(f"{target}缺少与当前输入匹配的有效门控")
-    prefilter();rows=[];state=Path(RES)/"tables/docking_real_scores.csv"
+    prefilter();rows=[];state=Path(RES)/"tables/真实对接分数.csv"
     for r in load_candidates():
         cid=r["compound_id"];lq=Path(DOCK)/"ligands"/f"{cid}.pdbqt";lq.parent.mkdir(parents=True,exist_ok=True)
         lp=Path(str(lq)+".cache.json");meta=read_metadata(lp)

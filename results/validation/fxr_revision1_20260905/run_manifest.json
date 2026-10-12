@@ -5,17 +5,17 @@
  "base_run": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905",
  "revision_note": "核心期刊审查20260905大修批1: 项34三榜/35稳定性/37口径/39纳排流/46图轴/47分箱/17指标",
  "inherited_evidence": {
-  "results/tables/docking_real_scores.csv": {
+  "results/tables/真实对接分数.csv": {
    "sha256": "1d6017f0e583655e6fd16a4811f7857d551f4e231e643d51025e5254d3fd411d",
-   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\docking_real_scores.csv"
+   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\真实对接分数.csv"
   },
-  "results/tables/prefilter_report.csv": {
+  "results/tables/预过滤报告.csv": {
    "sha256": "792bcce4ecf0b8bb6af6fd711a2f24ea7e0e06e19ae26957acb4787894cca790",
-   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\prefilter_report.csv"
+   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\预过滤报告.csv"
   },
-  "docking/redock_gate.json": {
+  "docking/重对接门控.json": {
    "sha256": "eafa8dbf02709e31279cdd223e1ebb09725b11f0ed8be7ac365c96b1f62cead0",
-   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\redock_gate.json"
+   "inherited_from": "D:\\zcode-workspace\\hepato-gnn-screening\\results\\validation\\fxr_single_target_diagnostic_20260905\\重对接门控.json"
   },
   "docking/boxes.json": {
    "sha256": "37dfe0defb0917bb570db3f859a206777e0c3fb341999917b3af9626e102447b",

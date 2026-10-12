@@ -2,7 +2,7 @@
 
 门控政策（预注册口径，防单种子侥幸/误伤）：5个独立起始种子(42,7,123,2026,555)，
 每个种子独立ETKDG构象+Vina(exh=16)；过门需 ≥3/5 种子 RMSD<2A 且中位数<2A。
-全部种子RMSD无论过否都写入 redock_gate.json；不过门即中止，不降低门槛重试。
+全部种子RMSD无论过否都写入 重对接门控.json；不过门即中止，不降低门槛重试。
 """
 import json,os,re,shutil,subprocess,sys,urllib.request
 from pathlib import Path
@@ -41,7 +41,7 @@ def ligand_center_size(block,padding=6.):
     return xyz.mean(0).round(2).tolist(),(xyz.max(0)-xyz.min(0)+2*padding).round(1).tolist()
 
 def mol_from_pdb_block(block,ligand):
-    cc=json.loads((Path(DATA)/"ccd_templates.json").read_text(encoding="utf-8"))[ligand]
+    cc=json.loads((Path(DATA)/"CCD模板.json").read_text(encoding="utf-8"))[ligand]
     ref=Chem.MolFromSmiles(cc["smiles"]);m=Chem.MolFromPDBBlock(block+"END\n",removeHs=False,proximityBonding=False)
     if m is None:raise ValueError("共晶读取失败")
     m=AllChem.AssignBondOrdersFromTemplate(ref,m);Chem.RemoveStereochemistry(m)
@@ -103,7 +103,7 @@ def run(download_structures=True,independent_start=True,seeds=GATE_SEEDS):
             print(f"{target} seed={s}: RMSD={seed_rmsd[s]:.4f} angstrom, score={aff}",flush=True)
         rmsds=sorted(seed_rmsd.values());median=float(np.median(rmsds));n_pass=sum(1 for r in rmsds if r<2)
         best_seed=min(seed_rmsd,key=seed_rmsd.get)
-        context=cache_key([receptor,ref,Path(DATA)/"ccd_templates.json",VINA],{"box":box,"seeds":list(seeds),"exh":16,"rdkit":rdkit_version})
+        context=cache_key([receptor,ref,Path(DATA)/"CCD模板.json",VINA],{"box":box,"seeds":list(seeds),"exh":16,"rdkit":rdkit_version})
         gate[target]={"ligand":lig,"rmsd":median,"rmsd_method":"CalcRMS_no_alignment",
             "rmsd_by_seed":{str(k):v for k,v in seed_rmsd.items()},"affinity_by_seed":{str(k):v for k,v in seed_aff.items()},
             "n_pass_seeds":n_pass,"n_seeds":len(seeds),"policy":GATE_POLICY,
@@ -111,8 +111,8 @@ def run(download_structures=True,independent_start=True,seeds=GATE_SEEDS):
             "independent_start":independent_start,"seed":list(seeds),"context":context,
             "receptor_hash":digest(receptor),"pose_hash":digest(OUT/f"{target}_{lig}_redock_s{best_seed}_out.pdbqt"),"box":box}
         print(f"{target}: 中位RMSD={median:.4f}, 过门种子 {n_pass}/{len(seeds)}, gate={'PASS' if gate[target]['pass_gate'] else 'FAIL'}",flush=True)
-    write_metadata(Path(DOCK)/"boxes.json",boxes);write_metadata(Path(DOCK)/"redock_gate.json",gate)
-    if not all(x["pass_gate"] for x in gate.values()):raise RuntimeError("至少一个靶点未过多种子门控，不执行生产筛选；全部种子RMSD见redock_gate.json")
+    write_metadata(Path(DOCK)/"boxes.json",boxes);write_metadata(Path(DOCK)/"重对接门控.json",gate)
+    if not all(x["pass_gate"] for x in gate.values()):raise RuntimeError("至少一个靶点未过多种子门控，不执行生产筛选；全部种子RMSD见重对接门控.json")
     return boxes,gate
 
 if __name__=="__main__":run()

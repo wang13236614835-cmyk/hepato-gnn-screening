@@ -212,13 +212,13 @@ def run(out_dir):
     actives = load_labeled_actives()
     pm_act, pv_act = model.predict_mc(actives, T=30)
 
-    with open(os.path.join(out_dir, "test_predictions.csv"), "w", encoding="utf-8", newline="") as f:
+    with open(os.path.join(out_dir, "测试预测.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["compound_id", "name_cn", "label", "pred_mean", "pred_var"])
         for r, mu, var in zip(test, pm, pv):
             # 全精度写出：固定小数位会让近零方差并列，导致第三方复算指标出现偏差
             w.writerow([r.cid, r.name, r.label, repr(float(mu)), repr(float(var))])
-    with open(os.path.join(out_dir, "fullpool_predictions.csv"), "w", encoding="utf-8", newline="") as f:
+    with open(os.path.join(out_dir, "全池预测.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["compound_id", "name_cn", "pred_mean", "pred_var"])
         for r, mu, var in zip(actives + pool,

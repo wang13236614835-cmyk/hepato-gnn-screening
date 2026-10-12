@@ -1,0 +1,131 @@
+{
+  "package": "THREE_REPO_SYNC_2026-09-27",
+  "files": [
+    {
+      "source": "audit/ASTRA_ADORA2A_MASH_DIRECTION_2026-09-26.json",
+      "file": "ASTRA_ADORA2A_MASH_DIRECTION_2026-09-26.json",
+      "sha256": "03a6348e8d2b85f4a217b4e13d7d51537dfe4bbe0df2560d72bc7ab7015cb0ab",
+      "size_bytes": 22575
+    },
+    {
+      "source": "audit/ASTRA_CANDIDATE_PRIOR_ART_2026-09-26.json",
+      "file": "ASTRA_CANDIDATE_PRIOR_ART_2026-09-26.json",
+      "sha256": "3a3beadc3d3d65c4c31a82963dba0c224442f360b152b776e164684679649be8",
+      "size_bytes": 9959
+    },
+    {
+      "source": "audit/ASTRA_CANDIDATE_IDENTITY_SUPPLY_MAPPING_2026-09-27.json",
+      "file": "ASTRA_CANDIDATE_IDENTITY_SUPPLY_MAPPING_2026-09-27.json",
+      "sha256": "b02c0776907010edc32c4f824e5ddc935cc22ae684537f9a008365a256970fc9",
+      "size_bytes": 51574
+    },
+    {
+      "source": "audit/ASTRA_CANDIDATE_IDENTITY_SUPPLY_MAPPING_2026-09-27.md",
+      "file": "ASTRA_CANDIDATE_IDENTITY_SUPPLY_MAPPING_2026-09-27.md",
+      "sha256": "18baffe54b7664b749e884a8b9e7f650c485ffb4a355a79cc4898143aed05576",
+      "size_bytes": 3462
+    },
+    {
+      "source": "audit/ASTRA_REVERSE_PHARMACOLOGY_MAPPING_2026-09-27.json",
+      "file": "ASTRA_REVERSE_PHARMACOLOGY_MAPPING_2026-09-27.json",
+      "sha256": "41cf38b139141fe1bc3cac30e8892ed0ed7466f44dfe7f335eb3367c1fd6b5e1",
+      "size_bytes": 19850
+    },
+    {
+      "source": "audit/ASTRA_REVERSE_PHARMACOLOGY_MAPPING_2026-09-27.md",
+      "file": "ASTRA_REVERSE_PHARMACOLOGY_MAPPING_2026-09-27.md",
+      "sha256": "b661479316ed12476da91ff9399e005d5be53c569eaa84ef48096c9b3a648f60",
+      "size_bytes": 3567
+    },
+    {
+      "source": "audit/ASTRA_FULL_BOTANICAL_MATURITY_AUDIT_2026-09-27.json",
+      "file": "ASTRA_FULL_BOTANICAL_MATURITY_AUDIT_2026-09-27.json",
+      "sha256": "78c8f9a2d364894452b67fb6e8aaefed58300bf014b7b137cc39e67fb416ef97",
+      "size_bytes": 79049
+    },
+    {
+      "source": "audit/ASTRA_FULL_BOTANICAL_MATURITY_AUDIT_2026-09-27.md",
+      "file": "ASTRA_FULL_BOTANICAL_MATURITY_AUDIT_2026-09-27.md",
+      "sha256": "47c3d2e59f2327d4b04ad08ce865424d509c77b49d8d2a2463cbe30df9f24c94",
+      "size_bytes": 6091
+    },
+    {
+      "source": "audit/ASTRA_NAMED_DRUG_TCM_CANDIDATE_POOL_2026-09-27.json",
+      "file": "ASTRA_NAMED_DRUG_TCM_CANDIDATE_POOL_2026-09-27.json",
+      "sha256": "384c6048d93cc6fb052119434e0fb4f907aa0c584f3e4f7f74e4ae259ebd1381",
+      "size_bytes": 111610
+    },
+    {
+      "source": "audit/ASTRA_NAMED_DRUG_TCM_CANDIDATE_POOL_2026-09-27.md",
+      "file": "ASTRA_NAMED_DRUG_TCM_CANDIDATE_POOL_2026-09-27.md",
+      "sha256": "e90768ec2a01bbe32128139d4fdf90aff236617dd05eb51244b6ccf4bad8f7c5",
+      "size_bytes": 5594
+    },
+    {
+      "source": "audit/ASTRA_PROCUREMENT_PRIORITY_2026-09-27.json",
+      "file": "ASTRA_PROCUREMENT_PRIORITY_2026-09-27.json",
+      "sha256": "e0588241e9401871a758d4800e3f1508ad719c16f3f52d9a7ad557c60df58bf5",
+      "size_bytes": 22051
+    },
+    {
+      "source": "audit/ASTRA_PROCUREMENT_PRIORITY_2026-09-27.md",
+      "file": "ASTRA_PROCUREMENT_PRIORITY_2026-09-27.md",
+      "sha256": "4ccddc2db6d42110286988f413f2ba470fa458f9c0907e24019a54e77347a6ab",
+      "size_bytes": 3459
+    },
+    {
+      "source": "audit/G7_ADORA2A_MECHANISM_VALIDATION_PLAN_2026-09-27.json",
+      "file": "G7_ADORA2A_MECHANISM_VALIDATION_PLAN_2026-09-27.json",
+      "sha256": "5d1b0edd505aeefba88615d4676faf63d80247ef790a513456e9296ec53bdd97",
+      "size_bytes": 3363
+    },
+    {
+      "source": "audit/G7_ADORA2A_W0_SUPPLY_UPDATE_2026-09-27.json",
+      "file": "G7_ADORA2A_W0_SUPPLY_UPDATE_2026-09-27.json",
+      "sha256": "4171eee41bbfb871a9e83f8caae707ac996c5b32ddc38e452e2172deab87e6dd",
+      "size_bytes": 4040
+    },
+    {
+      "source": "audit/G7_ADORA2A_W0_SUPPLY_UPDATE_2026-09-27.md",
+      "file": "G7_ADORA2A_W0_SUPPLY_UPDATE_2026-09-27.md",
+      "sha256": "77d7e375e23accd8453baafb1880c919782711ab72e6e1fb099dc3c7f2da31ae",
+      "size_bytes": 1625
+    },
+    {
+      "source": "audit/G7_ADORA2A_W0_MATERIAL_RELEASE_TEMPLATE_2026-09-27.json",
+      "file": "G7_ADORA2A_W0_MATERIAL_RELEASE_TEMPLATE_2026-09-27.json",
+      "sha256": "83cdde01036eec90df7d216141c385d6839435444e80e302c0276687074bb3c6",
+      "size_bytes": 4201
+    },
+    {
+      "source": "audit/ASTRA_WETLAB_HANDOFF_2026-09-27.json",
+      "file": "ASTRA_WETLAB_HANDOFF_2026-09-27.json",
+      "sha256": "1d738e035d5d28354d00082ba86f38fad33dc4bef5c0a3f83366ca72c3f823e3",
+      "size_bytes": 17580
+    },
+    {
+      "source": "audit/ASTRA_WETLAB_HANDOFF_2026-09-27.md",
+      "file": "ASTRA_WETLAB_HANDOFF_2026-09-27.md",
+      "sha256": "10cd62c49f85f1211bee5843f78af8b9d8292f420450e3282630398cfabbbf61",
+      "size_bytes": 6410
+    },
+    {
+      "source": "audit/ASTRA_POST_AUDIT_EVIDENCE_INDEX_2026-09-27.json",
+      "file": "ASTRA_POST_AUDIT_EVIDENCE_INDEX_2026-09-27.json",
+      "sha256": "36bd761879fad5860b8bde722f4e83efa51407bfb64649e0e76570127d85f608",
+      "size_bytes": 8508
+    },
+    {
+      "source": "generated",
+      "file": "SUMMARY.md",
+      "sha256": "1e76625b1f2fc9964b9739ca2d76d1b133c7cc619f4afb8d414b08871039a734",
+      "size_bytes": 3843
+    },
+    {
+      "source": "generated",
+      "file": "STATUS.json",
+      "sha256": "e48caffabf0aefd75f853e2c2a811eb854844783697f64df9e9d3ce2ab4d153a",
+      "size_bytes": 1018
+    }
+  ]
+}
