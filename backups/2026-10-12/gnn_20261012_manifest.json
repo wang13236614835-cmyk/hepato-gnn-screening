@@ -1,0 +1,52 @@
+{
+  "repo": "hepato-gnn-screening.git",
+  "date": "2026-10-12",
+  "source": "verified local D drive",
+  "visibility": "public",
+  "scope": "non-secret checked project files and safe source snapshots; excludes credentials/cache/logs",
+  "files": {
+    "docs/audit/20261012_original_week10_week16_checkins.json": "908ee78d83190da480be3bebb483ad90c3f04426ace6dfac98f0e47247b2a4e4",
+    "docs/audit/20261012_original_week6_week9_checkins.json": "d02a324b7929d90b77a416ad8bf7a30ab2e933f1686b7c25e995d56eed2f3158",
+    "docs/CURRENT_SPRINT_20261012.md": "5e8eb076a45b2a0cda3521ac192a5107bc34c80217f78b61027330fded7bca0c",
+    "docs/CURRENT_W10_W16_20261012.md": "f9f427c49aef84a01d846852161ae0abc80fb171cc3ec6320898c333fc651c54",
+    "README.md": "86653c8ec55005b5567eeb80ea45144bab67ea1ef69a404f2a66cea1ad376bd9",
+    "tests/test_workbench_contract.py": "45d0f2864c06ad1552aa183f199059f468d0300d4014626b24480fb74207bdda",
+    "tools/reconcile_four_week_original_checkins.py": "3e22ca6d79d640c654ce9e27f4c608887206b9cd54032b124040947da1fe41d3",
+    "tools/replan_w10_w16_20261012.py": "6529b62ef2922852ee82abe2d9ad7cfa9a21279227eaa9b5f50578a6299259b1",
+    "代维斯丹/工作台.md": "f75dd12c21a5ea2a42f858b37874c0c1d6a6beaad6e5399a5beb4146cb7c9ccd",
+    "代维斯丹/打卡_代维斯丹.html": "564d080a534f8a1809558af03b3649377c01551e2f9434e958713092e10221ac",
+    "宁显泷/工作台.md": "09b5df278123098cad943d43e4b8b499c2d8cf80db4d6927c42dbcead4388174",
+    "宁显泷/打卡_宁显泷.html": "ce22f66105693b521f0a44ea595cb77be0d9012177a67f5a8aa0ef5f3ce00b4f",
+    "王启龙/工作台.md": "b1cb2463b9bd8208bd92d94871304b8a458a4df7a044fa46a0355dfc9f4919b7",
+    "王启龙/打卡_王启龙.html": "367641a8514ead673eb67452ab74c507f21d478244872ccdb5b4aec26dc0d69f",
+    "王散曼/工作台.md": "ce99f5a1dfd3d80cd0e8f76f2fadd4d55c15376d90e4ff548493743ead75eaa8",
+    "王散曼/打卡_王散曼.html": "e1c40d113fd9337adb721074551d98ef41ccc6c46627bd0d588bbf363162d1f1",
+    "研究状态.md": "68a7c42c5e39a0768b12123552aa40ba48cfe7d1b8fe895edc313b244ea2e09f",
+    "衣思淼/工作台.md": "3c8e1dd1db490c75a01c9d870c554f5b48aa5ca18498d54c5626a426d55da3f4",
+    "衣思淼/打卡_衣思淼.html": "d7cee6e7cb819d99a88178d4fe0b07d8387c05811538021b52d532e99c0e1d27"
+  },
+  "parts": [
+    {
+      "name": "gnn_20261012_01.zip",
+      "files": 11,
+      "bytes": 71598,
+      "b64_bytes": 95464,
+      "sha256": "60294dffa9ae6bf27841fe11d272fa40751c9197bf661131e52c060746c74784"
+    },
+    {
+      "name": "gnn_20261012_02.zip",
+      "files": 4,
+      "bytes": 73189,
+      "b64_bytes": 97588,
+      "sha256": "176d8f02faa6ae82989d46825b3a0a18a25490cbe8a6d6c38ab33ba4fe03831e"
+    },
+    {
+      "name": "gnn_20261012_03.zip",
+      "files": 4,
+      "bytes": 73791,
+      "b64_bytes": 98388,
+      "sha256": "d191f0c52ba36bbe85dc531499185ee42c0a56c14232c0dabb7a83bbe62d303a"
+    }
+  ],
+  "excluded": []
+}
