@@ -66,7 +66,9 @@ def _score_rows(comp, w_model, w_dock, w_dl, use_ad_penalty=True):
         if use_ad_penalty and not c["in_ad"]:
             s *= AD_PENALTY
         scored.append((c["compound_id"], s))
-    scored.sort(key=lambda x: -x[1])
+    if any(not np.isfinite(value) for _, value in scored):
+        raise ValueError("non-finite fusion score")
+    scored.sort(key=lambda x: (-x[1], str(x[0])))
     return [k for k, _ in scored]
 
 
@@ -139,11 +141,11 @@ def run():
     required_targets = set(json.load(open(os.path.join(DOCK, "boxes.json"))))
     available = {}
     for r in dock:
-        if r["affinity_kcal_mol"] not in ("", None):
+        if r["affinity_kcal_mol"] not in ("", None) and np.isfinite(float(r["affinity_kcal_mol"])):
             available.setdefault(r["compound_id"], set()).add(r["target"])
     davg = {}
     for r in dock:
-        if r["affinity_kcal_mol"] in ("", None):
+        if r["affinity_kcal_mol"] in ("", None) or not np.isfinite(float(r["affinity_kcal_mol"])):
             continue
         davg.setdefault(r["compound_id"], []).append(float(r["affinity_kcal_mol"]))
     davg = {k: float(np.mean(v)) for k, v in davg.items()}
@@ -178,6 +180,8 @@ def run():
         cid = r["compound_id"]
         p = pred[cid]
         mu, var = float(p["pred_mean"]), float(p["pred_var"])
+        if not np.isfinite(mu) or not np.isfinite(var) or var < 0:
+            raise ValueError(f"invalid model mean/variance: {cid}")
         conf = 1.0 - min(1.0, np.sqrt(var) / 0.25)
         li = int(pre[cid]["lipinski_violations"])
         comp.append({"compound_id": cid, "name_cn": r["name_cn"],
@@ -217,6 +221,7 @@ def run():
                      "pred_var": round(c["pred_var"], 4),
                      "confidence": round(c["confidence"], 3),
                      "dock_avg_kcal": round(c["dock_avg_kcal"], 2),
+                     "score_semantics": "HEURISTIC_REFERENCE_ONLY", "scientific_release": False,
                      "lipinski_violations": c["lipinski_violations"],
                      "pains_alert": c["pains_alert"],
                      "ad_warning": "" if c["in_ad"] else "域外",

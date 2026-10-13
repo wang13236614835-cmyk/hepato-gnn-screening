@@ -40,6 +40,7 @@ def lipinski_violations(r):
 
 
 def run():
+    raise RuntimeError("Historical fusion disabled: use final-aidd-screening/run_revised.py; mock scores cannot release candidates")
     os.makedirs(OUT, exist_ok=True)
     pool = _read(os.path.join(PROC, "筛选池.csv"))
     labeled = [r for r in _read(os.path.join(PROC, "清洗后化合物.csv"))
