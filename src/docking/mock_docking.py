@@ -17,7 +17,7 @@ import numpy as np
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PROC = os.path.join(ROOT, "data", "processed")
-OUT = os.path.join(ROOT, "results", "docking")
+OUT = os.path.join(ROOT, "results", "demo", "docking")
 
 FEATS = ["MW", "logP_est", "TPSA_est", "nHBD", "nHBA", "nRot", "nAromSystems"]
 
@@ -47,6 +47,8 @@ def _zscore(vals):
 
 
 def score_all():
+    if os.environ.get("HEPATO_DATA_MODE") != "demo":
+        raise RuntimeError("Mock docking is DEMO only; set HEPATO_DATA_MODE=demo explicitly")
     os.makedirs(OUT, exist_ok=True)
     rows = []
     for fname in ("cleaned_compounds.csv", "screening_pool.csv"):
@@ -63,7 +65,7 @@ def score_all():
             score = BASELINE - SCALE * lig + pen + _seeded_noise(r["compound_id"], target)
             out.append({"compound_id": r["compound_id"], "name_cn": r["name_cn"],
                         "target": target, "score_kcal": round(score, 2),
-                        "mode": "mock_local"})
+                        "mode": "mock_local", "data_status": "DEMO", "scientific_release": False})
 
     with open(os.path.join(OUT, "docking_scores.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0].keys()))
