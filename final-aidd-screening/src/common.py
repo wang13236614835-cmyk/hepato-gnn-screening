@@ -22,7 +22,7 @@ SPLITS = os.path.join(RUN_ROOT, "splits")
 DOCK = os.path.join(RUN_ROOT, "docking")
 RES = os.path.join(RUN_ROOT, "results")
 SOURCE_DOCK = os.path.join(ROOT, "docking")
-VINA = os.environ.get("VINA_BIN") or shutil.which("vina") or os.path.join(SOURCE_DOCK, "vina.exe")
+VINA = os.environ.get("VINA_BIN") or shutil.which("vina") or "vina"
 REGISTRY = os.path.join(ROOT, "..", "data", "curation", "compound_registry.csv")
 
 ELEMS = ["C", "N", "O", "S", "P", "F", "Cl", "Br", "I", "B"]

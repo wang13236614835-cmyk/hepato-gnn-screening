@@ -1,0 +1,2 @@
+python -m pytest tools/test_review_hardening.py -q
+5 passed

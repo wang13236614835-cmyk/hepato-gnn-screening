@@ -1,0 +1,58 @@
+{
+  "schema_version": "aidd.public-source-catalog.v1",
+  "checked_at": "2026-10-13",
+  "sources": {
+    "GSE135251": {
+      "role": "planned_primary",
+      "technology": "RNA-seq",
+      "platform": "GPL18573",
+      "total_samples": 216,
+      "nafld_cases": 206,
+      "controls": 10,
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE135251",
+      "analysis_status": "REQUIRES_RAW_ANALYSIS_AND_SAMPLE_MANIFEST"
+    },
+    "GSE89632": {
+      "role": "independent_validation",
+      "technology": "microarray",
+      "platform": "GPL14951",
+      "total_samples": 63,
+      "controls": 24,
+      "simple_steatosis": 20,
+      "nash": 19,
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE89632",
+      "analysis_status": "UNVERIFIED_EFFECT_ESTIMATES_QUARANTINED"
+    }
+  },
+  "drug_target": {
+    "Resmetirom": {
+      "gene": "THRB",
+      "uniprot": "P10828",
+      "source": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217785s000lbl.pdf"
+    }
+  },
+  "berberine_fxr": {
+    "direct_binding_ec50_uM": null,
+    "status": "NO_VERIFIED_DIRECT_BINDING_VALUE",
+    "reporter_endpoint": "FXR-associated OATP1B1 promoter response",
+    "reporter_ec50_uM": 12.19,
+    "reported_spread_uM": 0.86,
+    "source": "https://pubmed.ncbi.nlm.nih.gov/32292349/",
+    "do_not_transfer_between_assays": true,
+    "invalid_original_references": {
+      "PMID:24166454": "CKD-EPI chronic kidney disease cohort, not berberine FXR",
+      "CHEMBL1320667": "Zenuzolac molecule identifier, not a berberine FXR assay"
+    }
+  },
+  "opentargets": {
+    "target_identifier": "Ensembl gene ID",
+    "association_requires": [
+      "targetId",
+      "diseaseId",
+      "datasourceId",
+      "release",
+      "raw_export_sha256"
+    ],
+    "source": "https://platform-docs.opentargets.org/target"
+  }
+}
