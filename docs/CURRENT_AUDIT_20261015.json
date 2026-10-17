@@ -1,0 +1,121 @@
+{
+  "schema_version": "aidd.sprint.audit.v1",
+  "observed_on": "2026-10-15",
+  "scope": "LOCAL_READ_ONLY_NOT_SCIENTIFIC_APPROVAL",
+  "authority_selector": "D:\\aidd destoop\\state\\CURRENT_AUTHORITY.json",
+  "authority_selector_sha256": "500fd762a798d5d2b8b0b7330dd0d584dd47e4abc86ac7ecda0985a766586f0d",
+  "source_path": "D:\\aidd destoop\\research_v4\\current\\authority\\DISCOVERY_STATE_V4.json",
+  "source_sha256": "1f9d423b9c8667f3ad8fc3c20ce3ac686ca73298dcb506c9ff05315cd5bff5f8",
+  "evidence_integrity": {
+    "valid": true,
+    "errors": [],
+    "count": 97
+  },
+  "gates": {
+    "D0": {
+      "contract_status": "PASS",
+      "effective_status": "PASS",
+      "dependency_blockers": [],
+      "blockers": []
+    },
+    "D1": {
+      "contract_status": "BLOCKED",
+      "effective_status": "BLOCKED",
+      "dependency_blockers": [],
+      "blockers": [
+        "D1: 缺少 Evidence Contract（raw_sources, acquisition_date, query, raw_hashes, counts_before_after, duplicate_rule, unit_normalization, activity_transformation, structure_standardization, anomaly_handling, missingness, assay_filtering, leakage_assessment）"
+      ]
+    },
+    "D2": {
+      "contract_status": "BLOCKED",
+      "effective_status": "BLOCKED",
+      "dependency_blockers": [
+        "D1"
+      ],
+      "blockers": [
+        "D2: 缺少 Evidence Contract（baseline, models, split_strategy, scaffold_split, seed, hyperparameters, training_log, test_metrics, confidence_interval, applicability_domain, uncertainty, leakage_check, model_artifact_hash, acceptance_criteria, criteria_predeclared_at, trained_at）",
+        "D2: 依赖未满足 D1"
+      ]
+    },
+    "D3": {
+      "contract_status": "PASS",
+      "effective_status": "BLOCKED",
+      "dependency_blockers": [
+        "D1",
+        "D2"
+      ],
+      "blockers": [
+        "D3: 依赖未满足 D1, D2"
+      ]
+    },
+    "D4": {
+      "contract_status": "BLOCKED",
+      "effective_status": "BLOCKED",
+      "dependency_blockers": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "blockers": [
+        "D4: 缺少 Evidence Contract（identity_valid, source_traceable, inside_ad, uncertainty_acceptable, critical_conflict, critical_missing_evidence, identity, ad, uncertainty）",
+        "D4: 尚无有证据依据的 shortlist",
+        "D4: 依赖未满足 D1, D2, D3"
+      ]
+    },
+    "D5": {
+      "contract_status": "BLOCKED",
+      "effective_status": "BLOCKED",
+      "dependency_blockers": [
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "blockers": [
+        "D5: 缺少 Evidence Contract（evidence_type, structural_support, admet_support, pains, physicochemical, toxicity_prediction, selectivity_prediction, limitations）",
+        "D5: 依赖未满足 D1, D2, D3, D4"
+      ]
+    },
+    "D6": {
+      "contract_status": "BLOCKED",
+      "effective_status": "BLOCKED",
+      "dependency_blockers": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ],
+      "blockers": [
+        "D6: 缺少 Evidence Contract（candidate_evidence_cards, shortlist, ranking_method, selection_rationale, excluded_candidates, positive_evidence, negative_evidence, unresolved_issues）",
+        "D6: 尚无有证据依据的 shortlist",
+        "D6: 依赖未满足 D1, D2, D3, D4, D5"
+      ]
+    }
+  },
+  "freeze": {
+    "valid": false,
+    "errors": [
+      "H1 Candidate Freeze 尚未正式冻结"
+    ],
+    "version": 0,
+    "candidates": []
+  },
+  "human_review_completed": 0,
+  "human_review_total": 5,
+  "validation_status": "VALIDATION_NOT_STARTED",
+  "formal_release_count": 0,
+  "named_record_counts": {
+    "NATURAL_PRODUCTS": 37,
+    "DRUG_REPURPOSING": 5,
+    "EXTERNAL_LIBRARY": 5
+  },
+  "scientific_gate_modified": false,
+  "human_signature_created": false,
+  "limitations": [
+    "证据完整性不等于科学资格",
+    "本次为本地材料核查，未进行网站或供货实时查询",
+    "47为记录数，不代表完整筛选库或跨轨去重后的唯一分子数",
+    "新表是AI抽取待人审，未完成正式核验"
+  ]
+}

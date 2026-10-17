@@ -4,3 +4,19 @@
 *.sdf -text -diff
 docs/archive/** -diff
 *.log -text -diff
+
+# Referenced source snapshots retain exact bytes for the registered SHA-256 checks.
+docs/CURRENT_TIGHTENING_20261015.md -text
+docs/CURRENT_AUDIT_20261015.json -text
+docs/CURRENT_SPRINT_TASKS_20261012.csv -text
+docs/CURRENT_FOLLOWUP_TASKS_20261015.csv -text
+docs/CURRENT_CANDIDATE_INVENTORY_20261015.csv -text
+docs/W1_SCORING_PROTOCOL_20261015.md -text
+docs/W1_SCORING_CARDS_20261015.csv -text
+docs/REVERSE_SCREENING_QUEUE_20261015.csv -text
+docs/W1_SCORING_TEMPLATE_20261012.csv -text
+docs/REVERSE_SCREENING_TEMPLATE_20261012.csv -text
+docs/SPRINT_REVIEW_RECORDS_TEMPLATE_20261015.csv -text
+docs/CURRENT_W10_W16_20261012.md -text
+docs/SOURCE_ARTIFACT_AUDIT_20261015.csv -text
+docs/CURRENT_EXECUTION_20261015.json -text

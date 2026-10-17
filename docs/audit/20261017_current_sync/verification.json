@@ -1,0 +1,21 @@
+{
+  "published_source_check": {
+    "file_consistency": "PASS",
+    "errors": [],
+    "tasks": 27,
+    "followup_tasks": 35,
+    "named_inputs": 47,
+    "scorecards": 5,
+    "not_screened": 42,
+    "scientific_approval": "NOT_EVALUATED_BY_THIS_TOOL",
+    "scope": "PUBLISHED_REPO_ONLY_NO_EXTERNAL_ABSOLUTE_PATH_REQUIRED"
+  },
+  "gnn_focused_tests": "9 passed (review hardening + workbench contracts)",
+  "windows_helix_regression": "119/119",
+  "existing_identity_dynamic_human_tests": "47 passed",
+  "local_team_api_suite": "4 new + 8 anonymous identity tests passed",
+  "three_local_mirrors": "PASS",
+  "original_xlsx_sha256": "03f3ea68cdabd28d5f318ebea5f4741e14cf9cd2e7722ae2cc67ade2a7a7b2a8",
+  "raw_intake_gaps_preserved": 3,
+  "scientific_approval": "NOT_GRANTED"
+}

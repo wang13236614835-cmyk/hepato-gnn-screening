@@ -1,0 +1,56 @@
+{
+  "schema_version": "aidd.execution.references.v1",
+  "updated_on": "2026-10-15",
+  "plan_start": "2026-10-12",
+  "current_research_week": 1,
+  "current_html_week": 6,
+  "task_master": "D:\\zcode-workspace\\aidd-repo-work\\00-当前研究",
+  "plan_ref": "CURRENT_SPRINT_20261012.md",
+  "scientific_authority_selector": "D:\\aidd destoop\\state\\CURRENT_AUTHORITY.json",
+  "legacy_gnn_state_file": "状态.json = HISTORICAL_V3_20260928_NOT_CURRENT_AUTHORITY",
+  "completion_policy": "PROCESS_EVIDENCE_PLUS_INDEPENDENT_REVIEW_NOT_SCIENTIFIC_APPROVAL",
+  "files": {
+    "CURRENT_TIGHTENING_20261015.md": "e69bf87f0c861f3848d7e69096089dbd47ce9932db411d5ffd897605f690df0d",
+    "CURRENT_AUDIT_20261015.json": "9996c9885281cea80dd778be1e72b2b63a9a91741bd72b16f84af832faff67b7",
+    "CURRENT_SPRINT_TASKS_20261012.csv": "5e39b3e819df041777271698e0ed10004a575dc38ac2c132b698e4c19d36ab14",
+    "CURRENT_FOLLOWUP_TASKS_20261015.csv": "a34c98a95557b811f117d7ec97457003cc3cfab62b839e641512c88eb79a9fa6",
+    "CURRENT_CANDIDATE_INVENTORY_20261015.csv": "4ada48f46193d30953755b932427a13072259bfa5c3b0a57197bd50372846528",
+    "W1_SCORING_PROTOCOL_20261015.md": "c9a0ab5554f8f4db8d35666bc3370b18397954faf94eff49d3f742a26daf45ef",
+    "W1_SCORING_CARDS_20261015.csv": "082daeea6e6a0ac76d2af94275c0ed318e2a68210b8482e8800a0d22cfa4accd",
+    "REVERSE_SCREENING_QUEUE_20261015.csv": "592b3b1535fec590ad3b3dccc4f0cfe300a68be3210ee1465dca348b5db378fa",
+    "W1_SCORING_TEMPLATE_20261012.csv": "9df7b6cae5cd2a79c6768f009aa1f8cc7a018df1f1d0d1c46ccbd2c5c8d531d1",
+    "REVERSE_SCREENING_TEMPLATE_20261012.csv": "a09f5c5c3d3e3c81a7ea066db3ed3c4070aefd4ba0d07e775ab3ce6d3ded7972",
+    "SPRINT_REVIEW_RECORDS_TEMPLATE_20261015.csv": "2475b426eef2c6b469ef561217708eb06e1df2a7c7bcdd0d351aaaf2f193b8ed",
+    "CURRENT_W10_W16_20261012.md": "7f2a8363b58bdfb346c07b7b92d2e063827d343276b7137b16c5cb1eba9f9f4e",
+    "SOURCE_ARTIFACT_AUDIT_20261015.csv": "26ecae194a5c9195da43b7a4cfe5abe1ace90e6c9efdd13122bd177c3f174f4e"
+  },
+  "mirror_roots": [
+    "D:\\zcode-workspace\\aidd-repo-work\\00-当前研究",
+    "D:\\zcode-workspace\\hepato-gnn-screening\\docs",
+    "D:\\aidd destoop\\docs"
+  ],
+  "checker": "D:\\zcode-workspace\\aidd-repo-work\\08-工具脚本\\validate_current_sprint.py",
+  "raw_scientific_files_modified": false,
+  "ui_modified": false,
+  "schedule_revision": {
+    "reconciled_on": "2026-10-17",
+    "onboarding_start": "2026-10-12",
+    "research_start": "2026-10-19",
+    "research_project_weeks": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "followup_html_weeks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "scope": "PLAN_INDEX_ONLY_NOT_SCIENTIFIC_APPROVAL"
+  }
+}

@@ -1,0 +1,1 @@
+task_id,candidate_id,reviewer,primary_evidence_ref,primary_evidence_sha256,primary_observation,primary_rationale,negative_evidence_or_search_scope,ai_assistance,review_version,cross_reviewer,cross_review_ref,cross_review_sha256,cross_reviewed_at,decision,permitted_claim
